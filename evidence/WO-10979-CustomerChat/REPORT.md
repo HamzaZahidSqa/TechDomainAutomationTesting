@@ -29,3 +29,8 @@ Create the customer↔team room (or run the same backfill) when a CLIENT creates
 Tech Domain (user 27) can create the room by calling `POST /chats/room/group` with `{workOrderId: 985, companyId: 9, engineerId: 638}`. After that both sides see the chat. Not applied, so the bug can still be reproduced on #10979.
 
 Files: `TechDomain_2_-workOrder-messages-985.png`, `Customer_2_-workOrder-details-985-fromCustomerBoard.png`, `Customer_3_-workOrder-messages-985.png` (bug) · `*-WO969*.png`, `*-WO981*.png` (working comparison).
+
+## Update 2026-10-13 12:03 — workaround applied on request
+Tech Domain owner (user 27) called `POST /chats/room/group {workOrderId: 985, companyId: 9, engineerId: 638}` → room **1809** created (participants: customer 638, TD owner 27, team 473/263/476/640).
+After this: Tech Domain's Messages tab lists "Customer Company 10090955"; the customer's job page now shows the Messages tab with "Tech Domain". Screenshots: `AfterFix-*.png`.
+Note for developers: the bug is no longer reproducible on #10979; create a new work order as Tech Domain to reproduce.
