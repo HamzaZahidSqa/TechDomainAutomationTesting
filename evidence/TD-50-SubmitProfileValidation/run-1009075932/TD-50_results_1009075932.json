@@ -1,0 +1,43 @@
+[
+  {
+    "key": "customer",
+    "email": "customer-10090955@mailinator.com",
+    "endpoint": "/clients/customer/submitProfile",
+    "otpFound": true,
+    "loginStatus": 201,
+    "userId": 638,
+    "statusBefore": "PENDING",
+    "submitStatus": 400,
+    "submitBody": "{\"message\":\"Complete these required fields before submitting your profile: Address, City, Zip / Post Code, Country, Email, Contact Person, Registration Number, Registration Certificate, Accounts Person, Accounts Email, Accounts Phone\",\"missingFields\":[\"Address\",\"City\",\"Zip / Post Code\",\"Country\",\"Email\",\"Contact Person\",\"Registration Number\",\"Registration Certificate\",\"Accounts Person\",\"Accounts E",
+    "statusAfter": "PENDING",
+    "newAdminNotifs": [],
+    "adminGotSubmitted": false
+  },
+  {
+    "key": "engineer",
+    "email": "individualengineer-10090955@mailinator.com",
+    "endpoint": "/users/engineer/submitProfile",
+    "otpFound": true,
+    "loginStatus": 201,
+    "userId": 636,
+    "statusBefore": "PENDING",
+    "submitStatus": 400,
+    "submitBody": "{\"message\":\"Complete these required fields before submitting your profile: Nationality, ID document, Address, Country, City, State, ABN or Foreign Contractor declaration, Hourly, Half Day & Full Day rates, Resume\",\"missingFields\":[\"Nationality\",\"ID document\",\"Address\",\"Country\",\"City\",\"State\",\"ABN or Foreign Contractor declaration\",\"Hourly, Half Day & Full Day rates\",\"Resume\"]}",
+    "statusAfter": "PENDING",
+    "newAdminNotifs": [],
+    "adminGotSubmitted": false
+  },
+  {
+    "key": "vendor",
+    "email": "vendor-10090955@mailinator.com",
+    "endpoint": "/companies/submitProfile",
+    "otpFound": true,
+    "loginStatus": 307,
+    "error": "login failed (HTTP 307)"
+  },
+  {
+    "key": "customer-ui",
+    "url": "https://dev.techdomain.com.au/workOrders",
+    "submitButton": null
+  }
+]

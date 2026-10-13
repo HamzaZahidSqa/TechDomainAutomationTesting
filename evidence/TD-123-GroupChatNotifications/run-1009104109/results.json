@@ -1,0 +1,1624 @@
+{
+  "run": "1009104109",
+  "setup": {
+    "customerOwner": {
+      "id": 638,
+      "email": "customer-10090955@mailinator.com",
+      "status": "APPROVED"
+    },
+    "subUser": {
+      "id": 639,
+      "email": "td123-subuser-1009101529@mailinator.com",
+      "status": "APPROVED"
+    },
+    "teamMember": {
+      "id": 640,
+      "email": "td123-tdteammember-1009101529@mailinator.com"
+    },
+    "nonTeamUser": {
+      "id": 641,
+      "email": "td123-tdnonteamuser-1009101730@mailinator.com"
+    },
+    "teamMemberIds": [
+      263,
+      473,
+      476,
+      640
+    ]
+  },
+  "scenarios": [],
+  "findings": [
+    "GET /teams/:id returns each member's bcrypt password hash (teamMember.password) - should not be exposed"
+  ],
+  "statusWalk": {
+    "source": "env WO 962",
+    "workOrderId": 962,
+    "roomId": 1734,
+    "steps": [
+      {
+        "step": "CHECK_IN (in progress)",
+        "checks": [
+          {
+            "name": "work order status is INPROGRESS",
+            "ok": true,
+            "detail": {
+              "status": "INPROGRESS",
+              "subStatus": "CHECK_IN",
+              "customerStatus": null,
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "customer room still exists",
+            "ok": true,
+            "detail": {
+              "custRow": {
+                "name": "Customer Company 10090955",
+                "isCustomerChat": true,
+                "room": 1734,
+                "participantIds": [
+                  641,
+                  638,
+                  639,
+                  27,
+                  473,
+                  263,
+                  476,
+                  640
+                ]
+              },
+              "roomId": 1734
+            }
+          },
+          {
+            "name": "customer room participants unchanged (owner + sub-user + TD owner + team)",
+            "ok": false,
+            "detail": {
+              "actual": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640,
+                641
+              ],
+              "expected": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640
+              ]
+            }
+          },
+          {
+            "name": "engineer is NOT in the customer room",
+            "ok": true,
+            "detail": {
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "Customer owner can send at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD team member can send at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer sub-user can send at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD owner can send at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer owner sees every sent CHECK_IN (in progress) message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer owner notified of the other 3 CHECK_IN (in progress) messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 21
+            }
+          },
+          {
+            "name": "Customer sub-user sees every sent CHECK_IN (in progress) message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer sub-user notified of the other 3 CHECK_IN (in progress) messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 22
+            }
+          },
+          {
+            "name": "TD owner sees every sent CHECK_IN (in progress) message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD owner notified of the other 3 CHECK_IN (in progress) messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 22
+            }
+          },
+          {
+            "name": "TD team member sees every sent CHECK_IN (in progress) message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD team member notified of the other 3 CHECK_IN (in progress) messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 22
+            }
+          },
+          {
+            "name": "Individual engineer: customer room forbidden at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Individual engineer: no MESSAGE notification from the customer room at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: customer room forbidden at CHECK_IN (in progress)",
+            "ok": false,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD non-team user: no MESSAGE notification from the customer room at CHECK_IN (in progress)",
+            "ok": false,
+            "detail": {
+              "count": 25
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): customer room forbidden at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): no MESSAGE notification from the customer room at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "Vendor owner: customer room forbidden at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Vendor owner: no MESSAGE notification from the customer room at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "customer owner notified at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97496,
+                "type": "WORK_ORDER_CHECK_IN",
+                "title": "Engineer Checked In – WO-10956",
+                "content": "The assigned engineer has checked in and ready to begin the work."
+              }
+            ]
+          },
+          {
+            "name": "customer sub-user notified at CHECK_IN (in progress)",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97497,
+                "type": "WORK_ORDER_CHECK_IN",
+                "title": "Engineer Checked In – WO-10956",
+                "content": "The assigned engineer has checked in and ready to begin the work."
+              }
+            ]
+          },
+          {
+            "name": "TD non-team user: no status notification at CHECK_IN (in progress) (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Other-company customer (Neomeric): no status notification at CHECK_IN (in progress) (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Vendor owner: no status notification at CHECK_IN (in progress) (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          }
+        ],
+        "status": {
+          "status": "INPROGRESS",
+          "subStatus": "CHECK_IN",
+          "customerStatus": null,
+          "engineerId": 575
+        },
+        "rooms": [
+          {
+            "name": "Customer Company 10090955",
+            "isCustomerChat": true,
+            "room": 1734,
+            "participantIds": [
+              641,
+              638,
+              639,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Job Discussion",
+            "isCustomerChat": false,
+            "room": 1747,
+            "participantIds": [
+              638,
+              639,
+              575,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Syed",
+            "isCustomerChat": false,
+            "room": 1746
+          }
+        ],
+        "notifications": {
+          "Customer owner": [
+            {
+              "id": 97496,
+              "type": "WORK_ORDER_CHECK_IN",
+              "title": "Engineer Checked In – WO-10956",
+              "content": "The assigned engineer has checked in and ready to begin the work."
+            }
+          ],
+          "Customer sub-user": [
+            {
+              "id": 97497,
+              "type": "WORK_ORDER_CHECK_IN",
+              "title": "Engineer Checked In – WO-10956",
+              "content": "The assigned engineer has checked in and ready to begin the work."
+            }
+          ],
+          "TD owner": [],
+          "TD team member": [
+            {
+              "id": 97494,
+              "type": "WORK_ORDER_CHECK_IN",
+              "title": "Engineer Checked In – WO-10956",
+              "content": "The assigned engineer has checked in and ready to begin the work."
+            }
+          ],
+          "Individual engineer": [
+            {
+              "id": 97491,
+              "type": "OTHER",
+              "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+              "content": "Schedule has been updated to 09/10/2026, 10:31 am. Please confirm."
+            },
+            {
+              "id": 97490,
+              "type": "OTHER",
+              "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+              "content": "Schedule has been updated to 27/10/2026, 11:00 am. Please confirm."
+            }
+          ],
+          "TD non-team user": [],
+          "Other-company customer (Neomeric)": [],
+          "Vendor owner": []
+        }
+      },
+      {
+        "step": "CHECK_OUT",
+        "checks": [
+          {
+            "name": "customer room still exists",
+            "ok": true,
+            "detail": {
+              "custRow": {
+                "name": "Customer Company 10090955",
+                "isCustomerChat": true,
+                "room": 1734,
+                "participantIds": [
+                  641,
+                  638,
+                  639,
+                  27,
+                  473,
+                  263,
+                  476,
+                  640
+                ]
+              },
+              "roomId": 1734
+            }
+          },
+          {
+            "name": "customer room participants unchanged (owner + sub-user + TD owner + team)",
+            "ok": false,
+            "detail": {
+              "actual": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640,
+                641
+              ],
+              "expected": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640
+              ]
+            }
+          },
+          {
+            "name": "engineer is NOT in the customer room",
+            "ok": true,
+            "detail": {
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "Customer owner can send at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD team member can send at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer sub-user can send at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD owner can send at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer owner sees every sent CHECK_OUT message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer owner notified of the other 3 CHECK_OUT messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 24
+            }
+          },
+          {
+            "name": "Customer sub-user sees every sent CHECK_OUT message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer sub-user notified of the other 3 CHECK_OUT messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 25
+            }
+          },
+          {
+            "name": "TD owner sees every sent CHECK_OUT message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD owner notified of the other 3 CHECK_OUT messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 25
+            }
+          },
+          {
+            "name": "TD team member sees every sent CHECK_OUT message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD team member notified of the other 3 CHECK_OUT messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 25
+            }
+          },
+          {
+            "name": "Individual engineer: customer room forbidden at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Individual engineer: no MESSAGE notification from the customer room at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: customer room forbidden at CHECK_OUT",
+            "ok": false,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD non-team user: no MESSAGE notification from the customer room at CHECK_OUT",
+            "ok": false,
+            "detail": {
+              "count": 29
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): customer room forbidden at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): no MESSAGE notification from the customer room at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "Vendor owner: customer room forbidden at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Vendor owner: no MESSAGE notification from the customer room at CHECK_OUT",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "customer owner notified at CHECK_OUT",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97530,
+                "type": "WORK_ORDER_CHECK_OUT",
+                "title": "Engineer Checked Out – WO-10956",
+                "content": "The assigned engineer has checked out after completing the onsite activity."
+              }
+            ]
+          },
+          {
+            "name": "customer sub-user notified at CHECK_OUT",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97531,
+                "type": "WORK_ORDER_CHECK_OUT",
+                "title": "Engineer Checked Out – WO-10956",
+                "content": "The assigned engineer has checked out after completing the onsite activity."
+              }
+            ]
+          },
+          {
+            "name": "TD non-team user: no status notification at CHECK_OUT (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Other-company customer (Neomeric): no status notification at CHECK_OUT (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Vendor owner: no status notification at CHECK_OUT (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          }
+        ],
+        "status": {
+          "status": "INPROGRESS",
+          "subStatus": "CHECK_OUT",
+          "customerStatus": null,
+          "engineerId": 575
+        },
+        "rooms": [
+          {
+            "name": "Customer Company 10090955",
+            "isCustomerChat": true,
+            "room": 1734,
+            "participantIds": [
+              641,
+              638,
+              639,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Job Discussion",
+            "isCustomerChat": false,
+            "room": 1747,
+            "participantIds": [
+              638,
+              639,
+              575,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Syed",
+            "isCustomerChat": false,
+            "room": 1746
+          }
+        ],
+        "notifications": {
+          "Customer owner": [
+            {
+              "id": 97530,
+              "type": "WORK_ORDER_CHECK_OUT",
+              "title": "Engineer Checked Out – WO-10956",
+              "content": "The assigned engineer has checked out after completing the onsite activity."
+            }
+          ],
+          "Customer sub-user": [
+            {
+              "id": 97531,
+              "type": "WORK_ORDER_CHECK_OUT",
+              "title": "Engineer Checked Out – WO-10956",
+              "content": "The assigned engineer has checked out after completing the onsite activity."
+            }
+          ],
+          "TD owner": [],
+          "TD team member": [
+            {
+              "id": 97529,
+              "type": "WORK_ORDER_CHECK_OUT",
+              "title": "Engineer Checked Out – WO-10956",
+              "content": "The assigned engineer has checked out after completing the onsite activity."
+            }
+          ],
+          "Individual engineer": [],
+          "TD non-team user": [],
+          "Other-company customer (Neomeric)": [],
+          "Vendor owner": []
+        }
+      },
+      {
+        "step": "WORKDONE",
+        "checks": [
+          {
+            "name": "customer room still exists",
+            "ok": true,
+            "detail": {
+              "custRow": {
+                "name": "Customer Company 10090955",
+                "isCustomerChat": true,
+                "room": 1734,
+                "participantIds": [
+                  641,
+                  638,
+                  639,
+                  27,
+                  473,
+                  263,
+                  476,
+                  640
+                ]
+              },
+              "roomId": 1734
+            }
+          },
+          {
+            "name": "customer room participants unchanged (owner + sub-user + TD owner + team)",
+            "ok": false,
+            "detail": {
+              "actual": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640,
+                641
+              ],
+              "expected": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640
+              ]
+            }
+          },
+          {
+            "name": "engineer is NOT in the customer room",
+            "ok": true,
+            "detail": {
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "Customer owner can send at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD team member can send at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer sub-user can send at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD owner can send at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer owner sees every sent WORKDONE message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer owner notified of the other 3 WORKDONE messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 27
+            }
+          },
+          {
+            "name": "Customer sub-user sees every sent WORKDONE message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer sub-user notified of the other 3 WORKDONE messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 28
+            }
+          },
+          {
+            "name": "TD owner sees every sent WORKDONE message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD owner notified of the other 3 WORKDONE messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 28
+            }
+          },
+          {
+            "name": "TD team member sees every sent WORKDONE message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD team member notified of the other 3 WORKDONE messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 28
+            }
+          },
+          {
+            "name": "Individual engineer: customer room forbidden at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Individual engineer: no MESSAGE notification from the customer room at WORKDONE",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: customer room forbidden at WORKDONE",
+            "ok": false,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD non-team user: no MESSAGE notification from the customer room at WORKDONE",
+            "ok": false,
+            "detail": {
+              "count": 33
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): customer room forbidden at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): no MESSAGE notification from the customer room at WORKDONE",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "Vendor owner: customer room forbidden at WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Vendor owner: no MESSAGE notification from the customer room at WORKDONE",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "customer owner notified at WORKDONE",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97565,
+                "type": "WORK_ORDER_WORK_DONE",
+                "title": "Work Order Completed – WO-10956",
+                "content": "The engineer has completed the required service activities."
+              }
+            ]
+          },
+          {
+            "name": "customer sub-user notified at WORKDONE",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97566,
+                "type": "WORK_ORDER_WORK_DONE",
+                "title": "Work Order Completed – WO-10956",
+                "content": "The engineer has completed the required service activities."
+              }
+            ]
+          },
+          {
+            "name": "TD non-team user: no status notification at WORKDONE (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Other-company customer (Neomeric): no status notification at WORKDONE (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Vendor owner: no status notification at WORKDONE (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          }
+        ],
+        "status": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null,
+          "engineerId": 575
+        },
+        "rooms": [
+          {
+            "name": "Customer Company 10090955",
+            "isCustomerChat": true,
+            "room": 1734,
+            "participantIds": [
+              641,
+              638,
+              639,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Job Discussion",
+            "isCustomerChat": false,
+            "room": 1747,
+            "participantIds": [
+              638,
+              639,
+              575,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Syed",
+            "isCustomerChat": false,
+            "room": 1746
+          }
+        ],
+        "notifications": {
+          "Customer owner": [
+            {
+              "id": 97565,
+              "type": "WORK_ORDER_WORK_DONE",
+              "title": "Work Order Completed – WO-10956",
+              "content": "The engineer has completed the required service activities."
+            }
+          ],
+          "Customer sub-user": [
+            {
+              "id": 97566,
+              "type": "WORK_ORDER_WORK_DONE",
+              "title": "Work Order Completed – WO-10956",
+              "content": "The engineer has completed the required service activities."
+            }
+          ],
+          "TD owner": [
+            {
+              "id": 97560,
+              "type": "WORK_ORDER_WORK_DONE",
+              "title": "Work Order Completed – WO-10956",
+              "content": "The engineer has completed the required service activities."
+            }
+          ],
+          "TD team member": [
+            {
+              "id": 97563,
+              "type": "WORK_ORDER_WORK_DONE",
+              "title": "Work Order Completed – WO-10956",
+              "content": "The engineer has completed the required service activities."
+            }
+          ],
+          "Individual engineer": [],
+          "TD non-team user": [],
+          "Other-company customer (Neomeric)": [],
+          "Vendor owner": []
+        }
+      },
+      {
+        "step": "VERIFIED",
+        "checks": [
+          {
+            "name": "customer room still exists",
+            "ok": true,
+            "detail": {
+              "custRow": {
+                "name": "Customer Company 10090955",
+                "isCustomerChat": true,
+                "room": 1734,
+                "participantIds": [
+                  641,
+                  638,
+                  639,
+                  27,
+                  473,
+                  263,
+                  476,
+                  640
+                ]
+              },
+              "roomId": 1734
+            }
+          },
+          {
+            "name": "customer room participants unchanged (owner + sub-user + TD owner + team)",
+            "ok": false,
+            "detail": {
+              "actual": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640,
+                641
+              ],
+              "expected": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640
+              ]
+            }
+          },
+          {
+            "name": "engineer is NOT in the customer room",
+            "ok": true,
+            "detail": {
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "Customer owner can send at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD team member can send at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer sub-user can send at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD owner can send at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer owner sees every sent VERIFIED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer owner notified of the other 3 VERIFIED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 30
+            }
+          },
+          {
+            "name": "Customer sub-user sees every sent VERIFIED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer sub-user notified of the other 3 VERIFIED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 31
+            }
+          },
+          {
+            "name": "TD owner sees every sent VERIFIED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD owner notified of the other 3 VERIFIED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 31
+            }
+          },
+          {
+            "name": "TD team member sees every sent VERIFIED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD team member notified of the other 3 VERIFIED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 31
+            }
+          },
+          {
+            "name": "Individual engineer: customer room forbidden at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Individual engineer: no MESSAGE notification from the customer room at VERIFIED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: customer room forbidden at VERIFIED",
+            "ok": false,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD non-team user: no MESSAGE notification from the customer room at VERIFIED",
+            "ok": false,
+            "detail": {
+              "count": 37
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): customer room forbidden at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): no MESSAGE notification from the customer room at VERIFIED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "Vendor owner: customer room forbidden at VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Vendor owner: no MESSAGE notification from the customer room at VERIFIED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: no status notification at VERIFIED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Other-company customer (Neomeric): no status notification at VERIFIED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Vendor owner: no status notification at VERIFIED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          }
+        ],
+        "status": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null,
+          "engineerId": 575
+        },
+        "rooms": [
+          {
+            "name": "Customer Company 10090955",
+            "isCustomerChat": true,
+            "room": 1734,
+            "participantIds": [
+              641,
+              638,
+              639,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Job Discussion",
+            "isCustomerChat": false,
+            "room": 1747,
+            "participantIds": [
+              638,
+              639,
+              575,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Syed",
+            "isCustomerChat": false,
+            "room": 1746
+          }
+        ],
+        "notifications": {
+          "Customer owner": [],
+          "Customer sub-user": [],
+          "TD owner": [],
+          "TD team member": [],
+          "Individual engineer": [],
+          "TD non-team user": [],
+          "Other-company customer (Neomeric)": [],
+          "Vendor owner": []
+        }
+      },
+      {
+        "step": "APPROVED",
+        "checks": [
+          {
+            "name": "work order status is APPROVED",
+            "ok": true,
+            "detail": {
+              "status": "APPROVED",
+              "subStatus": "PO_PENDING",
+              "customerStatus": "APPROVED",
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "customer room still exists",
+            "ok": true,
+            "detail": {
+              "custRow": {
+                "name": "Customer Company 10090955",
+                "isCustomerChat": true,
+                "room": 1734,
+                "participantIds": [
+                  641,
+                  638,
+                  639,
+                  27,
+                  473,
+                  263,
+                  476,
+                  640
+                ]
+              },
+              "roomId": 1734
+            }
+          },
+          {
+            "name": "customer room participants unchanged (owner + sub-user + TD owner + team)",
+            "ok": false,
+            "detail": {
+              "actual": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640,
+                641
+              ],
+              "expected": [
+                27,
+                263,
+                473,
+                476,
+                638,
+                639,
+                640
+              ]
+            }
+          },
+          {
+            "name": "engineer is NOT in the customer room",
+            "ok": true,
+            "detail": {
+              "engineerId": 575
+            }
+          },
+          {
+            "name": "Customer owner can send at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD team member can send at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer sub-user can send at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "TD owner can send at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 201,
+              "message": "Message sent successfully"
+            }
+          },
+          {
+            "name": "Customer owner sees every sent APPROVED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer owner notified of the other 3 APPROVED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 33
+            }
+          },
+          {
+            "name": "Customer sub-user sees every sent APPROVED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "Customer sub-user notified of the other 3 APPROVED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 34
+            }
+          },
+          {
+            "name": "TD owner sees every sent APPROVED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD owner notified of the other 3 APPROVED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 34
+            }
+          },
+          {
+            "name": "TD team member sees every sent APPROVED message",
+            "ok": true,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD team member notified of the other 3 APPROVED messages",
+            "ok": true,
+            "detail": {
+              "notifCount": 34
+            }
+          },
+          {
+            "name": "Individual engineer: customer room forbidden at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Individual engineer: no MESSAGE notification from the customer room at APPROVED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "TD non-team user: customer room forbidden at APPROVED",
+            "ok": false,
+            "detail": {
+              "status": 200
+            }
+          },
+          {
+            "name": "TD non-team user: no MESSAGE notification from the customer room at APPROVED",
+            "ok": false,
+            "detail": {
+              "count": 41
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): customer room forbidden at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Other-company customer (Neomeric): no MESSAGE notification from the customer room at APPROVED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "Vendor owner: customer room forbidden at APPROVED",
+            "ok": true,
+            "detail": {
+              "status": 403
+            }
+          },
+          {
+            "name": "Vendor owner: no MESSAGE notification from the customer room at APPROVED",
+            "ok": true,
+            "detail": {
+              "count": 0
+            }
+          },
+          {
+            "name": "customer owner notified at APPROVED",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97624,
+                "type": "WORK_ORDER_APPROVED",
+                "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+                "content": "Your work order has been approved."
+              }
+            ]
+          },
+          {
+            "name": "customer sub-user notified at APPROVED",
+            "ok": true,
+            "detail": [
+              {
+                "id": 97625,
+                "type": "WORK_ORDER_APPROVED",
+                "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+                "content": "Your work order has been approved."
+              }
+            ]
+          },
+          {
+            "name": "TD non-team user: no status notification at APPROVED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Other-company customer (Neomeric): no status notification at APPROVED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          },
+          {
+            "name": "Vendor owner: no status notification at APPROVED (marketplace broadcast ignored)",
+            "ok": true,
+            "detail": []
+          }
+        ],
+        "status": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED",
+          "engineerId": 575
+        },
+        "rooms": [
+          {
+            "name": "Customer Company 10090955",
+            "isCustomerChat": true,
+            "room": 1734,
+            "participantIds": [
+              641,
+              638,
+              639,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Job Discussion",
+            "isCustomerChat": false,
+            "room": 1747,
+            "participantIds": [
+              638,
+              639,
+              575,
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          },
+          {
+            "name": "Syed",
+            "isCustomerChat": false,
+            "room": 1746
+          }
+        ],
+        "notifications": {
+          "Customer owner": [
+            {
+              "id": 97624,
+              "type": "WORK_ORDER_APPROVED",
+              "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+              "content": "Your work order has been approved."
+            }
+          ],
+          "Customer sub-user": [
+            {
+              "id": 97625,
+              "type": "WORK_ORDER_APPROVED",
+              "title": "WO-10956: TD123 S2 1009102952 by Customer sub-user",
+              "content": "Your work order has been approved."
+            }
+          ],
+          "TD owner": [],
+          "TD team member": [],
+          "Individual engineer": [
+            {
+              "id": 97623,
+              "type": "OTHER",
+              "title": "Work Order Approved – WO-10956",
+              "content": "Your completed work order has been approved."
+            }
+          ],
+          "TD non-team user": [],
+          "Other-company customer (Neomeric)": [],
+          "Vendor owner": []
+        }
+      }
+    ],
+    "reached": {
+      "assigned": true,
+      "confirmed": true,
+      "checkIn": true,
+      "checkOut": true,
+      "complete": true,
+      "verified": true,
+      "approved": true
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "run": "1013050352",
+  "checks": [
+    {
+      "name": "A1: customer GET /workOrders/867 still returns the project object (backend, out of scope)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 200,
+        "role": "CUSTOMER",
+        "project": {
+          "id": 26,
+          "title": "TD36 QA Project"
+        },
+        "client": "TD36 QA Customer"
+      }
+    },
+    {
+      "name": "A1: the test WO really has a project (precondition)",
+      "ok": true,
+      "detail": {
+        "project": {
+          "id": 26,
+          "title": "TD36 QA Project"
+        }
+      }
+    },
+    {
+      "name": "A2: customer GET /workOrders/customer rows carry project (backend, out of scope)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 200,
+        "count": 24,
+        "withProject": 24,
+        "sample": [
+          {
+            "id": 867,
+            "status": "APPROVED",
+            "project": "TD36 QA Project"
+          },
+          {
+            "id": 869,
+            "status": "APPROVED",
+            "project": "TD36 QA Project"
+          },
+          {
+            "id": 876,
+            "status": "APPROVED",
+            "project": "TD36 QA Project"
+          }
+        ]
+      }
+    },
+    {
+      "name": "B1: customer WO details has the Overview card",
+      "ok": true,
+      "detail": {
+        "tabs": [
+          "Details",
+          "Payment",
+          "Messages",
+          "Job Sign-Off"
+        ]
+      }
+    },
+    {
+      "name": "B1: customer Overview card has NO \"Project:\" row",
+      "ok": true,
+      "detail": {
+        "overview": "Overview Company: Neomeric Incident ID: Client: TD36 QA Customer SLA: N/A",
+        "rows": [
+          "Company:",
+          "Incident ID:",
+          "Client:",
+          "SLA:"
+        ]
+      }
+    },
+    {
+      "name": "B1: customer Overview still shows Company / Incident ID / Client / SLA",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "Company:",
+          "Incident ID:",
+          "Client:",
+          "SLA:"
+        ]
+      }
+    },
+    {
+      "name": "B1: no project title anywhere on the customer Details tab",
+      "ok": true,
+      "detail": {
+        "hits": []
+      }
+    },
+    {
+      "name": "B3: customer \"Payment\" tab shows no project details",
+      "ok": true,
+      "detail": {
+        "hits": []
+      }
+    },
+    {
+      "name": "B3: customer \"Job Sign-Off\" tab shows no project details",
+      "ok": true,
+      "detail": {
+        "hits": []
+      }
+    },
+    {
+      "name": "B2: customer \"Edit Overview\" form (WO 909) has no Project field",
+      "ok": true,
+      "detail": {
+        "labels": [
+          "Enable Map View",
+          "Work Order Title * (A clear title helps providers understand your project) 34/100",
+          "Incident ID – Optional",
+          "Entity *",
+          "SLA – Optional"
+        ]
+      }
+    },
+    {
+      "name": "B3: customer Create Work Order form has no Project field",
+      "ok": true,
+      "detail": {
+        "labels": [
+          "Work Order Title * (A clear title helps providers understand your project) 0/100",
+          "Incident ID – Optional",
+          "Entity *",
+          "SLA – Optional",
+          "Work Description – Optional (Provide precise instructions to guarantee your work order is completed correctly)",
+          "Qualification Type *",
+          "License *"
+        ]
+      }
+    },
+    {
+      "name": "B6: customer dashboard project mentions",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "hits": []
+      }
+    },
+    {
+      "name": "B6 (observation): customer Work Orders grid columns - \"Project\" column still present?",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "headers": [
+          "ID",
+          "Incident ID",
+          "Client",
+          "Project",
+          "Status",
+          "Title",
+          "Engineer",
+          "Schedule",
+          "Address"
+        ],
+        "hasProjectColumn": true
+      }
+    },
+    {
+      "name": "B4: customer sub-user Overview card has NO \"Project:\" row",
+      "ok": true,
+      "detail": {
+        "overview": "Overview Company: Neomeric Incident ID: Client: TD36 QA Customer SLA: N/A"
+      }
+    },
+    {
+      "name": "B5 (control): Tech Domain user Overview still shows the \"Project:\" row",
+      "ok": true,
+      "detail": {
+        "overview": "Overview Company: Tech Domain Incident ID: Client: Alpha MSP UK Project: DC Project SLA: N/A"
+      }
+    },
+    {
+      "name": "B5 (control): Tech Domain \"Edit Overview\" form still has the Project field",
+      "ok": true,
+      "detail": {
+        "labels": [
+          "Work Order Title * (A clear title helps providers understand your project) 21/100",
+          "Client *",
+          "Project *",
+          "Service Delivery Team * (Set automatically from the client)",
+          "Operations Team * (Set automatically from the client)"
+        ]
+      }
+    }
+  ],
+  "findings": [],
+  "api": {
+    "customerDetails": {
+      "status": 200,
+      "role": "CUSTOMER",
+      "project": {
+        "id": 26,
+        "title": "TD36 QA Project"
+      },
+      "client": "TD36 QA Customer"
+    },
+    "customerList": {
+      "status": 200,
+      "count": 24,
+      "withProject": 24,
+      "sample": [
+        {
+          "id": 867,
+          "status": "APPROVED",
+          "project": "TD36 QA Project"
+        },
+        {
+          "id": 869,
+          "status": "APPROVED",
+          "project": "TD36 QA Project"
+        },
+        {
+          "id": 876,
+          "status": "APPROVED",
+          "project": "TD36 QA Project"
+        }
+      ]
+    }
+  },
+  "ui": {
+    "customerOverview": {
+      "present": 1,
+      "txt": "Overview Company: Neomeric Incident ID: Client: TD36 QA Customer SLA: N/A",
+      "rows": [
+        "Company:",
+        "Incident ID:",
+        "Client:",
+        "SLA:"
+      ],
+      "pencils": 0,
+      "tabs": [
+        "Details",
+        "Payment",
+        "Messages",
+        "Job Sign-Off"
+      ]
+    },
+    "customerEditable": {
+      "id": 909,
+      "status": "PUBLISHED",
+      "pencils": 1
+    },
+    "customerEditLabels": [
+      "Enable Map View",
+      "Work Order Title * (A clear title helps providers understand your project) 34/100",
+      "Incident ID – Optional",
+      "Entity *",
+      "SLA – Optional"
+    ],
+    "subUserOverview": {
+      "present": 1,
+      "txt": "Overview Company: Neomeric Incident ID: Client: TD36 QA Customer SLA: N/A",
+      "rows": [
+        "Company:",
+        "Incident ID:",
+        "Client:",
+        "SLA:"
+      ],
+      "pencils": 0,
+      "tabs": [
+        "Details",
+        "Payment",
+        "Job Sign-Off"
+      ]
+    },
+    "clientOverview": {
+      "present": 1,
+      "txt": "Overview Company: Tech Domain Incident ID: Client: Alpha MSP UK Project: DC Project SLA: N/A",
+      "rows": [
+        "Company:",
+        "Incident ID:",
+        "Client:",
+        "Project:",
+        "SLA:"
+      ],
+      "pencils": 1,
+      "tabs": [
+        "Details",
+        "Payment",
+        "Providers",
+        "Messages",
+        "Job Sign-Off",
+        "Feedback",
+        "History"
+      ]
+    }
+  }
+}

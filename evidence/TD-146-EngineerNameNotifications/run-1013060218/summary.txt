@@ -1,0 +1,25 @@
+PASS setup: WO 983 (#10977) is ASSIGNED to "Syed Hamza"
+PASS walk: every engineer action succeeded (confirm, ready to go, on the way, running late, check-in, check-out, complete)
+PASS walk: work order reached WORKDONE
+PASS Tech Domain user: received the engineer-related notifications of the walk
+PASS Tech Domain user: "Work Order Completed – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "Engineer Running Late – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "Engineer En Route – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "Engineer Ready to Go – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "Work Order Confirmed by Engineer – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "Work Order Confirmed by Engineer – WO-10977" names the engineer "Syed Hamza"
+PASS Tech Domain user: "WO-10977: TD-146 engineer name 1013060218" names the engineer "Syed Hamza"
+PASS Tech Domain user: "WO-10977: TD-146 engineer name 1013060218" names the engineer "Syed Hamza"
+PASS customer owner: received the engineer-related notifications of the walk
+PASS customer owner: "Work Order Completed – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Engineer Checked Out – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Engineer Checked In – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Engineer Running Late – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Engineer En Route – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Engineer Ready to Go – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Work Order Confirmed by Engineer – WO-10977" names the engineer "Syed Hamza"
+PASS customer owner: "Work Order Confirmed by Engineer – WO-10977" names the engineer "Syed Hamza"
+FAIL customer owner: "Engineer Assigned – WO-10977" names the engineer "Syed Hamza"
+INFO engineer's own notifications (not in scope)
+INFO UI: customer bell panel text
+FAIL UI: customer bell panel shows the engineer name on the engineer notifications

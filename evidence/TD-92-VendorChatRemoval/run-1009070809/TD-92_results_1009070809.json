@@ -1,0 +1,47 @@
+{
+  "run": "1009070809",
+  "customer": {
+    "id": 103,
+    "name": "Customer Company 10090955",
+    "ownerId": 638,
+    "email": "customer-10090955@mailinator.com"
+  },
+  "workOrderId": 954,
+  "routeStatus": 409,
+  "acceptStatus": 0,
+  "assignVendorStatus": 201,
+  "woStatus": "ASSIGNED",
+  "customerRoomId": 1720,
+  "customerRoomParticipants": [
+    {
+      "id": 638,
+      "name": "Customer Owner",
+      "role": "CUSTOMER"
+    },
+    {
+      "id": 473,
+      "name": "istkhar Operation3",
+      "role": "CLIENT"
+    },
+    {
+      "id": 263,
+      "name": "istkhar Hussain",
+      "role": "CLIENT"
+    },
+    {
+      "id": 476,
+      "name": "istkhar SD3",
+      "role": "CLIENT"
+    }
+  ],
+  "vendorInCustomerRoom": false,
+  "vendorInboxHasCustomerRoom": false,
+  "vendorReadCustomerRoomStatus": 403,
+  "vendorJoinCustomerRoomStatus": 403,
+  "vendorSidebarText": "Analytics\n\nJob\n\nWorkers\n\n1\n47\n\nAssigned\n\nNot Confirmed\n\n#10948\n\nOn 10/09/2026\n\nTD92 1009070424 vendor removed from customer chat\n\nSchedule: Fixed Start\n\n10/12/2026 10:00 AM (BST)\n\nLocation\n\n10 Bennetts Cl, Slough SL1 5AS, UK\n\nProject Manager\n\nZubair Razzak\n\nPrint\nReport problem\nCancel Assignment\nDetails\nPayment\nMessages\nChat\n\nDemo Worker\n\nTech Domain\n\nTech Domain\n\n\n",
+  "vendorUiShowsCustomer": false,
+  "clientSidebarText": "Dashboard\n\nWork Board\n\nTask Board\n\nWork Force\n\nInvoices\n\n0\n0\n\nAssigned\n\nNot Confirmed\n\n#10948\n\nOn 10/09/2026\n\nTD92 1009070424 vendor removed from customer chat\n\nSchedule: Fixed Start\n\n10/12/2026 10:00 AM (BST)\n\nLocation\n\n10 Bennetts Cl, Slough SL1 5AS, UK\n\nDemo Field Services 0925ID: 79\n\nDemo WorkerID: 611\n\n+61 412 345 604\n\nCopy\nSave as Template\nTags\nPrint\nReport problem\nAdd Note\nCreate New Task\nC",
+  "clientUiShowsCustomer": true,
+  "clientUiShowsVendor": true,
+  "memberSidebarText": "Analytics\n\nJob\n\n1\n1\n\nAssigned\n\nNot Confirmed\n\n#10948\n\nOn 10/09/2026\n\nTD92 1009070424 vendor removed from customer chat\n\nSchedule: Fixed Start\n\n10/12/2026 10:00 AM (BST)\n\nLocation\n\n10 Bennetts Cl, Slough SL1 5AS, UK\n\nProject Manager\n\nZubair Razzak\n\nPrint\nReport problem\nCancel Assignment\nConfirm\nDetails\nMessages\nDemo Field Services 0925\n\n\n"
+}

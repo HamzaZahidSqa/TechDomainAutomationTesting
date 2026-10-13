@@ -1,0 +1,47 @@
+{
+  "run": "1009070625",
+  "customer": {
+    "id": 103,
+    "name": "Customer Company 10090955",
+    "ownerId": 638,
+    "email": "customer-10090955@mailinator.com"
+  },
+  "workOrderId": 954,
+  "routeStatus": 409,
+  "acceptStatus": 0,
+  "assignVendorStatus": 400,
+  "woStatus": "PUBLISHED",
+  "customerRoomId": 1720,
+  "customerRoomParticipants": [
+    {
+      "id": 638,
+      "name": "Customer Owner",
+      "role": "CUSTOMER"
+    },
+    {
+      "id": 473,
+      "name": "istkhar Operation3",
+      "role": "CLIENT"
+    },
+    {
+      "id": 263,
+      "name": "istkhar Hussain",
+      "role": "CLIENT"
+    },
+    {
+      "id": 476,
+      "name": "istkhar SD3",
+      "role": "CLIENT"
+    }
+  ],
+  "vendorInCustomerRoom": false,
+  "vendorInboxHasCustomerRoom": false,
+  "vendorReadCustomerRoomStatus": 403,
+  "vendorJoinCustomerRoomStatus": 403,
+  "vendorSidebarText": "Analytics\n\nJob\n\nWorkers\n\n1\n46\n\nRouted\n\n#10948\n\nOn 10/09/2026\n\nTD92 1009070424 vendor removed from customer chat\n\nSchedule: Fixed Start\n\n10/12/2026 10:00 AM (BST)\n\nLocation\n\n10 Bennetts Cl, Slough SL1 5AS, UK\n\nProject Manager\n\nZubair Razzak\n\nPrint\nNot Interested\nCounter Offer\nDetails\nPayment\nMessages\nTech Domain\n\n\n",
+  "vendorUiShowsCustomer": false,
+  "clientSidebarText": "Dashboard\n\nWork Board\n\nTask Board\n\nWork Force\n\nInvoices\n\n0\n0\n\nPublished\n\n#10948\n\nOn 10/09/2026\n\nTD92 1009070424 vendor removed from customer chat\n\nSchedule: Fixed Start\n\n10/12/2026 10:00 AM (BST)\n\nLocation\n\n10 Bennetts Cl, Slough SL1 5AS, UK\n\nEngineer: Unassigned\n\n1 Routed\n\nCopy\nSave as Template\nTags\nPrint\nAdd Note\nCreate New Task\nUnpublish\nDetails\nPayment\nProviders\nMessages\nHistory\nChat\n\nCustomer",
+  "clientUiShowsCustomer": true,
+  "clientUiShowsVendor": true,
+  "memberSidebarText": "Analytics\n\nJob\n\n1\n0\nNo Data Found"
+}

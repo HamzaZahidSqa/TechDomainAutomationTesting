@@ -1,0 +1,18 @@
+S1 Customer owner creates the work order: WO 965 (ref 10959), room 1748 -> 64/68 checks passed
+   FAILED: UI: non-team user does not get the customer conversation; after opening the chat URL the non-team user is still NOT a participant; after opening the chat URL the non-team user still cannot read the conversation; after opening the chat URL the non-team user gets NO notification for new messages
+S2 Customer sub-user creates the work order: WO 966 (ref 10960), room 1749 -> 60/64 checks passed
+   FAILED: UI: non-team user does not get the customer conversation; after opening the chat URL the non-team user is still NOT a participant; after opening the chat URL the non-team user still cannot read the conversation; after opening the chat URL the non-team user gets NO notification for new messages
+S3 Tech Domain owner creates the work order: WO 967 (ref 10961), room 1750 -> 57/61 checks passed
+   FAILED: UI: non-team user does not get the customer conversation; after opening the chat URL the non-team user is still NOT a participant; after opening the chat URL the non-team user still cannot read the conversation; after opening the chat URL the non-team user gets NO notification for new messages
+S4 Tech Domain team member creates the work order: WO 968 (ref 10962), room 1751 -> 57/61 checks passed
+   FAILED: UI: non-team user does not get the customer conversation; after opening the chat URL the non-team user is still NOT a participant; after opening the chat URL the non-team user still cannot read the conversation; after opening the chat URL the non-team user gets NO notification for new messages
+STATUS WALK on WO 965 (S1): reached {}
+
+
+Findings:
+GET /teams/:id returns each member's bcrypt password hash (teamMember.password) - should not be exposed
+MESSAGE notification url for the customer room is "/workOrder/messages/965?engineerId=null" (engineerId=null) - the bell link may not open the customer conversation
+S1: a Tech Domain user outside the work-order teams (id 641) became a participant of customer room 1748 (WO 965) just by opening /workOrder/messages/965?engineerId=638 in the browser; they then read the thread and receive MESSAGE notifications
+S2: a Tech Domain user outside the work-order teams (id 641) became a participant of customer room 1749 (WO 966) just by opening /workOrder/messages/966?engineerId=638 in the browser; they then read the thread and receive MESSAGE notifications
+S3: a Tech Domain user outside the work-order teams (id 641) became a participant of customer room 1750 (WO 967) just by opening /workOrder/messages/967?engineerId=638 in the browser; they then read the thread and receive MESSAGE notifications
+S4: a Tech Domain user outside the work-order teams (id 641) became a participant of customer room 1751 (WO 968) just by opening /workOrder/messages/968?engineerId=638 in the browser; they then read the thread and receive MESSAGE notifications

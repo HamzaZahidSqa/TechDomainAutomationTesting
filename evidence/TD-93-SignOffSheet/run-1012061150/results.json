@@ -1,0 +1,799 @@
+{
+  "run": "1012061150",
+  "approvedWorkOrderId": 976,
+  "views": [
+    {
+      "step": "APPROVED WO 976",
+      "checks": [
+        {
+          "name": "customer owner API returns the sheet (clientName + clientSignature)",
+          "ok": true,
+          "detail": {
+            "clientName": "QA Customer Signer",
+            "hasSig": true
+          }
+        },
+        {
+          "name": "customer sub-user API returns the sheet",
+          "ok": true,
+          "detail": {
+            "clientName": "QA Customer Signer",
+            "hasSig": true
+          }
+        },
+        {
+          "name": "customer owner: \"Job Sign-Off\" tab present on the work-order page",
+          "ok": true,
+          "detail": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages",
+              "Job Sign-Off"
+            ],
+            "shot": "TD-93_SignOff_01_approved-customer-details-tabs.png"
+          }
+        },
+        {
+          "name": "customer owner: sign-off page opens",
+          "ok": true,
+          "detail": {
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976?fromCustomerBoard=true"
+          }
+        },
+        {
+          "name": "customer owner: sheet shows \"Customer Sign-Off\" section",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer owner: sheet shows customer name \"QA Customer Signer\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer owner: sheet shows designation \"Site Manager\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer owner: sheet shows customer comment",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer owner: at least one signature/sheet image rendered",
+          "ok": true,
+          "detail": {
+            "images": 4,
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer sub-user: \"Job Sign-Off\" tab present on the work-order page",
+          "ok": true,
+          "detail": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Job Sign-Off"
+            ],
+            "shot": "TD-93_SignOff_03_approved-subuser-details-tabs.png"
+          }
+        },
+        {
+          "name": "customer sub-user: sign-off page opens",
+          "ok": true,
+          "detail": {
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976?fromCustomerBoard=true"
+          }
+        },
+        {
+          "name": "customer sub-user: sheet shows \"Customer Sign-Off\" section",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer sub-user: sheet shows customer name \"QA Customer Signer\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer sub-user: sheet shows designation \"Site Manager\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer sub-user: sheet shows customer comment",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        {
+          "name": "customer sub-user: at least one signature/sheet image rendered",
+          "ok": true,
+          "detail": {
+            "images": 2,
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): \"Job Sign-Off\" tab present on the work-order page",
+          "ok": true,
+          "detail": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "Job Sign-Off",
+              "Feedback",
+              "History"
+            ],
+            "shot": "TD-93_SignOff_05_approved-techdomain-details-tabs.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): sign-off page opens",
+          "ok": true,
+          "detail": {
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): sheet shows \"Customer Sign-Off\" section",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): sheet shows customer name \"QA Customer Signer\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): sheet shows designation \"Site Manager\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): sheet shows customer comment",
+          "ok": true,
+          "detail": {
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        },
+        {
+          "name": "Tech Domain owner (control): at least one signature/sheet image rendered",
+          "ok": true,
+          "detail": {
+            "images": 3,
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        }
+      ],
+      "views": {
+        "owner": {
+          "tabs": [
+            "Details",
+            "Payment",
+            "Messages",
+            "Job Sign-Off"
+          ],
+          "tabPresent": true,
+          "detailsShot": "TD-93_SignOff_01_approved-customer-details-tabs.png",
+          "sheet": {
+            "opened": true,
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976?fromCustomerBoard=true",
+            "text": "Dashboard Work Orders Work Force Invoices 2 63 Approved PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Job Assignment Signoff Work Summary 0h 1m Time In Oct 12, 2026 05:52 AM UTC (CUT) Time Out Oct 12, 2026 05:53 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+            "images": 4,
+            "shot": "TD-93_SignOff_02_approved-customer-signoff-page.png"
+          }
+        },
+        "subUser": {
+          "tabs": [
+            "Details",
+            "Payment",
+            "Job Sign-Off"
+          ],
+          "tabPresent": true,
+          "detailsShot": "TD-93_SignOff_03_approved-subuser-details-tabs.png",
+          "sheet": {
+            "opened": true,
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976?fromCustomerBoard=true",
+            "text": "Dashboard Work Orders Work Force Invoices 0 10 Approved PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Job Sign-Off Job Assignment Signoff Work Summary 0h 1m Time In Oct 12, 2026 05:52 AM UTC (CUT) Time Out Oct 12, 2026 05:53 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+            "images": 2,
+            "shot": "TD-93_SignOff_04_approved-subuser-signoff-page.png"
+          }
+        },
+        "techDomain": {
+          "tabs": [
+            "Details",
+            "Payment",
+            "Providers",
+            "Messages",
+            "Job Sign-Off",
+            "Feedback",
+            "History"
+          ],
+          "tabPresent": true,
+          "detailsShot": "TD-93_SignOff_05_approved-techdomain-details-tabs.png",
+          "sheet": {
+            "opened": true,
+            "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/976",
+            "text": "Dashboard Work Board Task Board Work Force Invoices 16 47 Approved PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Approved USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Mark Dispute Leave Feedback Details Payment Providers Messages Job Sign-Off Feedback History Job Assignment Signoff Work Summary 0h 1m Time In Oct 12, 2026 05:52 AM UTC (CUT) Time Out Oct 12, 2026 05:53 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+            "images": 3,
+            "shot": "TD-93_SignOff_06_approved-techdomain-signoff-page.png"
+          }
+        }
+      }
+    }
+  ],
+  "walk": {
+    "workOrderId": 978,
+    "steps": [
+      {
+        "step": "WORKDONE WO 978",
+        "checks": [
+          {
+            "name": "status is WORKDONE",
+            "ok": true,
+            "detail": {
+              "status": "WORKDONE",
+              "subStatus": null
+            }
+          },
+          {
+            "name": "customer owner: \"Job Sign-Off\" tab hidden on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Messages"
+              ],
+              "shot": "TD-93_SignOff_07_workdone-customer-details-tabs.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Providers",
+                "Messages",
+                "Job Sign-Off",
+                "Feedback",
+                "History"
+              ],
+              "shot": "TD-93_SignOff_09_workdone-techdomain-details-tabs.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer name \"QA Customer Signer\"",
+            "ok": false,
+            "detail": {
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows designation \"Site Manager\"",
+            "ok": false,
+            "detail": {
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer comment",
+            "ok": false,
+            "detail": {
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 3,
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          }
+        ],
+        "status": "WORKDONE",
+        "subStatus": null,
+        "views": {
+          "owner": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages"
+            ],
+            "tabPresent": false,
+            "detailsShot": "TD-93_SignOff_07_workdone-customer-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true",
+              "text": "Dashboard Work Orders Work Force Invoices 2 63 Work Done #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-93 QA automation (sign-off sheet visible to the customer) Work Experience Technology Stacks: Audio/Video Category: Skills: Work Order Eligibility Type Qualification Background check Any Age Schedule Fixed Start Start at a specific date and time Monday, 12/10/2026 at 05:59 AM (CUT) Ready to go Time Monday, 12/10/2026 at 6:09 AM (CUT) On the way Time Monday, 12/10/2026 at 6:09 AM (CUT) Location Lahore, Pakistan (RESIDENTIAL) Enable Map View Client Documents Deliverables Tasks Contacts Work Order Manager iH Istkhar +1 2313342 istkhar+2@techdomain.com.au Operations Service Desk +61 2 9158 3294 operations@techdomain.com.au Note: Please contact our service desk if you have any query regarding site access or problem in job completion. on",
+              "images": 0,
+              "shot": "TD-93_SignOff_08_workdone-customer-signoff-page.png"
+            }
+          },
+          "techDomain": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "Job Sign-Off",
+              "Feedback",
+              "History"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_09_workdone-techdomain-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978",
+              "text": "Dashboard Work Board Task Board Work Force Invoices 16 47 Work Done #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Estimated USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Mark Incomplete Review Details Payment Providers Messages Job Sign-Off Feedback History Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet Feedback TD-93 Sign-Off Sheet 1012060846 Syed Hamza The purpose of private feedback is to foster transparency and mutual growth by providing constructive insights on the working relationship. It helps to understand areas for improvement, such as communication or resource provision, while acknowledging their strengths. This feedback aims to enhance collaboration and streamline future projects. Ultimately, it promotes a professional, respectful, and efficient partnership. How would you rate your engineer's overall approach to working on this work order?* Unsatisfied 1 Star 2 Stars 3 Stars 4 Stars 5 Stars Empty Excellent What did you like most? Excellent Technical Skills Professional & Courteous On-Time Arrival Great Communication High-Quality Work Went Above & B",
+              "images": 3,
+              "shot": "TD-93_SignOff_10_workdone-techdomain-signoff-page.png"
+            }
+          }
+        },
+        "directUrl": {
+          "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true",
+          "showsSheet": false
+        }
+      },
+      {
+        "step": "VERIFIED WO 978",
+        "checks": [
+          {
+            "name": "status is VERIFIED",
+            "ok": true,
+            "detail": {
+              "status": "VERIFIED",
+              "subStatus": "PO_PENDING"
+            }
+          },
+          {
+            "name": "customer owner: \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Messages",
+                "Job Sign-Off"
+              ],
+              "shot": "TD-93_SignOff_11_verified-customer-details-tabs.png"
+            }
+          },
+          {
+            "name": "customer owner: sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows customer name \"QA Customer Signer\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows designation \"Site Manager\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows customer comment",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 2,
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Providers",
+                "Messages",
+                "Job Sign-Off",
+                "Feedback",
+                "History"
+              ],
+              "shot": "TD-93_SignOff_13_verified-techdomain-details-tabs.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer name \"QA Customer Signer\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows designation \"Site Manager\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer comment",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 3,
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          }
+        ],
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "views": {
+          "owner": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages",
+              "Job Sign-Off"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_11_verified-customer-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true",
+              "text": "Dashboard Work Orders Work Force Invoices 2 63 Work Done PO Pending #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+              "images": 2,
+              "shot": "TD-93_SignOff_12_verified-customer-signoff-page.png"
+            }
+          },
+          "techDomain": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "Job Sign-Off",
+              "Feedback",
+              "History"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_13_verified-techdomain-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978",
+              "text": "Dashboard Work Board Task Board Work Force Invoices 16 47 Verified PO Pending #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Verified USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Approve Details Payment Providers Messages Job Sign-Off Feedback History Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+              "images": 3,
+              "shot": "TD-93_SignOff_14_verified-techdomain-signoff-page.png"
+            }
+          }
+        }
+      },
+      {
+        "step": "APPROVED WO 978",
+        "checks": [
+          {
+            "name": "status is APPROVED",
+            "ok": true,
+            "detail": {
+              "status": "APPROVED",
+              "subStatus": "PO_PENDING"
+            }
+          },
+          {
+            "name": "customer owner: \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Messages",
+                "Job Sign-Off"
+              ],
+              "shot": "TD-93_SignOff_15_approved-customer-details-tabs.png"
+            }
+          },
+          {
+            "name": "customer owner: sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows customer name \"QA Customer Signer\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows designation \"Site Manager\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: sheet shows customer comment",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer owner: at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 4,
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer sub-user: \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Job Sign-Off"
+              ],
+              "shot": "TD-93_SignOff_17_approved-subuser-details-tabs.png"
+            }
+          },
+          {
+            "name": "customer sub-user: sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true"
+            }
+          },
+          {
+            "name": "customer sub-user: sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer sub-user: sheet shows customer name \"QA Customer Signer\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer sub-user: sheet shows designation \"Site Manager\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer sub-user: sheet shows customer comment",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          {
+            "name": "customer sub-user: at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 2,
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): \"Job Sign-Off\" tab present on the work-order page",
+            "ok": true,
+            "detail": {
+              "tabs": [
+                "Details",
+                "Payment",
+                "Providers",
+                "Messages",
+                "Job Sign-Off",
+                "Feedback",
+                "History"
+              ],
+              "shot": "TD-93_SignOff_19_approved-techdomain-details-tabs.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sign-off page opens",
+            "ok": true,
+            "detail": {
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows \"Customer Sign-Off\" section",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer name \"QA Customer Signer\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows designation \"Site Manager\"",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): sheet shows customer comment",
+            "ok": true,
+            "detail": {
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          },
+          {
+            "name": "Tech Domain owner (control): at least one signature/sheet image rendered",
+            "ok": true,
+            "detail": {
+              "images": 3,
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          }
+        ],
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "views": {
+          "owner": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages",
+              "Job Sign-Off"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_15_approved-customer-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true",
+              "text": "Dashboard Work Orders Work Force Invoices 2 64 Approved PO Pending #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+              "images": 4,
+              "shot": "TD-93_SignOff_16_approved-customer-signoff-page.png"
+            }
+          },
+          "subUser": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Job Sign-Off"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_17_approved-subuser-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978?fromCustomerBoard=true",
+              "text": "Dashboard Work Orders Work Force Invoices 0 10 Approved PO Pending #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Job Sign-Off Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+              "images": 2,
+              "shot": "TD-93_SignOff_18_approved-subuser-signoff-page.png"
+            }
+          },
+          "techDomain": {
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "Job Sign-Off",
+              "Feedback",
+              "History"
+            ],
+            "tabPresent": true,
+            "detailsShot": "TD-93_SignOff_19_approved-techdomain-details-tabs.png",
+            "sheet": {
+              "opened": true,
+              "url": "https://dev.techdomain.com.au/workOrder/signoffSheet/978",
+              "text": "Dashboard Work Board Task Board Work Force Invoices 16 47 Approved PO Pending #10972 On 10/12/2026 TD-93 sign-off sheet 1012060846 Working Hours 0 hours 0 mins Payment: Approved USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Mark Dispute Leave Feedback Details Payment Providers Messages Job Sign-Off Feedback History Job Assignment Signoff Work Summary 0h 0m Time In Oct 12, 2026 06:09 AM UTC (CUT) Time Out Oct 12, 2026 06:09 AM UTC (CUT) Task Status Engineer Sign-Off Syed Hamza Signature (Required) Comments (If any) Customer Sign-Off Name ​ Designation ​ Signature Comments (If any) Download Platform Generated Sign-off Sheet Download Attached Sign-off Sheet TD-93 QA engineer comment QA Customer Signer Site Manager TD-93 QA client comment",
+              "images": 3,
+              "shot": "TD-93_SignOff_20_approved-techdomain-signoff-page.png"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "findings": [
+    "WORKDONE WO 978: Tech Domain owner (control): sheet shows customer name \"QA Customer Signer\"",
+    "WORKDONE WO 978: Tech Domain owner (control): sheet shows designation \"Site Manager\"",
+    "WORKDONE WO 978: Tech Domain owner (control): sheet shows customer comment"
+  ]
+}

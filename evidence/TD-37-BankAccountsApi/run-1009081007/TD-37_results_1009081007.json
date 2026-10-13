@@ -1,0 +1,113 @@
+{
+  "run": "1009081007",
+  "A": 575,
+  "B": 611,
+  "create1": {
+    "status": 201,
+    "id": "b216e676-231c-4b84-877b-271192ad9f79"
+  },
+  "create2": {
+    "status": 201,
+    "id": "0883ae58-56d6-45f7-89f7-864d0552e18c"
+  },
+  "uniqueIds": true,
+  "listAfterCreate": [
+    {
+      "id": "0883ae58-56d6-45f7-89f7-864d0552e18c",
+      "holder": "TD37 Holder 2 1009081007",
+      "bank": "TD37 Bank 2"
+    },
+    {
+      "id": "b216e676-231c-4b84-877b-271192ad9f79",
+      "holder": "TD37 Holder 1 1009081007",
+      "bank": "TD37 Bank 1"
+    }
+  ],
+  "listKeys": [
+    "id",
+    "accountHolderName",
+    "bankName",
+    "bankAddress",
+    "accountType",
+    "accountNumber",
+    "iban",
+    "swiftCode",
+    "currency",
+    "routingNumber",
+    "sortCode",
+    "bsb",
+    "institutionNumber",
+    "transitNumber",
+    "bankCode",
+    "branchId",
+    "branch",
+    "userId"
+  ],
+  "getById": {
+    "/bankDetails/b216e676-231c-4b84-877b-271192ad9f79": {
+      "status": 200,
+      "single": false,
+      "arrayLen": 2,
+      "sample": "[{\"id\":\"0883ae58-56d6-45f7-89f7-864d0552e18c\",\"accountHolderName\":\"TD37 Holder 2 1009081007\",\"bankName\":\"TD37 Bank 2\",\"bankAddress\":\"2 Test St\",\"accountType\":\"S"
+    },
+    "/bankDetails/account/b216e676-231c-4b84-877b-271192ad9f79": {
+      "status": 404,
+      "single": false,
+      "arrayLen": null,
+      "sample": "{\"message\":\"Cannot GET /api/bankDetails/account/b216e676-231c-4b84-877b-271192ad9f79\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/bankDetails/details/b216e676-231c-4b84-877b-271192ad9f79": {
+      "status": 404,
+      "single": false,
+      "arrayLen": null,
+      "sample": "{\"message\":\"Cannot GET /api/bankDetails/details/b216e676-231c-4b84-877b-271192ad9f79\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/bankDetails/user/575/b216e676-231c-4b84-877b-271192ad9f79": {
+      "status": 404,
+      "single": false,
+      "arrayLen": null,
+      "sample": "{\"message\":\"Cannot GET /api/bankDetails/user/575/b216e676-231c-4b84-877b-271192ad9f79\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    "/bankDetails/user/575/bankAccountDetails": {
+      "status": 200,
+      "single": false,
+      "arrayLen": 2,
+      "sample": "[{\"id\":\"b216e676-231c-4b84-877b-271192ad9f79\",\"bankName\":\"TD37 Bank 1\",\"currency\":\"AUD\"},{\"id\":\"0883ae58-56d6-45f7-89f7-864d0552e18c\",\"bankName\":\"TD37 Bank 2\",\""
+    }
+  },
+  "getByIdRoute": null,
+  "update": {
+    "status": 200,
+    "acc1Bank": "TD37 Bank 1 UPDATED 1009081007",
+    "acc2Bank": "TD37 Bank 2",
+    "acc2Unchanged": true
+  },
+  "crossUser": {
+    "B (vendor engineer)": {
+      "get": null,
+      "patch": 404,
+      "deleteWithOwnerId": 404,
+      "deleteWithOwnId": 404,
+      "listOfA": 200,
+      "listShowsA": false
+    },
+    "C (client)": {
+      "get": null,
+      "patch": 404,
+      "deleteWithOwnerId": 404,
+      "deleteWithOwnId": 404,
+      "listOfA": 200,
+      "listShowsA": false
+    }
+  },
+  "acc2IntactAfterCrossUser": true,
+  "providerView": {
+    "status": 200,
+    "sample": "{\"data\":[{\"id\":\"b216e676-231c-4b84-877b-271192ad9f79\",\"bankName\":\"TD37 Bank 1 UPDATED 1009081007\",\"currency\":\"AUD\"},{\"id\":\"0883ae58-56d6-45f7-89f7-864d0552e18c\",\"bankName\":\"TD37 Bank 2\",\"currency\":\"AUD\"}],\"message\":\"SUCCESS\"}"
+  },
+  "delete": {
+    "status": 200,
+    "acc1Gone": true,
+    "acc2Present": true
+  }
+}

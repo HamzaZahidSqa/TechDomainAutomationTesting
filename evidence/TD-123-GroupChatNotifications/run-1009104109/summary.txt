@@ -1,0 +1,15 @@
+
+STATUS WALK on WO 962 (env WO 962): reached {"assigned":true,"confirmed":true,"checkIn":true,"checkOut":true,"complete":true,"verified":true,"approved":true}
+  CHECK_IN (in progress) [INPROGRESS/CHECK_IN]: 26/29 passed
+     FAILED: customer room participants unchanged (owner + sub-user + TD owner + team); TD non-team user: customer room forbidden at CHECK_IN (in progress); TD non-team user: no MESSAGE notification from the customer room at CHECK_IN (in progress)
+  CHECK_OUT [INPROGRESS/CHECK_OUT]: 25/28 passed
+     FAILED: customer room participants unchanged (owner + sub-user + TD owner + team); TD non-team user: customer room forbidden at CHECK_OUT; TD non-team user: no MESSAGE notification from the customer room at CHECK_OUT
+  WORKDONE [WORKDONE/-]: 25/28 passed
+     FAILED: customer room participants unchanged (owner + sub-user + TD owner + team); TD non-team user: customer room forbidden at WORKDONE; TD non-team user: no MESSAGE notification from the customer room at WORKDONE
+  VERIFIED [VERIFIED/PO_PENDING]: 23/26 passed
+     FAILED: customer room participants unchanged (owner + sub-user + TD owner + team); TD non-team user: customer room forbidden at VERIFIED; TD non-team user: no MESSAGE notification from the customer room at VERIFIED
+  APPROVED [APPROVED/PO_PENDING]: 26/29 passed
+     FAILED: customer room participants unchanged (owner + sub-user + TD owner + team); TD non-team user: customer room forbidden at APPROVED; TD non-team user: no MESSAGE notification from the customer room at APPROVED
+
+Findings:
+GET /teams/:id returns each member's bcrypt password hash (teamMember.password) - should not be exposed

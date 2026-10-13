@@ -1,0 +1,478 @@
+{
+  "run": "1013060218",
+  "checks": [
+    {
+      "name": "setup: WO 983 (#10977) is ASSIGNED to \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "wo": 983,
+        "ref": 10977,
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "engineer": "575 Syed Hamza"
+      }
+    },
+    {
+      "name": "walk: every engineer action succeeded (confirm, ready to go, on the way, running late, check-in, check-out, complete)",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "walk: work order reached WORKDONE",
+      "ok": true,
+      "detail": {
+        "status": "WORKDONE"
+      }
+    },
+    {
+      "name": "Tech Domain user: received the engineer-related notifications of the walk",
+      "ok": true,
+      "detail": {
+        "count": 8,
+        "types": [
+          "WORK_ORDER_WORK_DONE",
+          "WORK_ORDER_RUNNING_LATE",
+          "WORK_ORDER_ON_THE_WAY",
+          "WORK_ORDER_READY_TO_GO",
+          "WORK_ORDER_CONFIRMED",
+          "WORK_ORDER_CONFIRMED",
+          "ACCEPT",
+          "ACCEPT"
+        ]
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Work Order Completed – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Completed – WO-10977",
+        "content": "Syed Hamza has completed the required service activities."
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Engineer Running Late – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Running Late – WO-10977",
+        "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled."
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Engineer En Route – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer En Route – WO-10977",
+        "content": "Syed Hamza is now on the way to the service location."
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Engineer Ready to Go – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Ready to Go – WO-10977",
+        "content": "Syed Hamza has marked the work order as Ready to Go"
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Work Order Confirmed by Engineer – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order"
+      }
+    },
+    {
+      "name": "Tech Domain user: \"Work Order Confirmed by Engineer – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order"
+      }
+    },
+    {
+      "name": "Tech Domain user: \"WO-10977: TD-146 engineer name 1013060218\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "Syed Hamza has accepted."
+      }
+    },
+    {
+      "name": "Tech Domain user: \"WO-10977: TD-146 engineer name 1013060218\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "Syed Hamza has accepted the routed offer."
+      }
+    },
+    {
+      "name": "customer owner: received the engineer-related notifications of the walk",
+      "ok": true,
+      "detail": {
+        "count": 9,
+        "types": [
+          "WORK_ORDER_WORK_DONE",
+          "WORK_ORDER_CHECK_OUT",
+          "WORK_ORDER_CHECK_IN",
+          "WORK_ORDER_RUNNING_LATE",
+          "WORK_ORDER_ON_THE_WAY",
+          "WORK_ORDER_READY_TO_GO",
+          "WORK_ORDER_CONFIRMED",
+          "WORK_ORDER_CONFIRMED",
+          "WORK_ORDER_ASSIGNED"
+        ]
+      }
+    },
+    {
+      "name": "customer owner: \"Work Order Completed – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Completed – WO-10977",
+        "content": "Syed Hamza has completed the required service activities."
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer Checked Out – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Checked Out – WO-10977",
+        "content": "Syed Hamza has checked out after completing the onsite activity."
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer Checked In – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Checked In – WO-10977",
+        "content": "Syed Hamza has checked in and ready to begin the work."
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer Running Late – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Running Late – WO-10977",
+        "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled."
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer En Route – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer En Route – WO-10977",
+        "content": "Syed Hamza is now on the way to the service location."
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer Ready to Go – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Engineer Ready to Go – WO-10977",
+        "content": "Syed Hamza has marked the work order as Ready to Go"
+      }
+    },
+    {
+      "name": "customer owner: \"Work Order Confirmed by Engineer – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order"
+      }
+    },
+    {
+      "name": "customer owner: \"Work Order Confirmed by Engineer – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order"
+      }
+    },
+    {
+      "name": "customer owner: \"Engineer Assigned – WO-10977\" names the engineer \"Syed Hamza\"",
+      "ok": false,
+      "detail": {
+        "title": "Engineer Assigned – WO-10977",
+        "content": "View the work order for engineer details and service updates."
+      }
+    },
+    {
+      "name": "engineer's own notifications (not in scope)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "type": "OTHER",
+          "title": "WO-10977: TD-146 engineer name 1013060218",
+          "content": "Schedule has been updated to 13/10/2026, 06:02 am. Please confirm.",
+          "hasName": false,
+          "generic": true
+        },
+        {
+          "type": "WORK_ORDER_ASSIGNED",
+          "title": "New Work Order Assigned – WO-10977",
+          "content": "You have been assigned to a new work order.",
+          "hasName": false,
+          "generic": false
+        },
+        {
+          "type": "ROUTED",
+          "title": "New Work Order Routed – WO-10977",
+          "content": "A new work order has been routed to you for review.",
+          "hasName": false,
+          "generic": false
+        },
+        {
+          "type": "WORK_ORDER_PUBLISHED",
+          "title": "WO-10977: TD-146 engineer name 1013060218",
+          "content": "New work order available in Lahore, Punjab, Pakistan. Request now to get assigned.",
+          "hasName": false,
+          "generic": true
+        }
+      ]
+    },
+    {
+      "name": "UI: customer bell panel text",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": ""
+      }
+    },
+    {
+      "name": "UI: customer bell panel shows the engineer name on the engineer notifications",
+      "ok": false,
+      "detail": {
+        "hasName": false,
+        "hasWo": false,
+        "hasGenericEngineer": false
+      }
+    }
+  ],
+  "findings": [
+    "customer owner: \"Engineer Assigned – WO-10977\" names the engineer \"Syed Hamza\"",
+    "UI: customer bell panel shows the engineer name on the engineer notifications"
+  ],
+  "setup": {
+    "wo": 983,
+    "ref": 10977,
+    "status": "ASSIGNED",
+    "subStatus": "NOT_CONFIRMED",
+    "engineer": "575 Syed Hamza"
+  },
+  "walk": [
+    {
+      "step": "confirm",
+      "status": 200,
+      "body": "{\"message\":\"Status updated successfully\"}"
+    },
+    {
+      "step": "schedule now (TD)",
+      "status": 200,
+      "body": "{\"id\":983,\"referenceId\":10977,\"title\":\"TD-146 engineer name 1013060218\",\"isTemplate\":false,\"templateName\":null,\"serviceL"
+    },
+    {
+      "step": "re-confirm",
+      "status": 200,
+      "body": "{\"message\":\"Status updated successfully\"}"
+    },
+    {
+      "step": "task START_TIME",
+      "status": 200,
+      "body": "{\"data\":{\"id\":6766,\"taskType\":\"START_TIME\",\"isCompleted\":true,\"text\":\"2026-10-13T06:02:37.759Z\",\"userId\":575,\"taskId\":\"d"
+    },
+    {
+      "step": "task ON_THE_WAY",
+      "status": 200,
+      "body": "{\"data\":{\"id\":6767,\"taskType\":\"ON_THE_WAY\",\"isCompleted\":true,\"text\":\"2026-10-13T06:02:41.223Z\",\"userId\":575,\"taskId\":\"9"
+    },
+    {
+      "step": "task RUNNING_LATE",
+      "status": 200,
+      "body": "{\"message\":\"SUCCESS\"}"
+    },
+    {
+      "step": "checkIn",
+      "status": 201,
+      "body": "{\"message\":\"SUCCESS\"}"
+    },
+    {
+      "step": "checkOut",
+      "status": 201,
+      "body": "{\"message\":\"SUCCESS\"}"
+    },
+    {
+      "step": "markComplete",
+      "status": 200,
+      "body": "{\"message\":\"SUCCESS\"}"
+    }
+  ],
+  "notifications": {
+    "Tech Domain user": [
+      {
+        "type": "WORK_ORDER_WORK_DONE",
+        "title": "Work Order Completed – WO-10977",
+        "content": "Syed Hamza has completed the required service activities.",
+        "hasName": true,
+        "generic": false
+      },
+      {
+        "type": "WORK_ORDER_RUNNING_LATE",
+        "title": "Engineer Running Late – WO-10977",
+        "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_ON_THE_WAY",
+        "title": "Engineer En Route – WO-10977",
+        "content": "Syed Hamza is now on the way to the service location.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_READY_TO_GO",
+        "title": "Engineer Ready to Go – WO-10977",
+        "content": "Syed Hamza has marked the work order as Ready to Go",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_CONFIRMED",
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_CONFIRMED",
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "ACCEPT",
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "Syed Hamza has accepted.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "ACCEPT",
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "Syed Hamza has accepted the routed offer.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "OTHER",
+        "title": "New Work Order Received - WO-10977",
+        "content": "Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request.",
+        "hasName": false,
+        "generic": false
+      }
+    ],
+    "customer owner": [
+      {
+        "type": "WORK_ORDER_WORK_DONE",
+        "title": "Work Order Completed – WO-10977",
+        "content": "Syed Hamza has completed the required service activities.",
+        "hasName": true,
+        "generic": false
+      },
+      {
+        "type": "WORK_ORDER_CHECK_OUT",
+        "title": "Engineer Checked Out – WO-10977",
+        "content": "Syed Hamza has checked out after completing the onsite activity.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_CHECK_IN",
+        "title": "Engineer Checked In – WO-10977",
+        "content": "Syed Hamza has checked in and ready to begin the work.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_RUNNING_LATE",
+        "title": "Engineer Running Late – WO-10977",
+        "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_ON_THE_WAY",
+        "title": "Engineer En Route – WO-10977",
+        "content": "Syed Hamza is now on the way to the service location.",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_READY_TO_GO",
+        "title": "Engineer Ready to Go – WO-10977",
+        "content": "Syed Hamza has marked the work order as Ready to Go",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_CONFIRMED",
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_CONFIRMED",
+        "title": "Work Order Confirmed by Engineer – WO-10977",
+        "content": "Syed Hamza has confirmed the work order",
+        "hasName": true,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_ASSIGNED",
+        "title": "Engineer Assigned – WO-10977",
+        "content": "View the work order for engineer details and service updates.",
+        "hasName": false,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_PUBLISHED",
+        "title": "Work Order Accepted – WO-10977",
+        "content": "Your work order has been accepted and is now being processed.",
+        "hasName": false,
+        "generic": false
+      }
+    ],
+    "engineer": [
+      {
+        "type": "OTHER",
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "Schedule has been updated to 13/10/2026, 06:02 am. Please confirm.",
+        "hasName": false,
+        "generic": true
+      },
+      {
+        "type": "WORK_ORDER_ASSIGNED",
+        "title": "New Work Order Assigned – WO-10977",
+        "content": "You have been assigned to a new work order.",
+        "hasName": false,
+        "generic": false
+      },
+      {
+        "type": "ROUTED",
+        "title": "New Work Order Routed – WO-10977",
+        "content": "A new work order has been routed to you for review.",
+        "hasName": false,
+        "generic": false
+      },
+      {
+        "type": "WORK_ORDER_PUBLISHED",
+        "title": "WO-10977: TD-146 engineer name 1013060218",
+        "content": "New work order available in Lahore, Punjab, Pakistan. Request now to get assigned.",
+        "hasName": false,
+        "generic": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+INFO A1: customer GET /workOrders/867 still returns the project object (backend, out of scope)
+PASS A1: the test WO really has a project (precondition)
+INFO A2: customer GET /workOrders/customer rows carry project (backend, out of scope)
+PASS B1: customer WO details has the Overview card
+PASS B1: customer Overview card has NO "Project:" row
+PASS B1: customer Overview still shows Company / Incident ID / Client / SLA
+PASS B1: no project title anywhere on the customer Details tab
+PASS B3: customer "Payment" tab shows no project details
+PASS B3: customer "Job Sign-Off" tab shows no project details
+PASS B2: customer "Edit Overview" form (WO 909) has no Project field
+PASS B3: customer Create Work Order form has no Project field
+INFO B6: customer dashboard project mentions
+INFO B6 (observation): customer Work Orders grid columns - "Project" column still present?
+PASS B4: customer sub-user Overview card has NO "Project:" row
+PASS B5 (control): Tech Domain user Overview still shows the "Project:" row
+PASS B5 (control): Tech Domain "Edit Overview" form still has the Project field

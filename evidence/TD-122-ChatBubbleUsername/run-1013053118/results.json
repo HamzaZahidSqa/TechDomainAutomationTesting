@@ -1,0 +1,230 @@
+{
+  "run": "1013053118",
+  "wo": 981,
+  "tag": "TD122-1013053118",
+  "checks": [
+    {
+      "name": "precondition: WO 981 is ASSIGNED to a vendor engineer of a vendor company",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "engineer": "611 Demo Worker",
+        "company": "Demo Field Services 0925"
+      }
+    },
+    {
+      "name": "Tech Domain chat rooms for the WO",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "id": 609,
+          "name": "Demo CompanyOwner",
+          "room": 1800,
+          "customer": false
+        },
+        {
+          "id": 638,
+          "name": "Customer Company 10090955",
+          "room": 1799,
+          "customer": true
+        }
+      ]
+    },
+    {
+      "name": "TD view: vendor owner's bubble is labelled with the sender user name",
+      "ok": true,
+      "detail": {
+        "row": "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to Tech Domain)",
+        "expected": "Demo CompanyOwner"
+      }
+    },
+    {
+      "name": "TD view: own bubble has no company label",
+      "ok": true,
+      "detail": {
+        "row": "10:32 AM 😊 TD122-1013053118 from Tech Domain user"
+      }
+    },
+    {
+      "name": "TD view: no bubble row shows the vendor company name",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to Tech Domain)",
+          "10:32 AM 😊 TD122-1013053118 from Tech Domain user"
+        ]
+      }
+    },
+    {
+      "name": "TD view: conversation title / sidebar (company name allowed here)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "header": [
+          "#10975",
+          "Chat",
+          "Demo Field Services 0925",
+          "Customer Company 10090955",
+          "Demo Field Services 0925"
+        ],
+        "sidebar": [
+          "Demo Field Services 0925ID: 79",
+          "Demo Field Services 0925"
+        ]
+      }
+    },
+    {
+      "name": "Vendor owner view (Tech Domain thread): TD user's bubble is labelled with the sender user name",
+      "ok": true,
+      "detail": {
+        "row": "istkhar Hussain 10:32 AM 😊 TD122-1013053118 from Tech Domain user",
+        "expected": "istkhar Hussain"
+      }
+    },
+    {
+      "name": "Vendor owner view (Tech Domain thread): no bubble shows the vendor company name",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "10:31 AM 😊 TD122-1013053118 from Vendor owner (to Tech Domain)",
+          "istkhar Hussain 10:32 AM 😊 TD122-1013053118 from Tech Domain user"
+        ]
+      }
+    },
+    {
+      "name": "Vendor owner view (worker thread): worker's bubble is labelled \"Demo Worker\"",
+      "ok": true,
+      "detail": {
+        "row": "Demo Worker 10:32 AM 😊 TD122-1013053118 from Vendor worker",
+        "expected": "Demo Worker"
+      }
+    },
+    {
+      "name": "Vendor owner view (worker thread): no bubble shows the vendor company name",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "10:31 AM 😊 TD122-1013053118 from Vendor owner (to worker)",
+          "Demo Worker 10:32 AM 😊 TD122-1013053118 from Vendor worker"
+        ]
+      }
+    },
+    {
+      "name": "Vendor worker view: owner's bubble is labelled \"Demo CompanyOwner\"",
+      "ok": true,
+      "detail": {
+        "row": "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to worker)",
+        "expected": "Demo CompanyOwner"
+      }
+    },
+    {
+      "name": "Vendor worker view: no bubble shows the vendor company name",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to worker)",
+          "10:32 AM 😊 TD122-1013053118 from Vendor worker"
+        ]
+      }
+    },
+    {
+      "name": "Vendor worker view: thread title (company name allowed here)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "header": [
+          "#10975",
+          "Demo Field Services 0925"
+        ]
+      }
+    },
+    {
+      "name": "A: GET /chats/1800 sender objects (firstName/lastName, no company)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "senderId": 609,
+          "sender": "Demo CompanyOwner",
+          "hasCompanyField": false
+        },
+        {
+          "senderId": 27,
+          "sender": "istkhar Hussain",
+          "hasCompanyField": false
+        }
+      ]
+    },
+    {
+      "name": "A: conversation participant (the thread title source) vs participants",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "participant": "COMPANY Demo Field Services 0925",
+        "participants": [
+          "473 istkhar Operation3 CLIENT",
+          "263 istkhar Hussain CLIENT",
+          "476 istkhar SD3 CLIENT",
+          "640 Teammember Tdtest CLIENT",
+          "609 Demo CompanyOwner FREELANCER"
+        ]
+      }
+    }
+  ],
+  "findings": [],
+  "api": {
+    "wo": {
+      "status": "ASSIGNED",
+      "engineer": "611 Demo Worker",
+      "company": "Demo Field Services 0925"
+    },
+    "messages": [
+      {
+        "senderId": 609,
+        "sender": "Demo CompanyOwner",
+        "hasCompanyField": false
+      },
+      {
+        "senderId": 27,
+        "sender": "istkhar Hussain",
+        "hasCompanyField": false
+      }
+    ]
+  },
+  "ui": {
+    "td": {
+      "rows": [
+        "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to Tech Domain)",
+        "10:32 AM 😊 TD122-1013053118 from Tech Domain user"
+      ],
+      "header": [
+        "#10975",
+        "Chat",
+        "Demo Field Services 0925",
+        "Customer Company 10090955",
+        "Demo Field Services 0925"
+      ]
+    },
+    "vo": {
+      "tdThread": [
+        "10:31 AM 😊 TD122-1013053118 from Vendor owner (to Tech Domain)",
+        "istkhar Hussain 10:32 AM 😊 TD122-1013053118 from Tech Domain user"
+      ],
+      "workerThread": [
+        "10:31 AM 😊 TD122-1013053118 from Vendor owner (to worker)",
+        "Demo Worker 10:32 AM 😊 TD122-1013053118 from Vendor worker"
+      ]
+    },
+    "ve": {
+      "rows": [
+        "Demo CompanyOwner 10:31 AM 😊 TD122-1013053118 from Vendor owner (to worker)",
+        "10:32 AM 😊 TD122-1013053118 from Vendor worker"
+      ],
+      "header": [
+        "#10975",
+        "Demo Field Services 0925"
+      ]
+    }
+  }
+}

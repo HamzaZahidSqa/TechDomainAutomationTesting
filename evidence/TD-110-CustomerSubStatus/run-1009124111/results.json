@@ -1,0 +1,879 @@
+{
+  "run": "1009124111",
+  "workOrderId": 957,
+  "steps": [
+    {
+      "step": "NOT_CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is NOT_CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is ASSIGNED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes NOT_CONFIRMED (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Not Confirmed\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Not Confirmed\"",
+          "ok": false,
+          "detail": {
+            "shot": "TD-110_SubStatus_02_NOT_CONFIRMED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 18 Assigned #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/12/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automa",
+        "listShot": "TD-110_SubStatus_01_NOT_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_NOT_CONFIRMED-customer-detail.png"
+      }
+    },
+    {
+      "step": "CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes CONFIRMED (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Confirmed\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Confirmed\"",
+          "ok": false,
+          "detail": {
+            "shot": "TD-110_SubStatus_04_CONFIRMED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 19 Assigned #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/12/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automa",
+        "listShot": "TD-110_SubStatus_03_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_04_CONFIRMED-customer-detail.png"
+      }
+    },
+    {
+      "step": "READY_TO_GO",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is READY_TO_GO",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "READY_TO_GO",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes READY_TO_GO (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Ready to go\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Ready to go\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_06_READY_TO_GO-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "READY_TO_GO",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 20 Assigned #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/12/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automa",
+        "listShot": "TD-110_SubStatus_05_READY_TO_GO-customer-list.png",
+        "detailShot": "TD-110_SubStatus_06_READY_TO_GO-customer-detail.png"
+      }
+    },
+    {
+      "step": "ON_THE_WAY",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is ON_THE_WAY",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "ON_THE_WAY",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes ON_THE_WAY (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"On the way\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"On the way\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_08_ON_THE_WAY-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "ON_THE_WAY",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 21 Assigned #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/12/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automa",
+        "listShot": "TD-110_SubStatus_07_ON_THE_WAY-customer-list.png",
+        "detailShot": "TD-110_SubStatus_08_ON_THE_WAY-customer-detail.png"
+      }
+    },
+    {
+      "step": "RUNNING_LATE",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is RUNNING_LATE",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "RUNNING_LATE",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes RUNNING_LATE (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Running Late\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Running Late\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_10_RUNNING_LATE-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "RUNNING_LATE",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 22 Assigned #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/12/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automa",
+        "listShot": "TD-110_SubStatus_09_RUNNING_LATE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_10_RUNNING_LATE-customer-detail.png"
+      }
+    },
+    {
+      "step": "CHECK_IN",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_IN",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is INPROGRESS",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes CHECK_IN (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Checked In\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Checked In\"",
+          "ok": false,
+          "detail": {
+            "shot": "TD-110_SubStatus_12_CHECK_IN-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 23 In Progress #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/09/2026 12:37 PM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA aut",
+        "listShot": "TD-110_SubStatus_11_CHECK_IN-customer-list.png",
+        "detailShot": "TD-110_SubStatus_12_CHECK_IN-customer-detail.png"
+      }
+    },
+    {
+      "step": "CHECK_OUT",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_OUT",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_OUT",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes CHECK_OUT (customerSubStatus or subStatus)",
+          "ok": false,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"Checked Out\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"Checked Out\"",
+          "ok": false,
+          "detail": {
+            "shot": "TD-110_SubStatus_14_CHECK_OUT-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_OUT",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 24 In Progress #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Schedule: Fixed Start 10/09/2026 12:37 PM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA aut",
+        "listShot": "TD-110_SubStatus_13_CHECK_OUT-customer-list.png",
+        "detailShot": "TD-110_SubStatus_14_CHECK_OUT-customer-detail.png"
+      }
+    },
+    {
+      "step": "WORKDONE",
+      "checks": [
+        {
+          "name": "status is WORKDONE",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": null,
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 25 Work Done #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (g",
+        "listShot": "TD-110_SubStatus_15_WORKDONE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_16_WORKDONE-customer-detail.png"
+      }
+    },
+    {
+      "step": "REVIEWED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is REVIEWED",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": "REVIEWED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API does NOT expose REVIEWED as customerSubStatus",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_18_REVIEWED-customer-detail.png"
+          }
+        },
+        {
+          "name": "Tech Domain detail page still shows \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_19_REVIEWED-techdomain-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": "REVIEWED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 25 Work Done #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (g",
+        "listShot": "TD-110_SubStatus_17_REVIEWED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_18_REVIEWED-customer-detail.png"
+      },
+      "techDomainUi": {
+        "detailTop": "Dashboard Work Board Task Board Work Force Invoices 13 17 Work Done Reviewed #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: Reviewed USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Mark Incomplete Verify Details Payment Providers Messages Job Sign-Off Feedback History Ove",
+        "shot": "TD-110_SubStatus_19_REVIEWED-techdomain-detail.png"
+      }
+    },
+    {
+      "step": "VERIFIED",
+      "checks": [
+        {
+          "name": "status is VERIFIED",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_21_VERIFIED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 25 Work Done PO Pending #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (gro",
+        "listShot": "TD-110_SubStatus_20_VERIFIED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_21_VERIFIED-customer-detail.png"
+      }
+    },
+    {
+      "step": "PO_PENDING",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is PO_PENDING",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_23_PO_PENDING-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 25 Work Done PO Pending #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (gro",
+        "listShot": "TD-110_SubStatus_22_PO_PENDING-customer-list.png",
+        "detailShot": "TD-110_SubStatus_23_PO_PENDING-customer-detail.png"
+      }
+    },
+    {
+      "step": "APPROVED",
+      "checks": [
+        {
+          "name": "status is APPROVED",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED",
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": false,
+          "detail": {
+            "tab": null
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED"
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": false,
+          "detail": {
+            "row": ""
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_25_APPROVED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        }
+      },
+      "customerUi": {
+        "listTab": null,
+        "listRow": "",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 26 Approved PO Pending #10951 On 10/09/2026 TD123 S1 1009102204 by Customer owner Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (gro",
+        "listShot": "TD-110_SubStatus_24_APPROVED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_25_APPROVED-customer-detail.png"
+      }
+    }
+  ],
+  "findings": []
+}

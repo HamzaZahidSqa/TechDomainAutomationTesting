@@ -1,0 +1,369 @@
+{
+  "run": "1012115126",
+  "checks": [
+    {
+      "name": "A1 engineer: GET /qualifications no longer lists Insurance / Background check",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "names": [
+          "1:Certification",
+          "5:Equipment",
+          "2:Licences"
+        ]
+      }
+    },
+    {
+      "name": "A1 techdomain: GET /qualifications no longer lists Insurance / Background check",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "names": [
+          "1:Certification",
+          "5:Equipment",
+          "2:Licences"
+        ]
+      }
+    },
+    {
+      "name": "A1 admin: GET /qualifications no longer lists Insurance / Background check",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "names": [
+          "1:Certification",
+          "5:Equipment",
+          "2:Licences"
+        ]
+      }
+    },
+    {
+      "name": "A1: the remaining types are Certification, Licences, Equipment",
+      "ok": true,
+      "detail": {
+        "names": [
+          "1:Certification",
+          "5:Equipment",
+          "2:Licences"
+        ]
+      }
+    },
+    {
+      "name": "A2: GET /qualifications/subQualifications contains no Insurance / Background-check sub-types",
+      "ok": true,
+      "detail": {
+        "total": 789,
+        "types": [
+          "5:Equipment",
+          "1:Certification",
+          "2:Licences"
+        ],
+        "bad": []
+      }
+    },
+    {
+      "name": "A3: sub-qualifications of type 3 (Insurance) are empty",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "n": 0
+      }
+    },
+    {
+      "name": "A3: sub-qualifications of type 4 (Background check) are empty",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "n": 0
+      }
+    },
+    {
+      "name": "A5: engineer 575 legacy qualifications still stored (Insurance / Background check rows)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "legacy": [
+          "747:Insurance/Professional Liability/Indemnity",
+          "737:Background check/Any Age"
+        ],
+        "total": 5
+      }
+    },
+    {
+      "name": "A4: POST /users/qualifications with removed sub-type 71 (Insurance \"Professional Liability/Indemnity\") is rejected",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "SUCCESS",
+        "returnedId": 747
+      }
+    },
+    {
+      "name": "A4: POST /users/qualifications with removed sub-type 78 (Background check \"Any Age\") is rejected",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "SUCCESS",
+        "returnedId": 748
+      }
+    },
+    {
+      "name": "A6: legacy work order 242 still carries a Background-check requirement",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "qualificationSubTypes": [
+          "78:Any Age (Background check)"
+        ]
+      }
+    },
+    {
+      "name": "B1: Create Work Order > \"Qualification Type\" offers no Insurance / Background check",
+      "ok": true,
+      "detail": {
+        "options": [
+          "Certification",
+          "Equipment",
+          "Licences"
+        ]
+      }
+    },
+    {
+      "name": "B1: Create Work Order > \"Qualification Type\" = Certification, Equipment, Licences",
+      "ok": true,
+      "detail": {
+        "options": [
+          "Certification",
+          "Equipment",
+          "Licences"
+        ]
+      }
+    },
+    {
+      "name": "B1: static help text on the create page mentioning insurance",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "snippets": [
+          "ncompass various elements such as licenses, certifications, insurance, equipment, screenings, and specific selection criteria. If"
+        ]
+      }
+    },
+    {
+      "name": "B4: work order 242 details page still shows the legacy Background-check qualification",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "snippets": [
+          "lacement Planning Work Order Eligibility Type Qualification Background check Any Age Schedule Fixed Start Start at a specific date and t"
+        ]
+      }
+    },
+    {
+      "name": "B2: engineer Profile Settings > Personal Info has no \"Insurance\" qualification section",
+      "ok": false,
+      "detail": {
+        "headings": [
+          "Profile Settings",
+          "Personal Information",
+          "Verify your Identity",
+          "Tax Information",
+          "Billing Rates",
+          "200 PKR Hourly",
+          "800 PKR Half Day",
+          "1,600 PKR Full Day",
+          "Insurance"
+        ]
+      }
+    },
+    {
+      "name": "B2: legacy Insurance rows rendered in the Insurance section",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "sectionText": "Insurance",
+        "legacyShown": false
+      }
+    },
+    {
+      "name": "B2: \"+\" on the Insurance section still opens \"Upload Insurance\"; Insurance Type options",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": "Upload Insurance Insurance Type Add File (JPG, PDF, PNG) No file selected Choose File Cancel Save Changes",
+        "options": []
+      }
+    },
+    {
+      "name": "B2: no Insurance sub-type can be chosen in the Upload Insurance modal",
+      "ok": true,
+      "detail": {
+        "options": []
+      }
+    },
+    {
+      "name": "B2: engineer Profile tab shows no \"Insurance\" section",
+      "ok": true,
+      "detail": {
+        "headings": [
+          "Profile Settings",
+          "About Me",
+          "Education",
+          "Resume",
+          "Background Verification",
+          "Skills",
+          "Equipments",
+          "License and Certifications",
+          "Employment History",
+          "Languages"
+        ]
+      }
+    },
+    {
+      "name": "B2: engineer Profile tab \"Background Verification\" section present (document upload feature, not the qualification type)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "present": true
+      }
+    },
+    {
+      "name": "B2: legacy \"Any Age\" (Background check) and \"Professional Liability\" (Insurance) rows are not rendered on the Profile tab",
+      "ok": true,
+      "detail": {
+        "snippets": [
+          "Accounts About Me Education Resume Sample Test Document.pdf Background Verification Skills Network Cabling (Ethernet/Wi-Fi) Equipments 1000 VDC"
+        ]
+      }
+    },
+    {
+      "name": "B2: Background Verification section content",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": "Background Verification"
+      }
+    },
+    {
+      "name": "B2: \"+\" on Background Verification opens a modal; its type options",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": "Background Verifications Education No file selected Choose File Please upload your education certificate (JPG, PNG, PDF) Working Rights No file selected Choose File Please upload documents that shows your working rights in your country (JPG, PNG, PDF) Cancel Save Changes",
+        "options": []
+      }
+    },
+    {
+      "name": "B2: no Background-check sub-type can be chosen in the Background Verification modal",
+      "ok": true,
+      "detail": {
+        "options": []
+      }
+    },
+    {
+      "name": "B3: admin Manage > Qualifications page content",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/manage/qualifications/*",
+        "tabs": [
+          "Qualifications",
+          "Qualifications",
+          "Sub-Qualifications",
+          "Qualification Type",
+          "Actions"
+        ],
+        "typeOptions": [
+          "10",
+          "20",
+          "50",
+          "100"
+        ],
+        "snippets": []
+      }
+    },
+    {
+      "name": "B3: admin Manage > Qualifications offers no Insurance / Background check type",
+      "ok": true,
+      "detail": {
+        "tabs": [],
+        "typeOptions": [
+          "10",
+          "20",
+          "50",
+          "100"
+        ],
+        "snippets": []
+      }
+    }
+  ],
+  "findings": [
+    "A4: POST /users/qualifications with removed sub-type 71 (Insurance \"Professional Liability/Indemnity\") is rejected",
+    "A4: POST /users/qualifications with removed sub-type 78 (Background check \"Any Age\") is rejected",
+    "B2: engineer Profile Settings > Personal Info has no \"Insurance\" qualification section"
+  ],
+  "api": {
+    "qualifications_engineer": [
+      "1:Certification",
+      "5:Equipment",
+      "2:Licences"
+    ],
+    "qualifications_techdomain": [
+      "1:Certification",
+      "5:Equipment",
+      "2:Licences"
+    ],
+    "qualifications_admin": [
+      "1:Certification",
+      "5:Equipment",
+      "2:Licences"
+    ]
+  },
+  "ui": {
+    "qualificationTypeOptions": [
+      "Certification",
+      "Equipment",
+      "Licences"
+    ],
+    "engineerPersonalHeadings": [
+      "Profile Settings",
+      "Personal Information",
+      "Verify your Identity",
+      "Tax Information",
+      "Billing Rates",
+      "200 PKR Hourly",
+      "800 PKR Half Day",
+      "1,600 PKR Full Day",
+      "Insurance"
+    ],
+    "engineerProfileHeadings": [
+      "Profile Settings",
+      "About Me",
+      "Education",
+      "Resume",
+      "Background Verification",
+      "Skills",
+      "Equipments",
+      "License and Certifications",
+      "Employment History",
+      "Languages"
+    ],
+    "admin": {
+      "url": "https://dev.techdomain.com.au/manage/qualifications/*",
+      "tabs": [
+        "Qualifications",
+        "Qualifications",
+        "Sub-Qualifications",
+        "Qualification Type",
+        "Actions"
+      ],
+      "typeOptions": [
+        "10",
+        "20",
+        "50",
+        "100"
+      ],
+      "snippets": []
+    }
+  }
+}

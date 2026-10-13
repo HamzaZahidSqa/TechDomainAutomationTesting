@@ -1,0 +1,15 @@
+NOT_CONFIRMED [ASSIGNED/NOT_CONFIRMED | customer: -/-]: 2/6 passed  FAILED: customer listing shows the work order; customer API exposes NOT_CONFIRMED (customerSubStatus or subStatus); customer listing row shows "Not Confirmed"; customer detail page shows "Not Confirmed"
+CONFIRMED [ASSIGNED/CONFIRMED | customer: -/-]: 1/5 passed  FAILED: customer listing shows the work order; customer API exposes CONFIRMED (customerSubStatus or subStatus); customer listing row shows "Confirmed"; customer detail page shows "Confirmed"
+READY_TO_GO [ASSIGNED/READY_TO_GO | customer: -/-]: 2/5 passed  FAILED: customer listing shows the work order; customer API exposes READY_TO_GO (customerSubStatus or subStatus); customer listing row shows "Ready to go"
+ON_THE_WAY [ASSIGNED/ON_THE_WAY | customer: -/-]: 2/5 passed  FAILED: customer listing shows the work order; customer API exposes ON_THE_WAY (customerSubStatus or subStatus); customer listing row shows "On the way"
+RUNNING_LATE [ASSIGNED/RUNNING_LATE | customer: -/-]: 2/5 passed  FAILED: customer listing shows the work order; customer API exposes RUNNING_LATE (customerSubStatus or subStatus); customer listing row shows "Running Late"
+CHECK_IN [INPROGRESS/CHECK_IN | customer: -/-]: 2/6 passed  FAILED: customer listing shows the work order; customer API exposes CHECK_IN (customerSubStatus or subStatus); customer listing row shows "Checked In"; customer detail page shows "Checked In"
+CHECK_OUT [INPROGRESS/CHECK_OUT | customer: -/-]: 1/5 passed  FAILED: customer listing shows the work order; customer API exposes CHECK_OUT (customerSubStatus or subStatus); customer listing row shows "Checked Out"; customer detail page shows "Checked Out"
+WORKDONE [WORKDONE/- | customer: -/-]: 1/2 passed  FAILED: customer listing shows the work order
+REVIEWED [WORKDONE/REVIEWED | customer: -/-]: 5/6 passed  FAILED: customer listing shows the work order
+VERIFIED [VERIFIED/PO_PENDING | customer: -/-]: 3/5 passed  FAILED: customer listing shows the work order; customer listing row shows "PO Pending"
+PO_PENDING [VERIFIED/PO_PENDING | customer: -/-]: 3/5 passed  FAILED: customer listing shows the work order; customer listing row shows "PO Pending"
+APPROVED [APPROVED/PO_PENDING | customer: APPROVED/-]: 3/5 passed  FAILED: customer listing shows the work order; customer listing row shows "PO Pending"
+
+Findings:
+none

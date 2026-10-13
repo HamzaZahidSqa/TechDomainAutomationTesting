@@ -1,0 +1,975 @@
+{
+  "run": "1013043020",
+  "checks": [
+    {
+      "name": "A1 (R1): two accounts created with distinct ids (uuid)",
+      "ok": true,
+      "detail": {
+        "ids": [
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "1a9ad8a5-0814-49f4-953f-efdc3be5af92",
+          "0c5541a3-d27c-42ec-b4fd-6e0a22cb9696",
+          "aeffd627-05b4-4e50-a05e-264d3cd58361"
+        ]
+      }
+    },
+    {
+      "name": "A1: owner list GET /bankDetails/user/:id shows both new accounts",
+      "ok": true,
+      "detail": {
+        "list": [
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "userId": 575,
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "userId": 575,
+            "holder": "TD37 Holder 1 1013043020",
+            "bank": "TD37 Bank 1",
+            "accountNumber": "900010130430"
+          }
+        ]
+      }
+    },
+    {
+      "name": "A2 (R2): a route returns exactly ONE account for its id",
+      "ok": false,
+      "detail": {
+        "route": null,
+        "probed": {
+          "/bankDetails/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "200 array[2]",
+          "/bankDetails/account/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "404",
+          "/bankDetails/details/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "404",
+          "/bankDetails/user/575/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "404",
+          "/bankAccounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "404",
+          "/bank-accounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a": "404",
+          "/bankDetails/a0a593ff-efc6-4572-a1ac-8edc5c13867a?userId=575": "200 array[2]"
+        }
+      }
+    },
+    {
+      "name": "A2 (R2): GET /bankDetails/:id honours the account id (id1 -> only id1, id2 -> only id2)",
+      "ok": false,
+      "detail": {
+        "byAccountId1": [
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        ],
+        "byAccountId2": [
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        ],
+        "byJunk": [
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        ],
+        "byNumeric1": {
+          "status": 200,
+          "len": 3
+        }
+      }
+    },
+    {
+      "name": "A3 (R3): PATCH /bankDetails/:id updates only that account",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "acc1": {
+          "bank": "TD37 Bank 1 UPDATED 1013043020",
+          "accountNumber": "777710130430"
+        },
+        "acc2Unchanged": true,
+        "responseKeys": [
+          "id",
+          "accountHolderName",
+          "bankName",
+          "bankAddress",
+          "accountNumber",
+          "accountType",
+          "iban",
+          "swiftCode",
+          "currency",
+          "routingNumber",
+          "sortCode",
+          "bsb",
+          "institutionNumber",
+          "transitNumber",
+          "bankCode",
+          "branchId"
+        ]
+      }
+    },
+    {
+      "name": "A3: PATCH on an unknown id -> 404",
+      "ok": true,
+      "detail": {
+        "status": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "Bank detail not found"
+        }
+      }
+    },
+    {
+      "name": "A5 (R5/R6) B vendor-engineer: PATCH on A's account refused",
+      "ok": true,
+      "detail": {
+        "patch": 404,
+        "patchWithUserId": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "Bank detail not found"
+        }
+      }
+    },
+    {
+      "name": "A5 (R5/R6) B vendor-engineer: DELETE on A's account refused",
+      "ok": true,
+      "detail": {
+        "d": 404,
+        "d2": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "this account doesn't exist"
+        }
+      }
+    },
+    {
+      "name": "A5 (R6) B vendor-engineer: GET /bankDetails/user/<A.id> does not expose A's accounts",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "e4dc1f69-2032-4437-8b97-f08347e8a7a2",
+            "userId": 611,
+            "holder": "TD37 Holder 3 1013043020",
+            "bank": "TD37 Bank B",
+            "accountNumber": "900010130430"
+          }
+        ],
+        "showsA": false,
+        "ownerIds": [
+          611
+        ]
+      }
+    },
+    {
+      "name": "A5 (R5/R6) C client: PATCH on A's account refused",
+      "ok": true,
+      "detail": {
+        "patch": 404,
+        "patchWithUserId": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "Bank detail not found"
+        }
+      }
+    },
+    {
+      "name": "A5 (R5/R6) C client: DELETE on A's account refused",
+      "ok": true,
+      "detail": {
+        "d": 404,
+        "d2": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "this account doesn't exist"
+        }
+      }
+    },
+    {
+      "name": "A5 (R6) C client: GET /bankDetails/user/<A.id> does not expose A's accounts",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "425d6c71-b46f-481d-817a-409e8b2dcbc3",
+            "userId": 27,
+            "holder": "Tech Domain GBP",
+            "bank": "GBP",
+            "accountNumber": "12345678"
+          },
+          {
+            "id": "1eaddc5f-6ed6-444a-acd8-b1aef8ff4d78",
+            "userId": 27,
+            "holder": "Tech Domain Euro",
+            "bank": "Wise",
+            "accountNumber": "10767789"
+          },
+          {
+            "id": "75111164-ad42-4c50-ab3d-159c4201cc3d",
+            "userId": 27,
+            "holder": "Tech Domain Pty Ltd",
+            "bank": "Wise",
+            "accountNumber": "123456"
+          }
+        ],
+        "showsA": false,
+        "ownerIds": [
+          27
+        ]
+      }
+    },
+    {
+      "name": "A5: A's account 2 intact after the other users' attempts",
+      "ok": true,
+      "detail": {
+        "acc2": {
+          "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "userId": 575,
+          "holder": "TD37 Holder 2 1013043020",
+          "bank": "TD37 Bank 2",
+          "accountNumber": "900010130430"
+        }
+      }
+    },
+    {
+      "name": "A6 (R6/R7) B vendor-engineer: GET /bankDetails/<A's account id> must not return A's bank account details",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "e4dc1f69-2032-4437-8b97-f08347e8a7a2",
+            "holder": "TD37 Holder 3 1013043020",
+            "bank": "TD37 Bank B",
+            "accountNumber": "900010130430"
+          }
+        ],
+        "returnsAsAccounts": 0,
+        "sensitiveFields": []
+      }
+    },
+    {
+      "name": "A6 (R6/R7) C client: GET /bankDetails/<A's account id> must not return A's bank account details",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "holder": "TD37 Holder 1 1013043020",
+            "bank": "TD37 Bank 1 UPDATED 1013043020",
+            "accountNumber": "777710130430"
+          }
+        ],
+        "returnsAsAccounts": 2,
+        "sensitiveFields": [
+          "accountNumber",
+          "iban",
+          "swiftCode",
+          "bsb"
+        ]
+      }
+    },
+    {
+      "name": "A6 admin GET /bankDetails/<A's account id>",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "holder": "TD37 Holder 1 1013043020",
+            "bank": "TD37 Bank 1 UPDATED 1013043020",
+            "accountNumber": "777710130430"
+          }
+        ],
+        "returnsAsAccounts": 2,
+        "sensitiveFields": [
+          "accountNumber",
+          "iban",
+          "swiftCode",
+          "bsb"
+        ]
+      }
+    },
+    {
+      "name": "A6: B's answer to GET /bankDetails/<A's id> (B's own account list - param ignored)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "rows": [
+          {
+            "id": "e4dc1f69-2032-4437-8b97-f08347e8a7a2",
+            "holder": "TD37 Holder 3 1013043020",
+            "bank": "TD37 Bank B",
+            "accountNumber": "900010130430"
+          }
+        ],
+        "bAccount": "e4dc1f69-2032-4437-8b97-f08347e8a7a2"
+      }
+    },
+    {
+      "name": "A7 (R7): provider view used by the invoice screen exposes only id / bankName / currency",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "bankName": "TD37 Bank 1 UPDATED 1013043020",
+            "currency": "AUD"
+          },
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "bankName": "TD37 Bank 2",
+            "currency": "AUD"
+          }
+        ],
+        "keys": [
+          "id",
+          "bankName",
+          "currency"
+        ]
+      }
+    },
+    {
+      "name": "A7: provider view for a vendor engineer (B)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 403,
+        "body": "{\"statusCode\":403,\"message\":\"Unauthorized\"}"
+      }
+    },
+    {
+      "name": "A7: owner list fields",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "keys": [
+          "id",
+          "accountHolderName",
+          "bankName",
+          "bankAddress",
+          "accountType",
+          "accountNumber",
+          "iban",
+          "swiftCode",
+          "currency",
+          "routingNumber",
+          "sortCode",
+          "bsb",
+          "institutionNumber",
+          "transitNumber",
+          "bankCode",
+          "branchId",
+          "branch",
+          "userId"
+        ]
+      }
+    },
+    {
+      "name": "A8: POST with userId of another user in the body still creates the account for the caller",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "owner": "A"
+      }
+    },
+    {
+      "name": "A8: PATCH userId cannot move an account to another user",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "stillOwnedByA": true
+      }
+    },
+    {
+      "name": "A8: DELETE /bankDetails/:id/:userId with a WRONG userId (owner token) - userId path param ignored",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "data": {
+            "id": "1a9ad8a5-0814-49f4-953f-efdc3be5af92"
+          },
+          "message": "SUCCESS"
+        },
+        "deleted": true
+      }
+    },
+    {
+      "name": "A8: DELETE /bankDetails/:id without userId segment",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "A4 (R4): DELETE /bankDetails/:id/:userId removes only that account",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "data": {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+          },
+          "message": "SUCCESS"
+        },
+        "acc1Gone": true,
+        "acc2Present": true
+      }
+    },
+    {
+      "name": "A4: deleting the same id twice -> 404",
+      "ok": true,
+      "detail": {
+        "status": 404,
+        "body": {
+          "statusCode": 404,
+          "message": "this account doesn't exist"
+        }
+      }
+    },
+    {
+      "name": "B1: Bank Accounts tab lists both accounts (rows keyed by account id)",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "TD37 Holder 6 1013043020 TD37 UI Bank 6 900010130430 AU610130430200000 6 Test St AUD SAVINGS 066-006",
+          "TD37 Holder 5 1013043020 TD37 UI Bank 5 900010130430 AU510130430200000 5 Test St AUD SAVINGS 065-005",
+          "TD37 Holder 2 1013043020 TD37 Bank 2 900010130430 AU210130430200000 2 Test St AUD SAVINGS 062-002"
+        ],
+        "calls": [
+          "GET /bankDetails/user/undefined?page=1&limit=20 -> 200"
+        ]
+      }
+    },
+    {
+      "name": "B1: list request sent by the UI (note the userId segment)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "calls": [
+          "GET /bankDetails/user/undefined?page=1&limit=20 -> 200"
+        ]
+      }
+    },
+    {
+      "name": "B2: \"Bank Account Details\" modal content + API calls made to open it (none = rendered from the row)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "accountHolderName": "TD37 Holder 5 1013043020",
+        "bankName": "TD37 UI Bank 5",
+        "accountNumber": "900010130430",
+        "iban": "AU510130430200000",
+        "currency": "PKR",
+        "accountType": "SAVINGS",
+        "title": "Bank Account Details",
+        "selects": [
+          "20",
+          "Saving",
+          "PKR"
+        ],
+        "calls": []
+      }
+    },
+    {
+      "name": "B2: view modal shows account 1 only (holder/bank of account 1, no API call needed)",
+      "ok": true,
+      "detail": {
+        "accountHolderName": "TD37 Holder 5 1013043020",
+        "bankName": "TD37 UI Bank 5",
+        "accountNumber": "900010130430",
+        "iban": "AU510130430200000",
+        "currency": "PKR",
+        "accountType": "SAVINGS",
+        "title": "Bank Account Details",
+        "selects": [
+          "20",
+          "Saving",
+          "PKR"
+        ]
+      }
+    },
+    {
+      "name": "B2: view modal shows the account currency (AUD) rather than the PKR default",
+      "ok": false,
+      "detail": {
+        "selects": [
+          "20",
+          "Saving",
+          "PKR"
+        ],
+        "currency": "PKR"
+      }
+    },
+    {
+      "name": "B3: row Actions menu",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "menu": [
+          "Edit",
+          "Delete"
+        ]
+      }
+    },
+    {
+      "name": "B3 (R3): UI edit sends PATCH /bankDetails/<account id> and only account 1 changes",
+      "ok": true,
+      "detail": {
+        "title": "Update Bank Account",
+        "prefill": "TD37 UI Bank 5",
+        "calls": [
+          "PATCH /bankDetails/0c5541a3-d27c-42ec-b4fd-6e0a22cb9696 -> 200 {\"accountHolderName\":\"TD37 Holder 5 1013043020\",\"bankName\":\"TD37 UI Bank 5 EDITED\",\"accountNumber\":\"900010130430\",\"bankAddress\":\"5 Test St\",\"iban\":\"AU510130430200000\",\"swiftCode\":\"TDBK5AU\",\"accountType\":\"SAVINGS\",\"currency\":\"PKR\",\"routin",
+          "GET /bankDetails/user/575?page=1&limit=20 -> 200 "
+        ],
+        "toasts": [
+          "Details updated successfully"
+        ],
+        "acc1": "TD37 UI Bank 5 EDITED",
+        "acc2": "TD37 UI Bank 6"
+      }
+    },
+    {
+      "name": "B3: edit form was pre-filled with account 1 (not account 2)",
+      "ok": true,
+      "detail": {
+        "prefill": "TD37 UI Bank 5",
+        "title": "Update Bank Account"
+      }
+    },
+    {
+      "name": "B3: grid shows the edited name on row 1 and the old name on row 2",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "B4 (R4): UI delete sends DELETE /bankDetails/<account id>/<userId>; account 1 gone, account 2 stays",
+      "ok": true,
+      "detail": {
+        "dialog": "Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone. Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone.",
+        "calls": [
+          "DELETE /bankDetails/0c5541a3-d27c-42ec-b4fd-6e0a22cb9696/575 -> 200",
+          "GET /bankDetails/user/575?page=1&limit=20 -> 200"
+        ],
+        "toasts": [
+          "Bank Account deleted successfully"
+        ],
+        "remaining": [
+          {
+            "id": "aeffd627-05b4-4e50-a05e-264d3cd58361",
+            "userId": 575,
+            "holder": "TD37 Holder 6 1013043020",
+            "bank": "TD37 UI Bank 6",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "userId": 575,
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          }
+        ]
+      }
+    },
+    {
+      "name": "B4: grid keeps account 2 and drops account 1 after delete",
+      "ok": true,
+      "detail": {
+        "toasts": [
+          "Bank Account deleted successfully"
+        ]
+      }
+    },
+    {
+      "name": "B4: confirm dialog names the account being deleted",
+      "ok": true,
+      "detail": {
+        "dialog": "Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone. Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone."
+      }
+    }
+  ],
+  "findings": [
+    "A2 (R2): a route returns exactly ONE account for its id",
+    "A2 (R2): GET /bankDetails/:id honours the account id (id1 -> only id1, id2 -> only id2)",
+    "A6 (R6/R7) C client: GET /bankDetails/<A's account id> must not return A's bank account details",
+    "B2: view modal shows the account currency (AUD) rather than the PKR default"
+  ],
+  "api": {
+    "users": {
+      "A": 575,
+      "B": 611,
+      "C": 27,
+      "admin": 1
+    },
+    "create1": {
+      "status": 201,
+      "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+      "keys": [
+        "id",
+        "accountHolderName",
+        "bankName",
+        "bankAddress",
+        "accountNumber",
+        "accountType",
+        "iban",
+        "swiftCode",
+        "currency",
+        "routingNumber",
+        "sortCode",
+        "bsb",
+        "institutionNumber",
+        "transitNumber",
+        "bankCode",
+        "branchId"
+      ]
+    },
+    "create2": {
+      "status": 201,
+      "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+      "keys": [
+        "id",
+        "accountHolderName",
+        "bankName",
+        "bankAddress",
+        "accountNumber",
+        "accountType",
+        "iban",
+        "swiftCode",
+        "currency",
+        "routingNumber",
+        "sortCode",
+        "bsb",
+        "institutionNumber",
+        "transitNumber",
+        "bankCode",
+        "branchId"
+      ]
+    },
+    "listA": [
+      {
+        "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+        "userId": 575,
+        "holder": "TD37 Holder 2 1013043020",
+        "bank": "TD37 Bank 2",
+        "accountNumber": "900010130430"
+      },
+      {
+        "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+        "userId": 575,
+        "holder": "TD37 Holder 1 1013043020",
+        "bank": "TD37 Bank 1",
+        "accountNumber": "900010130430"
+      }
+    ],
+    "getById": {
+      "/bankDetails/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 200,
+        "single": false,
+        "arrayLen": 2,
+        "ids": [
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        ],
+        "sample": "{\"data\":[{\"id\":\"76bd434d-60cd-42f7-8ddc-9a73b0978d63\",\"accountHolderName\":\"TD37 Holder 2 1013043020\",\"bankName\":\"TD37 Bank 2\",\"bankAddress\":\"2 Test St\",\"accountType\":\"SAVINGS\",\"accountNumber\":\"9000101"
+      },
+      "/bankDetails/account/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 404,
+        "single": false,
+        "arrayLen": null,
+        "sample": "{\"message\":\"Cannot GET /api/bankDetails/account/a0a593ff-efc6-4572-a1ac-8edc5c13867a\",\"error\":\"Not Found\",\"statusCode\":404}"
+      },
+      "/bankDetails/details/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 404,
+        "single": false,
+        "arrayLen": null,
+        "sample": "{\"message\":\"Cannot GET /api/bankDetails/details/a0a593ff-efc6-4572-a1ac-8edc5c13867a\",\"error\":\"Not Found\",\"statusCode\":404}"
+      },
+      "/bankDetails/user/575/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 404,
+        "single": false,
+        "arrayLen": null,
+        "sample": "{\"message\":\"Cannot GET /api/bankDetails/user/575/a0a593ff-efc6-4572-a1ac-8edc5c13867a\",\"error\":\"Not Found\",\"statusCode\":404}"
+      },
+      "/bankAccounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 404,
+        "single": false,
+        "arrayLen": null,
+        "sample": "{\"message\":\"Cannot GET /api/bankAccounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a\",\"error\":\"Not Found\",\"statusCode\":404}"
+      },
+      "/bank-accounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a": {
+        "status": 404,
+        "single": false,
+        "arrayLen": null,
+        "sample": "{\"message\":\"Cannot GET /api/bank-accounts/a0a593ff-efc6-4572-a1ac-8edc5c13867a\",\"error\":\"Not Found\",\"statusCode\":404}"
+      },
+      "/bankDetails/a0a593ff-efc6-4572-a1ac-8edc5c13867a?userId=575": {
+        "status": 200,
+        "single": false,
+        "arrayLen": 2,
+        "ids": [
+          "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        ],
+        "sample": "{\"data\":[{\"id\":\"76bd434d-60cd-42f7-8ddc-9a73b0978d63\",\"accountHolderName\":\"TD37 Holder 2 1013043020\",\"bankName\":\"TD37 Bank 2\",\"bankAddress\":\"2 Test St\",\"accountType\":\"SAVINGS\",\"accountNumber\":\"9000101"
+      }
+    },
+    "getByIdSemantics": {
+      "byAccountId1": [
+        "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+        "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+      ],
+      "byAccountId2": [
+        "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+        "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+      ],
+      "byJunk": [
+        "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+        "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+      ],
+      "byNumeric1": {
+        "status": 200,
+        "len": 3
+      }
+    },
+    "update": {
+      "status": 200,
+      "acc1": {
+        "bank": "TD37 Bank 1 UPDATED 1013043020",
+        "accountNumber": "777710130430"
+      },
+      "acc2Unchanged": true,
+      "responseKeys": [
+        "id",
+        "accountHolderName",
+        "bankName",
+        "bankAddress",
+        "accountNumber",
+        "accountType",
+        "iban",
+        "swiftCode",
+        "currency",
+        "routingNumber",
+        "sortCode",
+        "bsb",
+        "institutionNumber",
+        "transitNumber",
+        "bankCode",
+        "branchId"
+      ]
+    },
+    "crossUser": {
+      "B vendor-engineer": {
+        "patch": 404,
+        "patchWithUserId": 404,
+        "deleteWithOwnerId": 404,
+        "deleteWithOwnId": 404,
+        "listOfA": {
+          "status": 200,
+          "rows": [
+            {
+              "id": "e4dc1f69-2032-4437-8b97-f08347e8a7a2",
+              "userId": 611,
+              "holder": "TD37 Holder 3 1013043020",
+              "bank": "TD37 Bank B",
+              "accountNumber": "900010130430"
+            }
+          ],
+          "showsA": false,
+          "ownerIds": [
+            611
+          ]
+        }
+      },
+      "C client": {
+        "patch": 404,
+        "patchWithUserId": 404,
+        "deleteWithOwnerId": 404,
+        "deleteWithOwnId": 404,
+        "listOfA": {
+          "status": 200,
+          "rows": [
+            {
+              "id": "425d6c71-b46f-481d-817a-409e8b2dcbc3",
+              "userId": 27,
+              "holder": "Tech Domain GBP",
+              "bank": "GBP",
+              "accountNumber": "12345678"
+            },
+            {
+              "id": "1eaddc5f-6ed6-444a-acd8-b1aef8ff4d78",
+              "userId": 27,
+              "holder": "Tech Domain Euro",
+              "bank": "Wise",
+              "accountNumber": "10767789"
+            },
+            {
+              "id": "75111164-ad42-4c50-ab3d-159c4201cc3d",
+              "userId": 27,
+              "holder": "Tech Domain Pty Ltd",
+              "bank": "Wise",
+              "accountNumber": "123456"
+            }
+          ],
+          "showsA": false,
+          "ownerIds": [
+            27
+          ]
+        }
+      }
+    },
+    "leak": {
+      "B vendor-engineer": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "e4dc1f69-2032-4437-8b97-f08347e8a7a2",
+            "holder": "TD37 Holder 3 1013043020",
+            "bank": "TD37 Bank B",
+            "accountNumber": "900010130430"
+          }
+        ],
+        "returnsAsAccounts": 0,
+        "sensitiveFields": []
+      },
+      "C client": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "holder": "TD37 Holder 1 1013043020",
+            "bank": "TD37 Bank 1 UPDATED 1013043020",
+            "accountNumber": "777710130430"
+          }
+        ],
+        "returnsAsAccounts": 2,
+        "sensitiveFields": [
+          "accountNumber",
+          "iban",
+          "swiftCode",
+          "bsb"
+        ]
+      },
+      "admin": {
+        "status": 200,
+        "rows": [
+          {
+            "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+            "holder": "TD37 Holder 2 1013043020",
+            "bank": "TD37 Bank 2",
+            "accountNumber": "900010130430"
+          },
+          {
+            "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+            "holder": "TD37 Holder 1 1013043020",
+            "bank": "TD37 Bank 1 UPDATED 1013043020",
+            "accountNumber": "777710130430"
+          }
+        ],
+        "returnsAsAccounts": 2,
+        "sensitiveFields": [
+          "accountNumber",
+          "iban",
+          "swiftCode",
+          "bsb"
+        ]
+      }
+    },
+    "providerView": {
+      "status": 200,
+      "rows": [
+        {
+          "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a",
+          "bankName": "TD37 Bank 1 UPDATED 1013043020",
+          "currency": "AUD"
+        },
+        {
+          "id": "76bd434d-60cd-42f7-8ddc-9a73b0978d63",
+          "bankName": "TD37 Bank 2",
+          "currency": "AUD"
+        }
+      ],
+      "keys": [
+        "id",
+        "bankName",
+        "currency"
+      ]
+    },
+    "delete": {
+      "status": 200,
+      "body": {
+        "data": {
+          "id": "a0a593ff-efc6-4572-a1ac-8edc5c13867a"
+        },
+        "message": "SUCCESS"
+      },
+      "acc1Gone": true,
+      "acc2Present": true
+    }
+  },
+  "ui": {
+    "listCalls": [
+      "GET /bankDetails/user/undefined?page=1&limit=20 -> 200"
+    ],
+    "view": {
+      "accountHolderName": "TD37 Holder 5 1013043020",
+      "bankName": "TD37 UI Bank 5",
+      "accountNumber": "900010130430",
+      "iban": "AU510130430200000",
+      "currency": "PKR",
+      "accountType": "SAVINGS",
+      "title": "Bank Account Details",
+      "selects": [
+        "20",
+        "Saving",
+        "PKR"
+      ],
+      "calls": []
+    },
+    "edit": {
+      "title": "Update Bank Account",
+      "prefill": "TD37 UI Bank 5",
+      "calls": [
+        "PATCH /bankDetails/0c5541a3-d27c-42ec-b4fd-6e0a22cb9696 -> 200 {\"accountHolderName\":\"TD37 Holder 5 1013043020\",\"bankName\":\"TD37 UI Bank 5 EDITED\",\"accountNumber\":\"900010130430\",\"bankAddress\":\"5 Test St\",\"iban\":\"AU510130430200000\",\"swiftCode\":\"TDBK5AU\",\"accountType\":\"SAVINGS\",\"currency\":\"PKR\",\"routin",
+        "GET /bankDetails/user/575?page=1&limit=20 -> 200 "
+      ],
+      "toasts": [
+        "Details updated successfully"
+      ]
+    },
+    "delete": {
+      "dialog": "Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone. Are you sure you want to delete the Account\"TD37 Holder 5 1013043020\"? This action cannot be undone.",
+      "calls": [
+        "DELETE /bankDetails/0c5541a3-d27c-42ec-b4fd-6e0a22cb9696/575 -> 200",
+        "GET /bankDetails/user/575?page=1&limit=20 -> 200"
+      ],
+      "toasts": [
+        "Bank Account deleted successfully"
+      ]
+    }
+  }
+}

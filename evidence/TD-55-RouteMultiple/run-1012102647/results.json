@@ -1,0 +1,515 @@
+{
+  "run": "1012102647",
+  "woId": 969,
+  "checks": [
+    {
+      "name": "A1: one POST /offers/route with userIds[3] is accepted (201)",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "SUCCESS"
+      }
+    },
+    {
+      "name": "A1: response carries one result per engineer (data[3], all ROUTED)",
+      "ok": true,
+      "detail": {
+        "rows": [
+          "2423:575:ROUTED",
+          "2424:609:ROUTED",
+          "2425:611:ROUTED"
+        ],
+        "routedCount": 3
+      }
+    },
+    {
+      "name": "A1: offers list shows 3 ROUTED offers for the 3 engineers",
+      "ok": true,
+      "detail": {
+        "offers": [
+          {
+            "id": 2423,
+            "status": "ROUTED",
+            "userId": 575
+          },
+          {
+            "id": 2424,
+            "status": "ROUTED",
+            "userId": 609
+          },
+          {
+            "id": 2425,
+            "status": "ROUTED",
+            "userId": 611
+          }
+        ]
+      }
+    },
+    {
+      "name": "A2: routing an already-routed engineer is rejected with a reason and creates no duplicate offer",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "message": "Already Routed to you, please refresh the page",
+        "routedNow": 3
+      }
+    },
+    {
+      "name": "A3: mixed batch (valid + invalid id) returns a result per engineer (valid one routed, invalid one reported)",
+      "ok": false,
+      "detail": {
+        "status": 400,
+        "message": "Engineer 999999: Engineer is not approved",
+        "validEngineerRouted": false,
+        "keys": [
+          "statusCode",
+          "message"
+        ]
+      }
+    },
+    {
+      "name": "A3: failure message names the failing engineer",
+      "ok": true,
+      "detail": {
+        "message": "Engineer 999999: Engineer is not approved"
+      }
+    },
+    {
+      "name": "A4: empty userIds[]",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 400,
+        "message": [
+          "userIds should not be empty"
+        ]
+      }
+    },
+    {
+      "name": "A5: legacy single \"userId\" payload",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 201,
+        "message": "SUCCESS",
+        "routed576": true
+      }
+    },
+    {
+      "name": "A6 (TD-85): one POST /offers/unroute {offerIds[]} unroutes every routed offer",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "ms": 375,
+        "n": 4
+      }
+    },
+    {
+      "name": "UI: Providers tab lists engineers to select",
+      "ok": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "name": "UI: all 3 target engineers found on the Nearby list",
+      "ok": true,
+      "detail": {
+        "picked": [
+          {
+            "id": 41,
+            "found": true,
+            "text": "Route 41 Android User +92 301 3637763 12 EUR Hourly 15 EUR Half Day 25"
+          },
+          {
+            "id": 294,
+            "found": true,
+            "text": "Route 294 Demo User +92 301 1111111 10 USD Hourly 15 USD Half Day 20 U"
+          },
+          {
+            "id": 386,
+            "found": true,
+            "text": "Route 386 Muhammad Farman Zia +92 301 4674853 10 PKR Hourly 50 PKR Hal"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UI: \"Route Selected (3)\" button appears after ticking 3 engineers",
+      "ok": true,
+      "detail": {
+        "button": "Route Selected (3)"
+      }
+    },
+    {
+      "name": "UI: exactly ONE POST offers/route is sent for the selection",
+      "ok": true,
+      "detail": {
+        "count": 1
+      }
+    },
+    {
+      "name": "UI: the single request carries workOrderId + all 3 selected ids (userIds[])",
+      "ok": true,
+      "detail": {
+        "post": "{\"workOrderId\":969,\"userIds\":[41,294,386]}"
+      }
+    },
+    {
+      "name": "UI: route request succeeded (2xx)",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "body": "{\"data\":[{\"id\":2428,\"workOrderId\":969,\"userId\":41,\"createdById\":27,\"referredEngineerId\":null,\"hourlyRate\":12,\"halfDayRate\":15,\"fullDayRate\":25,\"fixedAmount\":null,\"minimumHours\":0,\"additionalHourlyRate\":null,\"engineerRate\":12,\"engineerCurrency\":\"EUR\",\"isCounter\":false,\"status\":\"ROUTED\",\"createdAt\":\"2026-10-12T10:27:06.218Z\",\"updatedAt\":\"2026-10-12T10:27:06.218Z\"},{\"id\":2429,\"workOrderId\":969,\"userId\":294,\"createdById\":27,\"referredEngineerId\":null,\"hourlyRate\":10,\"halfDayRate\":15,\"fullDayRate\":20,\"fixedAmount\":null,\"minimumHours\":0,\"additionalHourlyRate\":null,\"engineerRate\":10,\"engineerCurrency\""
+      }
+    },
+    {
+      "name": "UI: the page refreshes ONCE (no reload endpoint is called more than once after routing)",
+      "ok": true,
+      "detail": {
+        "reloads": {
+          "GET users/nearby?latitude,longitude,radius,limit,page,workOrderId,sortBy,sortOrder,mode": 1,
+          "GET workOrders/providersCount?latitude,longitude,radius,workOrderId": 1,
+          "GET workOrders/969": 1
+        },
+        "total": 3
+      }
+    },
+    {
+      "name": "UI: toast \"3 engineers routed successfully\"",
+      "ok": true,
+      "detail": {
+        "toasts": [
+          "3 engineers routed successfully"
+        ]
+      }
+    },
+    {
+      "name": "API: 3 offers are ROUTED after the UI action",
+      "ok": true,
+      "detail": {
+        "offers": [
+          {
+            "id": 2429,
+            "status": "ROUTED",
+            "userId": 294
+          },
+          {
+            "id": 2430,
+            "status": "ROUTED",
+            "userId": 386
+          },
+          {
+            "id": 2428,
+            "status": "ROUTED",
+            "userId": 41
+          }
+        ]
+      }
+    },
+    {
+      "name": "UI: selection is cleared after a successful route",
+      "ok": true,
+      "detail": {
+        "stillChecked": 0
+      }
+    },
+    {
+      "name": "UI: \"Pending Assignments\" badge after routing",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": "Pending Assignments 3"
+      }
+    },
+    {
+      "name": "UI (TD-85): exactly ONE POST offers/unroute carrying all routed offer ids",
+      "ok": true,
+      "detail": {
+        "count": 1,
+        "post": "{\"offerIds\":[2429,2430,2428]}",
+        "status": 201
+      }
+    },
+    {
+      "name": "UI (TD-85): no reload endpoint is called more than once after unrouting",
+      "ok": true,
+      "detail": {
+        "reloads": {
+          "POST offers/969": 1,
+          "GET workOrders/969": 1,
+          "GET workOrders/providersCount?latitude,longitude,radius,workOrderId": 1
+        }
+      }
+    },
+    {
+      "name": "UI (TD-85): toast \"3 offers unrouted successfully\"",
+      "ok": true,
+      "detail": {
+        "toasts": [
+          "3 offers unrouted successfully"
+        ]
+      }
+    },
+    {
+      "name": "API: no ROUTED offer left after the UI unroute",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "UI mixed: still exactly ONE POST offers/route",
+      "ok": true,
+      "detail": {
+        "count": 1
+      }
+    },
+    {
+      "name": "UI mixed: the error toast names the rejected engineer and the reason",
+      "ok": true,
+      "detail": {
+        "toasts": [
+          "Saman Farooq: Engineer billing rates are missing."
+        ],
+        "body": "{\"statusCode\":400,\"message\":\"Saman  Farooq: Engineer billing rates are missing.\"}"
+      }
+    },
+    {
+      "name": "UI mixed: the routable engineer is still routed (per-engineer result) and the rejected one is reported",
+      "ok": false,
+      "detail": {
+        "routed": [],
+        "status": 400,
+        "body": "{\"statusCode\":400,\"message\":\"Saman  Farooq: Engineer billing rates are missing.\"}"
+      }
+    },
+    {
+      "name": "UI mixed: ticks left on the grid after the failed route",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "stillChecked": 2,
+        "buttonText": "Route Selected (2)"
+      }
+    },
+    {
+      "name": "cleanup: work order has no ROUTED offers left",
+      "ok": true,
+      "detail": {}
+    }
+  ],
+  "findings": [
+    "A3: mixed batch (valid + invalid id) returns a result per engineer (valid one routed, invalid one reported)",
+    "UI mixed: the routable engineer is still routed (per-engineer result) and the rejected one is reported"
+  ],
+  "api": {
+    "a1": {
+      "status": 201,
+      "ms": 783,
+      "body": {
+        "data": [
+          {
+            "id": 2423,
+            "workOrderId": 969,
+            "userId": 575,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 200,
+            "halfDayRate": 800,
+            "fullDayRate": 1600,
+            "fixedAmount": null,
+            "minimumHours": 0,
+            "additionalHourlyRate": null,
+            "engineerRate": 200,
+            "engineerCurrency": "PKR",
+            "isCounter": false,
+            "status": "ROUTED",
+            "createdAt": "2026-10-12T10:26:46.819Z",
+            "updatedAt": "2026-10-12T10:26:46.819Z"
+          },
+          {
+            "id": 2424,
+            "workOrderId": 969,
+            "userId": 609,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": null,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 0,
+            "additionalHourlyRate": null,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "isCounter": false,
+            "status": "ROUTED",
+            "createdAt": "2026-10-12T10:26:46.819Z",
+            "updatedAt": "2026-10-12T10:26:46.819Z"
+          },
+          {
+            "id": 2425,
+            "workOrderId": 969,
+            "userId": 611,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": null,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 0,
+            "additionalHourlyRate": null,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "isCounter": false,
+            "status": "ROUTED",
+            "createdAt": "2026-10-12T10:26:46.819Z",
+            "updatedAt": "2026-10-12T10:26:46.819Z"
+          }
+        ],
+        "routedCount": 3,
+        "message": "SUCCESS"
+      }
+    },
+    "a2": {
+      "status": 409,
+      "body": {
+        "statusCode": 409,
+        "message": "Already Routed to you, please refresh the page"
+      }
+    },
+    "a3": {
+      "status": 400,
+      "body": {
+        "statusCode": 400,
+        "message": "Engineer 999999: Engineer is not approved"
+      }
+    }
+  },
+  "ui": {
+    "route": {
+      "picked": [
+        {
+          "id": 41,
+          "found": true,
+          "text": "Route 41 Android User +92 301 3637763 12 EUR Hourly 15 EUR Half Day 25"
+        },
+        {
+          "id": 294,
+          "found": true,
+          "text": "Route 294 Demo User +92 301 1111111 10 USD Hourly 15 USD Half Day 20 U"
+        },
+        {
+          "id": 386,
+          "found": true,
+          "text": "Route 386 Muhammad Farman Zia +92 301 4674853 10 PKR Hourly 50 PKR Hal"
+        }
+      ],
+      "button": "Route Selected (3)",
+      "routeCalls": [
+        {
+          "status": 201,
+          "post": "{\"workOrderId\":969,\"userIds\":[41,294,386]}",
+          "body": "{\"data\":[{\"id\":2428,\"workOrderId\":969,\"userId\":41,\"createdById\":27,\"referredEngineerId\":null,\"hourlyRate\":12,\"halfDayRate\":15,\"fullDayRate\":25,\"fixedAmount\":null,\"minimumHours\":0,\"additionalHourlyRate\":null,\"engineerRate\":12,\"engineerCurrency\":\"EUR\",\"isCounter\":false,\"status\":\"ROUTED\",\"createdAt\":\"2026-10-12T10:27:06.218Z\",\"updatedAt\":\"2026-10-12T10:27:06.218Z\"},{\"id\":2429,\"workOrderId\":969,\"userId\":294,\"createdById\":27,\"referredEngineerId\":null,\"hourlyRate\":10,\"halfDayRate\":15,\"fullDayRate\":20,\"fixedAmount\":null,\"minimumHours\":0,\"additionalHourlyRate\":null,\"engineerRate\":10,\"engineerCurrency\"",
+          "afterMs": 126
+        }
+      ],
+      "reloads": {
+        "GET users/nearby?latitude,longitude,radius,limit,page,workOrderId,sortBy,sortOrder,mode": 1,
+        "GET workOrders/providersCount?latitude,longitude,radius,workOrderId": 1,
+        "GET workOrders/969": 1
+      },
+      "allCalls": [
+        {
+          "afterMs": 126,
+          "method": "POST",
+          "path": "offers/route",
+          "status": 201
+        },
+        {
+          "afterMs": 1214,
+          "method": "GET",
+          "path": "users/nearby?latitude,longitude,radius,limit,page,workOrderId,sortBy,sortOrder,mode",
+          "status": 200
+        },
+        {
+          "afterMs": 1215,
+          "method": "GET",
+          "path": "workOrders/providersCount?latitude,longitude,radius,workOrderId",
+          "status": 200
+        },
+        {
+          "afterMs": 1215,
+          "method": "GET",
+          "path": "workOrders/969",
+          "status": 200
+        }
+      ],
+      "toasts": [
+        "3 engineers routed successfully"
+      ]
+    },
+    "routedOffers": [
+      {
+        "id": 2429,
+        "status": "ROUTED",
+        "userId": 294
+      },
+      {
+        "id": 2430,
+        "status": "ROUTED",
+        "userId": 386
+      },
+      {
+        "id": 2428,
+        "status": "ROUTED",
+        "userId": 41
+      }
+    ],
+    "unroute": {
+      "calls": [
+        {
+          "status": 201,
+          "post": "{\"offerIds\":[2429,2430,2428]}",
+          "body": "{\"message\":\"SUCCESS\"}"
+        }
+      ],
+      "reloads": {
+        "POST offers/969": 1,
+        "GET workOrders/969": 1,
+        "GET workOrders/providersCount?latitude,longitude,radius,workOrderId": 1
+      },
+      "toasts": [
+        "3 offers unrouted successfully"
+      ]
+    },
+    "mixed": {
+      "picked": [
+        {
+          "id": 91,
+          "found": true,
+          "text": "Route 91 Saman Farooq +1 234567890 40 EUR Hourly 0 0 (Marketplace) 0.0"
+        },
+        {
+          "id": 294,
+          "found": true,
+          "text": "Route 294 Demo User +92 301 1111111 10 USD Hourly 15 USD Half Day 20 U"
+        }
+      ],
+      "routeCalls": [
+        {
+          "status": 400,
+          "post": "{\"workOrderId\":969,\"userIds\":[91,294]}",
+          "body": "{\"statusCode\":400,\"message\":\"Saman  Farooq: Engineer billing rates are missing.\"}"
+        }
+      ],
+      "reloads": {
+        "GET users/nearby?latitude,longitude,radius,limit,page,workOrderId,sortBy,sortOrder,mode": 1,
+        "GET workOrders/providersCount?latitude,longitude,radius,workOrderId": 1,
+        "GET workOrders/969": 1
+      },
+      "toasts": [
+        "Saman Farooq: Engineer billing rates are missing."
+      ],
+      "routedAfter": []
+    }
+  }
+}

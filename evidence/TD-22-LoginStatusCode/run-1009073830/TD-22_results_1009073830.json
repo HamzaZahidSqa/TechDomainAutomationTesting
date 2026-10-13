@@ -1,0 +1,49 @@
+{
+  "api": [
+    {
+      "id": "LG-N05",
+      "name": "registered email + wrong password",
+      "email": "Ha@mailinator.com",
+      "status": 401,
+      "message": "Invalid email or password",
+      "hasToken": false,
+      "expectStatus": 401
+    },
+    {
+      "id": "LG-N06",
+      "name": "unregistered email",
+      "email": "no-such-user-1009073830@mailinator.com",
+      "status": 404,
+      "message": "Invalid email or password",
+      "hasToken": false,
+      "expectStatus": 401
+    },
+    {
+      "id": "LG-N07",
+      "name": "registered email (different case) + wrong password",
+      "email": "HA@MAILINATOR.COM",
+      "status": 401,
+      "message": "Invalid email or password",
+      "hasToken": false,
+      "expectStatus": 401
+    },
+    {
+      "id": "control",
+      "name": "valid credentials",
+      "email": "Ha@mailinator.com",
+      "status": 201,
+      "message": "Login successfully",
+      "hasToken": true,
+      "expectStatus": [
+        200,
+        201
+      ]
+    }
+  ],
+  "ui": {
+    "status": 401,
+    "showsGenericMessage": true,
+    "staysOnLogin": true,
+    "leaksField": false
+  }
+}

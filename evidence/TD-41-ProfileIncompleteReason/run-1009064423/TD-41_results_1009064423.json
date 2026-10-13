@@ -1,0 +1,60 @@
+{
+  "adminUiStatus": 201,
+  "engStatusAfter": "UNAPPROVE",
+  "engNotif": {
+    "id": 96271,
+    "receiverId": 575,
+    "senderId": 1,
+    "workOrderId": null,
+    "chatRoomId": null,
+    "type": "PROFILE_INCOMPLETE",
+    "title": "Action Required: Complete Your Profile",
+    "content": "TD41 1009064423: Insurance document is missing/invalid. Please upload a valid certificate.",
+    "url": "/completeYourProfile",
+    "isRead": false,
+    "createdAt": "2026-10-09T06:44:47.161Z",
+    "updatedAt": "2026-10-09T06:44:47.161Z",
+    "sender": {
+      "id": 1,
+      "firstName": "Super",
+      "lastName": "Admin",
+      "profilePicture": null
+    }
+  },
+  "engBellVisible": true,
+  "engUiShowsReason": true,
+  "engEmail": {
+    "found": true,
+    "bodyText": "\nHome\nEmail\nPricing\nDocumentation\nFAQ\nLogin\n Recent Inboxes\nHa\n\n\nRequest Trial\n\n\nMailinator + AI\nGive Your AI Assistant the Power of Mailinator\n\nSystem Status\nTerms\nPrivacy\nAccessibility\nSecurity\n\nCopyright 2025 Manybrain, LLC,\nAll Rights Reserved\n\nPublic Message\nImportant: Action Required\nBack to Inbox\nTo\nha\nFrom\nno-reply@techdomain.com.au\nSending IP\n69.169.232.9\nReceived\n2026-10-09 11:44:49\nDelete\nHTML\nJSON\nRAW\nLINKS\nSMTP_LOG\nATTACHMENTS\n\n\nDear Syed,\nTD41 1009064423: Insurance document is missing/invalid. Please upload a valid certificate.\n\nIf you have any questions or require further clarification, please do not hesitate to contact our support team.\n\nThank you for your cooperation.\n\nBest Regards,\n\nPlatform Support Team\n\nhelpdesk@techdomain.com.au\n+61 2 91583294\n   \n\nOne Platform. Global Field Services. Delivered Anywhere.\n\n© 2025 Tech Domain. All rights reserved.\n\n\n\n\n\n\n\n\n\n",
+    "hasReason": true
+  },
+  "vendorApiStatus": 201,
+  "vendorStatusAfter": "UNAPPROVE",
+  "vendorNotif": {
+    "id": 96272,
+    "receiverId": 609,
+    "senderId": 1,
+    "workOrderId": null,
+    "chatRoomId": null,
+    "type": "PROFILE_INCOMPLETE",
+    "title": "Action Required: Complete Your Profile",
+    "content": "Your profile is incomplete. Please provide: id, rates.",
+    "url": "/completeYourProfile",
+    "isRead": false,
+    "createdAt": "2026-10-09T06:45:24.170Z",
+    "updatedAt": "2026-10-09T06:45:24.170Z",
+    "sender": {
+      "id": 1,
+      "firstName": "Super",
+      "lastName": "Admin",
+      "profilePicture": null
+    }
+  },
+  "vendorUiShowsNotif": true,
+  "vendorEmail": {
+    "found": true,
+    "bodyText": "\nHome\nEmail\nPricing\nDocumentation\nFAQ\nLogin\n Recent Inboxes\nHa\ntd-demo-compa...\n\n\nRequest Trial\n\n\nMailinator + AI\nGive Your AI Assistant the Power of Mailinator\n\nSystem Status\nTerms\nPrivacy\nAccessibility\nSecurity\n\nCopyright 2025 Manybrain, LLC,\nAll Rights Reserved\n\nPublic Message\nTech Domain - Missing Documents\nBack to Inbox\nTo\ntd-demo-company-0925\nFrom\nno-reply@techdomain.com.au\nSending IP\n69.169.232.9\nReceived\n2026-10-09 11:45:25\nDelete\nHTML\nJSON\nRAW\nLINKS\nSMTP_LOG\nATTACHMENTS\n\n\nDear Demo,\n\nThis is a friendly reminder to please submit the required information to proceed with your profile approval on the Tech Domain Platform.\n\nId\nRates\n\nKindly, log in to your account and upload the pending information at your earliest convenience so we can complete the review process.\n\nUpload Document\n\nIf you need any assistance, feel free to reach out to our support team. We look forward to your submission.\n\nBest Regards,\n\nPlatform Support Team\n\nhelpdesk@techdomain.com.au\n+61 2 91583294\n   \n\nOne Platform. Global Field Services. Delivered Anywhere.\n\n© 2025 Tech Domain. All rights reserved.\n\n\n\n\n\n\n\n\n\n",
+    "hasReason": false
+  },
+  "historyKept": true
+}

@@ -1,0 +1,13 @@
+S1 Customer owner creates the work order: WO - (ref -), room - -> 0/1 checks passed
+   FAILED: work order created
+S2 Customer sub-user creates the work order: WO - (ref -), room - -> 0/1 checks passed
+   FAILED: work order created
+S3 Tech Domain owner creates the work order: WO 955 (ref 10949), room 1726 -> 40/55 checks passed
+   FAILED: room participants = customer owner + sub-user + TD owner + team; Customer sub-user can open the room; customer owner notified of the new work order; customer sub-user notified of the new work order; Customer sub-user can send a message; Customer owner sees all 4 messages; Customer owner has a MESSAGE notification for each of the other 3 messages; Customer sub-user sees all 4 messages; Customer sub-user has a MESSAGE notification for each of the other 3 messages; TD owner sees all 4 messages; TD owner has a MESSAGE notification for each of the other 3 messages; TD team member sees all 4 messages; TD team member has a MESSAGE notification for each of the other 3 messages; UI: Customer sub-user sees the 4 messages in the chat page; UI: TD team member sees the 4 messages in the chat page
+S4 Tech Domain team member creates the work order: WO 956 (ref 10950), room 1727 -> 40/55 checks passed
+   FAILED: room participants = customer owner + sub-user + TD owner + team; Customer sub-user can open the room; customer owner notified of the new work order; customer sub-user notified of the new work order; Customer sub-user can send a message; Customer owner sees all 4 messages; Customer owner has a MESSAGE notification for each of the other 3 messages; Customer sub-user sees all 4 messages; Customer sub-user has a MESSAGE notification for each of the other 3 messages; TD owner sees all 4 messages; TD owner has a MESSAGE notification for each of the other 3 messages; TD team member sees all 4 messages; TD team member has a MESSAGE notification for each of the other 3 messages; UI: Customer sub-user sees the 4 messages in the chat page; UI: TD team member sees the 4 messages in the chat page
+STATUS WALK on WO - (-): reached {}
+
+
+Findings:
+GET /teams/:id returns each member's bcrypt password hash (teamMember.password) - should not be exposed

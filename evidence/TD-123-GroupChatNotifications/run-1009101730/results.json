@@ -1,0 +1,1415 @@
+{
+  "run": "1009101730",
+  "setup": {
+    "customerOwner": {
+      "id": 638,
+      "email": "customer-10090955@mailinator.com",
+      "status": "APPROVED"
+    },
+    "subUser": {
+      "id": 639,
+      "email": "td123-subuser-1009101529@mailinator.com",
+      "status": "APPROVED"
+    },
+    "teamMember": {
+      "id": 640,
+      "email": "td123-tdteammember-1009101529@mailinator.com"
+    },
+    "nonTeamUser": {
+      "id": 641,
+      "email": "td123-tdnonteamuser-1009101730@mailinator.com"
+    },
+    "teamMemberIds": [
+      263,
+      473,
+      476,
+      640
+    ]
+  },
+  "scenarios": [
+    {
+      "key": "S1",
+      "title": "Customer owner creates the work order",
+      "checks": [
+        {
+          "name": "work order created",
+          "ok": false,
+          "detail": {
+            "status": 400,
+            "message": "Location is required"
+          }
+        }
+      ]
+    },
+    {
+      "key": "S2",
+      "title": "Customer sub-user creates the work order",
+      "checks": [
+        {
+          "name": "work order created",
+          "ok": false,
+          "detail": {
+            "status": 400,
+            "message": "Location is required"
+          }
+        }
+      ]
+    },
+    {
+      "key": "S3",
+      "title": "Tech Domain owner creates the work order",
+      "checks": [
+        {
+          "name": "work order created",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "id": 955
+          }
+        },
+        {
+          "name": "customer <-> Tech Domain room exists",
+          "ok": true,
+          "detail": {
+            "roomId": 1726,
+            "rowName": "Customer Company 10090955"
+          }
+        },
+        {
+          "name": "room participants = customer owner + sub-user + TD owner + team",
+          "ok": false,
+          "detail": {
+            "actual": [
+              27,
+              263,
+              473,
+              476,
+              638,
+              640
+            ],
+            "missing": [
+              639
+            ],
+            "extra": []
+          }
+        },
+        {
+          "name": "non-team company user is NOT a participant",
+          "ok": true,
+          "detail": {
+            "nonTeamUserId": 641
+          }
+        },
+        {
+          "name": "Customer owner can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              27,
+              473,
+              263,
+              476,
+              640
+            ]
+          }
+        },
+        {
+          "name": "Customer sub-user can open the room",
+          "ok": false,
+          "detail": {
+            "status": 403,
+            "participants": []
+          }
+        },
+        {
+          "name": "TD owner can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              638,
+              473,
+              263,
+              476,
+              640
+            ]
+          }
+        },
+        {
+          "name": "TD team member can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              638,
+              27,
+              473,
+              263,
+              476
+            ]
+          }
+        },
+        {
+          "name": "creator did not get a notification for their own action",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "customer owner notified of the new work order",
+          "ok": false,
+          "detail": []
+        },
+        {
+          "name": "customer sub-user notified of the new work order",
+          "ok": false,
+          "detail": []
+        },
+        {
+          "name": "TD non-team user got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Other-company customer (Neomeric) got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Vendor owner got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Individual engineer got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Customer owner can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "Customer sub-user can send a message",
+          "ok": false,
+          "detail": {
+            "status": 403,
+            "message": "You are not allowed to send messages in this conversation"
+          }
+        },
+        {
+          "name": "TD owner can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "TD team member can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "Customer owner sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "Customer owner has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer owner has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "Customer sub-user sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer sub-user has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer sub-user has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD owner sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "TD owner has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "TD owner has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD team member sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "TD team member has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false
+          }
+        },
+        {
+          "name": "TD team member has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD non-team user: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "no LEAK TEST message landed in the room",
+          "ok": true,
+          "detail": {
+            "count": 0
+          }
+        },
+        {
+          "name": "UI: Customer sub-user sees the 4 messages in the chat page",
+          "ok": false,
+          "detail": {
+            "composer": false,
+            "shot": "TD-123_GroupChat_01_S3-subuser-chat.png"
+          }
+        },
+        {
+          "name": "UI: TD team member sees the 4 messages in the chat page",
+          "ok": false,
+          "detail": {
+            "composer": false,
+            "shot": "TD-123_GroupChat_02_S3-teammember-chat.png"
+          }
+        },
+        {
+          "name": "UI: non-team user does not get the customer conversation",
+          "ok": true,
+          "detail": {
+            "composer": false,
+            "messagesVisible": false,
+            "shot": "TD-123_GroupChat_03_S3-nonteam-chat.png"
+          }
+        }
+      ],
+      "workOrderId": 955,
+      "workOrder": {
+        "id": 955,
+        "referenceId": 10949,
+        "status": "PUBLISHED",
+        "team": "Service Delivery 3",
+        "secondaryTeam": "Operation 3",
+        "clientId": 104
+      },
+      "roomId": 1726,
+      "participants": {
+        "actual": [
+          27,
+          263,
+          473,
+          476,
+          638,
+          640
+        ],
+        "expected": [
+          27,
+          263,
+          473,
+          476,
+          638,
+          639,
+          640
+        ],
+        "missing": [
+          639
+        ],
+        "extra": []
+      },
+      "createNotifications": {
+        "Customer owner": [],
+        "Customer sub-user": [],
+        "TD owner": [],
+        "TD team member": [],
+        "TD non-team user": [],
+        "Other-company customer (Neomeric)": [],
+        "Vendor owner": [],
+        "Individual engineer": []
+      },
+      "delivery": {
+        "Customer owner": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "Customer sub-user": {
+          "seen": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "notified": {
+            "Customer owner": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "TD owner": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "TD team member": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false
+          },
+          "ownNotification": false
+        }
+      },
+      "leaks": {
+        "TD non-team user": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Other-company customer (Neomeric)": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Vendor owner": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Individual engineer": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        }
+      }
+    },
+    {
+      "key": "S4",
+      "title": "Tech Domain team member creates the work order",
+      "checks": [
+        {
+          "name": "work order created",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "id": 956
+          }
+        },
+        {
+          "name": "customer <-> Tech Domain room exists",
+          "ok": true,
+          "detail": {
+            "roomId": 1727,
+            "rowName": "Customer Company 10090955"
+          }
+        },
+        {
+          "name": "room participants = customer owner + sub-user + TD owner + team",
+          "ok": false,
+          "detail": {
+            "actual": [
+              27,
+              263,
+              473,
+              476,
+              638,
+              640
+            ],
+            "missing": [
+              639
+            ],
+            "extra": []
+          }
+        },
+        {
+          "name": "non-team company user is NOT a participant",
+          "ok": true,
+          "detail": {
+            "nonTeamUserId": 641
+          }
+        },
+        {
+          "name": "Customer owner can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              640,
+              27,
+              473,
+              263,
+              476
+            ]
+          }
+        },
+        {
+          "name": "Customer sub-user can open the room",
+          "ok": false,
+          "detail": {
+            "status": 403,
+            "participants": []
+          }
+        },
+        {
+          "name": "TD owner can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              638,
+              640,
+              473,
+              263,
+              476
+            ]
+          }
+        },
+        {
+          "name": "TD team member can open the room",
+          "ok": true,
+          "detail": {
+            "status": 200,
+            "participants": [
+              638,
+              27,
+              473,
+              263,
+              476
+            ]
+          }
+        },
+        {
+          "name": "creator did not get a notification for their own action",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "customer owner notified of the new work order",
+          "ok": false,
+          "detail": []
+        },
+        {
+          "name": "customer sub-user notified of the new work order",
+          "ok": false,
+          "detail": []
+        },
+        {
+          "name": "TD non-team user got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Other-company customer (Neomeric) got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Vendor owner got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Individual engineer got NO notification for this work order",
+          "ok": true,
+          "detail": []
+        },
+        {
+          "name": "Customer owner can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "Customer sub-user can send a message",
+          "ok": false,
+          "detail": {
+            "status": 403,
+            "message": "You are not allowed to send messages in this conversation"
+          }
+        },
+        {
+          "name": "TD owner can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "TD team member can send a message",
+          "ok": true,
+          "detail": {
+            "status": 201,
+            "message": "Message sent successfully"
+          }
+        },
+        {
+          "name": "Customer owner sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "Customer owner has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer owner has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "Customer sub-user sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer sub-user has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "TD owner": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "Customer sub-user has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD owner sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "TD owner has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD team member": false
+          }
+        },
+        {
+          "name": "TD owner has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD team member sees all 4 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          }
+        },
+        {
+          "name": "TD team member has a MESSAGE notification for each of the other 3 messages",
+          "ok": false,
+          "detail": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false
+          }
+        },
+        {
+          "name": "TD team member has no notification for their own message",
+          "ok": true,
+          "detail": {
+            "own": false
+          }
+        },
+        {
+          "name": "TD non-team user: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "TD non-team user: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Other-company customer (Neomeric): no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Vendor owner: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: room not in inbox",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: conversation forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: room messages forbidden",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: cannot send",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "Individual engineer: no MESSAGE notification for this room",
+          "ok": true,
+          "detail": {
+            "listedInInbox": false,
+            "conversationStatus": 403,
+            "roomStatus": 403,
+            "sendStatus": 403,
+            "chatNotifications": 0,
+            "woNotifications": 0
+          }
+        },
+        {
+          "name": "no LEAK TEST message landed in the room",
+          "ok": true,
+          "detail": {
+            "count": 0
+          }
+        },
+        {
+          "name": "UI: Customer sub-user sees the 4 messages in the chat page",
+          "ok": false,
+          "detail": {
+            "composer": false,
+            "shot": "TD-123_GroupChat_04_S4-subuser-chat.png"
+          }
+        },
+        {
+          "name": "UI: TD team member sees the 4 messages in the chat page",
+          "ok": false,
+          "detail": {
+            "composer": false,
+            "shot": "TD-123_GroupChat_05_S4-teammember-chat.png"
+          }
+        },
+        {
+          "name": "UI: non-team user does not get the customer conversation",
+          "ok": true,
+          "detail": {
+            "composer": false,
+            "messagesVisible": false,
+            "shot": "TD-123_GroupChat_06_S4-nonteam-chat.png"
+          }
+        }
+      ],
+      "workOrderId": 956,
+      "workOrder": {
+        "id": 956,
+        "referenceId": 10950,
+        "status": "PUBLISHED",
+        "team": "Service Delivery 3",
+        "secondaryTeam": "Operation 3",
+        "clientId": 104
+      },
+      "roomId": 1727,
+      "participants": {
+        "actual": [
+          27,
+          263,
+          473,
+          476,
+          638,
+          640
+        ],
+        "expected": [
+          27,
+          263,
+          473,
+          476,
+          638,
+          639,
+          640
+        ],
+        "missing": [
+          639
+        ],
+        "extra": []
+      },
+      "createNotifications": {
+        "Customer owner": [],
+        "Customer sub-user": [],
+        "TD owner": [],
+        "TD team member": [],
+        "TD non-team user": [],
+        "Other-company customer (Neomeric)": [],
+        "Vendor owner": [],
+        "Individual engineer": []
+      },
+      "delivery": {
+        "Customer owner": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "Customer sub-user": {
+          "seen": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "notified": {
+            "Customer owner": false,
+            "TD owner": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "TD owner": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD team member": false
+          },
+          "ownNotification": false
+        },
+        "TD team member": {
+          "seen": {
+            "Customer owner": true,
+            "Customer sub-user": false,
+            "TD owner": true,
+            "TD team member": true
+          },
+          "notified": {
+            "Customer owner": false,
+            "Customer sub-user": false,
+            "TD owner": false
+          },
+          "ownNotification": false
+        }
+      },
+      "leaks": {
+        "TD non-team user": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Other-company customer (Neomeric)": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Vendor owner": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        },
+        "Individual engineer": {
+          "listedInInbox": false,
+          "conversationStatus": 403,
+          "roomStatus": 403,
+          "sendStatus": 403,
+          "chatNotifications": 0,
+          "woNotifications": 0
+        }
+      }
+    }
+  ],
+  "findings": [
+    "GET /teams/:id returns each member's bcrypt password hash (teamMember.password) - should not be exposed"
+  ],
+  "statusWalk": {
+    "steps": []
+  }
+}

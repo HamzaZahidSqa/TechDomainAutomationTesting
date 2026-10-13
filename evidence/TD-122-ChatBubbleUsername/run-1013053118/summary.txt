@@ -1,0 +1,15 @@
+PASS precondition: WO 981 is ASSIGNED to a vendor engineer of a vendor company
+INFO Tech Domain chat rooms for the WO
+PASS TD view: vendor owner's bubble is labelled with the sender user name
+PASS TD view: own bubble has no company label
+PASS TD view: no bubble row shows the vendor company name
+INFO TD view: conversation title / sidebar (company name allowed here)
+PASS Vendor owner view (Tech Domain thread): TD user's bubble is labelled with the sender user name
+PASS Vendor owner view (Tech Domain thread): no bubble shows the vendor company name
+PASS Vendor owner view (worker thread): worker's bubble is labelled "Demo Worker"
+PASS Vendor owner view (worker thread): no bubble shows the vendor company name
+PASS Vendor worker view: owner's bubble is labelled "Demo CompanyOwner"
+PASS Vendor worker view: no bubble shows the vendor company name
+INFO Vendor worker view: thread title (company name allowed here)
+INFO A: GET /chats/1800 sender objects (firstName/lastName, no company)
+INFO A: conversation participant (the thread title source) vs participants

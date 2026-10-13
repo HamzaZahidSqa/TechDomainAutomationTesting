@@ -1,0 +1,29 @@
+PASS A1: one POST /offers/route with userIds[3] is accepted (201)
+PASS A1: response carries one result per engineer (data[3], all ROUTED)
+PASS A1: offers list shows 3 ROUTED offers for the 3 engineers
+PASS A2: routing an already-routed engineer is rejected with a reason and creates no duplicate offer
+FAIL A3: mixed batch (valid + invalid id) returns a result per engineer (valid one routed, invalid one reported)
+PASS A3: failure message names the failing engineer
+INFO A4: empty userIds[]
+INFO A5: legacy single "userId" payload
+PASS A6 (TD-85): one POST /offers/unroute {offerIds[]} unroutes every routed offer
+PASS UI: Providers tab lists engineers to select
+PASS UI: all 3 target engineers found on the Nearby list
+PASS UI: "Route Selected (3)" button appears after ticking 3 engineers
+PASS UI: exactly ONE POST offers/route is sent for the selection
+PASS UI: the single request carries workOrderId + all 3 selected ids (userIds[])
+PASS UI: route request succeeded (2xx)
+PASS UI: the page refreshes ONCE (no reload endpoint is called more than once after routing)
+PASS UI: toast "3 engineers routed successfully"
+PASS API: 3 offers are ROUTED after the UI action
+PASS UI: selection is cleared after a successful route
+INFO UI: "Pending Assignments" badge after routing
+PASS UI (TD-85): exactly ONE POST offers/unroute carrying all routed offer ids
+PASS UI (TD-85): no reload endpoint is called more than once after unrouting
+PASS UI (TD-85): toast "3 offers unrouted successfully"
+PASS API: no ROUTED offer left after the UI unroute
+PASS UI mixed: still exactly ONE POST offers/route
+PASS UI mixed: the error toast names the rejected engineer and the reason
+FAIL UI mixed: the routable engineer is still routed (per-engineer result) and the rejected one is reported
+INFO UI mixed: ticks left on the grid after the failed route
+PASS cleanup: work order has no ROUTED offers left

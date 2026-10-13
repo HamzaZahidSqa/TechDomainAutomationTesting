@@ -1,0 +1,79 @@
+{
+  "run": "1009130948",
+  "workOrderId": 965,
+  "steps": [
+    {
+      "step": "APPROVED",
+      "checks": [
+        {
+          "name": "status is APPROVED",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED",
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "APPROVED"
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED"
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10959 Customer Company 10090955 DC Project Approved PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_02_APPROVED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        }
+      },
+      "customerUi": {
+        "listTab": "APPROVED",
+        "listRow": "10959 Customer Company 10090955 DC Project Approved PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 36 Approved PO Pending #10959 On 10/09/2026 TD123 S1 1009112549 by Customer owner Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (gro",
+        "listShot": "TD-110_SubStatus_01_APPROVED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_APPROVED-customer-detail.png"
+      }
+    }
+  ],
+  "findings": []
+}

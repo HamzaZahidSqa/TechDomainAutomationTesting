@@ -1,0 +1,27 @@
+PASS A1 engineer: GET /qualifications no longer lists Insurance / Background check
+PASS A1 techdomain: GET /qualifications no longer lists Insurance / Background check
+PASS A1 admin: GET /qualifications no longer lists Insurance / Background check
+PASS A1: the remaining types are Certification, Licences, Equipment
+PASS A2: GET /qualifications/subQualifications contains no Insurance / Background-check sub-types
+PASS A3: sub-qualifications of type 3 (Insurance) are empty
+PASS A3: sub-qualifications of type 4 (Background check) are empty
+INFO A5: engineer 575 legacy qualifications still stored (Insurance / Background check rows)
+FAIL A4: POST /users/qualifications with removed sub-type 71 (Insurance "Professional Liability/Indemnity") is rejected
+FAIL A4: POST /users/qualifications with removed sub-type 78 (Background check "Any Age") is rejected
+INFO A6: legacy work order 242 still carries a Background-check requirement
+PASS B1: Create Work Order > "Qualification Type" offers no Insurance / Background check
+PASS B1: Create Work Order > "Qualification Type" = Certification, Equipment, Licences
+INFO B1: static help text on the create page mentioning insurance
+INFO B4: work order 242 details page still shows the legacy Background-check qualification
+FAIL B2: engineer Profile Settings > Personal Info has no "Insurance" qualification section
+INFO B2: legacy Insurance rows rendered in the Insurance section
+INFO B2: "+" on the Insurance section still opens "Upload Insurance"; Insurance Type options
+PASS B2: no Insurance sub-type can be chosen in the Upload Insurance modal
+PASS B2: engineer Profile tab shows no "Insurance" section
+FAIL B2: engineer Profile tab has no "Background check / Background Verification" qualification section
+PASS B2: legacy "Any Age" (Background check) and "Professional Liability" (Insurance) rows are not rendered on the Profile tab
+INFO B2: Background Verification section content
+INFO B2: "+" on Background Verification opens a modal; its type options
+PASS B2: no Background-check sub-type can be chosen in the Background Verification modal
+INFO B3: admin Manage > Qualifications page content
+PASS B3: admin Manage > Qualifications offers no Insurance / Background check type

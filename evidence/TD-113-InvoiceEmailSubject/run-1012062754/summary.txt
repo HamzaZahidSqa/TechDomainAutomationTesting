@@ -1,0 +1,14 @@
+invoice 108 for WO 976
+subject: Invoice INV-#108 – Tech Domain
+
+PASS Send Invoice succeeds
+PASS invoice status is UNPAID after sending
+PASS customer received an invoice e-mail
+PASS subject matches "Invoice <number> – Tech Domain"
+PASS subject uses the en dash (–) from the ticket
+PASS subject invoice number "INV-#108" matches the invoice (108)
+PASS e-mail body mentions the same invoice number
+PASS invoice is listed for the customer
+
+Findings:
+none

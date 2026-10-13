@@ -1,0 +1,714 @@
+{
+  "run": "1009125921",
+  "workOrderId": 965,
+  "steps": [
+    {
+      "step": "NOT_CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is NOT_CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is ASSIGNED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listShot": "TD-110_SubStatus_01_NOT_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_NOT_CONFIRMED-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "NOT_CONFIRMED",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listShot": "TD-110_SubStatus_01_NOT_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_NOT_CONFIRMED-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "CONFIRMED",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "READY_TO_GO",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is READY_TO_GO",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "READY_TO_GO",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listShot": "TD-110_SubStatus_05_READY_TO_GO-customer-list.png",
+        "detailShot": "TD-110_SubStatus_06_READY_TO_GO-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "READY_TO_GO",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "READY_TO_GO",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "ON_THE_WAY",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is ON_THE_WAY",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "ON_THE_WAY",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listShot": "TD-110_SubStatus_07_ON_THE_WAY-customer-list.png",
+        "detailShot": "TD-110_SubStatus_08_ON_THE_WAY-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "ON_THE_WAY",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "ON_THE_WAY",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "RUNNING_LATE",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is RUNNING_LATE",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "RUNNING_LATE",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listShot": "TD-110_SubStatus_09_RUNNING_LATE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_10_RUNNING_LATE-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "RUNNING_LATE",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "RUNNING_LATE",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "CHECK_IN",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_IN",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is INPROGRESS",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "INPROGRESS",
+        "listShot": "TD-110_SubStatus_11_CHECK_IN-customer-list.png",
+        "detailShot": "TD-110_SubStatus_12_CHECK_IN-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "CHECK_IN",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "CHECK_OUT",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_OUT",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_OUT",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "INPROGRESS",
+        "listShot": "TD-110_SubStatus_13_CHECK_OUT-customer-list.png",
+        "detailShot": "TD-110_SubStatus_14_CHECK_OUT-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_OUT",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "info": {
+        "subStatus": "CHECK_OUT",
+        "customerApiExposes": false,
+        "customerListShowsBadge": false
+      }
+    },
+    {
+      "step": "WORKDONE",
+      "checks": [
+        {
+          "name": "status is WORKDONE",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": null,
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listShot": "TD-110_SubStatus_15_WORKDONE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_16_WORKDONE-customer-detail.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "step": "REVIEWED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is REVIEWED",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": "REVIEWED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer API does NOT expose REVIEWED as customerSubStatus",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": null,
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "row": "10959 Customer Company 10090955 DC Project Work Done TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer detail page does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_18_REVIEWED-customer-detail.png"
+          }
+        },
+        {
+          "name": "Tech Domain detail page still shows \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_19_REVIEWED-techdomain-detail.png"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10959 Customer Company 10090955 DC Project Work Done TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan",
+        "detailShot": "TD-110_SubStatus_18_REVIEWED-customer-detail.png",
+        "listShot": "TD-110_SubStatus_17_REVIEWED-customer-list.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": "REVIEWED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "techDomainUi": {
+        "shot": "TD-110_SubStatus_19_REVIEWED-techdomain-detail.png"
+      }
+    },
+    {
+      "step": "VERIFIED",
+      "checks": [
+        {
+          "name": "status is VERIFIED",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10959 Customer Company 10090955 DC Project Work Done PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_21_VERIFIED-customer-detail.png"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10959 Customer Company 10090955 DC Project Work Done PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan",
+        "detailShot": "TD-110_SubStatus_21_VERIFIED-customer-detail.png",
+        "listShot": "TD-110_SubStatus_20_VERIFIED-customer-list.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "step": "PO_PENDING",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is PO_PENDING",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10959 Customer Company 10090955 DC Project Work Done PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_23_PO_PENDING-customer-detail.png"
+          }
+        }
+      ],
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10959 Customer Company 10090955 DC Project Work Done PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan",
+        "detailShot": "TD-110_SubStatus_23_PO_PENDING-customer-detail.png",
+        "listShot": "TD-110_SubStatus_22_PO_PENDING-customer-list.png"
+      },
+      "customerApi": {
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "step": "APPROVED",
+      "checks": [
+        {
+          "name": "status is APPROVED",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED",
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "APPROVED"
+          }
+        },
+        {
+          "name": "customer API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED"
+          }
+        },
+        {
+          "name": "customer listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10959 Customer Company 10090955 DC Project Approved PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_02_APPROVED-customer-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        }
+      },
+      "customerUi": {
+        "listTab": "APPROVED",
+        "listRow": "10959 Customer Company 10090955 DC Project Approved PO Pending TD123 S1 1009112549 by Customer owner Syed Hamza 10/09/2026 at 12:53 PM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 3 36 Approved PO Pending #10959 On 10/09/2026 TD123 S1 1009112549 by Customer owner Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-123 QA automation (gro",
+        "listShot": "TD-110_SubStatus_01_APPROVED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_APPROVED-customer-detail.png"
+      }
+    }
+  ],
+  "findings": [],
+  "rebuiltFromLog": "td110-run4.log",
+  "referenceId": 10959,
+  "appendedFrom": "run-1009130948"
+}

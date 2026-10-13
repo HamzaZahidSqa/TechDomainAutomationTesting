@@ -1,0 +1,26 @@
+{
+  "adminUiStatus": 201,
+  "engStatusAfter": "UNAPPROVE",
+  "engNotif": {
+    "id": 96247,
+    "receiverId": 575,
+    "senderId": 1,
+    "workOrderId": null,
+    "chatRoomId": null,
+    "type": "PROFILE_INCOMPLETE",
+    "title": "Action Required: Complete Your Profile",
+    "content": "TD41 061855: Insurance document is missing/invalid. Please upload a valid certificate.",
+    "url": "/completeYourProfile",
+    "isRead": false,
+    "createdAt": "2026-10-09T06:19:16.031Z",
+    "updatedAt": "2026-10-09T06:19:16.031Z",
+    "sender": {
+      "id": 1,
+      "firstName": "Super",
+      "lastName": "Admin",
+      "profilePicture": null
+    }
+  },
+  "engBellVisible": true,
+  "historyKept": true
+}

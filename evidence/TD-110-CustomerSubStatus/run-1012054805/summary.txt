@@ -1,0 +1,15 @@
+NOT_CONFIRMED [ASSIGNED/NOT_CONFIRMED | customer: -/-]: 4/4 passed
+CONFIRMED [ASSIGNED/CONFIRMED | customer: -/-]: 3/3 passed
+READY_TO_GO [ASSIGNED/READY_TO_GO | customer: -/-]: 3/3 passed
+ON_THE_WAY [ASSIGNED/ON_THE_WAY | customer: -/-]: 3/3 passed
+RUNNING_LATE [ASSIGNED/RUNNING_LATE | customer: -/-]: 3/3 passed
+CHECK_IN [INPROGRESS/CHECK_IN | customer: -/-]: 4/4 passed
+CHECK_OUT [INPROGRESS/CHECK_OUT | customer: -/-]: 3/3 passed
+WORKDONE [WORKDONE/- | customer: -/-]: 3/3 passed
+REVIEWED [WORKDONE/REVIEWED | customer: -/-]: 10/10 passed
+VERIFIED [VERIFIED/PO_PENDING | customer: -/-]: 9/9 passed
+PO_PENDING [VERIFIED/PO_PENDING | customer: -/-]: 9/9 passed
+APPROVED [APPROVED/PO_PENDING | customer: APPROVED/-]: 9/9 passed
+
+Findings:
+none

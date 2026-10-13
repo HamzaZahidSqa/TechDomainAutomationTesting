@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# test output
+test-results/
+playwright-report/
+jmeter/results/
+jmeter.log
+temp/
+
+# local credentials / test account passwords
+accounts.json
+test-accounts.json
+td123-accounts.json
+*.accounts.json
+.claude/settings.local.json

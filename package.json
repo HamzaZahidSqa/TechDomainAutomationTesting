@@ -1,0 +1,11 @@
+{
+  "name": "techdomain-automation-testing",
+  "private": true,
+  "scripts": {
+    "test:login": "playwright test tests/login.spec.js",
+    "test:login:headed": "playwright test tests/login.spec.js --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

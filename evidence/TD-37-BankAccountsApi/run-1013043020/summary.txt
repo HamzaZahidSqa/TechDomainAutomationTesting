@@ -1,0 +1,38 @@
+PASS A1 (R1): two accounts created with distinct ids (uuid)
+PASS A1: owner list GET /bankDetails/user/:id shows both new accounts
+FAIL A2 (R2): a route returns exactly ONE account for its id
+FAIL A2 (R2): GET /bankDetails/:id honours the account id (id1 -> only id1, id2 -> only id2)
+PASS A3 (R3): PATCH /bankDetails/:id updates only that account
+PASS A3: PATCH on an unknown id -> 404
+PASS A5 (R5/R6) B vendor-engineer: PATCH on A's account refused
+PASS A5 (R5/R6) B vendor-engineer: DELETE on A's account refused
+PASS A5 (R6) B vendor-engineer: GET /bankDetails/user/<A.id> does not expose A's accounts
+PASS A5 (R5/R6) C client: PATCH on A's account refused
+PASS A5 (R5/R6) C client: DELETE on A's account refused
+PASS A5 (R6) C client: GET /bankDetails/user/<A.id> does not expose A's accounts
+PASS A5: A's account 2 intact after the other users' attempts
+PASS A6 (R6/R7) B vendor-engineer: GET /bankDetails/<A's account id> must not return A's bank account details
+FAIL A6 (R6/R7) C client: GET /bankDetails/<A's account id> must not return A's bank account details
+INFO A6 admin GET /bankDetails/<A's account id>
+INFO A6: B's answer to GET /bankDetails/<A's id> (B's own account list - param ignored)
+PASS A7 (R7): provider view used by the invoice screen exposes only id / bankName / currency
+INFO A7: provider view for a vendor engineer (B)
+INFO A7: owner list fields
+PASS A8: POST with userId of another user in the body still creates the account for the caller
+PASS A8: PATCH userId cannot move an account to another user
+INFO A8: DELETE /bankDetails/:id/:userId with a WRONG userId (owner token) - userId path param ignored
+INFO A8: DELETE /bankDetails/:id without userId segment
+PASS A4 (R4): DELETE /bankDetails/:id/:userId removes only that account
+PASS A4: deleting the same id twice -> 404
+PASS B1: Bank Accounts tab lists both accounts (rows keyed by account id)
+INFO B1: list request sent by the UI (note the userId segment)
+INFO B2: "Bank Account Details" modal content + API calls made to open it (none = rendered from the row)
+PASS B2: view modal shows account 1 only (holder/bank of account 1, no API call needed)
+FAIL B2: view modal shows the account currency (AUD) rather than the PKR default
+INFO B3: row Actions menu
+PASS B3 (R3): UI edit sends PATCH /bankDetails/<account id> and only account 1 changes
+PASS B3: edit form was pre-filled with account 1 (not account 2)
+PASS B3: grid shows the edited name on row 1 and the old name on row 2
+PASS B4 (R4): UI delete sends DELETE /bankDetails/<account id>/<userId>; account 1 gone, account 2 stays
+PASS B4: grid keeps account 2 and drops account 1 after delete
+PASS B4: confirm dialog names the account being deleted

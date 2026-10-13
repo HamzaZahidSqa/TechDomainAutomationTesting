@@ -1,0 +1,9 @@
+APPROVED WO 976: 23/23 passed
+WORKDONE WO 978: 6/9 passed  FAILED: Tech Domain owner (control): sheet shows customer name "QA Customer Signer"; Tech Domain owner (control): sheet shows designation "Site Manager"; Tech Domain owner (control): sheet shows customer comment
+VERIFIED WO 978: 15/15 passed
+APPROVED WO 978: 22/22 passed
+
+Findings:
+WORKDONE WO 978: Tech Domain owner (control): sheet shows customer name "QA Customer Signer"
+WORKDONE WO 978: Tech Domain owner (control): sheet shows designation "Site Manager"
+WORKDONE WO 978: Tech Domain owner (control): sheet shows customer comment

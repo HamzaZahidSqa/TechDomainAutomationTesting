@@ -1,0 +1,134 @@
+{
+  "run": "1012062754",
+  "workOrderId": 976,
+  "checks": [
+    {
+      "name": "Send Invoice succeeds",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "message": "SUCCESS"
+      }
+    },
+    {
+      "name": "invoice status is UNPAID after sending",
+      "ok": true,
+      "detail": {
+        "status": "UNPAID"
+      }
+    },
+    {
+      "name": "customer received an invoice e-mail",
+      "ok": true,
+      "detail": {
+        "inbox": "customer-10090955@mailinator.com"
+      }
+    },
+    {
+      "name": "subject matches \"Invoice <number> – Tech Domain\"",
+      "ok": true,
+      "detail": {
+        "subject": "Invoice INV-#108 – Tech Domain"
+      }
+    },
+    {
+      "name": "subject uses the en dash (–) from the ticket",
+      "ok": true,
+      "detail": {
+        "subject": "Invoice INV-#108 – Tech Domain"
+      }
+    },
+    {
+      "name": "subject invoice number \"INV-#108\" matches the invoice (108)",
+      "ok": true,
+      "detail": {
+        "num": "INV-#108",
+        "known": [
+          "108"
+        ]
+      }
+    },
+    {
+      "name": "e-mail body mentions the same invoice number",
+      "ok": true,
+      "detail": {
+        "num": "INV-#108"
+      }
+    },
+    {
+      "name": "invoice is listed for the customer",
+      "ok": true,
+      "detail": {
+        "status": "UNPAID",
+        "id": 108
+      }
+    }
+  ],
+  "findings": [],
+  "invoiceId": 108,
+  "email": {
+    "rowText": "Tech Domain Accounts Invoice INV-#108 – Tech Domain just now",
+    "subject": "Invoice INV-#108 – Tech Domain",
+    "bodyExcerpt": " Home Email Pricing Documentation FAQ Login Recent Inboxes customer-1009... Request Trial Mailinator + AI Give Your AI Assistant the Power of Mailinator System Status Terms Privacy Accessibility Security Copyright 2025 Manybrain, LLC, All Rights Reserved Public Message Invoice INV-#108 – Tech Domain Back to Inbox To customer-10090955 From accounts@techdomain.com.au Sending IP 69.169.232.11 Received 2026-10-12 11:28:10 Delete HTML JSON RAW LINKS SMTP_LOG ATTACHMENTS Hi Customer Company 10090955, Your invoice from Tech Domain is now available. Please review it and make payment as per payment adv",
+    "shots": [
+      "TD-113_Invoice_01_mailinator-inbox.png",
+      "TD-113_Invoice_02_mailinator-email.png"
+    ]
+  },
+  "customerView": {
+    "id": 108,
+    "status": "UNPAID",
+    "taxType": "GST",
+    "taxPercentage": 10,
+    "taxAmount": 8,
+    "amountPercentage": 0,
+    "totalAmount": 0,
+    "subTotal": 80,
+    "grandTotal": 88,
+    "paymentTerms": 30,
+    "currency": "USD",
+    "dueDate": "2026-11-11T06:22:36.254Z",
+    "engineer": null,
+    "client": {
+      "id": 104,
+      "clientName": "Customer Company 10090955"
+    },
+    "generatedBy": {
+      "id": 27,
+      "firstName": "istkhar",
+      "lastName": "Hussain"
+    },
+    "createdAt": "2026-10-12T06:22:36.234Z",
+    "_count": {
+      "invoiceWorkOrders": 1
+    },
+    "statusHistory": [
+      {
+        "oldStatus": "GENERATED",
+        "newStatus": "GENERATED",
+        "changedBy": {
+          "id": 27,
+          "firstName": "istkhar",
+          "lastName": "Hussain",
+          "role": {
+            "role": "CLIENT"
+          }
+        },
+        "createdAt": "2026-10-12T06:22:36.234Z"
+      },
+      {
+        "oldStatus": "GENERATED",
+        "newStatus": "UNPAID",
+        "changedBy": {
+          "id": 27,
+          "firstName": "istkhar",
+          "lastName": "Hussain",
+          "role": {
+            "role": "CLIENT"
+          }
+        },
+        "createdAt": "2026-10-12T06:28:05.463Z"
+      }
+    ]
+  }
+}

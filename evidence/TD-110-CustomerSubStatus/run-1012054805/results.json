@@ -1,0 +1,1244 @@
+{
+  "run": "1012054805",
+  "workOrderId": 976,
+  "steps": [
+    {
+      "step": "NOT_CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is NOT_CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is ASSIGNED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "NOT_CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 38 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA auto",
+        "listShot": "TD-110_SubStatus_01_NOT_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_02_NOT_CONFIRMED-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "NOT_CONFIRMED",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "NOT_CONFIRMED",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_03_NOT_CONFIRMED-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_04_NOT_CONFIRMED-subuser-detail.png"
+      }
+    },
+    {
+      "step": "CONFIRMED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CONFIRMED",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "CONFIRMED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 39 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA auto",
+        "listShot": "TD-110_SubStatus_05_CONFIRMED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_06_CONFIRMED-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "CONFIRMED",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "CONFIRMED",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_07_CONFIRMED-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_08_CONFIRMED-subuser-detail.png"
+      }
+    },
+    {
+      "step": "READY_TO_GO",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is READY_TO_GO",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "READY_TO_GO",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "READY_TO_GO",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 40 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA auto",
+        "listShot": "TD-110_SubStatus_09_READY_TO_GO-customer-list.png",
+        "detailShot": "TD-110_SubStatus_10_READY_TO_GO-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "READY_TO_GO",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "READY_TO_GO",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_11_READY_TO_GO-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_12_READY_TO_GO-subuser-detail.png"
+      }
+    },
+    {
+      "step": "ON_THE_WAY",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is ON_THE_WAY",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "ON_THE_WAY",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "ON_THE_WAY",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 42 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA auto",
+        "listShot": "TD-110_SubStatus_13_ON_THE_WAY-customer-list.png",
+        "detailShot": "TD-110_SubStatus_14_ON_THE_WAY-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "ON_THE_WAY",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "ON_THE_WAY",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_15_ON_THE_WAY-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_16_ON_THE_WAY-subuser-detail.png"
+      }
+    },
+    {
+      "step": "RUNNING_LATE",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is RUNNING_LATE",
+          "ok": true,
+          "detail": {
+            "status": "ASSIGNED",
+            "subStatus": "RUNNING_LATE",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "ASSIGNED"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "RUNNING_LATE",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 43 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA auto",
+        "listShot": "TD-110_SubStatus_17_RUNNING_LATE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_18_RUNNING_LATE-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "RUNNING_LATE",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "RUNNING_LATE",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "ASSIGNED",
+        "listRow": "10970 Customer Company 10090955 DC Project Assigned TD-110 sub-status visibility 1012054805 Syed Hamza 04/28/2027 at 11:00 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Assigned #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 04/28/2027 11:00 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_19_RUNNING_LATE-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_20_RUNNING_LATE-subuser-detail.png"
+      }
+    },
+    {
+      "step": "CHECK_IN",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_IN",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "status is INPROGRESS",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_IN",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "INPROGRESS",
+        "listRow": "10970 Customer Company 10090955 DC Project In Progress TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 44 In Progress #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 10/12/2026 5:42 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA au",
+        "listShot": "TD-110_SubStatus_21_CHECK_IN-customer-list.png",
+        "detailShot": "TD-110_SubStatus_22_CHECK_IN-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "CHECK_IN",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "CHECK_IN",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "INPROGRESS",
+        "listRow": "10970 Customer Company 10090955 DC Project In Progress TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 In Progress #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 10/12/2026 5:42 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation ",
+        "listShot": "TD-110_SubStatus_23_CHECK_IN-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_24_CHECK_IN-subuser-detail.png"
+      }
+    },
+    {
+      "step": "CHECK_OUT",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is CHECK_OUT",
+          "ok": true,
+          "detail": {
+            "status": "INPROGRESS",
+            "subStatus": "CHECK_OUT",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "INPROGRESS"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_OUT",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "INPROGRESS",
+        "listRow": "10970 Customer Company 10090955 DC Project In Progress TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 45 In Progress #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 10/12/2026 5:42 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA au",
+        "listShot": "TD-110_SubStatus_25_CHECK_OUT-customer-list.png",
+        "detailShot": "TD-110_SubStatus_26_CHECK_OUT-customer-detail.png"
+      },
+      "info": {
+        "customer": {
+          "subStatus": "CHECK_OUT",
+          "apiExposes": false,
+          "listShowsBadge": false
+        },
+        "subuser": {
+          "subStatus": "CHECK_OUT",
+          "apiExposes": false,
+          "listShowsBadge": false
+        }
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "INPROGRESS",
+        "listRow": "10970 Customer Company 10090955 DC Project In Progress TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 In Progress #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Schedule: Fixed Start 10/12/2026 5:42 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation ",
+        "listShot": "TD-110_SubStatus_27_CHECK_OUT-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_28_CHECK_OUT-subuser-detail.png"
+      }
+    },
+    {
+      "step": "WORKDONE",
+      "checks": [
+        {
+          "name": "status is WORKDONE",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": null,
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 46 Work Done #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation ",
+        "listShot": "TD-110_SubStatus_29_WORKDONE-customer-list.png",
+        "detailShot": "TD-110_SubStatus_30_WORKDONE-customer-detail.png"
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Work Done #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (customer",
+        "listShot": "TD-110_SubStatus_31_WORKDONE-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_32_WORKDONE-subuser-detail.png"
+      }
+    },
+    {
+      "step": "REVIEWED",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is REVIEWED",
+          "ok": true,
+          "detail": {
+            "status": "WORKDONE",
+            "subStatus": "REVIEWED",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer owner API does NOT expose REVIEWED (customerSubStatus/subStatus)",
+          "ok": true,
+          "detail": {
+            "detail": {
+              "status": "WORKDONE",
+              "subStatus": null,
+              "customerStatus": null
+            },
+            "list": {
+              "status": "WORKDONE",
+              "subStatus": null,
+              "customerStatus": null
+            }
+          }
+        },
+        {
+          "name": "customer owner listing row does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer owner detail page does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_34_REVIEWED-customer-detail.png"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer sub-user API does NOT expose REVIEWED (customerSubStatus/subStatus)",
+          "ok": true,
+          "detail": {
+            "detail": {
+              "status": "WORKDONE",
+              "subStatus": null,
+              "customerStatus": null
+            },
+            "list": {
+              "status": "WORKDONE",
+              "subStatus": null,
+              "customerStatus": null
+            }
+          }
+        },
+        {
+          "name": "customer sub-user listing row does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer sub-user detail page does NOT show \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_36_REVIEWED-subuser-detail.png"
+          }
+        },
+        {
+          "name": "Tech Domain detail page still shows \"Reviewed\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_37_REVIEWED-techdomain-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": "REVIEWED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 46 Work Done #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation ",
+        "listShot": "TD-110_SubStatus_33_REVIEWED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_34_REVIEWED-customer-detail.png"
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Work Done #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (customer",
+        "listShot": "TD-110_SubStatus_35_REVIEWED-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_36_REVIEWED-subuser-detail.png"
+      },
+      "techDomainUi": {
+        "detailTop": "Dashboard Work Board Task Board Work Force Invoices 16 35 Work Done Reviewed #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Reviewed USD 250.00 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Mark Incomplete Verify Details Payment Providers Messages Job Sign-Off Feedback History O",
+        "shot": "TD-110_SubStatus_37_REVIEWED-techdomain-detail.png"
+      }
+    },
+    {
+      "step": "VERIFIED",
+      "checks": [
+        {
+          "name": "status is VERIFIED",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer owner API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer owner detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_39_VERIFIED-customer-detail.png"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer sub-user API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer sub-user listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer sub-user detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_41_VERIFIED-subuser-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 46 Work Done PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_38_VERIFIED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_39_VERIFIED-customer-detail.png"
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Work Done PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (customer s",
+        "listShot": "TD-110_SubStatus_40_VERIFIED-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_41_VERIFIED-subuser-detail.png"
+      }
+    },
+    {
+      "step": "PO_PENDING",
+      "checks": [
+        {
+          "name": "Tech Domain API subStatus is PO_PENDING",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null,
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer owner API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer owner detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_43_PO_PENDING-customer-detail.png"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "WORKDONE"
+          }
+        },
+        {
+          "name": "customer sub-user API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "VERIFIED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": null
+          }
+        },
+        {
+          "name": "customer sub-user listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer sub-user detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_45_PO_PENDING-subuser-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "customerUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 46 Work Done PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_42_PO_PENDING-customer-list.png",
+        "detailShot": "TD-110_SubStatus_43_PO_PENDING-customer-detail.png"
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        }
+      },
+      "subuserUi": {
+        "listTab": "WORKDONE",
+        "listRow": "10970 Customer Company 10090955 DC Project Work Done PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Work Done PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (customer s",
+        "listShot": "TD-110_SubStatus_44_PO_PENDING-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_45_PO_PENDING-subuser-detail.png"
+      }
+    },
+    {
+      "step": "APPROVED",
+      "checks": [
+        {
+          "name": "status is APPROVED",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED",
+            "customerSubStatus": null
+          }
+        },
+        {
+          "name": "customer owner listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "APPROVED"
+          }
+        },
+        {
+          "name": "customer owner API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED"
+          }
+        },
+        {
+          "name": "customer owner listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Approved PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer owner detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_47_APPROVED-customer-detail.png"
+          }
+        },
+        {
+          "name": "customer sub-user listing shows the work order",
+          "ok": true,
+          "detail": {
+            "tab": "APPROVED"
+          }
+        },
+        {
+          "name": "customer sub-user API exposes PO_PENDING (customerSubStatus or subStatus)",
+          "ok": true,
+          "detail": {
+            "status": "APPROVED",
+            "subStatus": "PO_PENDING",
+            "customerStatus": "APPROVED"
+          }
+        },
+        {
+          "name": "customer sub-user listing row shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "row": "10970 Customer Company 10090955 DC Project Approved PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan"
+          }
+        },
+        {
+          "name": "customer sub-user detail page shows \"PO Pending\"",
+          "ok": true,
+          "detail": {
+            "shot": "TD-110_SubStatus_49_APPROVED-subuser-detail.png"
+          }
+        }
+      ],
+      "techDomainApi": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      },
+      "customerApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        }
+      },
+      "customerUi": {
+        "listTab": "APPROVED",
+        "listRow": "10970 Customer Company 10090955 DC Project Approved PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 2 47 Approved PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (c",
+        "listShot": "TD-110_SubStatus_46_APPROVED-customer-list.png",
+        "detailShot": "TD-110_SubStatus_47_APPROVED-customer-detail.png"
+      },
+      "subuserApi": {
+        "detailStatus": 200,
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "listStatus": 200,
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        }
+      },
+      "subuserUi": {
+        "listTab": "APPROVED",
+        "listRow": "10970 Customer Company 10090955 DC Project Approved PO Pending TD-110 sub-status visibility 1012054805 Syed Hamza 10/12/2026 at 05:42 AM (CUT) Lahore, Pakistan, Pakistan",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 10 Approved PO Pending #10970 On 10/12/2026 TD-110 sub-status visibility 1012054805 Working Hours 0 hours 1 min Payment: Approved USD 80.00 Engineer Syed HamzaID: 575 Print Details Payment Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-110 QA automation (customer s",
+        "listShot": "TD-110_SubStatus_48_APPROVED-subuser-list.png",
+        "detailShot": "TD-110_SubStatus_49_APPROVED-subuser-detail.png"
+      }
+    }
+  ],
+  "findings": []
+}

@@ -1,0 +1,52 @@
+{
+  "api": {
+    "unregistered": {
+      "email": "no-account-1009075132@mailinator.com",
+      "status": 201,
+      "ms": 567,
+      "body": {
+        "sent": true,
+        "message": "If an account exists for this email, a reset link has been sent."
+      },
+      "keys": [
+        "message",
+        "sent"
+      ]
+    },
+    "registered": {
+      "email": "Ha@mailinator.com",
+      "status": 201,
+      "ms": 2828,
+      "body": {
+        "sent": true,
+        "message": "If an account exists for this email, a reset link has been sent."
+      },
+      "keys": [
+        "message",
+        "sent"
+      ]
+    },
+    "sameStatus": true,
+    "sameMessage": true,
+    "sameShape": true,
+    "leak": false
+  },
+  "ui": {
+    "unregistered": {
+      "status": 201,
+      "url": "/forgotPassword",
+      "text": "If an account exists for the email below, a password recovery email with instructions has been sent. Please follow the instructions to reset the password. no-account-1009075132@mailinator.com Return to login Return to Recovery Link"
+    },
+    "registered": {
+      "status": 201,
+      "url": "/forgotPassword",
+      "text": "If an account exists for the email below, a password recovery email with instructions has been sent. Please follow the instructions to reset the password. Ha@mailinator.com Return to login Return to Recovery Link"
+    },
+    "sameScreen": true,
+    "leak": false
+  },
+  "mail": {
+    "inbox": "Ha",
+    "resetMailListed": true
+  }
+}
