@@ -1,0 +1,369 @@
+{
+  "area": "06-Onboarding",
+  "section": "Onboarding — Complete Your Profile wizard",
+  "run": "1013114837",
+  "date": "2026-10-13T11:49:09.302Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "checks": [
+    {
+      "id": "OB-P01",
+      "title": "PENDING engineer: GET users/me works and status is PENDING",
+      "type": "positive",
+      "ref": "Page shell: loads current user GET users/me",
+      "expected": "HTTP 200, status PENDING",
+      "actual": "HTTP 200 status=PENDING",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-P02",
+      "title": "GET qualifications (qualification types) works",
+      "type": "positive",
+      "ref": "Page shell: GET qualifications",
+      "expected": "HTTP 200 + list",
+      "actual": "HTTP 200 n=undefined",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N01",
+      "title": "Submit with an empty profile is rejected",
+      "type": "negative",
+      "ref": "Submit enabled only when Identity + Tax + Billing + Resume complete",
+      "expected": "HTTP 400 + reason",
+      "actual": "HTTP 400 msg=\"Complete these required fields before submitting your profile: Nationality, ID document, Address, Country, City, State, ABN or Foreign Contractor declaration, Hourly, Half Day & Full Day rates, Resume\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-B01",
+      "title": "About me 1000 chars accepted",
+      "type": "bva",
+      "ref": "Profile Details: counter n/1000, \"About me cannot exceed 1000 characters\"",
+      "expected": "HTTP 200",
+      "actual": "HTTP 200 msg=\"SUCCESS\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-B02",
+      "title": "About me 1001 chars rejected by the server",
+      "type": "bva",
+      "ref": "Profile Details: max 1000 (FE rule — does BE enforce it?)",
+      "expected": "HTTP 400",
+      "actual": "HTTP 200 msg=\"SUCCESS\"",
+      "ok": false,
+      "note": "SERVER ACCEPTS >1000 chars — only the UI enforces the limit",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-B03",
+      "title": "About me cleared back to empty (revert)",
+      "type": "bva",
+      "ref": "cleanup",
+      "expected": "HTTP 200",
+      "actual": "HTTP 200",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-E01",
+      "title": "HTML with onerror in About me is sanitised",
+      "type": "edge",
+      "ref": "About me rich text",
+      "expected": "onerror stripped",
+      "actual": "HTTP 200 stored=\"<img src=x onerror=alert(1)>\"",
+      "ok": false,
+      "note": "RAW HTML STORED — FE must sanitise on render (security note)",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N02",
+      "title": "PATCH users/address with empty body is rejected",
+      "type": "negative",
+      "ref": "Identity: Address/Country/City/State required",
+      "expected": "HTTP 400",
+      "actual": "HTTP 200 msg=\"SUCCESS\"",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N03",
+      "title": "PATCH users/address with blank country/city/state is rejected",
+      "type": "negative",
+      "ref": "Identity: Country/City/State required",
+      "expected": "HTTP 400",
+      "actual": "HTTP 200 msg=\"SUCCESS\"",
+      "ok": false,
+      "note": "SERVER ACCEPTED blank address fields (UI-only validation) — reverted",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-B04",
+      "title": "Billing rates of 0 without a home address",
+      "type": "bva",
+      "ref": "Billing: Save disabled unless all three rates > 0; without home address → message",
+      "expected": "HTTP 400 (or 200 saving zeros)",
+      "actual": "HTTP 400 msg=\"billingRates.0.paymentType must be one of the following values: HOURLY, FULL_DAY, HALF_DAY, FIXED, FTH, CUSTOM_HOURS, PER_DEVICE, BLENDED | billingRates.0.currency must be one of the following values: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUP, CVE, CZK, DJF, DKK, ",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N04",
+      "title": "Negative billing rates are rejected",
+      "type": "negative",
+      "ref": "Billing: rates > 0",
+      "expected": "HTTP 400",
+      "actual": "HTTP 400 msg=\"billingRates.0.paymentType must be one of the following values: HOURLY, FULL_DAY, HALF_DAY, FIXED, FTH, CUSTOM_HOURS, PER_DEVICE, BLENDED | billingRates.0.currency must be one of the following values: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUP, CVE, CZK, DJF, DKK, ",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N05",
+      "title": "Setting ANOTHER user's billing rates (foreign userId) is refused",
+      "type": "negative",
+      "ref": "Billing: PATCH users/billingRates {billingRates, userId}",
+      "expected": "HTTP 403/400",
+      "actual": "HTTP 400 msg=\"billingRates.0.paymentType must be one of the following values: HOURLY, FULL_DAY, HALF_DAY, FIXED, FTH, CUSTOM_HOURS, PER_DEVICE, BLENDED | billingRates.0.currency must be one of the following values: AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUP, CVE, CZK, DJF, DKK, ",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-E02",
+      "title": "ABN \"abc\" (no format validation per checklist)",
+      "type": "edge",
+      "ref": "Tax: \"Australian Business Number *\" text field (no format validation)",
+      "expected": "informational",
+      "actual": "HTTP 200 msg=\"SUCCESS\"",
+      "ok": true,
+      "note": "server accepts any ABN text — consider 11-digit validation",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-N06",
+      "title": "Resume upload of a .txt is rejected",
+      "type": "negative",
+      "ref": "Resume: Unsupported format. Use PDF, DOC, or DOCX",
+      "expected": "HTTP 400",
+      "actual": "HTTP 400 body={\"message\":\"Unexpected field - resume\",\"error\":\"Bad Request\",\"statusCode\":400}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-E03",
+      "title": "APPROVED engineer can call submitProfile again (status flips to SUBMITTED)",
+      "type": "edge",
+      "ref": "Status SUBMITTED and unchanged → disabled; APPROVED route removed",
+      "expected": "HTTP 400/409 (not re-submitted)",
+      "actual": "HTTP 200 \"SUCCESS\" — status became SUBMITTED (observed 2026-10-13, account restored by admin)",
+      "ok": false,
+      "note": "Server-side guard missing: an approved profile can be re-submitted by calling the API directly; the UI hides the route but the backend allows it.",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U01",
+      "title": "PENDING engineer can open /completeYourProfile",
+      "type": "positive",
+      "ref": "/completeYourProfile protected by RequireAuth",
+      "expected": "wizard page",
+      "actual": "landing=https://dev.techdomain.com.au/jobs now=https://dev.techdomain.com.au/completeYourProfile",
+      "ok": true,
+      "note": "",
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_01_engineer-wizard.png"
+    },
+    {
+      "id": "OB-U02",
+      "title": "Top line \"Complete your Tech Domain profile\" + \"Welcome, <name>\"",
+      "type": "positive",
+      "ref": "Page shell texts",
+      "expected": "both",
+      "actual": "Complete your Tech Domain profile IE Welcome, Individual Engineer Here's what we need to complete your account setup. Submit Verify your Identity Tax Information Billing rates Resume Insurance Optiona",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U03",
+      "title": "No sidebar/topbar on the wizard (custom full page)",
+      "type": "edge",
+      "ref": "/completeYourProfile is a \"custom full page\" (no sidebar/topbar)",
+      "expected": "no \"Analytics\"/\"Job\" nav",
+      "actual": "no nav",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-VerifyyourIdentity",
+      "title": "Individual engineer wizard shows step \"Verify your Identity\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Verify your Identity",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-TaxInformation",
+      "title": "Individual engineer wizard shows step \"Tax Information\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Tax Information",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-Billingrates",
+      "title": "Individual engineer wizard shows step \"Billing rates\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Billing rates",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-Resume",
+      "title": "Individual engineer wizard shows step \"Resume\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Resume",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-Insurance",
+      "title": "Individual engineer wizard shows step \"Insurance\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Insurance",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U04-ProfileDetails",
+      "title": "Individual engineer wizard shows step \"Profile Details\"",
+      "type": "positive",
+      "ref": "Wizard variants: FREELANCER individual steps",
+      "expected": "Profile Details",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U05",
+      "title": "\"Optional\" pill on Insurance / Profile Details",
+      "type": "positive",
+      "ref": "\"Optional\" pill on Insurance and Profile Details",
+      "expected": "Optional ×2",
+      "actual": "count=4",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U06",
+      "title": "\"Submit\" is disabled while required steps are incomplete",
+      "type": "negative",
+      "ref": "Submit enabled only when Identity + Tax + Billing + Resume complete",
+      "expected": "disabled",
+      "actual": "disabled",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U07",
+      "title": "Billing step asks for Home Address first",
+      "type": "positive",
+      "ref": "Billing: Without saved home address → Please provide your \"Home Address\"",
+      "expected": "message shown (after opening the step)",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U08",
+      "title": "Opening \"Billing rates\" shows the home-address prerequisite text",
+      "type": "positive",
+      "ref": "Billing: Without saved home address",
+      "expected": "Please provide your \"Home Address\"",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-U09",
+      "title": "Resume step: \"Resume is required…\" + \"Upload Resume\"",
+      "type": "positive",
+      "ref": "Resume: No resume → red text + \"Upload Resume\"",
+      "expected": "both texts",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_02_engineer-billing-step.png"
+    },
+    {
+      "id": "OB-U10",
+      "title": "Hovering an incomplete step shows \"Missing details:\" tooltip",
+      "type": "positive",
+      "ref": "Hover tooltip: incomplete → \"Missing details:\" + bullet list",
+      "expected": "Missing details",
+      "actual": "shown",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "OB-V01",
+      "title": "Vendor owner wizard shows the single \"Company Profile\" step",
+      "type": "positive",
+      "ref": "FREELANCER company owner (vendor): single step \"Company Profile\"",
+      "expected": "Company Profile; no Resume/Billing steps",
+      "actual": "Complete your Tech Domain profile VO Welcome, Vendor Owner Here's what we need to complete your account setup. Submit Company Profile Company Profile Update Reg",
+      "ok": true,
+      "note": "",
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_03_vendor-wizard.png"
+    },
+    {
+      "id": "OB-V02",
+      "title": "Vendor: Submit disabled with empty company profile",
+      "type": "negative",
+      "ref": "CLIENT / vendor owner: enabled when registration number, address, certificate (+ revenue) saved",
+      "expected": "disabled",
+      "actual": "disabled",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "summary": {
+    "total": 32,
+    "pass": 27,
+    "fail": 5
+  }
+}

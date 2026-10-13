@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "test:login": "playwright test tests/login.spec.js",
-    "test:login:headed": "playwright test tests/login.spec.js --headed"
+    "test:login:headed": "playwright test tests/login.spec.js --headed",
+    "test:checklist": "playwright test tests/checklist --workers=1",
+    "report:checklist": "node scripts/build-checklist-report.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0"
