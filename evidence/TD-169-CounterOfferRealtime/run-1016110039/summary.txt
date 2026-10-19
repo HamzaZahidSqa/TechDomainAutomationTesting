@@ -1,0 +1,46 @@
+E1-send                watcher=cust bell 54->55 (realtime +1.0s)  state realtime NO  socket-notification-frame yes  server-notif 1  on-click shown  after-reload bell 55 header "Submitted Proposal Received #11090 On 10"
+E2-edit                watcher=cust bell 55->56 (realtime +1.1s)  state realtime +0.0s  socket-notification-frame yes  server-notif 1  on-click shown  after-reload bell 56 header "Submitted Proposal Received #11090 On 10"
+E3-withdraw            watcher=cust bell 56->57 (realtime +1.1s)  state realtime NO  socket-notification-frame yes  server-notif 1  on-click shown  after-reload bell 57 header "rce Invoices 0 57 Submitted #11090 On 10"
+E4-customer-accepts    watcher=td   bell 7->8 (realtime +0.0s)  state realtime NO  socket-notification-frame yes  server-notif 1  on-click shown  after-reload bell 8 header " Submitted Counter Accepted #11091 On 10"
+E5-customer-declines   watcher=td   bell 8->9 (realtime +0.0s)  state realtime NO  socket-notification-frame yes  server-notif 1  on-click shown  after-reload bell 9 header " Submitted Counter Declined #11092 On 10"
+
+INFO customer page open on WO 1
+PASS customer page has a live socket connection
+PASS [E1-send] server created a notification for the customer
+PASS [E1-send] bell badge count increased in real time (no reload/click) within 40s
+INFO [E1-send] socket 'notification' frame received by the page
+PASS [E1-send] notification visible when the bell is clicked (no reload)
+PASS [E1-send] notification counted after reload (badge 55)
+FAIL [E1-send] work order state "Proposal Received badge / Proposals tab" updated in real time (no reload) within 40s
+PASS [E1-send] work order state "Proposal Received badge / Proposals tab" correct after reload
+PASS [E2-edit] server created a notification for the customer
+PASS [E2-edit] bell badge count increased in real time (no reload/click) within 40s
+INFO [E2-edit] socket 'notification' frame received by the page
+PASS [E2-edit] notification visible when the bell is clicked (no reload)
+PASS [E2-edit] notification counted after reload (badge 56)
+PASS [E2-edit] work order state "Proposal Received badge still shown (edit keeps it pending)" updated in real time (no reload) within 40s
+PASS [E2-edit] work order state "Proposal Received badge still shown (edit keeps it pending)" correct after reload
+PASS [E3-withdraw] server created a notification for the customer
+PASS [E3-withdraw] bell badge count increased in real time (no reload/click) within 40s
+INFO [E3-withdraw] socket 'notification' frame received by the page
+PASS [E3-withdraw] notification visible when the bell is clicked (no reload)
+PASS [E3-withdraw] notification counted after reload (badge 57)
+FAIL [E3-withdraw] work order state "Proposal badge + Proposals tab removed" updated in real time (no reload) within 40s
+FAIL [E3-withdraw] work order state "Proposal badge + Proposals tab removed" correct after reload
+INFO Tech Domain page open on WO 2
+PASS Tech Domain page has a live socket connection
+PASS [E4-customer-accepts] server created a notification for the Tech Domain
+PASS [E4-customer-accepts] bell badge count increased in real time (no reload/click) within 40s
+INFO [E4-customer-accepts] socket 'notification' frame received by the page
+PASS [E4-customer-accepts] notification visible when the bell is clicked (no reload)
+PASS [E4-customer-accepts] notification counted after reload (badge 8)
+FAIL [E4-customer-accepts] work order state "Counter Accepted badge/banner" updated in real time (no reload) within 40s
+PASS [E4-customer-accepts] work order state "Counter Accepted badge/banner" correct after reload
+INFO Tech Domain page open on WO 3
+PASS [E5-customer-declines] server created a notification for the Tech Domain
+PASS [E5-customer-declines] bell badge count increased in real time (no reload/click) within 40s
+INFO [E5-customer-declines] socket 'notification' frame received by the page
+PASS [E5-customer-declines] notification visible when the bell is clicked (no reload)
+PASS [E5-customer-declines] notification counted after reload (badge 9)
+FAIL [E5-customer-declines] work order state "Counter Declined badge/banner" updated in real time (no reload) within 40s
+PASS [E5-customer-declines] work order state "Counter Declined badge/banner" correct after reload

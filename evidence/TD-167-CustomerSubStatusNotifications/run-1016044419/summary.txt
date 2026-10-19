@@ -1,0 +1,52 @@
+NOT_CONFIRMED  TD=ASSIGNED/NOT_CONFIRMED       customer sees=ASSIGNED/-                customer notif=0 []  TD notif=0
+CONFIRMED      TD=ASSIGNED/CONFIRMED           customer sees=ASSIGNED/-                customer notif=1 [Work Order Confirmed by Engineer – WO-11077]  TD notif=1
+READY_TO_GO    TD=ASSIGNED/READY_TO_GO         customer sees=ASSIGNED/-                customer notif=1 [Engineer Ready to Go – WO-11077]  TD notif=1
+ON_THE_WAY     TD=ASSIGNED/ON_THE_WAY          customer sees=ASSIGNED/-                customer notif=1 [Engineer En Route – WO-11077]  TD notif=1
+RUNNING_LATE   TD=ASSIGNED/RUNNING_LATE        customer sees=ASSIGNED/-                customer notif=1 [Engineer Running Late – WO-11077]  TD notif=1
+CHECK_IN       TD=INPROGRESS/CHECK_IN          customer sees=INPROGRESS/-              customer notif=1 [Engineer Checked In – WO-11077]  TD notif=0
+CHECK_OUT      TD=INPROGRESS/CHECK_OUT         customer sees=INPROGRESS/-              customer notif=1 [Engineer Checked Out – WO-11077]  TD notif=0
+WORKDONE       TD=WORKDONE/-                   customer sees=WORKDONE/-                customer notif=1 [Work Order Completed – WO-11077]  TD notif=1
+REVIEWED       TD=WORKDONE/REVIEWED            customer sees=WORKDONE/-                customer notif=0 []  TD notif=0
+VERIFIED       TD=VERIFIED/PO_PENDING          customer sees=VERIFIED/PO_PENDING       customer notif=0 []  TD notif=0
+PO_PENDING     TD=VERIFIED/PO_PENDING          customer sees=VERIFIED/PO_PENDING       customer notif=0 []  TD notif=0
+APPROVED       TD=APPROVED/PO_PENDING          customer sees=APPROVED/PO_PENDING       customer notif=1 [WO-11077: TD-167 sub-status notifications 1016044419]  TD notif=0
+
+PASS setup: WO 1083 (#11077) is ASSIGNED to engineer 575 "Syed Hamza"
+PASS [NOT_CONFIRMED] Tech Domain API subStatus is NOT_CONFIRMED
+PASS [NOT_CONFIRMED] status is ASSIGNED
+PASS [NOT_CONFIRMED] customer does NOT see sub-status NOT_CONFIRMED (customer API: {"status":"ASSIGNED","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [NOT_CONFIRMED] Tech Domain (control) got 0; sub-user got 0
+PASS [CONFIRMED] Tech Domain API subStatus is CONFIRMED
+FAIL [CONFIRMED] customer does NOT see sub-status CONFIRMED (customer API: {"status":"ASSIGNED","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [CONFIRMED] Tech Domain (control) got 1; sub-user got 0
+PASS [READY_TO_GO] Tech Domain API subStatus is READY_TO_GO
+FAIL [READY_TO_GO] customer does NOT see sub-status READY_TO_GO (customer API: {"status":"ASSIGNED","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [READY_TO_GO] Tech Domain (control) got 1; sub-user got 0
+PASS [ON_THE_WAY] Tech Domain API subStatus is ON_THE_WAY
+FAIL [ON_THE_WAY] customer does NOT see sub-status ON_THE_WAY (customer API: {"status":"ASSIGNED","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [ON_THE_WAY] Tech Domain (control) got 1; sub-user got 0
+PASS [RUNNING_LATE] Tech Domain API subStatus is RUNNING_LATE
+FAIL [RUNNING_LATE] customer does NOT see sub-status RUNNING_LATE (customer API: {"status":"ASSIGNED","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [RUNNING_LATE] Tech Domain (control) got 1; sub-user got 0
+PASS [CHECK_IN] Tech Domain API subStatus is CHECK_IN
+PASS [CHECK_IN] status is INPROGRESS
+FAIL [CHECK_IN] customer does NOT see sub-status CHECK_IN (customer API: {"status":"INPROGRESS","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [CHECK_IN] Tech Domain (control) got 0; sub-user got 0
+PASS [CHECK_OUT] Tech Domain API subStatus is CHECK_OUT
+FAIL [CHECK_OUT] customer does NOT see sub-status CHECK_OUT (customer API: {"status":"INPROGRESS","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [CHECK_OUT] Tech Domain (control) got 0; sub-user got 0
+INFO UI after-technician-substatuses: customer detail + bell panel captured
+PASS [WORKDONE] status is WORKDONE
+INFO [WORKDONE] status change (not a sub-status): customer owner got 1 notification(s)
+PASS [REVIEWED] Tech Domain API subStatus is REVIEWED
+PASS [REVIEWED] customer does NOT see sub-status REVIEWED (customer API: {"status":"WORKDONE","subStatus":null,"customerStatus":null}) -> customer owner gets NO notification
+INFO [REVIEWED] Tech Domain (control) got 0; sub-user got 0
+INFO UI after-reviewed: customer detail + bell panel captured
+PASS [VERIFIED] status is VERIFIED
+INFO [VERIFIED] status change (not a sub-status): customer owner got 0 notification(s)
+PASS [PO_PENDING] Tech Domain API subStatus is PO_PENDING
+FAIL [PO_PENDING] customer sees "PO Pending" -> customer owner IS notified
+INFO [PO_PENDING] Tech Domain (control) got 0; sub-user got 0
+INFO UI after-po-pending: customer detail + bell panel captured
+PASS [APPROVED] status is APPROVED
+INFO [APPROVED] status change (not a sub-status): customer owner got 1 notification(s)

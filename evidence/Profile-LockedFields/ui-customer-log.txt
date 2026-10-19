@@ -1,0 +1,44 @@
+
+[Customer] avatar menu: 
+  url: https://dev.techdomain.com.au/workOrders
+  text: Dashboard Work Orders Work Force Invoices 2 2 ID: 617 TD36 Customer My Profile Profile Setting Company Setting Help & Support Log Out Work Orders Create New Work Order Add Filter ​ ​ Draft 0 Submitted 0 Accepted 4 Assigned 13 Inprogress 0 Work Done 3 Approved 3 Invoiced 1 Paid 0 Cancelled 7 All 31 ID Incident ID Client Project Status Title Engineer Schedule 10889 TD36 QA Customer TD36 QA Project Accepted Routed (not accepted) schedule change 1001 1434 10/02/2026 at 11:34 PM (AEST) 10912 TD36 QA Customer TD36 QA Project Accepted TD63 TD-created WO 1002 1647 10/04/2026 at 12:47 AM (AEST) 10902 TD36 QA Customer TD36 QA Project Accepted TD39 B vendor counter-accept 1002 1537 10/06/2026 at 02:37 
+  inputs: :r4:="" disabled=false ro=false | select_all_rows="on" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | text="50" disabled=false ro=false
+  pencils: 0 | buttons: Create New Work Order
+
+[CustomerUser] avatar menu: 
+  url: https://dev.techdomain.com.au/workOrders
+  text: Dashboard Work Orders Work Force Invoices 1 49 ID: 624 Demo SubUserThree My Profile Profile Setting Help & Support Log Out Work Orders Create New Work Order Add Filter ​ ​ Draft 0 Submitted 0 Accepted 4 Assigned 13 Inprogress 0 Work Done 3 Approved 3 Invoiced 1 Paid 0 Cancelled 7 All 31 ID Incident ID Client Project Status Title Engineer Schedule 10889 TD36 QA Customer TD36 QA Project Accepted Routed (not accepted) schedule change 1001 1434 10/02/2026 at 11:34 PM (AEST) 10912 TD36 QA Customer TD36 QA Project Accepted TD63 TD-created WO 1002 1647 10/04/2026 at 12:47 AM (AEST) 10902 TD36 QA Customer TD36 QA Project Accepted TD39 B vendor counter-accept 1002 1537 10/06/2026 at 02:37 AM (AEST) 1
+  inputs: :r4:="" disabled=false ro=false | select_all_rows="on" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | select_row="false" disabled=false ro=false | text="50" disabled=false ro=false
+  pencils: 0 | buttons: Create New Work Order
+
+[Customer] My Profile -> https://dev.techdomain.com.au/user/details/profile/617
+  text: Dashboard Work Orders Work Force Invoices 2 2 TD36 Customer ID: 617 +61 412 345 636 Company Info Name TD36 QA Customer Email td36-customer-0929@mailinator.com Phone +61 412 345 636 Website https://td36.example Annual Revenue - Address 1638 Steve Irwin Wy City Beerwah State Queensland Zip / Post Code 4519 Country Australia User Info Active Legal Name TD36 Customer Email td36-customer-0929@mailinator.com Cell Phone +61 412 345 636 Created On 2026/09/29 10:53 AM Last Active a few seconds ago About Me
+  inputs: 
+  buttons:  | pencils: 0
+  Legal Name edit inputs: [] idx -1
+
+[Customer] Profile Setting -> https://dev.techdomain.com.au/user/settings/profileInformation/617
+  text: Dashboard Work Orders Work Force Invoices 2 2 Profile Settings Profile Change Password Personal Information Created On: 2026/09/29 10:53 AM Last Active: a few seconds ago TC Profile Photo Email Address td36-customer-0929@mailinator.com Contact Support to change the email address Legal Name TD36 Customer Phone +61 412 345 636 About Me
+  inputs: 
+  buttons: Profile | Change Password | pencils: 4
+  Legal Name edit inputs: ["TD36","Customer"] idx 0
+  after Save: firstName=Zzqa => EDITABLE via UI; toast: Profile updated successfully / Profile updated successfully
+  restore (admin) -> 200 TD36
+  calls:
+   PATCH /users body={"firstName":"Zzqa","lastName":"Customer"} -> 200 {"data":{"id":617,"profileNeedsResubmit":false,"firstName":"Zzqa","lastName":"Customer","email":"td36-customer-0929@mail
+
+[CustomerUser] My Profile -> https://dev.techdomain.com.au/user/details/profile/624
+  text: Dashboard Work Orders Work Force Invoices 1 49 Demo SubUserThree ID: 624 +61 412 345 692 User Info Active Legal Name Demo SubUserThree Email td36-subuser3-0930@mailinator.com Cell Phone +61 412 345 692 Created On 2026/09/30 02:39 PM Last Active a few seconds ago About Me
+  inputs: 
+  buttons:  | pencils: 0
+  Legal Name edit inputs: [] idx -1
+
+[CustomerUser] Profile Setting -> https://dev.techdomain.com.au/user/settings/profileInformation/624
+  text: Dashboard Work Orders Work Force Invoices 1 49 Profile Settings Profile Change Password Personal Information Created On: 2026/09/30 02:39 PM Last Active: a few seconds ago DS Profile Photo Email Address td36-subuser3-0930@mailinator.com Contact Support to change the email address Legal Name Demo SubUserThree Phone +61 412 345 692 About Me
+  inputs: 
+  buttons: Profile | Change Password | pencils: 4
+  Legal Name edit inputs: ["Demo","SubUserThree"] idx 0
+  after Save: firstName=Zzqa => EDITABLE via UI; toast: Profile updated successfully / Profile updated successfully
+  restore (admin) -> 200 Demo
+  calls:
+   PATCH /users body={"firstName":"Zzqa","lastName":"SubUserThree"} -> 200 {"data":{"id":624,"profileNeedsResubmit":false,"firstName":"Zzqa","lastName":"SubUserThree","email":"td36-subuser3-0930@

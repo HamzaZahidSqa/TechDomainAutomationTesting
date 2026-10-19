@@ -1,8 +1,8 @@
 {
   "area": "06-Onboarding",
   "section": "Onboarding — Complete Your Profile wizard",
-  "run": "1013114837",
-  "date": "2026-10-13T11:49:09.302Z",
+  "run": "1014101754",
+  "date": "2026-10-14T10:18:24.148Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -182,7 +182,7 @@
       "actual": "landing=https://dev.techdomain.com.au/jobs now=https://dev.techdomain.com.au/completeYourProfile",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_01_engineer-wizard.png"
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1014101754/06-Onboarding_01_engineer-wizard.png"
     },
     {
       "id": "OB-U02",
@@ -325,7 +325,7 @@
       "actual": "shown",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_02_engineer-billing-step.png"
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1014101754/06-Onboarding_02_engineer-billing-step.png"
     },
     {
       "id": "OB-U10",
@@ -347,7 +347,7 @@
       "actual": "Complete your Tech Domain profile VO Welcome, Vendor Owner Here's what we need to complete your account setup. Submit Company Profile Company Profile Update Reg",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/06-Onboarding/run-1013114837/06-Onboarding_03_vendor-wizard.png"
+      "screenshot": "evidence/Checklist/06-Onboarding/run-1014101754/06-Onboarding_03_vendor-wizard.png"
     },
     {
       "id": "OB-V02",

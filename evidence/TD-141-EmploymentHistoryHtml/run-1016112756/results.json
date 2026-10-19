@@ -1,0 +1,628 @@
+{
+  "run": "1016112756",
+  "ticket": "TD-141",
+  "bundle": "static/js/main.2a8246fe.js",
+  "checks": [
+    {
+      "name": "dev bundle",
+      "ok": true,
+      "info": true,
+      "detail": "static/js/main.2a8246fe.js"
+    },
+    {
+      "name": "API: employment records seeded (201)",
+      "ok": true,
+      "detail": [
+        {
+          "user": 575,
+          "id": 80,
+          "company": "TD141 Rich Co 1016112756",
+          "status": 201
+        },
+        {
+          "user": 575,
+          "id": 81,
+          "company": "TD141 Probe Co 1016112756",
+          "status": 201
+        },
+        {
+          "user": 575,
+          "id": 82,
+          "company": "TD141 Literal Co 1016112756",
+          "status": 201
+        },
+        {
+          "user": 611,
+          "id": 83,
+          "company": "TD141 Worker Co 1016112756",
+          "status": 201
+        },
+        {
+          "user": 636,
+          "id": 84,
+          "company": "TD141 Pending Co 1016112756",
+          "status": 201
+        }
+      ]
+    },
+    {
+      "name": "API GET /employment/:userId returns the description as stored HTML (no server-side stripping)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 200,
+        "description": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "API: rich description stored verbatim",
+      "ok": true,
+      "detail": {
+        "stored": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "engineer settings: Employment History card present",
+      "ok": true
+    },
+    {
+      "name": "engineer settings: entry \"TD141 Rich Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "Company Name: TD141 Rich Co 1016112756 Designation: Network Lead Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "engineer settings: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "Company Name: TD141 Rich Co 1016112756 Designation: Network Lead Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "engineer settings: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "Company Name: TD141 Rich Co 1016112756 Designation: Network Lead Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "engineer settings: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "engineer settings: escaped literal \"<tag>\" typed by the user stays visible as text",
+      "ok": true,
+      "detail": {
+        "text": "Company Name: TD141 Literal Co 1016112756 Designation: Literal Country: Pakistan Start Date: 01/03/2021 End Date: 30/06/2024 Experience: Typed literal <tag> and <p> text stays visible"
+      }
+    },
+    {
+      "name": "engineer settings (self): SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+      "ok": false,
+      "detail": {
+        "onerrorFired": 1,
+        "probeShown": true,
+        "probeText": "Company Name: TD141 Probe Co 1016112756 Designation: Probe Country: Pakistan Start Date: 01/03/2021 End Date: 30/06/2024 Experience: Probe record"
+      }
+    },
+    {
+      "name": "engineer settings: edit through the rich-text modal",
+      "ok": false,
+      "detail": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//h6[normalize-space()=\"Employment History\"]/ancestor::div[contains(@class,\"mt-6\")][1]').first().locator('xpath=.//*[normalize-space(text())=\"TD141 Rich Co 1016112756\"]/ancestor::div[.//div[contains(@class,\"ql-editor\")]]"
+    },
+    {
+      "name": "Tech Domain view: Employment card present on /user/details/profile/575",
+      "ok": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/user/details/profile/575"
+      }
+    },
+    {
+      "name": "Tech Domain view: entry \"TD141 Rich Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "Tech Domain view: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Tech Domain view: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Tech Domain view: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "Tech Domain view: escaped literal \"<tag>\" typed by the user stays visible as text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible"
+      }
+    },
+    {
+      "name": "Tech Domain view: edit controls on the Employment card (ADMIN only by design)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "pencil": 0,
+        "plus": 0
+      }
+    },
+    {
+      "name": "Tech Domain view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+      "ok": false,
+      "detail": {
+        "onerrorFired": 1,
+        "probeShown": true,
+        "probeText": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record"
+      }
+    },
+    {
+      "name": "Admin view: Employment card present on /user/details/profile/575",
+      "ok": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/user/details/profile/575"
+      }
+    },
+    {
+      "name": "Admin view: entry \"TD141 Rich Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "Admin view: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Admin view: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Admin view: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "Admin view: escaped literal \"<tag>\" typed by the user stays visible as text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible"
+      }
+    },
+    {
+      "name": "Admin view: edit controls on the Employment card (ADMIN only by design)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "pencil": 3,
+        "plus": 1
+      }
+    },
+    {
+      "name": "Admin view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+      "ok": false,
+      "detail": {
+        "onerrorFired": 1,
+        "probeShown": true,
+        "probeText": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record"
+      }
+    },
+    {
+      "name": "Customer view: Employment card present on /user/details/profile/575",
+      "ok": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/user/details/profile/575"
+      }
+    },
+    {
+      "name": "Customer view: entry \"TD141 Rich Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "Customer view: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Customer view: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "Customer view: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "Customer view: escaped literal \"<tag>\" typed by the user stays visible as text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible"
+      }
+    },
+    {
+      "name": "Customer view: edit controls on the Employment card (ADMIN only by design)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "pencil": 0,
+        "plus": 0
+      }
+    },
+    {
+      "name": "Customer view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+      "ok": false,
+      "detail": {
+        "onerrorFired": 1,
+        "probeShown": true,
+        "probeText": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record"
+      }
+    },
+    {
+      "name": "vendor owner view: Employment card present on member profile 611",
+      "ok": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/user/details/profile/611"
+      }
+    },
+    {
+      "name": "vendor owner view: entry \"TD141 Worker Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "TD141 Worker Co 1016112756 Field Engineer Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "vendor owner view: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Worker Co 1016112756 Field Engineer Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "vendor owner view: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "TD141 Worker Co 1016112756 Field Engineer Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "vendor owner view: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "onboarding: Employment History card present under Profile Details",
+      "ok": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/completeYourProfile"
+      }
+    },
+    {
+      "name": "onboarding card: entry \"TD141 Pending Co 1016112756\" shown",
+      "ok": true,
+      "detail": {
+        "found": true,
+        "text": "Company Name: TD141 Pending Co 1016112756 Designation: Junior Engineer Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    {
+      "name": "onboarding card: no raw HTML tags visible in the description text",
+      "ok": true,
+      "detail": {
+        "text": "Company Name: TD141 Pending Co 1016112756 Designation: Junior Engineer Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "onboarding card: description text readable (contains seeded sentence + list items)",
+      "ok": true,
+      "detail": {
+        "text": "Company Name: TD141 Pending Co 1016112756 Designation: Junior Engineer Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO."
+      }
+    },
+    {
+      "name": "onboarding card: markup rendered as elements (strong/em/li)",
+      "ok": true,
+      "detail": {
+        "strong": 1,
+        "li": 2,
+        "em": 1
+      }
+    },
+    {
+      "name": "cleanup: seeded records deleted",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "id": 80,
+          "status": 200
+        },
+        {
+          "id": 81,
+          "status": 200
+        },
+        {
+          "id": 82,
+          "status": 200
+        },
+        {
+          "id": 83,
+          "status": 200
+        },
+        {
+          "id": 84,
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "engineer settings (self): SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+    "engineer settings: edit through the rich-text modal",
+    "Tech Domain view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+    "Admin view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser",
+    "Customer view: SECURITY - injected <img onerror> in a description must not execute in the viewer's browser"
+  ],
+  "seeded": [
+    {
+      "user": 575,
+      "id": 80,
+      "company": "TD141 Rich Co 1016112756",
+      "status": 201
+    },
+    {
+      "user": 575,
+      "id": 81,
+      "company": "TD141 Probe Co 1016112756",
+      "status": 201
+    },
+    {
+      "user": 575,
+      "id": 82,
+      "company": "TD141 Literal Co 1016112756",
+      "status": 201
+    },
+    {
+      "user": 611,
+      "id": 83,
+      "company": "TD141 Worker Co 1016112756",
+      "status": 201
+    },
+    {
+      "user": 636,
+      "id": 84,
+      "company": "TD141 Pending Co 1016112756",
+      "status": 201
+    }
+  ],
+  "views": {
+    "engineer settings": {
+      "TD141 Rich Co 1016112756": {
+        "found": true,
+        "text": "Company Name: TD141 Rich Co 1016112756 Designation: Network Lead Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      },
+      "TD141 Literal Co 1016112756": {
+        "found": true,
+        "text": "Company Name: TD141 Literal Co 1016112756 Designation: Literal Country: Pakistan Start Date: 01/03/2021 End Date: 30/06/2024 Experience: Typed literal <tag> and <p> text stays visible",
+        "rawTagsVisible": true,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Typed literal &lt;tag&gt; and &lt;p&gt; text stays visible</p>"
+      }
+    },
+    "engineer settings (self)": {
+      "TD141 Probe Co 1016112756": {
+        "found": true,
+        "text": "Company Name: TD141 Probe Co 1016112756 Designation: Probe Country: Pakistan Start Date: 01/03/2021 End Date: 30/06/2024 Experience: Probe record",
+        "rawTagsVisible": false,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Probe record</p><img src=\"x\" onerror=\"window.__td141xss=(window.__td141xss||0)+1\">"
+      },
+      "xssProbeFired": 1
+    },
+    "Tech Domain view": {
+      "TD141 Rich Co 1016112756": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      },
+      "TD141 Literal Co 1016112756": {
+        "found": true,
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible",
+        "rawTagsVisible": true,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Typed literal &lt;tag&gt; and &lt;p&gt; text stays visible</p>"
+      },
+      "TD141 Probe Co 1016112756": {
+        "found": true,
+        "text": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record",
+        "rawTagsVisible": false,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Probe record</p><img src=\"x\" onerror=\"window.__td141xss=(window.__td141xss||0)+1\">"
+      },
+      "xssProbeFired": 1
+    },
+    "Admin view": {
+      "TD141 Rich Co 1016112756": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      },
+      "TD141 Literal Co 1016112756": {
+        "found": true,
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible",
+        "rawTagsVisible": true,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Typed literal &lt;tag&gt; and &lt;p&gt; text stays visible</p>"
+      },
+      "TD141 Probe Co 1016112756": {
+        "found": true,
+        "text": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record",
+        "rawTagsVisible": false,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Probe record</p><img src=\"x\" onerror=\"window.__td141xss=(window.__td141xss||0)+1\">"
+      },
+      "xssProbeFired": 1
+    },
+    "Customer view": {
+      "TD141 Rich Co 1016112756": {
+        "found": true,
+        "text": "TD141 Rich Co 1016112756 Network Lead Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      },
+      "TD141 Literal Co 1016112756": {
+        "found": true,
+        "text": "TD141 Literal Co 1016112756 Literal Lahore, PK Typed literal <tag> and <p> text stays visible",
+        "rawTagsVisible": true,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Typed literal &lt;tag&gt; and &lt;p&gt; text stays visible</p>"
+      },
+      "TD141 Probe Co 1016112756": {
+        "found": true,
+        "text": "TD141 Probe Co 1016112756 Probe Lahore, PK Probe record",
+        "rawTagsVisible": false,
+        "strongCount": 0,
+        "liCount": 0,
+        "emCount": 0,
+        "qlHtml": "<p>Probe record</p><img src=\"x\" onerror=\"window.__td141xss=(window.__td141xss||0)+1\">"
+      },
+      "xssProbeFired": 1
+    },
+    "vendor owner view": {
+      "TD141 Worker Co 1016112756": {
+        "found": true,
+        "text": "TD141 Worker Co 1016112756 Field Engineer Lahore, PK Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    },
+    "onboarding card": {
+      "TD141 Pending Co 1016112756": {
+        "found": true,
+        "text": "Company Name: TD141 Pending Co 1016112756 Designation: Junior Engineer Country: Pakistan Start Date: 01/03/2021 (Present) Experience: Led the network operations team for enterprise clients. Cisco & Juniper routing Firewall migrations Reported to the CTO.",
+        "rawTagsVisible": false,
+        "strongCount": 1,
+        "liCount": 2,
+        "emCount": 1,
+        "qlHtml": "<p>Led the <strong>network operations</strong> team for <em>enterprise</em> clients.</p><ul><li>Cisco &amp; Juniper routing</li><li>Firewall migrations</li></ul><p>Reported to the <u>CTO</u>.</p>"
+      }
+    }
+  }
+}

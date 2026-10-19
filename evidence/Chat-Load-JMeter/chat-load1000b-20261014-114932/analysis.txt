@@ -1,0 +1,44 @@
+rows 121594 start 1970-01-01T00:00:00.000Z
+
+(a) HTTP user requests per 30s: bucket | threads | 200 | 401 | SSL-drop | other | p50 of 200s
+  1791960570s |   114 |   364 |     0 |     0 |     0 | 705
+  1791960600s |   431 |  1545 |     0 |     0 |     0 | 3522
+  1791960630s |   654 |  1322 |   759 |  1830 |   191 | 6355
+  1791960660s |   921 |  1214 |  1672 |  6993 |   440 | 6205
+  1791960690s |  1004 |   814 |  4914 |  7338 |   437 | 2070
+  1791960720s |  1012 |   794 |  3406 |  8588 |   508 | 3754
+  1791960750s |  1012 |   813 |  3864 |  6469 |   447 | 3765
+  1791960780s |  1012 |  1243 |  2057 |  7971 |   428 | 5615
+  1791960810s |  1012 |  1149 |  2359 |  7630 |   443 | 6546
+  1791960840s |  1012 |  1022 |  3048 |  5911 |   376 | 4507
+  1791960870s |  1012 |  1379 |  2136 |  7057 |   359 | 7061
+  1791960900s |  1010 |   938 |  1325 |  3511 |   212 | 7730
+  other error kinds: {"Non HTTP response code: org.apache.http.NoHttpResponseException Non HTTP response message: api.dev.techdomain.com.au:443 fai":2191,"Non HTTP response code: java.net.SocketException Non HTTP response message: Connection reset":1603,"500 Internal Server Error":46,"Non HTTP response code: java.net.SocketException Non HTTP response message: An established connection was abo":1}
+
+(c) sender/receiver error kinds:
+   63 sender eio handshake | Sampler error | Sampler configured for using existing connection, but there is no conn
+   63 sender sio connect | Sampler error | Sampler configured for using existing connection, but there is no conn
+   63 sender sio connected | Sampler error | Sampler configured for using existing connection, but there is no conn
+   63 sender subscribeUser | Sampler error | Sampler configured for using existing connection, but there is no conn
+   63 sender joinGroupChat | Sampler error | Sampler configured for using existing connection, but there is no conn
+   63 sendMessage (ws write) | Sampler error | Sampler configured for using existing connection, but there is no conn
+   62 sender ws open | Websocket I/O error | WebSocket I/O error: Socket is closed
+   1 sender ws open | Websocket I/O error | WebSocket I/O error: Empty response; connection closed.
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 0-1791960722047 after 20209 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 3-1791960724869 after 20002 ms
+
+(d) message round-trip per 30s: bucket | ok | err | p50 | p90
+  1791960720s | 5 | 12 | 227 | 777
+  1791960750s | 10 | 10 | 379 | 838
+  1791960780s | 6 | 12 | 676 | 1654
+  1791960810s | 6 | 11 | 882 | 1812
+  1791960840s | 11 | 6 | 614 | 956
+  1791960870s | 4 | 5 | 1639 | 1711
+
+(e) notification delivered per 30s: bucket | n | p50 | p90
+  1791960720s | 5 | 688 | 1646
+  1791960750s | 10 | 588 | 1057
+  1791960780s | 6 | 2327 | 4492
+  1791960810s | 6 | 3517 | 8028
+  1791960840s | 11 | 998 | 1455
+  1791960870s | 4 | 9735 | 9983

@@ -1,0 +1,13 @@
+TD-87 VERDICT: FAIL (bug still present)
+PASS 1. Tech Domain created parent customer "TD87 QA Customer 1016111131" (id 107)
+PASS 2. Generate Signup #1 with td87-owner-1016111131@mailinator.com -> owner user 666 created
+FAIL 3. welcome e-mail #1 received with a generated password
+FAIL 4. baseline: login works with the FIRST generated credentials
+INFO UI login #1
+FAIL 5. Delete Access -> customer has no owner any more
+INFO login with the OLD credentials after Delete Access (expected to fail)
+FAIL 6. Generate Signup #2 with the SAME e-mail succeeds -> owner user undefined (first was 666)
+FAIL 7. welcome e-mail #2 received with a NEW generated password
+FAIL 8. TICKET: login works with the REGENERATED credentials (same e-mail, new password)
+FAIL 8b. UI login with the regenerated credentials reaches the portal (no "Invalid email/password")
+INFO diagnostic: user records for the e-mail (Tech Domain search)

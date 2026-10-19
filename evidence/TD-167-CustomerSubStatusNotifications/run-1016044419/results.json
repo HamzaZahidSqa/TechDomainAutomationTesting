@@ -1,0 +1,1044 @@
+{
+  "run": "1016044419",
+  "workOrderId": 1083,
+  "setup": {
+    "wo": 1083,
+    "ref": 11077,
+    "status": "ASSIGNED",
+    "subStatus": "NOT_CONFIRMED",
+    "engineer": "575 Syed Hamza",
+    "slot": "2027-05-08 10:00 UTC"
+  },
+  "steps": [
+    {
+      "step": "NOT_CONFIRMED",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "NOT_CONFIRMED",
+        "label": "Not Confirmed",
+        "customerSees": false,
+        "customerNotified": false,
+        "customerNotifiedAboutSubStatus": false
+      }
+    },
+    {
+      "action": "engineer confirm",
+      "status": 200
+    },
+    {
+      "step": "CONFIRMED",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114056,
+            "type": "WORK_ORDER_CONFIRMED",
+            "title": "Work Order Confirmed by Engineer – WO-11077",
+            "content": "Syed Hamza has confirmed the work order",
+            "createdAt": "2026-10-16T04:44:40.419Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": [
+          {
+            "id": 114051,
+            "type": "WORK_ORDER_CONFIRMED",
+            "title": "Work Order Confirmed by Engineer – WO-11077",
+            "content": "Syed Hamza has confirmed the work order",
+            "createdAt": "2026-10-16T04:44:40.390Z",
+            "isRead": false
+          }
+        ]
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "CONFIRMED",
+        "label": "Confirmed",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      }
+    },
+    {
+      "action": "START_TIME task (ready to go)",
+      "status": 200
+    },
+    {
+      "step": "READY_TO_GO",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114062,
+            "type": "WORK_ORDER_READY_TO_GO",
+            "title": "Engineer Ready to Go – WO-11077",
+            "content": "Syed Hamza has marked the work order as Ready to Go",
+            "createdAt": "2026-10-16T04:44:47.602Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": [
+          {
+            "id": 114057,
+            "type": "WORK_ORDER_READY_TO_GO",
+            "title": "Engineer Ready to Go – WO-11077",
+            "content": "Syed Hamza has marked the work order as Ready to Go",
+            "createdAt": "2026-10-16T04:44:47.572Z",
+            "isRead": false
+          }
+        ]
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "READY_TO_GO",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "READY_TO_GO",
+        "label": "Ready to go",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      }
+    },
+    {
+      "action": "ON_THE_WAY task",
+      "status": 200
+    },
+    {
+      "step": "ON_THE_WAY",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114068,
+            "type": "WORK_ORDER_ON_THE_WAY",
+            "title": "Engineer En Route – WO-11077",
+            "content": "Syed Hamza is now on the way to the service location.",
+            "createdAt": "2026-10-16T04:44:54.675Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": [
+          {
+            "id": 114066,
+            "type": "WORK_ORDER_ON_THE_WAY",
+            "title": "Engineer En Route – WO-11077",
+            "content": "Syed Hamza is now on the way to the service location.",
+            "createdAt": "2026-10-16T04:44:54.644Z",
+            "isRead": false
+          }
+        ]
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "ON_THE_WAY",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "ON_THE_WAY",
+        "label": "On the way",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      }
+    },
+    {
+      "action": "RUNNING_LATE task",
+      "status": 200
+    },
+    {
+      "step": "RUNNING_LATE",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114074,
+            "type": "WORK_ORDER_RUNNING_LATE",
+            "title": "Engineer Running Late – WO-11077",
+            "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled.",
+            "createdAt": "2026-10-16T04:45:02.504Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": [
+          {
+            "id": 114069,
+            "type": "WORK_ORDER_RUNNING_LATE",
+            "title": "Engineer Running Late – WO-11077",
+            "content": "Syed Hamza has reported a delay and may arrive later than originally scheduled.",
+            "createdAt": "2026-10-16T04:45:02.477Z",
+            "isRead": false
+          }
+        ]
+      },
+      "techDomainApi": {
+        "status": "ASSIGNED",
+        "subStatus": "RUNNING_LATE",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "ASSIGNED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "RUNNING_LATE",
+        "label": "Running Late",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      }
+    },
+    {
+      "action": "checkIn",
+      "status": 201
+    },
+    {
+      "step": "CHECK_IN",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114079,
+            "type": "WORK_ORDER_CHECK_IN",
+            "title": "Engineer Checked In – WO-11077",
+            "content": "Syed Hamza has checked in and ready to begin the work.",
+            "createdAt": "2026-10-16T04:45:09.383Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "CHECK_IN",
+        "label": "Checked In",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      }
+    },
+    {
+      "action": "checkOut",
+      "status": 201
+    },
+    {
+      "step": "CHECK_OUT",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114084,
+            "type": "WORK_ORDER_CHECK_OUT",
+            "title": "Engineer Checked Out – WO-11077",
+            "content": "Syed Hamza has checked out after completing the onsite activity.",
+            "createdAt": "2026-10-16T04:45:16.394Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_OUT",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "INPROGRESS",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "CHECK_OUT",
+        "label": "Checked Out",
+        "customerSees": false,
+        "customerNotified": true,
+        "customerNotifiedAboutSubStatus": true
+      },
+      "ui": {
+        "detailShot": "TD-167_SubStatusNotifications_01_after-technician-substatuses-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_02_after-technician-substatuses-customer-bell.png",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 8 In Progress #11077 On 10/16/2026 TD-167 sub-status notifications 1016044419 Schedule: Fixed Start 10/16/2026 4:39 AM (PST) Location Lahore, Pakistan Engineer Syed HamzaID: 575 Print Report problem Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-167 QA automation Work Experience Technology Stacks: Audio/Video Category: Skills: Work Order Eligibility T",
+        "bell": "Notifications Mark all as read Engineer Checked Out – WO-11077 a few seconds ago Syed Hamza has checked out after completing the onsite activity. Engineer Checked In – WO-11077 a few seconds ago Syed Hamza has checked in and ready to begin the work. Engineer Running Late – WO-11077 a minute ago Syed Hamza has reported a delay and may arrive later than originally scheduled. Engineer En Route – WO-11077 a minute ago Syed Hamza is now on the way to the service location. Engineer Ready to Go – WO-11077 a minute ago Syed Hamza has marked the work order as Ready to Go Work Order Confirmed by Engineer – WO-11077 a minute ago Syed Hamza has confirmed the work order Engineer Assigned – WO-11077 a minute ago View the work order for engineer details and service updates. Work Order Accepted – WO-11077 a minute ago Your work order has been accepted and is now being processed. Work Order Confirmed by "
+      }
+    },
+    {
+      "action": "MARK_COMPLETE task (work done)",
+      "status": 200
+    },
+    {
+      "step": "WORKDONE",
+      "kind": "status",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114090,
+            "type": "WORK_ORDER_WORK_DONE",
+            "title": "Work Order Completed – WO-11077",
+            "content": "Syed Hamza has completed the required service activities.",
+            "createdAt": "2026-10-16T04:45:52.204Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": [
+          {
+            "id": 114085,
+            "type": "WORK_ORDER_WORK_DONE",
+            "title": "Work Order Completed – WO-11077",
+            "content": "Syed Hamza has completed the required service activities.",
+            "createdAt": "2026-10-16T04:45:52.166Z",
+            "isRead": false
+          }
+        ]
+      },
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false
+    },
+    {
+      "action": "Tech Domain sets REVIEWED",
+      "status": 200
+    },
+    {
+      "step": "REVIEWED",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "WORKDONE",
+        "subStatus": "REVIEWED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "WORKDONE",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": false,
+      "rule": {
+        "subStatus": "REVIEWED",
+        "label": "Reviewed",
+        "customerSees": false,
+        "customerNotified": false,
+        "customerNotifiedAboutSubStatus": false
+      },
+      "ui": {
+        "detailShot": "TD-167_SubStatusNotifications_03_after-reviewed-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_04_after-reviewed-customer-bell.png",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 9 Work Done #11077 On 10/16/2026 TD-167 sub-status notifications 1016044419 Working Hours 0 hours 0 mins Payment: Estimated USD 80.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-167 QA automation Work Experience Technology Stacks: Audio/Video Category: Skills: Work Order Eligibility Type Qual",
+        "bell": "Notifications Mark all as read Work Order Completed – WO-11077 a few seconds ago Syed Hamza has completed the required service activities. Engineer Checked Out – WO-11077 a minute ago Syed Hamza has checked out after completing the onsite activity. Engineer Checked In – WO-11077 a minute ago Syed Hamza has checked in and ready to begin the work. Engineer Running Late – WO-11077 a minute ago Syed Hamza has reported a delay and may arrive later than originally scheduled. Engineer En Route – WO-11077 a minute ago Syed Hamza is now on the way to the service location. Engineer Ready to Go – WO-11077 2 minutes ago Syed Hamza has marked the work order as Ready to Go Work Order Confirmed by Engineer – WO-11077 2 minutes ago Syed Hamza has confirmed the work order Engineer Assigned – WO-11077 2 minutes ago View the work order for engineer details and service updates. Work Order Accepted – WO-1107"
+      }
+    },
+    {
+      "action": "verify",
+      "status": 201
+    },
+    {
+      "step": "VERIFIED",
+      "kind": "status",
+      "notifications": {
+        "customer": [],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": true
+    },
+    {
+      "step": "PO_PENDING",
+      "kind": "substatus",
+      "notifications": {
+        "customer": [],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": true,
+      "rule": {
+        "subStatus": "PO_PENDING",
+        "label": "PO Pending",
+        "customerSees": true,
+        "customerNotified": false,
+        "customerNotifiedAboutSubStatus": false
+      },
+      "ui": {
+        "detailShot": "TD-167_SubStatusNotifications_05_after-po-pending-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_06_after-po-pending-customer-bell.png",
+        "detailTop": "Dashboard Work Orders Work Force Invoices 0 9 Work Done PO Pending #11077 On 10/16/2026 TD-167 sub-status notifications 1016044419 Working Hours 0 hours 0 mins Payment: USD 80.00 Engineer Syed HamzaID: 575 Print Approve Details Payment Messages Job Sign-Off Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: 4H Service Description Work Description TD-167 QA automation Work Experience Technology Stacks: Audio/Video Category: Skills: Work Order Eligibility Type Qualif",
+        "bell": "Notifications Mark all as read Work Order Completed – WO-11077 a minute ago Syed Hamza has completed the required service activities. Engineer Checked Out – WO-11077 2 minutes ago Syed Hamza has checked out after completing the onsite activity. Engineer Checked In – WO-11077 2 minutes ago Syed Hamza has checked in and ready to begin the work. Engineer Running Late – WO-11077 2 minutes ago Syed Hamza has reported a delay and may arrive later than originally scheduled. Engineer En Route – WO-11077 2 minutes ago Syed Hamza is now on the way to the service location. Engineer Ready to Go – WO-11077 2 minutes ago Syed Hamza has marked the work order as Ready to Go Work Order Confirmed by Engineer – WO-11077 2 minutes ago Syed Hamza has confirmed the work order Engineer Assigned – WO-11077 3 minutes ago View the work order for engineer details and service updates. Work Order Accepted – WO-11077"
+      }
+    },
+    {
+      "action": "approve",
+      "status": 201
+    },
+    {
+      "step": "APPROVED",
+      "kind": "status",
+      "notifications": {
+        "customer": [
+          {
+            "id": 114092,
+            "type": "WORK_ORDER_APPROVED",
+            "title": "WO-11077: TD-167 sub-status notifications 1016044419",
+            "content": "Your work order has been approved.",
+            "createdAt": "2026-10-16T04:47:01.060Z",
+            "isRead": false
+          }
+        ],
+        "subuser": [],
+        "techdomain": []
+      },
+      "techDomainApi": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "list": {
+          "status": "APPROVED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": "APPROVED"
+        },
+        "detailStatus": 200,
+        "listStatus": 200
+      },
+      "customerSeesSubStatus": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "setup: WO 1083 (#11077) is ASSIGNED to engineer 575 \"Syed Hamza\"",
+      "ok": true,
+      "detail": {
+        "wo": 1083,
+        "ref": 11077,
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "engineer": "575 Syed Hamza",
+        "slot": "2027-05-08 10:00 UTC"
+      }
+    },
+    {
+      "name": "[NOT_CONFIRMED] Tech Domain API subStatus is NOT_CONFIRMED",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[NOT_CONFIRMED] status is ASSIGNED",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "NOT_CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[NOT_CONFIRMED] customer does NOT see sub-status NOT_CONFIRMED (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "[NOT_CONFIRMED] Tech Domain (control) got 0; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[CONFIRMED] Tech Domain API subStatus is CONFIRMED",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "CONFIRMED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[CONFIRMED] customer does NOT see sub-status CONFIRMED (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_CONFIRMED | Work Order Confirmed by Engineer – WO-11077: Syed Hamza has confirmed the work order"
+      ]
+    },
+    {
+      "name": "[CONFIRMED] Tech Domain (control) got 1; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [
+          "Work Order Confirmed by Engineer – WO-11077"
+        ],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[READY_TO_GO] Tech Domain API subStatus is READY_TO_GO",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "READY_TO_GO",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[READY_TO_GO] customer does NOT see sub-status READY_TO_GO (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_READY_TO_GO | Engineer Ready to Go – WO-11077: Syed Hamza has marked the work order as Ready to Go"
+      ]
+    },
+    {
+      "name": "[READY_TO_GO] Tech Domain (control) got 1; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [
+          "Engineer Ready to Go – WO-11077"
+        ],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[ON_THE_WAY] Tech Domain API subStatus is ON_THE_WAY",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "ON_THE_WAY",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[ON_THE_WAY] customer does NOT see sub-status ON_THE_WAY (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_ON_THE_WAY | Engineer En Route – WO-11077: Syed Hamza is now on the way to the service location."
+      ]
+    },
+    {
+      "name": "[ON_THE_WAY] Tech Domain (control) got 1; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [
+          "Engineer En Route – WO-11077"
+        ],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[RUNNING_LATE] Tech Domain API subStatus is RUNNING_LATE",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED",
+        "subStatus": "RUNNING_LATE",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[RUNNING_LATE] customer does NOT see sub-status RUNNING_LATE (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_RUNNING_LATE | Engineer Running Late – WO-11077: Syed Hamza has reported a delay and may arrive later than originally scheduled."
+      ]
+    },
+    {
+      "name": "[RUNNING_LATE] Tech Domain (control) got 1; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [
+          "Engineer Running Late – WO-11077"
+        ],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[CHECK_IN] Tech Domain API subStatus is CHECK_IN",
+      "ok": true,
+      "detail": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[CHECK_IN] status is INPROGRESS",
+      "ok": true,
+      "detail": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_IN",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[CHECK_IN] customer does NOT see sub-status CHECK_IN (customer API: {\"status\":\"INPROGRESS\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_CHECK_IN | Engineer Checked In – WO-11077: Syed Hamza has checked in and ready to begin the work."
+      ]
+    },
+    {
+      "name": "[CHECK_IN] Tech Domain (control) got 0; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [],
+        "subuser": []
+      }
+    },
+    {
+      "name": "[CHECK_OUT] Tech Domain API subStatus is CHECK_OUT",
+      "ok": true,
+      "detail": {
+        "status": "INPROGRESS",
+        "subStatus": "CHECK_OUT",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[CHECK_OUT] customer does NOT see sub-status CHECK_OUT (customer API: {\"status\":\"INPROGRESS\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": false,
+      "detail": [
+        "WORK_ORDER_CHECK_OUT | Engineer Checked Out – WO-11077: Syed Hamza has checked out after completing the onsite activity."
+      ]
+    },
+    {
+      "name": "[CHECK_OUT] Tech Domain (control) got 0; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [],
+        "subuser": []
+      }
+    },
+    {
+      "name": "UI after-technician-substatuses: customer detail + bell panel captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailShot": "TD-167_SubStatusNotifications_01_after-technician-substatuses-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_02_after-technician-substatuses-customer-bell.png"
+      }
+    },
+    {
+      "name": "[WORKDONE] status is WORKDONE",
+      "ok": true,
+      "detail": {
+        "status": "WORKDONE",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[WORKDONE] status change (not a sub-status): customer owner got 1 notification(s)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "Work Order Completed – WO-11077: Syed Hamza has completed the required service activities."
+      ]
+    },
+    {
+      "name": "[REVIEWED] Tech Domain API subStatus is REVIEWED",
+      "ok": true,
+      "detail": {
+        "status": "WORKDONE",
+        "subStatus": "REVIEWED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[REVIEWED] customer does NOT see sub-status REVIEWED (customer API: {\"status\":\"WORKDONE\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "[REVIEWED] Tech Domain (control) got 0; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [],
+        "subuser": []
+      }
+    },
+    {
+      "name": "UI after-reviewed: customer detail + bell panel captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailShot": "TD-167_SubStatusNotifications_03_after-reviewed-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_04_after-reviewed-customer-bell.png"
+      }
+    },
+    {
+      "name": "[VERIFIED] status is VERIFIED",
+      "ok": true,
+      "detail": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[VERIFIED] status change (not a sub-status): customer owner got 0 notification(s)",
+      "ok": true,
+      "info": true,
+      "detail": []
+    },
+    {
+      "name": "[PO_PENDING] Tech Domain API subStatus is PO_PENDING",
+      "ok": true,
+      "detail": {
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[PO_PENDING] customer sees \"PO Pending\" -> customer owner IS notified",
+      "ok": false,
+      "detail": {
+        "customerView": {
+          "status": "VERIFIED",
+          "subStatus": "PO_PENDING",
+          "customerStatus": null
+        },
+        "notifications": []
+      }
+    },
+    {
+      "name": "[PO_PENDING] Tech Domain (control) got 0; sub-user got 0",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "techdomain": [],
+        "subuser": []
+      }
+    },
+    {
+      "name": "UI after-po-pending: customer detail + bell panel captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailShot": "TD-167_SubStatusNotifications_05_after-po-pending-customer-detail.png",
+        "bellShot": "TD-167_SubStatusNotifications_06_after-po-pending-customer-bell.png"
+      }
+    },
+    {
+      "name": "[APPROVED] status is APPROVED",
+      "ok": true,
+      "detail": {
+        "status": "APPROVED",
+        "subStatus": "PO_PENDING",
+        "customerStatus": "APPROVED",
+        "customerSubStatus": null
+      }
+    },
+    {
+      "name": "[APPROVED] status change (not a sub-status): customer owner got 1 notification(s)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "WO-11077: TD-167 sub-status notifications 1016044419: Your work order has been approved."
+      ]
+    }
+  ],
+  "findings": [
+    "[CONFIRMED] customer does NOT see sub-status CONFIRMED (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[READY_TO_GO] customer does NOT see sub-status READY_TO_GO (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[ON_THE_WAY] customer does NOT see sub-status ON_THE_WAY (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[RUNNING_LATE] customer does NOT see sub-status RUNNING_LATE (customer API: {\"status\":\"ASSIGNED\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[CHECK_IN] customer does NOT see sub-status CHECK_IN (customer API: {\"status\":\"INPROGRESS\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[CHECK_OUT] customer does NOT see sub-status CHECK_OUT (customer API: {\"status\":\"INPROGRESS\",\"subStatus\":null,\"customerStatus\":null}) -> customer owner gets NO notification",
+    "[PO_PENDING] customer sees \"PO Pending\" -> customer owner IS notified"
+  ],
+  "rawNotificationSample": {
+    "id": 114049,
+    "receiverId": 638,
+    "senderId": 575,
+    "workOrderId": 1083,
+    "chatRoomId": null,
+    "type": "WORK_ORDER_ASSIGNED",
+    "title": "Engineer Assigned – WO-11077",
+    "content": "View the work order for engineer details and service updates.",
+    "url": "/workOrder/details/1083?fromCustomerBoard=true",
+    "isRead": false,
+    "createdAt": "2026-10-16T04:44:25.821Z",
+    "updatedAt": "2026-10-16T04:44:25.821Z",
+    "sender": {
+      "id": 575,
+      "firstName": "Syed",
+      "lastName": "Hamza",
+      "profilePicture": null
+    }
+  },
+  "baseline": {
+    "customer": [
+      {
+        "id": 114049,
+        "type": "WORK_ORDER_ASSIGNED",
+        "title": "Engineer Assigned – WO-11077",
+        "content": "View the work order for engineer details and service updates.",
+        "createdAt": "2026-10-16T04:44:25.821Z",
+        "isRead": false
+      },
+      {
+        "id": 114036,
+        "type": "WORK_ORDER_PUBLISHED",
+        "title": "Work Order Accepted – WO-11077",
+        "content": "Your work order has been accepted and is now being processed.",
+        "createdAt": "2026-10-16T04:44:24.369Z",
+        "isRead": false
+      }
+    ],
+    "subuser": [],
+    "techdomain": [
+      {
+        "id": 114043,
+        "type": "ACCEPT",
+        "title": "WO-11077: TD-167 sub-status notifications 1016044419",
+        "content": "Syed Hamza has accepted.",
+        "createdAt": "2026-10-16T04:44:25.771Z",
+        "isRead": false
+      },
+      {
+        "id": 114039,
+        "type": "ACCEPT",
+        "title": "WO-11077: TD-167 sub-status notifications 1016044419",
+        "content": "Syed Hamza has accepted the routed offer.",
+        "createdAt": "2026-10-16T04:44:25.529Z",
+        "isRead": false
+      },
+      {
+        "id": 113854,
+        "type": "OTHER",
+        "title": "New Work Order Received - WO-11077",
+        "content": "Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request.",
+        "createdAt": "2026-10-16T04:44:19.904Z",
+        "isRead": false
+      }
+    ]
+  }
+}

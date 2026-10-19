@@ -1,8 +1,8 @@
 {
   "area": "04-ChatAPI",
   "section": "Chat & inbox rules (§4)",
-  "run": "1013113816",
-  "date": "2026-10-13T11:38:30.445Z",
+  "run": "1014101612",
+  "date": "2026-10-14T10:16:25.889Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -113,7 +113,7 @@
       "type": "positive",
       "ref": "§4 GET /inbox?limit&cursor: default 20, maximum 50",
       "expected": "shape + ≤20 rows",
-      "actual": "HTTP 200 keys=data,nextCursor,totalUnreadCount,unreadConversationCount,message n=13",
+      "actual": "HTTP 200 keys=data,nextCursor,totalUnreadCount,unreadConversationCount,message n=15",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -135,7 +135,7 @@
       "type": "positive",
       "ref": "§4 Preview text: You: … or {senderFirstName}: …",
       "expected": "prefix",
-      "actual": "You: TD122-1013053118 from Vendor worker",
+      "actual": "Demo: hi",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -156,8 +156,8 @@
       "title": "totalUnreadCount equals the sum of row unread counts (page 1 only when no more pages)",
       "type": "edge",
       "ref": "§4 totalUnreadCount (sum of counts)",
-      "expected": "6 (if single page)",
-      "actual": "total=6 nextCursor=null",
+      "expected": "0 (if single page)",
+      "actual": "total=0 nextCursor=null",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -168,9 +168,9 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200/400, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
-      "note": "accepted limit=0, returned 13",
+      "note": "accepted limit=0, returned 15",
       "screenshot": ""
     },
     {
@@ -190,7 +190,7 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -201,7 +201,7 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200/400, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -212,7 +212,7 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -223,7 +223,7 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200/400, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -245,9 +245,9 @@
       "type": "bva",
       "ref": "§4 default 20, maximum 50",
       "expected": "HTTP 200/400, rows ≤ min(limit,50)",
-      "actual": "HTTP 200 rows=13",
+      "actual": "HTTP 200 rows=15",
       "ok": true,
-      "note": "accepted limit=abc, returned 13",
+      "note": "accepted limit=abc, returned 15",
       "screenshot": ""
     },
     {
@@ -289,7 +289,7 @@
       "type": "positive",
       "ref": "§4 History: default page is 10, maximum 100",
       "expected": "shape + ≤10 messages ascending",
-      "actual": "HTTP 200 keys=messages,nextCursor,hasMore n=4",
+      "actual": "HTTP 200 keys=messages,nextCursor,hasMore n=1",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -300,7 +300,7 @@
       "type": "positive",
       "ref": "§4 messages (ascending)",
       "expected": "ascending",
-      "actual": "8362,8363,8367,8369",
+      "actual": "8387",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -311,7 +311,7 @@
       "type": "bva",
       "ref": "§4 default 10, maximum 100",
       "expected": "HTTP 200/400, n ≤ min(limit,100)",
-      "actual": "HTTP 200 n=4",
+      "actual": "HTTP 200 n=1",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -333,7 +333,7 @@
       "type": "bva",
       "ref": "§4 default 10, maximum 100",
       "expected": "HTTP 200, n ≤ min(limit,100)",
-      "actual": "HTTP 200 n=4",
+      "actual": "HTTP 200 n=1",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -344,7 +344,7 @@
       "type": "bva",
       "ref": "§4 default 10, maximum 100",
       "expected": "HTTP 200/400, n ≤ min(limit,100)",
-      "actual": "HTTP 200 n=4",
+      "actual": "HTTP 200 n=1",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -366,7 +366,7 @@
       "type": "bva",
       "ref": "§4 default 10, maximum 100",
       "expected": "HTTP 200/400, n ≤ min(limit,100)",
-      "actual": "HTTP 200 n=4",
+      "actual": "HTTP 200 n=1",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -586,7 +586,7 @@
       "type": "positive",
       "ref": "§4 clientMessageId (max 64 chars)",
       "expected": "HTTP 200/201 + sentMessage",
-      "actual": "HTTP 201 id=8374 keys=sentMessage,conversation",
+      "actual": "HTTP 201 id=9135 keys=sentMessage,conversation",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -596,8 +596,8 @@
       "title": "Resend with the same clientMessageId returns the original message (no duplicate)",
       "type": "edge",
       "ref": "§4 Idempotency: a resend returns the original row with isReplay",
-      "expected": "same id 8374",
-      "actual": "HTTP 201 id=8374 isReplay=undefined",
+      "expected": "same id 9135",
+      "actual": "HTTP 201 id=9135 isReplay=undefined",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -630,7 +630,7 @@
       "type": "edge",
       "ref": "§4 Edits: no validation of the content",
       "expected": "<script> removed or escaped",
-      "actual": "HTTP 201 stored=\"[CL-04 1013113816] <script>alert(1)</script> <b>bold</b>\"",
+      "actual": "HTTP 201 stored=\"[CL-04 1014101612] <script>alert(1)</script> <b>bold</b>\"",
       "ok": false,
       "note": "RAW <script> STORED — FE must sanitise on render; security note",
       "screenshot": ""
@@ -663,7 +663,7 @@
       "type": "positive",
       "ref": "§4 every other participant's unreadCount is incremented",
       "expected": "unreadCount ≥ 1",
-      "actual": "unreadCount=3 total=4",
+      "actual": "unreadCount=3 total=3",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -674,7 +674,7 @@
       "type": "positive",
       "ref": "§4 PATCH /inbox/:id/read",
       "expected": "HTTP 200 + unreadConversationCount",
-      "actual": "HTTP 200 body={\"data\":{\"unreadConversationCount\":1},\"message\":\"SUCCESS\"}",
+      "actual": "HTTP 200 body={\"data\":{\"unreadConversationCount\":0},\"message\":\"SUCCESS\"}",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -740,7 +740,7 @@
       "type": "edge",
       "ref": "§4 [GAP] No file-size, count or type limits on the server",
       "expected": "HTTP 400 (type rejected) — GAP if accepted",
-      "actual": "HTTP 201 body={\"data\":[3827],\"message\":\"SUCCESS\"}",
+      "actual": "HTTP 201 body={\"data\":[3829],\"message\":\"SUCCESS\"}",
       "ok": false,
       "note": "CONFIRMED GAP: executable accepted as chat attachment",
       "screenshot": ""

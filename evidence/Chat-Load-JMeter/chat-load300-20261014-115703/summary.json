@@ -1,0 +1,312 @@
+﻿[
+    {
+        "label":  "setUp POST /auth/login",
+        "count":  7,
+        "errors":  0,
+        "avg":  701,
+        "p50":  549,
+        "p90":  1631,
+        "p95":  1631,
+        "max":  1631
+    },
+    {
+        "label":  "user ws open",
+        "count":  300,
+        "errors":  0,
+        "avg":  520,
+        "p50":  500,
+        "p90":  703,
+        "p95":  781,
+        "max":  1124
+    },
+    {
+        "label":  "user eio handshake",
+        "count":  300,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  2,
+        "max":  5
+    },
+    {
+        "label":  "user sio connect",
+        "count":  300,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  1,
+        "max":  6
+    },
+    {
+        "label":  "user sio connected",
+        "count":  300,
+        "errors":  0,
+        "avg":  146,
+        "p50":  132,
+        "p90":  202,
+        "p95":  226,
+        "max":  421
+    },
+    {
+        "label":  "user subscribeUser",
+        "count":  300,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "user joinRoom",
+        "count":  300,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  1,
+        "max":  2
+    },
+    {
+        "label":  "user GET /inbox",
+        "count":  2916,
+        "errors":  0,
+        "avg":  3823,
+        "p50":  3799,
+        "p90":  6164,
+        "p95":  7152,
+        "max":  38683
+    },
+    {
+        "label":  "user GET /notifications",
+        "count":  2892,
+        "errors":  0,
+        "avg":  5738,
+        "p50":  5604,
+        "p90":  8974,
+        "p95":  10972,
+        "max":  19801
+    },
+    {
+        "label":  "user GET /notifications/others",
+        "count":  2804,
+        "errors":  0,
+        "avg":  2949,
+        "p50":  2934,
+        "p90":  4267,
+        "p95":  5115,
+        "max":  12664
+    },
+    {
+        "label":  "user GET /users/me",
+        "count":  2705,
+        "errors":  0,
+        "avg":  5539,
+        "p50":  5721,
+        "p90":  7888,
+        "p95":  9099,
+        "max":  14897
+    },
+    {
+        "label":  "refresh tokens",
+        "count":  5,
+        "errors":  0,
+        "avg":  8754,
+        "p50":  8740,
+        "p90":  10414,
+        "p95":  10414,
+        "max":  10414
+    },
+    {
+        "label":  "receiver ws open",
+        "count":  1,
+        "errors":  0,
+        "avg":  997,
+        "p50":  997,
+        "p90":  997,
+        "p95":  997,
+        "max":  997
+    },
+    {
+        "label":  "receiver eio handshake",
+        "count":  1,
+        "errors":  0,
+        "avg":  1,
+        "p50":  1,
+        "p90":  1,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "receiver sio connect",
+        "count":  1,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  0,
+        "p95":  0,
+        "max":  0
+    },
+    {
+        "label":  "receiver sio connected",
+        "count":  1,
+        "errors":  0,
+        "avg":  201,
+        "p50":  201,
+        "p90":  201,
+        "p95":  201,
+        "max":  201
+    },
+    {
+        "label":  "receiver subscribeUser",
+        "count":  1,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  0,
+        "p95":  0,
+        "max":  0
+    },
+    {
+        "label":  "receiver joinRoom",
+        "count":  1,
+        "errors":  0,
+        "avg":  1,
+        "p50":  1,
+        "p90":  1,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "sender ws open",
+        "count":  138,
+        "errors":  0,
+        "avg":  1951,
+        "p50":  1789,
+        "p90":  3870,
+        "p95":  4307,
+        "max":  7042
+    },
+    {
+        "label":  "sender eio handshake",
+        "count":  138,
+        "errors":  0,
+        "avg":  15,
+        "p50":  0,
+        "p90":  1,
+        "p95":  112,
+        "max":  769
+    },
+    {
+        "label":  "sender sio connect",
+        "count":  138,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  0,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "sender sio connected",
+        "count":  138,
+        "errors":  0,
+        "avg":  431,
+        "p50":  309,
+        "p90":  892,
+        "p95":  1247,
+        "max":  1853
+    },
+    {
+        "label":  "sender subscribeUser",
+        "count":  138,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "sender joinGroupChat",
+        "count":  138,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  0,
+        "p95":  1,
+        "max":  1
+    },
+    {
+        "label":  "sender joined room",
+        "count":  51,
+        "errors":  0,
+        "avg":  2501,
+        "p50":  2435,
+        "p90":  4099,
+        "p95":  4491,
+        "max":  4816
+    },
+    {
+        "label":  "sendMessage (ws write)",
+        "count":  138,
+        "errors":  0,
+        "avg":  0,
+        "p50":  0,
+        "p90":  1,
+        "p95":  1,
+        "max":  2
+    },
+    {
+        "label":  "message round-trip (sender echo)",
+        "count":  138,
+        "errors":  8,
+        "avg":  3097,
+        "p50":  1746,
+        "p90":  4533,
+        "p95":  20016,
+        "max":  20946
+    },
+    {
+        "label":  "inbox unread-count update (customer)",
+        "count":  138,
+        "errors":  0,
+        "avg":  4976,
+        "p50":  5112,
+        "p90":  7051,
+        "p95":  8146,
+        "max":  8895
+    },
+    {
+        "label":  "notification delivered (customer)",
+        "count":  138,
+        "errors":  0,
+        "avg":  5317,
+        "p50":  5621,
+        "p90":  7321,
+        "p95":  8650,
+        "max":  11916
+    },
+    {
+        "label":  "user ws poll (error)",
+        "count":  383,
+        "errors":  383,
+        "avg":  0,
+        "p50":  0,
+        "p90":  0,
+        "p95":  0,
+        "max":  1
+    },
+    {
+        "label":  "receiver ws close",
+        "count":  1,
+        "errors":  0,
+        "avg":  225,
+        "p50":  225,
+        "p90":  225,
+        "p95":  225,
+        "max":  225
+    }
+]

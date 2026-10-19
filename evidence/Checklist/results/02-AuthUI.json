@@ -1,8 +1,8 @@
 {
   "area": "02-AuthUI",
   "section": "Authentication screens (UI)",
-  "run": "1013115004",
-  "date": "2026-10-13T11:52:19.303Z",
+  "run": "1014101344",
+  "date": "2026-10-14T10:15:56.892Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -17,7 +17,7 @@
       "actual": "present",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_01_login-page.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_01_login-page.png"
     },
     {
       "id": "UL-02",
@@ -127,7 +127,7 @@
       "actual": "shown",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_02_login-empty-submit.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_02_login-empty-submit.png"
     },
     {
       "id": "UL-12",
@@ -149,7 +149,7 @@
       "actual": "shown",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_03_login-invalid-email.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_03_login-invalid-email.png"
     },
     {
       "id": "UL-14",
@@ -171,7 +171,7 @@
       "actual": "HTTP 401 banner=true url=https://dev.techdomain.com.au/login",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_04_login-wrong-password.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_04_login-wrong-password.png"
     },
     {
       "id": "UL-16",
@@ -193,7 +193,7 @@
       "actual": "https://dev.techdomain.com.au/jobs",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_05_login-success-engineer.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_05_login-success-engineer.png"
     },
     {
       "id": "UL-18",
@@ -226,7 +226,7 @@
       "actual": "shown",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_06_catch-all-logged-in.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_06_catch-all-logged-in.png"
     },
     {
       "id": "UL-21",
@@ -234,7 +234,7 @@
       "type": "negative",
       "ref": "/completeYourProfile removed once status APPROVED",
       "expected": "Unauthorized / redirected",
-      "actual": "https://dev.techdomain.com.au/completeYourProfile text=Analytics Job 0 4 Unauthorized",
+      "actual": "https://dev.techdomain.com.au/completeYourProfile text=Analytics Job 0 11 Unauthorized",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -248,7 +248,7 @@
       "actual": "https://dev.techdomain.com.au/login",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_07_after-logout.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_07_after-logout.png"
     },
     {
       "id": "UL-23",
@@ -296,7 +296,7 @@
     },
     {
       "id": "UR-04",
-      "title": "Logged-out visit to /some/unknown-1013115004 redirects to /getStarted",
+      "title": "Logged-out visit to /some/unknown-1014101344 redirects to /getStarted",
       "type": "negative",
       "ref": "RequireAuth: Not authenticated → /getStarted; catch-all logged out → /getStarted",
       "expected": "/getStarted",
@@ -336,7 +336,7 @@
       "actual": "https://dev.techdomain.com.au/getStarted text=Join Tech Domain Connecting Businesses with Skilled Field Te",
       "ok": true,
       "note": "checklist says placeholder, site shows Get Started — doc out of date (fine)",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_08_root-logged-out.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_08_root-logged-out.png"
     },
     {
       "id": "UF-01",
@@ -347,7 +347,7 @@
       "actual": "Forgot Password ? Provide your Registered E-mail address and we’ll send you a password reset link. Email Email Send recovery link Return to Login",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_09_forgot-page.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_09_forgot-page.png"
     },
     {
       "id": "UF-02",
@@ -391,7 +391,7 @@
       "actual": "HTTP 201 text=If an account exists for the email below, a password recovery email with instructions has been sent. Please follow the instructions to reset the password. nobod",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_10_forgot-unregistered-submitted.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_10_forgot-unregistered-submitted.png"
     },
     {
       "id": "UF-06",
@@ -399,7 +399,7 @@
       "type": "positive",
       "ref": "Forgot Password: success view",
       "expected": "email + Return to login",
-      "actual": "If an account exists for the email below, a password recovery email with instructions has been sent. Please follow the instructions to reset the password. nobody-1013115004@mailinator.com Return to lo",
+      "actual": "If an account exists for the email below, a password recovery email with instructions has been sent. Please follow the instructions to reset the password. nobody-1014101344@mailinator.com Return to lo",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -410,10 +410,10 @@
       "type": "edge",
       "ref": "Forgot Password: \"Resend in m:ss\" during cooldown (disabled)",
       "expected": "Resend in 0:5x",
-      "actual": "Resend in 0:57",
+      "actual": "Resend in 0:58",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_11_forgot-cooldown.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_11_forgot-cooldown.png"
     },
     {
       "id": "UF-08",
@@ -435,7 +435,7 @@
       "actual": "Reset Password Please Enter your new password New Password * ​ New Password * Confirm Password * ​ Confirm Password * Enter from 8 to 20 cha",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_12_reset-page.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_12_reset-page.png"
     },
     {
       "id": "URP-02",
@@ -556,7 +556,7 @@
       "actual": "HTTP 300 text=at least one number Enter at least one symbol (Such as !@#$%^&) Create New Password Back to Forgot Password Invalid link",
       "ok": true,
       "note": "API answers HTTP 300 for an invalid token — should be 400/404 (finding)",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_13_reset-invalid-token.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_13_reset-invalid-token.png"
     },
     {
       "id": "UO-01",
@@ -564,10 +564,10 @@
       "type": "positive",
       "ref": "OTP page texts",
       "expected": "Email Verification + email",
-      "actual": "Email Verification We have sent a (OTP) to your email \"cl02-otp-1013115004@mailinator.com\" Verify 0:59",
+      "actual": "Email Verification We have sent a (OTP) to your email \"cl02-otp-1014101344@mailinator.com\" Verify 0:59",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_14_otp-page.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_14_otp-page.png"
     },
     {
       "id": "UO-02",
@@ -641,10 +641,10 @@
       "type": "negative",
       "ref": "OTP: Verify error → toast with server message",
       "expected": "HTTP 4xx, still /otp",
-      "actual": "HTTP 404 url=https://dev.techdomain.com.au/otp?email=cl02-otp-1013115004%40mailinator.com text=Email Verification We have sent a (OTP) to your email \"cl02-otp-1013115004@mailinator.com\" Verify 0:54 Invalid OTP",
+      "actual": "HTTP 404 url=https://dev.techdomain.com.au/otp?email=cl02-otp-1014101344%40mailinator.com text=Email Verification We have sent a (OTP) to your email \"cl02-otp-1014101344@mailinator.com\" Verify 0:55 Invalid OTP",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_15_otp-wrong-code.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_15_otp-wrong-code.png"
     },
     {
       "id": "UG-01",
@@ -655,7 +655,7 @@
       "actual": "Join Tech Domain Connecting Businesses with Skilled Field Technicians—When and Where They’re Needed Connect with opportunities or skilled field technicians—all in one platform Looking for Work For tec",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_16_get-started.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_16_get-started.png"
     },
     {
       "id": "UG-02",
@@ -732,7 +732,7 @@
       "actual": "Join Tech Domain One last step before we set you up Your Google sign-in link has expired. Please sign in again. Looking for Work For technicians & Service Providers/Vendors Find work. Build connection",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_17_get-started-bad-ticket.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_17_get-started-bad-ticket.png"
     },
     {
       "id": "UT-01",
@@ -743,7 +743,7 @@
       "actual": "Let’s Create Your Account Connect. Work. Grow. Create your professional profile and access field service opportunities that match your expertise and availability. How do you provide services? * Indepe",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_18_tech-signup.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_18_tech-signup.png"
     },
     {
       "id": "UT-02",
@@ -864,7 +864,7 @@
       "actual": "HTTP 500 text=Let’s Create Your Account Connect. Work. Grow. Create your professional profile and access field service opportunities t url=https://dev.techdomain.com.au/techSignup",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_19_tech-signup-existing-email.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_19_tech-signup-existing-email.png"
     },
     {
       "id": "UC-01",
@@ -875,7 +875,7 @@
       "actual": "Let’s Create Your Account Find the Right Technicians. Get Work Done with Confidence. Create your Tech Domain account to connect with skilled field technicians and manage your service requirements from",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_20_customer-signup.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_20_customer-signup.png"
     },
     {
       "id": "UC-02",
@@ -952,7 +952,7 @@
       "actual": "Let’s Create your account Looking to hire skilled technicians and post work orders? Just complete the form below to get started First Name * First Name * Last N",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_21_client-signup.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_21_client-signup.png"
     },
     {
       "id": "UCL-02",
@@ -985,7 +985,7 @@
       "actual": "Let’s Create your account Looking to hire skilled technicians and post work orders? Just complete the form below to get started First Name * First Name * First name is required Last Name * Last Name *",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/02-AuthUI/run-1013115004/02-AuthUI_22_client-signup-empty-submit.png"
+      "screenshot": "evidence/Checklist/02-AuthUI/run-1014101344/02-AuthUI_22_client-signup-empty-submit.png"
     }
   ],
   "summary": {

@@ -1,0 +1,128 @@
+Flow A - Tech Domain creates the WO; individual engineer requests, counters, gets assigned and completes: WO 1074 (ref 11068) rooms {"customer":1921,"engineer":1922} -> 1007/1040 checks passed
+   PUBLISHED [PUBLISHED/-]: 58/59 FAILED: Customer owner notified at PUBLISHED
+   REQUESTED [PUBLISHED/-]: 107/109 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   COUNTER [PUBLISHED/-]: 106/108 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   ASSIGNED [ASSIGNED/NOT_CONFIRMED]: 105/107 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   CONFIRMED [ASSIGNED/CONFIRMED]: 103/107 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   CHECK_IN [INPROGRESS/CHECK_IN]: 103/108 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Individual engineer (actor) not notified of their own action
+   CHECK_OUT [INPROGRESS/CHECK_OUT]: 102/106 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   WORKDONE [WORKDONE/-]: 103/107 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   VERIFIED [VERIFIED/PO_PENDING]: 101/105 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   APPROVED [APPROVED/PO_PENDING]: 103/107 FAILED: no unexpected room on the work order; Customer owner has a MESSAGE notification for each other sender in the customer room; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   JOIN PROBE (outsiders try POST /chats/room/group) [-/-]: 11/12 FAILED: TD non-team user cannot join the customer room via POST /chats/room/group
+   UI evidence [-/-]: 5/5
+Flow B - Tech Domain creates the WO; routed to the vendor, vendor accepts for its engineer, assigned and completed: WO 1075 (ref 11069) rooms {"customer":1928,"vendorOwner":1929} -> 983/1043 checks passed
+   PUBLISHED [PUBLISHED/-]: 58/59 FAILED: Customer owner notified at PUBLISHED
+   ROUTED [PUBLISHED/-]: 106/108 FAILED: Vendor owner: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   ROUTE ACCEPTED (for member) [PUBLISHED/-]: 102/107 FAILED: Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   ASSIGNED [ASSIGNED/NOT_CONFIRMED]: 102/109 FAILED: vendorMember room exists; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room; TD owner (actor) not notified of their own action
+   CONFIRMED [ASSIGNED/CONFIRMED]: 101/108 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   CHECK_IN [INPROGRESS/CHECK_IN]: 101/109 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room; Vendor engineer (actor) not notified of their own action
+   CHECK_OUT [INPROGRESS/CHECK_OUT]: 100/107 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   WORKDONE [WORKDONE/-]: 100/107 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   VERIFIED [VERIFIED/PO_PENDING]: 98/105 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   APPROVED [APPROVED/PO_PENDING]: 100/107 FAILED: vendorMember room exists; no unexpected room on the work order; Vendor owner: cannot post in the customer room; Vendor engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; Vendor engineer: cannot post in the vendorOwner room; no LEAK TEST message landed in the vendorOwner room
+   JOIN PROBE (outsiders try POST /chats/room/group) [-/-]: 10/12 FAILED: TD non-team user cannot join the customer room via POST /chats/room/group; Vendor engineer cannot join the vendorOwner room via POST /chats/room/group
+   UI evidence [-/-]: 5/5
+Flow C - Customer owner raises a ticket; accepted, routed to the engineer, assigned, un-assigned, re-assigned, cancelled: WO 1076 (ref 11070) rooms {"customer":1933,"engineer":1934} -> 756/774 checks passed
+   PENDING_APPROVAL (submitted) [PENDING_APPROVAL/-]: 58/58
+   PUBLISHED (accepted) [PUBLISHED/-]: 56/57 FAILED: Customer owner notified at PUBLISHED (accepted)
+   ROUTED [PUBLISHED/-]: 106/108 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   ROUTE ACCEPTED [PUBLISHED/-]: 106/108 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   ASSIGNED [ASSIGNED/NOT_CONFIRMED]: 105/108 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room; TD owner (actor) not notified of their own action
+   UNASSIGNED (offer back to PENDING) [PUBLISHED/-]: 104/106 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   RE-ASSIGNED [ASSIGNED/NOT_CONFIRMED]: 105/107 FAILED: Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   CANCELLED [CANCELLED/NOT_CONFIRMED]: 103/106 FAILED: work order sub-status is CANCELLED; Individual engineer: cannot post in the customer room; no LEAK TEST message landed in the customer room
+   JOIN PROBE (outsiders try POST /chats/room/group) [-/-]: 11/12 FAILED: TD non-team user cannot join the customer room via POST /chats/room/group
+   UI evidence [-/-]: 2/3 FAILED: UI TD non-team user: sees NO room messages
+   Socket join leak re-check (non-team TD user opened the customer chat URL) [-/-]: 0/1 FAILED: non-team user is still NOT a participant of the customer room after opening its URL
+
+Findings:
+- A WO 1074 REQUESTED: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 COUNTER: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 ASSIGNED: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 CONFIRMED: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 CHECK_IN: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 CHECK_IN: actor Individual engineer was notified of their own action
+- A WO 1074 CHECK_OUT: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 WORKDONE: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 VERIFIED: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074 APPROVED: Individual engineer (id 575) could POST into the customer room 1921 (HTTP 201)
+- A WO 1074: TD non-team user (id 641) became a participant of the customer room 1921 by calling POST /chats/room/group (HTTP 201)
+- B WO 1075 ROUTED: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 ROUTE ACCEPTED (for member): Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 ROUTE ACCEPTED (for member): Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 ROUTE ACCEPTED (for member): Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 ASSIGNED: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 ASSIGNED: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 ASSIGNED: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 ASSIGNED: actor TD owner was notified of their own action
+- B WO 1075 CONFIRMED: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CONFIRMED: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CONFIRMED: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 CHECK_IN: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CHECK_IN: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CHECK_IN: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 CHECK_IN: actor Vendor engineer was notified of their own action
+- B WO 1075 CHECK_OUT: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CHECK_OUT: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 CHECK_OUT: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 WORKDONE: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 WORKDONE: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 WORKDONE: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 VERIFIED: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 VERIFIED: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 VERIFIED: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075 APPROVED: Vendor owner (id 609) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 APPROVED: Vendor engineer (id 611) could POST into the customer room 1928 (HTTP 201)
+- B WO 1075 APPROVED: Vendor engineer (id 611) could POST into the vendorOwner room 1929 (HTTP 201)
+- B WO 1075: TD non-team user (id 641) became a participant of the customer room 1928 by calling POST /chats/room/group (HTTP 201)
+- B WO 1075: Vendor engineer (id 611) became a participant of the vendorOwner room 1929 by calling POST /chats/room/group (HTTP 201)
+- C WO 1076 ROUTED: Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076 ROUTE ACCEPTED: Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076 ASSIGNED: Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076 ASSIGNED: actor TD owner was notified of their own action
+- C WO 1076 UNASSIGNED (offer back to PENDING): Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076 RE-ASSIGNED: Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076 CANCELLED: Individual engineer (id 575) could POST into the customer room 1933 (HTTP 201)
+- C WO 1076: TD non-team user (id 641) became a participant of the customer room 1933 by calling POST /chats/room/group (HTTP 201)
+- C WO 1076: TD non-team user (id 641) became a participant of customer room 1933 just by opening /workOrder/messages/1076?engineerId=638 (TD-123 finding 1 still open)
+
+Info:
+- A PUBLISHED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- A ASSIGNED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- A WO 1074 CONFIRMED: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A WO 1074 CHECK_IN: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A CHECK_IN: TD owner got no status notification (allowed by the code rules, but worth a product decision)
+- A WO 1074 CHECK_OUT: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A CHECK_OUT: TD owner got no status notification (allowed by the code rules, but worth a product decision)
+- A WO 1074 WORKDONE: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A WO 1074 VERIFIED: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A VERIFIED: Individual engineer got no status notification (allowed by the code rules, but worth a product decision)
+- A VERIFIED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- A VERIFIED: Customer owner got no status notification (allowed by the code rules, but worth a product decision)
+- A WO 1074 APPROVED: unexpected room 1925 "Job Discussion" participants TD owner, user 263, user 473, user 476, Individual engineer, Customer owner, TD team member
+- A APPROVED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- B PUBLISHED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- B ROUTED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- B ROUTE ACCEPTED (for member): Vendor engineer got no status notification (allowed by the code rules, but worth a product decision)
+- B WO 1075 CONFIRMED: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B WO 1075 CHECK_IN: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B CHECK_IN: TD owner got no status notification (allowed by the code rules, but worth a product decision)
+- B WO 1075 CHECK_OUT: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B CHECK_OUT: TD owner got no status notification (allowed by the code rules, but worth a product decision)
+- B WO 1075 WORKDONE: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B WORKDONE: Vendor owner got no status notification (allowed by the code rules, but worth a product decision)
+- B WO 1075 VERIFIED: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B VERIFIED: Vendor engineer got no status notification (allowed by the code rules, but worth a product decision)
+- B VERIFIED: Vendor owner got no status notification (allowed by the code rules, but worth a product decision)
+- B VERIFIED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- B VERIFIED: Customer owner got no status notification (allowed by the code rules, but worth a product decision)
+- B WO 1075 APPROVED: unexpected room 1932 "Job Discussion" participants TD owner, user 263, user 473, user 476, Vendor engineer, Customer owner, TD team member
+- B APPROVED: Vendor owner got no status notification (allowed by the code rules, but worth a product decision)
+- B APPROVED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- C PUBLISHED (accepted): TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- C ROUTED: TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- C UNASSIGNED (offer back to PENDING): TD team member got no status notification (allowed by the code rules, but worth a product decision)
+- C UNASSIGNED (offer back to PENDING): Customer owner got no status notification (allowed by the code rules, but worth a product decision)
+- C RE-ASSIGNED: TD team member got no status notification (allowed by the code rules, but worth a product decision)

@@ -1,0 +1,539 @@
+{
+  "run": "1016055156",
+  "wo": 1084,
+  "checks": [
+    {
+      "name": "0. start: WO 1084 (#11078) PENDING_APPROVAL/COUNTER_OFFER_ACCEPTED, accepted counter rates 58/6/62, expenses Travel 30 + Parking 10, total 388",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_ACCEPTED",
+        "pay": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "serviceFee": 0,
+          "penalty": 0,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:Customer travel:30",
+            "OTHER:Parking (edited):10"
+          ]
+        }
+      }
+    },
+    {
+      "name": "1. Tech Domain published the work order and the accepted rates survived (58/6/62, 388)",
+      "ok": true,
+      "detail": {
+        "fix": 200,
+        "approvePublish": 201,
+        "status": "PUBLISHED",
+        "pay": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "serviceFee": 0,
+          "penalty": 0,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:Customer travel:30",
+            "OTHER:Parking (edited):10"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. engineer 575 \"Syed Hamza\" routed -> accepted -> assigned",
+      "ok": true,
+      "detail": {
+        "schedule": 200,
+        "route": 201,
+        "routeBody": "{\"data\":[{\"id\":2492,\"workOrderId\":1084,\"userId\":575,\"createdById\":27,\"referredEngineerId\":null,\"hourlyRate\":15,\"halfDayRate\":800,\"fullDayRate\":1600,\"f",
+        "accept": 201,
+        "assign": 201,
+        "assignBody": "{\"message\":\"SUCCESS\"}",
+        "status": "ASSIGNED"
+      }
+    },
+    {
+      "name": "2b. after assignment the customer rates are still 58/6/62 with expenses 40 (total 388)",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 6,
+        "totalLabourCost": 348,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 388,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 388,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "3. engineer confirm -> check-in -> check-out -> mark complete => WORKDONE",
+      "ok": true,
+      "detail": {
+        "walk": [
+          "confirm:200",
+          "checkIn:201",
+          "checkOut:201",
+          "markComplete:200"
+        ],
+        "status": "WORKDONE"
+      }
+    },
+    {
+      "name": "4. at WORKDONE with ~0 h worked: hoursWorked 0, additionalHours 0, totalHoursApproved = 6 (minimum), labour 58x6 = 348, total 388",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 6,
+        "totalLabourCost": 348,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 388,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 388,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "time logs before the edit",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "id": 967,
+          "in": "2026-10-16T05:52:00.000Z",
+          "out": "2026-10-16T05:52:00.000Z",
+          "totalHours": 0
+        }
+      ]
+    },
+    {
+      "name": "5. Tech Domain edited the time log to 8.5 h (PATCH timeLogs/updateTimelogs)",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "logs": [
+          {
+            "id": 967,
+            "in": "2026-10-15T19:00:00.000Z",
+            "out": "2026-10-16T03:30:00.000Z",
+            "totalHours": 8.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "6. CALC with 8.5 h: hoursWorked 8.5, additionalHours 2.5, labour = 58x6 + 2.5x62 = 503, expenses 40, total 543",
+      "ok": false,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "engineer side after 8.5 h (engineer rates 15/h, min 4, additional 15/h): expected labour 15x4 + 4.5x15 = 127.5",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "hourlyRate": 15,
+        "minimumHours": 4,
+        "additionalHourlyRate": 15,
+        "hoursWorked": 8.5,
+        "additionalHours": 4.5,
+        "totalHoursApproved": 8.5,
+        "totalLabourCost": 127.5,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 127.5,
+        "grandTotal": 127.5,
+        "expenses": []
+      }
+    },
+    {
+      "name": "6b. engineer labour = 15x4 + 4.5x15 = 127.5",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 15,
+        "minimumHours": 4,
+        "additionalHourlyRate": 15,
+        "hoursWorked": 8.5,
+        "additionalHours": 4.5,
+        "totalHoursApproved": 8.5,
+        "totalLabourCost": 127.5,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 127.5,
+        "grandTotal": 127.5,
+        "expenses": []
+      }
+    },
+    {
+      "name": "estimatedPayment top-level keys (where is the Tech Domain expense?)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "keys": [
+          "engineerRates",
+          "clientRates",
+          "companyExpenses"
+        ],
+        "other": {
+          "companyExpenses": "{\"currency\":\"USD\",\"expenses\":[],\"companyTotalExpenseCost\":0}"
+        }
+      }
+    },
+    {
+      "name": "7. Tech Domain expense 25 added (PATCH workOrders/:id/companyExpenses)",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "8. is the Tech Domain expense counted in the CUSTOMER total? inClientExpenses=false; customer total now 574 (503+40=543 without it, 568 with it)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "8b. customer labour is unchanged by the Tech Domain expense (503) and customer expenses are Travel 30 + Parking 10 (+ Material 25 only if TD expenses are billed to the customer)",
+      "ok": false,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "9. customer API sees the same numbers as Tech Domain (hours, additional hours, labour, expenses, total)",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    {
+      "name": "10. Tech Domain Payment tab shows 58.00, 8.5 worked hours / 2.5 additional, 503.00 labour and the expenses",
+      "ok": false,
+      "detail": {
+        "has58": false,
+        "has503": false,
+        "has2_5": false,
+        "has8_5": false,
+        "parking": false,
+        "material": false,
+        "shot": "WO-11078_HoursExpenses_01_techdomain-payment-tab.png"
+      }
+    },
+    {
+      "name": "Tech Domain detail at WORKDONE (working hours header)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "WO-11078_HoursExpenses_02_techdomain-detail-workdone.png",
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 2 28 Work Done #11078 On 10/16/2026 Counter edit before accept 1016050548 Working Hours 8 hours 30 mins Payment: Estimated USD 127.50 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Mark Incomplete Review Counter Offer Accepted Customer Owner accepted the counter offer o"
+      }
+    },
+    {
+      "name": "11. customer Payment tab shows 58.00, labour 503.00 and the expenses Travel + Parking",
+      "ok": false,
+      "detail": {
+        "has58": true,
+        "has503": false,
+        "parking": true,
+        "material": false,
+        "total543": false,
+        "total568": false,
+        "shot": "WO-11078_HoursExpenses_03_customer-payment-tab.png"
+      }
+    },
+    {
+      "name": "engineer Payment tab",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "has127": true,
+        "has8_5": false,
+        "shot": "WO-11078_HoursExpenses_04_engineer-payment-tab.png"
+      }
+    }
+  ],
+  "findings": [
+    "6. CALC with 8.5 h: hoursWorked 8.5, additionalHours 2.5, labour = 58x6 + 2.5x62 = 503, expenses 40, total 543",
+    "8b. customer labour is unchanged by the Tech Domain expense (503) and customer expenses are Travel 30 + Parking 10 (+ Material 25 only if TD expenses are billed to the customer)",
+    "10. Tech Domain Payment tab shows 58.00, 8.5 worked hours / 2.5 additional, 503.00 labour and the expenses",
+    "11. customer Payment tab shows 58.00, labour 503.00 and the expenses Travel + Parking"
+  ],
+  "steps": {
+    "start": {
+      "status": "PENDING_APPROVAL",
+      "subStatus": "COUNTER_OFFER_ACCEPTED",
+      "pay": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 6,
+        "totalLabourCost": 348,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 388,
+        "serviceFee": 0,
+        "penalty": 0,
+        "grandTotal": 388,
+        "expenses": [
+          "TRAVEL:Customer travel:30",
+          "OTHER:Parking (edited):10"
+        ]
+      }
+    },
+    "afterWorkDone": {
+      "hourlyRate": 58,
+      "minimumHours": 6,
+      "additionalHourlyRate": 62,
+      "hoursWorked": 0,
+      "additionalHours": 0,
+      "totalHoursApproved": 6,
+      "totalLabourCost": 348,
+      "totalExpenseCost": 40,
+      "totalWorkOrderCost": 388,
+      "serviceFee": 0,
+      "penalty": 0,
+      "grandTotal": 388,
+      "expenses": [
+        "TRAVEL:Customer travel:30",
+        "OTHER:Parking (edited):10"
+      ]
+    },
+    "afterHours": {
+      "hourlyRate": 58,
+      "minimumHours": 6,
+      "additionalHourlyRate": 62,
+      "hoursWorked": 9,
+      "additionalHours": 3,
+      "totalHoursApproved": 9,
+      "totalLabourCost": 534,
+      "totalExpenseCost": 40,
+      "totalWorkOrderCost": 574,
+      "serviceFee": 0,
+      "penalty": 0,
+      "grandTotal": 574,
+      "expenses": [
+        "TRAVEL:Customer travel:30",
+        "OTHER:Parking (edited):10"
+      ]
+    },
+    "afterExpense": {
+      "hourlyRate": 58,
+      "minimumHours": 6,
+      "additionalHourlyRate": 62,
+      "hoursWorked": 9,
+      "additionalHours": 3,
+      "totalHoursApproved": 9,
+      "totalLabourCost": 534,
+      "totalExpenseCost": 40,
+      "totalWorkOrderCost": 574,
+      "serviceFee": 0,
+      "penalty": 0,
+      "grandTotal": 574,
+      "expenses": [
+        "TRAVEL:Customer travel:30",
+        "OTHER:Parking (edited):10"
+      ]
+    },
+    "paymentRaw": {
+      "engineerRates": {
+        "hourlyRate": 15,
+        "halfDayRate": null,
+        "fullDayRate": null,
+        "fixedAmount": null,
+        "currency": "USD",
+        "expenses": [],
+        "paymentType": "HOURLY",
+        "paymentTerms": "15 days",
+        "additionalHourlyRate": 15,
+        "minimumHours": 4,
+        "engineerRate": 15,
+        "totalWorkOrderCost": 127.5,
+        "totalExpenseCost": 0,
+        "totalLabourCost": 127.5,
+        "hoursWorked": 8.5,
+        "additionalHours": 4.5,
+        "totalHoursApproved": 8.5,
+        "nonBusinessHours": null,
+        "nonBusinessHourRate": null,
+        "totalNonBusinessPayment": 0,
+        "grandTotal": 127.5
+      },
+      "clientRates": {
+        "hourlyRate": 58,
+        "additionalHourlyRate": 62,
+        "halfDayRate": null,
+        "fthRate": null,
+        "customHours": null,
+        "customHoursRate": null,
+        "fullDayRate": null,
+        "fixedAmount": null,
+        "minimumHours": 6,
+        "paymentType": "HOURLY",
+        "purchaseOrderNumber": "",
+        "purchaseOrders": [],
+        "currency": "USD",
+        "totalWorkOrderCost": 574,
+        "expenses": [
+          {
+            "id": 579,
+            "amount": 30,
+            "expenseType": "TRAVEL",
+            "description": "Customer travel",
+            "isApproved": true,
+            "isEngineerExpense": false,
+            "isCompanyExpense": false,
+            "offerId": null,
+            "expenseKey": null,
+            "attachment": null,
+            "addedBy": {
+              "role": {
+                "id": 5,
+                "label": "Customer",
+                "role": "CUSTOMER",
+                "createdById": null,
+                "createdAt": "2026-03-19T05:54:44.210Z",
+                "updatedAt": "2026-03-19T05:54:44.210Z"
+              }
+            }
+          },
+          {
+            "id": 584,
+            "amount": 10,
+            "expenseType": "OTHER",
+            "description": "Parking (edited)",
+            "isApproved": true,
+            "isEngineerExpense": false,
+            "isCompanyExpense": false,
+            "offerId": 2490,
+            "expenseKey": null,
+            "attachment": null,
+            "addedBy": {
+              "role": {
+                "id": 2,
+                "label": "Client",
+                "role": "CLIENT",
+                "createdById": null,
+                "createdAt": "2025-03-24T06:11:22.144Z",
+                "updatedAt": "2025-03-24T06:11:22.144Z"
+              }
+            }
+          }
+        ],
+        "totalExpenseCost": 40,
+        "additionalHours": 3,
+        "totalLabourCost": 534,
+        "serviceFee": 0,
+        "serviceFeePercentage": 0,
+        "penalty": 0,
+        "hoursWorked": 9,
+        "totalHoursApproved": 9,
+        "nonBusinessHours": null,
+        "nonBusinessHourRate": null,
+        "totalNonBusinessPayment": 0,
+        "grandTotal": 574,
+        "approvedBy": {}
+      },
+      "companyExpenses": {
+        "currency": "USD",
+        "expenses": [],
+        "companyTotalExpenseCost": 0
+      }
+    },
+    "tdPaymentTab": "Dashboard Work Board Messages Task Board Work Force Invoices 2 28 Work Done #11078 On 10/16/2026 Counter edit before accept 1016050548 Working Hours 8 hours 30 mins Payment: Estimated USD 127.50 Engineer Syed HamzaID: 575 +92 325 9861650 Copy Save as Template Tags Print Add Note Create New Task Leave Feedback Mark Incomplete Review Counter Offer Accepted Customer Owner accepted the counter offer on Oct 16, 2026 at 10:25 AM. The customer rates have been updated. Details Payment Providers Messages Job Sign-Off Feedback History Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 Project: No project specified SLA: N/A Service Description Work Description QA: counter offer edited before customer acceptance Work Experience Technology Stacks: Audio/Video Category: Skills: Work Order Eligibility Schedule Fixed Start Start at a specific date and time Friday, 16/10/2026 at 05:47 AM (CUT) Ready to go has not been set Location: lahore Lahore, Pakistan (RESIDENTIAL) Enable Map View Client Documents Deliverables Tasks Contacts Work Order Manager iH Istkhar +1 2313342 istkhar+2@techdomain.com.au Operations Service Desk +61 2 9158 3294 operations@techdomain.com.au Note: Please contact our service desk if you have any query regarding site access or problem in job completion. Feedback Counter Edit Before Accept 1016050548 Syed Hamza The purpose of private feedback is to foster transparency and mutual growth by providing constructive insights on the working relationship. It helps to understand areas for improvement, such as communication or resource provision, while acknowledging their strengths. This feedback aims to enhance collaboration and streamline future projects. Ultimately, it promotes a professional, respectful, and efficient partnership. How would you rate your engineer's overall approach to working on this work order?* Unsatisfied 1 Star 2 Stars 3 Stars 4 Stars 5 Stars Empty Excellent What did you like most? Excellent Technical Skills Professional & Courteous On-Time Arrival Great Communication High-Quality Work Went Above & Beyond What problem you face? Late Arrival Poor Communication Insufficient Technical Skills Unprofessional Conduct Incomplete/Poor-Quality Work Did Not Follow Instructions Add a comment Make it a Private Feedback Cancel Submit",
+    "custPaymentTab": "Dashboard Work Orders Work Force Invoices 0 16 Work Done #11078 On 10/16/2026 Counter edit before accept 1016050548 Working Hours 8 hours 30 mins Payment: Estimated USD 574.00 Engineer Syed HamzaID: 575 Print Mark Incomplete Approve Details Payment Proposals Messages Payment (Hourly) USD 534.00 Hourly rate USD 58.00 Minimum Payable hours 6 hours 0 mins Additional Hourly rate USD 62.00 Additional Payable hours 3 hours 0 mins Expenses USD 40.00 Travel Expense (Customer travel) Buyer: USD 30 Expense (Parking (edited)) Provider: USD 10 Estimated Payable USD 574.00 This calculation reflects the estimated payable amount based on your time log, pending client confirmation."
+  }
+}

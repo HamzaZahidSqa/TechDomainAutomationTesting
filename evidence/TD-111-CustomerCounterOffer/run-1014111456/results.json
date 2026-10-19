@@ -1,0 +1,308 @@
+{
+  "ticket": "TD-111",
+  "run": "1014111456",
+  "date": "2026-10-14T11:14:56.593Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1021,
+      "ref": 11015,
+      "title": "TD-111 A happy path 1014111456",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1022,
+      "ref": 11016,
+      "title": "TD-111 B decline 1014111456",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1023,
+      "ref": 11017,
+      "title": "TD-111 C edit-withdraw 1014111456",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1024,
+      "ref": 11018,
+      "title": "TD-111 D multi TD users 1014111456",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1025,
+      "ref": 11019,
+      "title": "TD-111 E negatives 1014111456",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1026,
+      "ref": 11020,
+      "title": "TD-111 F fixed rate 1014111456",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "C-01",
+      "title": "Initial counter offer 55/5/60 sent",
+      "type": "positive",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_01_C01_td-counter-sent-55.png"
+    },
+    {
+      "id": "C-02",
+      "title": "Edit Counter Offer opens the modal pre-filled with the pending counter (55 -> shown next to 45) and an \"Update Counter Offer\" button",
+      "type": "positive",
+      "expected": "USD 55.00 shown, Update Counter Offer button",
+      "actual": "Edit Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 55.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 USD 60.00 Expenses Travel Expense (Customer travel) USD 30.00 Estimated Payment USD 255.00 USD 305.00 Please note: This is the minimum payable amount; however, the final payment will be d | updateBtn=1",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_02_C02_td-edit-counter-modal.png"
+    },
+    {
+      "id": "C-03",
+      "title": "Update calls PATCH offers/customer/counter/:id and shows \"Counter Offer Updated\"",
+      "type": "positive",
+      "expected": "HTTP 2xx + toast",
+      "actual": "HTTP 200 toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_04_C04_td-counter-updated-toast.png"
+    },
+    {
+      "id": "C-04",
+      "title": "Counter record now holds the edited values 58/6/62 + Parking 10 and is still PENDING",
+      "type": "positive",
+      "expected": "PENDING, 58 / 6 / 62, expense 10",
+      "actual": "{\"status\":\"PENDING\",\"h\":58,\"m\":6,\"a\":62,\"exp\":[\"OTHER:10\"],\"history\":[\"PENDING/55\",\"PENDING/58\"]}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "C-05",
+      "title": "Customer sees the EDITED proposal (58/h, 6 hrs, Parking 10)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot read the counter offer on dev (GET offers/customer/counter/:wo -> 403)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "C-06",
+      "title": "\"Withdraw Counter Offer\" modal summarises the pending counter (labour old -> new, expenses, estimated payable) with a Withdraw button",
+      "type": "positive",
+      "expected": "Withdraw Counter Offer, USD 58.00, Parking, Withdraw button",
+      "actual": "Withdraw Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 58.00 Minimum Payable Hours 5 hrs 6 hrs Additional Hourly rate USD 50.00 USD 62.00 Expenses Other Expense (Parking) USD 10.00 Estimated Payment USD 255.00 USD 388.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Cancel Withdraw",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_05_C06_td-withdraw-modal.png"
+    },
+    {
+      "id": "C-07",
+      "title": "Withdraw calls POST offers/customer/counter/withdraw/:id and shows \"Counter Offer Withdrawn\"",
+      "type": "positive",
+      "expected": "HTTP 2xx + toast",
+      "actual": "HTTP 201 toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_06_C07_td-withdrawn-toast.png"
+    },
+    {
+      "id": "C-08",
+      "title": "After withdrawing: banner \"Counter Offer Withdrawn … keeps its original rates\", \"Counter Offer\" button is back, no Edit/Withdraw",
+      "type": "positive",
+      "expected": "banner + Counter Offer button",
+      "actual": "Dashboard Work Board Task Board Work Force Invoices 14 37 Submitted #11017 On 10/14/2026 TD-111 C edit-withdraw 1014111456 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Move to Draft Counter Offer Review & Publish Counter Offer Withdrawn istkhar Hussain withdrew the counter offer on Oct 14, 2026 at 4:16 PM. The work order keeps its original rates. Details Payment Providers Messag | Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_07_C08_td-after-withdraw.png"
+    },
+    {
+      "id": "C-09",
+      "title": "Counter record status is WITHDRAWN",
+      "type": "positive",
+      "expected": "WITHDRAWN",
+      "actual": "WITHDRAWN",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "C-10",
+      "title": "Customer sees the proposal as \"Withdrawn\" with no Accept/Decline",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot read the counter offer on dev",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "C-11",
+      "title": "Work order rates unchanged after edit + withdraw (45/5/50, total 255)",
+      "type": "positive",
+      "expected": "255",
+      "actual": "{\"hourlyRate\":45,\"total\":255}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "C-12",
+      "title": "A new counter offer can be sent after a withdrawal (47/h) and becomes the pending one",
+      "type": "positive",
+      "expected": "toast + PENDING 47",
+      "actual": "toast=true status=PENDING rate=47 history=PENDING>PENDING>WITHDRAWN>PENDING",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_08_C10_td-new-counter-after-withdraw.png"
+    },
+    {
+      "id": "D-01",
+      "title": "Tech Domain user 1 (owner) sends counter 52/h",
+      "type": "positive",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_09_D01_td-owner-counter-52.png"
+    },
+    {
+      "id": "D-02",
+      "title": "Tech Domain user 2 (team member) view while user 1's counter is pending: buttons + banner",
+      "type": "info",
+      "expected": "-",
+      "actual": "Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Edit Counter Offer, Withdraw Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History | Dashboard Work Board Task Board Work Force Invoices 19 49 Submitted Counter Sent #11018 On 10/14/2026 TD-111 D multi TD users 1014111456 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Move to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaitin",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_10_D02_td-user2-sees-user1-counter.png"
+    },
+    {
+      "id": "D-03",
+      "title": "Tech Domain user 2 sees that a counter offer is pending and who sent it",
+      "type": "positive",
+      "expected": "banner \"Counter Offer Sent … sent by istkhar Hussain\"",
+      "actual": "Dashboard Work Board Task Board Work Force Invoices 19 49 Submitted Counter Sent #11018 On 10/14/2026 TD-111 D multi TD users 1014111456 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Move to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaitin",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_10_D02_td-user2-sees-user1-counter.png"
+    },
+    {
+      "id": "D-04",
+      "title": "Tech Domain user 2 edits the shared pending counter to 57/h (one counter per work order, shared by the Tech Domain team)",
+      "type": "edge",
+      "expected": "toast Counter Offer Updated",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_11_D03_td-user2-edits-shared-counter-57.png"
+    },
+    {
+      "id": "D-05",
+      "title": "Counter record after user 2 acted",
+      "type": "info",
+      "expected": "-",
+      "actual": "{\"history\":[]}",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "D-06",
+      "title": "The latest counter (57/h) is the only pending one; the earlier 52/h is superseded",
+      "type": "edge",
+      "expected": "status PENDING, customerHourlyRate 57",
+      "actual": "{}",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "D-07",
+      "title": "Tech Domain user 3 (no team) view of the work order: buttons + banner",
+      "type": "info",
+      "expected": "-",
+      "actual": "Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Edit Counter Offer, Withdraw Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History | Dashboard Work Board Task Board Work Force Invoices 4 0 Submitted Counter Sent #11018 On 10/14/2026 TD-111 D multi TD users 1014111456 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task M",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_12_D04_td-user3-noteam-view.png"
+    },
+    {
+      "id": "D-08",
+      "title": "Tech Domain user 1 now sees the pending counter as sent by user 2 (TD Team Member)",
+      "type": "positive",
+      "expected": "banner names the TD-123 team member, not istkhar",
+      "actual": "Dashboard Work Board Task Board Work Force Invoices 14 37 Submitted Counter Sent #11018 On 10/14/2026 TD-111 D multi TD users 1014111456 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Move to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaitin",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_13_D05_td-user1-sees-user2-counter.png"
+    },
+    {
+      "id": "D-09",
+      "title": "Customer sees ONE actionable proposal: the latest (57/h)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot read the counter offer on dev",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "D-10",
+      "title": "Customer accepts the 57/h proposal",
+      "type": "positive",
+      "expected": "accepted",
+      "actual": "api: no Accept button in the UI; GET offers/customer/counter/1024 as the customer -> HTTP 401 Unauthorized",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_14_D07_customer-accept-attempt.png"
+    },
+    {
+      "id": "D-11",
+      "title": "Work order moves on with the ACCEPTED rate 57/h (not 52)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot accept the counter offer on dev",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "D-12",
+      "title": "Every Tech Domain user sees \"Counter Offer Accepted\" and no counter buttons after acceptance",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot accept the counter offer on dev",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "findings": [
+    "D-06 The latest counter (57/h) is the only pending one; the earlier 52/h is superseded",
+    "D-10 Customer accepts the 57/h proposal"
+  ],
+  "summary": {
+    "total": 21,
+    "pass": 14,
+    "fail": 2,
+    "blocked": 5,
+    "info": 3
+  }
+}

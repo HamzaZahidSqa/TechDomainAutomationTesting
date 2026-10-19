@@ -1,0 +1,401 @@
+{
+  "run": "1016050548",
+  "checks": [
+    {
+      "name": "1. customer created WO 1084 (#11078) with rates 45/5/50 + Travel 30, status PENDING_APPROVAL",
+      "ok": true,
+      "detail": {
+        "wo": 1084,
+        "ref": 11078,
+        "status": "PENDING_APPROVAL",
+        "subStatus": null
+      }
+    },
+    {
+      "name": "original estimated payment (customer rates)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "hourlyRate": 45,
+        "minimumHours": 5,
+        "additionalHourlyRate": 50,
+        "totalLabourCost": 225,
+        "totalExpenseCost": 30,
+        "totalWorkOrderCost": 255,
+        "expenses": [
+          "TRAVEL:30"
+        ]
+      }
+    },
+    {
+      "name": "2. Tech Domain sent counter offer v1 (60/4/65 + Tools 20)",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "id": 2490
+      }
+    },
+    {
+      "name": "3. customer can read the pending proposal v1 (GET offers/customer/counter/:wo -> 200 PENDING with 60/4/65)",
+      "ok": true,
+      "detail": {
+        "id": 2490,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65,
+        "expenses": [
+          "TOOLS:20"
+        ],
+        "history": [
+          "PENDING/60/4/65"
+        ]
+      }
+    },
+    {
+      "name": "4. customer UI shows proposal v1 (USD 60.00, 4 hrs, Ladder hire) with Accept/Decline, before the edit",
+      "ok": true,
+      "detail": {
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "card": "Proposal Awaiting your response Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 ",
+        "shot": "CounterOffer_EditBeforeAccept_01_customer-proposal-v1-before-edit.png"
+      }
+    },
+    {
+      "name": "5. Tech Domain edited the pending counter offer to v2 (58/6/62 + Parking 10) - PATCH offers/customer/counter/:id",
+      "ok": false,
+      "detail": {
+        "status": 400,
+        "body": "{\"statusCode\":400,\"message\":\"Each expense needs a valid type, a description and an amount greater than 0.\"}"
+      }
+    },
+    {
+      "name": "6. counter record (Tech Domain view) now holds v2 values, same id, still PENDING, history keeps v1",
+      "ok": false,
+      "detail": {
+        "id": 2490,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65,
+        "expenses": [
+          "TOOLS:20"
+        ],
+        "history": [
+          "PENDING/60/4/65"
+        ]
+      }
+    },
+    {
+      "name": "does the edited proposal still carry the v1 expense (Tools 20)?",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "v1ExpenseStillPresent": true,
+        "expenses": [
+          "TOOLS:20"
+        ]
+      }
+    },
+    {
+      "name": "7. customer API shows the EDITED proposal v2 (58/6/62 + Parking 10), still PENDING / awaiting response",
+      "ok": false,
+      "detail": {
+        "id": 2490,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65,
+        "expenses": [
+          "TOOLS:20"
+        ],
+        "history": [
+          "PENDING/60/4/65"
+        ]
+      }
+    },
+    {
+      "name": "8. customer got notifications for the proposal AND for the update",
+      "ok": false,
+      "detail": []
+    },
+    {
+      "name": "9. while pending (after edit) the work order keeps the ORIGINAL rates 45/5/50 and total 255",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "pay": {
+          "hourlyRate": 45,
+          "minimumHours": 5,
+          "additionalHourlyRate": 50,
+          "totalLabourCost": 225,
+          "totalExpenseCost": 30,
+          "totalWorkOrderCost": 255,
+          "expenses": [
+            "TRAVEL:30"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10. customer UI shows the EDITED proposal (USD 58.00, 6 hrs, Parking) and no longer the v1 values (60.00 / Ladder hire) as the pending one",
+      "ok": false,
+      "detail": {
+        "card": "Proposal Awaiting your response Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 65.00 PROPOSED EXPENSES Tools Expense (Ladder",
+        "shot": "CounterOffer_EditBeforeAccept_02_customer-proposal-v2-after-edit.png"
+      }
+    },
+    {
+      "name": "customer UI: are the v1 values still mentioned anywhere on the proposals page (history)?",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "v1_60_visible": true,
+        "ladderHireVisible": true,
+        "awaiting": true
+      }
+    },
+    {
+      "name": "customer bell after the edit",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "CounterOffer_EditBeforeAccept_03_customer-bell-after-edit.png"
+      }
+    },
+    {
+      "name": "accept confirmation dialog",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "text": "",
+        "shot": "CounterOffer_EditBeforeAccept_04_customer-accept-dialog.png"
+      }
+    },
+    {
+      "name": "11. customer accepted the proposal",
+      "ok": false,
+      "detail": {
+        "via": "ui",
+        "toast": false,
+        "shot": "CounterOffer_EditBeforeAccept_05_customer-after-accept.png"
+      }
+    },
+    {
+      "name": "12. proposal card after acceptance shows \"Accepted\" with the v2 values (58.00 / 6 hrs / Parking)",
+      "ok": false,
+      "detail": {
+        "card": "Proposal Awaiting your response Hourly Sent 2 minutes ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Mini",
+        "shot": "CounterOffer_EditBeforeAccept_06_customer-proposal-after-accept.png"
+      }
+    },
+    {
+      "name": "customer Payment tab after acceptance",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "has58": false,
+        "has60": false,
+        "has45": true,
+        "parking": false,
+        "ladder": false,
+        "shot": "CounterOffer_EditBeforeAccept_07_customer-payment-tab-after-accept.png"
+      }
+    },
+    {
+      "name": "13. counter offer status is ASSIGNED (accepted) after the customer accepts",
+      "ok": false,
+      "detail": {
+        "id": 2490,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65,
+        "expenses": [
+          "TOOLS:20"
+        ],
+        "history": [
+          "PENDING/60/4/65"
+        ]
+      }
+    },
+    {
+      "name": "14. work order now carries the EDITED (v2) rates 58/6/62 - not the v1 values 60/4/65 and not the original 45/5/50",
+      "ok": false,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "woRates": {
+          "hourlyRate": 45,
+          "minimumHours": 5
+        },
+        "pay": {
+          "hourlyRate": 45,
+          "minimumHours": 5,
+          "additionalHourlyRate": 50,
+          "totalLabourCost": 225,
+          "totalExpenseCost": 30,
+          "totalWorkOrderCost": 255,
+          "expenses": [
+            "TRAVEL:30"
+          ]
+        }
+      }
+    },
+    {
+      "name": "15. expenses after acceptance = original Travel 30 + edited Parking 10 (v1 Tools 20 NOT added), total 58x6=348 + 40 = 388",
+      "ok": false,
+      "detail": {
+        "hourlyRate": 45,
+        "minimumHours": 5,
+        "additionalHourlyRate": 50,
+        "totalLabourCost": 225,
+        "totalExpenseCost": 30,
+        "totalWorkOrderCost": 255,
+        "expenses": [
+          "TRAVEL:30"
+        ]
+      }
+    },
+    {
+      "name": "Tech Domain detail after acceptance (banner + buttons)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "accepted": false,
+        "counterButtons": [
+          "Edit Counter Offer",
+          "Withdraw Counter Offer"
+        ],
+        "shot": "CounterOffer_EditBeforeAccept_08_techdomain-detail-after-accept.png"
+      }
+    },
+    {
+      "name": "16. Tech Domain Payment tab shows the edited rate 58.00 and Parking, not Ladder hire",
+      "ok": false,
+      "detail": {
+        "has58": false,
+        "has60": false,
+        "parking": false,
+        "ladder": false,
+        "shot": "CounterOffer_EditBeforeAccept_09_techdomain-payment-tab-after-accept.png"
+      }
+    }
+  ],
+  "findings": [
+    "5. Tech Domain edited the pending counter offer to v2 (58/6/62 + Parking 10) - PATCH offers/customer/counter/:id",
+    "6. counter record (Tech Domain view) now holds v2 values, same id, still PENDING, history keeps v1",
+    "7. customer API shows the EDITED proposal v2 (58/6/62 + Parking 10), still PENDING / awaiting response",
+    "8. customer got notifications for the proposal AND for the update",
+    "10. customer UI shows the EDITED proposal (USD 58.00, 6 hrs, Parking) and no longer the v1 values (60.00 / Ladder hire) as the pending one",
+    "11. customer accepted the proposal",
+    "12. proposal card after acceptance shows \"Accepted\" with the v2 values (58.00 / 6 hrs / Parking)",
+    "13. counter offer status is ASSIGNED (accepted) after the customer accepts",
+    "14. work order now carries the EDITED (v2) rates 58/6/62 - not the v1 values 60/4/65 and not the original 45/5/50",
+    "15. expenses after acceptance = original Travel 30 + edited Parking 10 (v1 Tools 20 NOT added), total 58x6=348 + 40 = 388",
+    "16. Tech Domain Payment tab shows the edited rate 58.00 and Parking, not Ladder hire"
+  ],
+  "steps": {
+    "create": {
+      "wo": 1084,
+      "ref": 11078,
+      "status": "PENDING_APPROVAL",
+      "subStatus": null
+    },
+    "customerViewV1": {
+      "id": 2490,
+      "status": "PENDING",
+      "hourly": 60,
+      "min": 4,
+      "add": 65,
+      "expenses": [
+        "TOOLS:20"
+      ],
+      "history": [
+        "PENDING/60/4/65"
+      ]
+    },
+    "customerUiV1": {
+      "tabs": [
+        "Details",
+        "Payment",
+        "Proposals",
+        "Messages"
+      ],
+      "card": "Proposal Awaiting your response Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 65.00 PROPOSED EXPENSES Tools Expense (Ladder hire (v1)) USD 20.00 Estimated payment USD 255.00 USD 290.00 IH From istkhar Hussain Decline Accept",
+      "shot": "CounterOffer_EditBeforeAccept_01_customer-proposal-v1-before-edit.png"
+    },
+    "tdViewV2": {
+      "id": 2490,
+      "status": "PENDING",
+      "hourly": 60,
+      "min": 4,
+      "add": 65,
+      "expenses": [
+        "TOOLS:20"
+      ],
+      "history": [
+        "PENDING/60/4/65"
+      ]
+    },
+    "customerViewV2": {
+      "id": 2490,
+      "status": "PENDING",
+      "hourly": 60,
+      "min": 4,
+      "add": 65,
+      "expenses": [
+        "TOOLS:20"
+      ],
+      "history": [
+        "PENDING/60/4/65"
+      ]
+    },
+    "customerNotifications": [],
+    "customerUiV2": {
+      "card": "Proposal Awaiting your response Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 65.00 PROPOSED EXPENSES Tools Expense (Ladder hire (v1)) USD 20.00 Estimated payment USD 255.00 USD 290.00 IH From istkhar Hussain Decline Accept",
+      "shot": "CounterOffer_EditBeforeAccept_02_customer-proposal-v2-after-edit.png"
+    },
+    "customerUiAccepted": {
+      "card": "Proposal Awaiting your response Hourly Sent 2 minutes ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 65.00 PROPOSED EXPENSES Tools Expense (Ladder hire (v1)) USD 20.00 Estimated payment USD 255.00 USD 290.00 IH From istkhar Hussain Decline Accept",
+      "shot": "CounterOffer_EditBeforeAccept_06_customer-proposal-after-accept.png"
+    },
+    "counterFinal": {
+      "id": 2490,
+      "status": "PENDING",
+      "hourly": 60,
+      "min": 4,
+      "add": 65,
+      "expenses": [
+        "TOOLS:20"
+      ],
+      "history": [
+        "PENDING/60/4/65"
+      ]
+    },
+    "afterAccept": {
+      "status": "PENDING_APPROVAL",
+      "subStatus": "COUNTER_OFFER_PENDING",
+      "woRates": {
+        "hourlyRate": 45,
+        "minimumHours": 5
+      },
+      "pay": {
+        "hourlyRate": 45,
+        "minimumHours": 5,
+        "additionalHourlyRate": 50,
+        "totalLabourCost": 225,
+        "totalExpenseCost": 30,
+        "totalWorkOrderCost": 255,
+        "expenses": [
+          "TRAVEL:30"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+already has sub-type 11: userQualification 752 isVerified false
+ADMIN POST /admin/equipment/verify -> 201 {"message":"\nInvalid `this.databaseService.userSkill.findUnique()` invocation in\n/home/ubuntu/tdp-backend/src/modules/admin/admin.service.ts:500:62\n\n  497   throw new HttpException('Only admin can verify/unverify skills', HttpStatus.FORBIDDEN);\n  498 }\n  499 \n→ 500 const userSkill = await this.databaseService.userSkill.findUnique({\n        where: {\n          id: undefined,\n      ?   user
+TD GET /users/qualifications/575/1 -> 200 [{"id":751,"sub":"Advance Certificate In Management","isVerified":false},{"id":752,"sub":"Aruba Certified Switching Associate","isVerified":false}]
+TD POST /offers/engineer/workOrder/986 -> 201 isEngineerQualificationsVerified = undefined
+already has sub-type 11: userQualification 752 isVerified false
+ADMIN POST /admin/equipment/verify -> 201 {"data":{"id":752,"isVerified":true},"message":"SUCCESS"}
+TD GET /users/qualifications/575/1 -> 200 [{"id":751,"sub":"Advance Certificate In Management","isVerified":false},{"id":752,"sub":"Aruba Certified Switching Associate","isVerified":true}]
+TD POST /offers/engineer/workOrder/986 -> 201 isEngineerQualificationsVerified = true

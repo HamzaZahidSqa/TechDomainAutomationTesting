@@ -1,0 +1,23 @@
+PASS 1. customer created WO 1085 (#11079) with rates 45/5/50 + Travel 30, status PENDING_APPROVAL
+INFO original estimated payment (customer rates)
+PASS 2. Tech Domain sent counter offer v1 (60/4/65 + Tools 20)
+PASS 3. customer can read the pending proposal v1 (GET offers/customer/counter/:wo -> 200 PENDING with 60/4/65)
+PASS 4. customer UI shows proposal v1 (USD 60.00, 4 hrs, Ladder hire) with Accept/Decline, before the edit
+PASS 5. Tech Domain edited the pending counter offer to v2 (58/6/62 + Parking 10) - PATCH offers/customer/counter/:id
+FAIL 6. counter record (Tech Domain view) now holds v2 values, same id, still PENDING, history keeps v1
+INFO does the edited proposal still carry the v1 expense (Tools 20)?
+PASS 7. customer API shows the EDITED proposal v2 (58/6/62 + Parking 10), still PENDING / awaiting response
+PASS 8. customer got notifications for the proposal AND for the update
+PASS 9. while pending (after edit) the work order keeps the ORIGINAL rates 45/5/50 and total 255
+PASS 10. customer UI shows the EDITED proposal (USD 58.00, 6 hrs, Parking) and no longer the v1 values (60.00 / Ladder hire) as the pending one
+INFO customer UI: are the v1 values still mentioned anywhere on the proposals page (history)?
+INFO customer bell after the edit
+INFO accept confirmation dialog
+PASS 11. customer accepted the proposal
+FAIL 12. proposal card after acceptance shows "Accepted" with the v2 values (58.00 / 6 hrs / Parking)
+INFO customer Payment tab after acceptance
+PASS 13. counter offer status is ASSIGNED (accepted) after the customer accepts
+PASS 14. work order now carries the EDITED (v2) rates 58/6/62 - not the v1 values 60/4/65 and not the original 45/5/50
+FAIL 15. expenses after acceptance = original Travel 30 + edited Parking 10 (v1 Tools 20 NOT added), total 58x6=348 + 40 = 388
+INFO Tech Domain detail after acceptance (banner + buttons)
+PASS 16. Tech Domain Payment tab shows the edited rate 58.00 and Parking, not Ladder hire

@@ -1,0 +1,19 @@
+TD-158 VERDICT: FAIL (bug still present)
+PASS vendor-1. WO 1094 (#11088) assigned to vendor engineer (member 611 of company 79)
+PASS vendor-2. Tech Domain cancelled the assigned work order -> CANCELLED
+INFO vendor: engineer estimated payment while CANCELLED
+PASS vendor-3. Tech Domain detail page of the CANCELLED work order shows the "Mark Payable" button
+INFO vendor: confirm dialog
+FAIL vendor-4. Mark Payable works for the vendor engineer (member 611 of company 79): status CANCELLED_PAYABLE (via ui+api; toast "Work Order Payable")
+INFO vendor: engineer estimated payment after Mark Payable (15/h x 4 min h = 60 expected)
+PASS vendor-5. Tech Domain UI shows the "Payable" badge and the engineer payment on the Payment tab
+INFO vendor: engineer-side view of the payable work order
+PASS freelancer-1. WO 1095 (#11089) assigned to individual engineer 575 (control)
+PASS freelancer-2. Tech Domain cancelled the assigned work order -> CANCELLED
+INFO freelancer: engineer estimated payment while CANCELLED
+PASS freelancer-3. Tech Domain detail page of the CANCELLED work order shows the "Mark Payable" button
+INFO freelancer: confirm dialog
+FAIL freelancer-4. Mark Payable works for the individual engineer 575 (control): status CANCELLED_PAYABLE (via ui+api; toast "Work Order Payable")
+INFO freelancer: engineer estimated payment after Mark Payable (15/h x 4 min h = 60 expected)
+PASS freelancer-5. Tech Domain UI shows the "Payable" badge and the engineer payment on the Payment tab
+INFO freelancer: engineer-side view of the payable work order

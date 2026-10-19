@@ -1,0 +1,110 @@
+{
+  "ticket": "TD-111",
+  "run": "1014112003",
+  "date": "2026-10-14T11:20:03.287Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1033,
+      "ref": 11027,
+      "title": "TD-111 A happy path 1014112003",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1034,
+      "ref": 11028,
+      "title": "TD-111 B decline 1014112003",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1035,
+      "ref": 11029,
+      "title": "TD-111 C edit-withdraw 1014112003",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1036,
+      "ref": 11030,
+      "title": "TD-111 D multi TD users 1014112003",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1037,
+      "ref": 11031,
+      "title": "TD-111 E negatives 1014112003",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1038,
+      "ref": 11032,
+      "title": "TD-111 F fixed rate 1014112003",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "F-01",
+      "title": "FIXED work order: modal shows \"Fixed Rate USD 300.00\" and a Fixed Rate input (no hourly fields)",
+      "type": "positive",
+      "expected": "Fixed Rate USD 300.00, input fixedAmount, no hourlyRate input",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Fixed Rate USD 300.00 Estimated Payment USD 300.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual | fixedInput=1 hourlyInput=0",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_01_F01_td-fixed-counter-modal.png"
+    },
+    {
+      "id": "F-02",
+      "title": "Fixed 300 -> 350 shown struck/new, travel 40 listed, labour estimate USD 350.00",
+      "type": "positive",
+      "expected": "USD 350.00, Site visit USD 40.00",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Fixed Rate USD 300.00 USD 350.00 Expenses Travel Expense (Site visit) USD 40.00 Estimated Payment USD 300.00 USD 390.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Fixed Rate ​ Non-Business Hour Rate – Optional ​ Add Expenses ​ ​ Description ​ Total Amount ​ Add Cancel Se",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_02_F02_td-fixed-values-added.png"
+    },
+    {
+      "id": "F-03",
+      "title": "Fixed-rate counter offer sent and stored (customerFixedAmount 350 + expense 40)",
+      "type": "positive",
+      "expected": "toast + PENDING customerFixedAmount 350",
+      "actual": "toast=true {\"status\":\"PENDING\",\"customerFixedAmount\":350,\"expenses\":[40]}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "F-04",
+      "title": "Customer accepts the fixed-rate proposal",
+      "type": "positive",
+      "expected": "accepted",
+      "actual": "api: no Accept button in the UI; GET offers/customer/counter/1038 as the customer -> HTTP 403 You do not have access to this counter offer.",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_03_F03_customer-fixed-accept-attempt.png"
+    },
+    {
+      "id": "F-05",
+      "title": "Calculation uses the accepted fixed amount 350 + expense 40 = 390",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot accept the counter offer on dev",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "findings": [
+    "F-04 Customer accepts the fixed-rate proposal"
+  ],
+  "summary": {
+    "total": 5,
+    "pass": 3,
+    "fail": 1,
+    "blocked": 1,
+    "info": 0
+  }
+}

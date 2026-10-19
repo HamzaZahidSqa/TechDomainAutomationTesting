@@ -1,0 +1,46 @@
+rows 148149 start 1970-01-01T00:00:00.000Z
+
+(a) HTTP user requests per 30s: bucket | threads | 200 | 401 | SSL-drop | other | p50 of 200s
+  1791959790s |   197 |   824 |     0 |     0 |     0 | 994
+  1791959820s |   499 |  1611 |     0 |    55 |     7 | 4541
+  1791959850s |   672 |   316 |  6697 |   824 |   111 | 5732
+  1791959880s |   925 |     0 |  8308 |  5271 |   483 | -
+  1791959910s |  1010 |     0 | 10371 |  6248 |   529 | -
+  1791959940s |  1011 |     0 |  8294 |  6813 |   478 | -
+  1791959970s |  1011 |     0 |  9104 |  4960 |   380 | -
+  1791960000s |  1011 |     0 |  7124 |  6373 |   524 | -
+  1791960030s |  1011 |     0 |  8965 |  4614 |   385 | -
+  1791960060s |  1011 |     0 |  9079 |  4326 |   403 | -
+  1791960090s |  1011 |     0 |  9940 |  3425 |   338 | -
+  1791960120s |  1001 |     0 |  4003 |   917 |   132 | -
+  other error kinds: {"Non HTTP response code: org.apache.http.NoHttpResponseException Non HTTP response message: api.dev.techdomain.com.au:443 fai":2041,"Non HTTP response code: java.net.SocketException Non HTTP response message: Connection reset":1701,"500 Internal Server Error":21,"Non HTTP response code: java.net.SocketException Non HTTP response message: An established connection was abo":7}
+
+(c) sender/receiver error kinds:
+   158 sender ws open | Websocket I/O error | WebSocket I/O error: Socket is closed
+   158 sender eio handshake | Sampler error | Sampler configured for using existing connection, but there is no conn
+   158 sender sio connect | Sampler error | Sampler configured for using existing connection, but there is no conn
+   158 sender sio connected | Sampler error | Sampler configured for using existing connection, but there is no conn
+   158 sender subscribeUser | Sampler error | Sampler configured for using existing connection, but there is no conn
+   158 sender joinGroupChat | Sampler error | Sampler configured for using existing connection, but there is no conn
+   158 sendMessage (ws write) | Sampler error | Sampler configured for using existing connection, but there is no conn
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 3-1791959935627 after 1884 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 1-1791959934232 after 3279 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 5-1791959937677 after 59 ms
+
+(d) message round-trip per 30s: bucket | ok | err | p50 | p90
+  1791959910s | 3 | 3 | 1929 | 3036
+  1791959940s | 31 | 46 | 192 | 264
+  1791959970s | 42 | 22 | 175 | 249
+  1791960000s | 38 | 24 | 183 | 238
+  1791960030s | 43 | 26 | 175 | 230
+  1791960060s | 38 | 27 | 172 | 224
+  1791960090s | 33 | 14 | 177 | 235
+
+(e) notification delivered per 30s: bucket | n | p50 | p90
+  1791959910s | 3 | 1929 | 2937
+  1791959940s | 31 | 276 | 355
+  1791959970s | 43 | 252 | 301
+  1791960000s | 39 | 268 | 338
+  1791960030s | 43 | 244 | 338
+  1791960060s | 39 | 251 | 313
+  1791960090s | 34 | 247 | 291

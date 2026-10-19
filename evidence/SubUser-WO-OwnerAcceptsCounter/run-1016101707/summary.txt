@@ -1,0 +1,15 @@
+PASS A1. sub-user 639 created WO 1088 (#11082) -> PENDING_APPROVAL, createdBy sub-user
+FAIL A2. owner can open the sub-user's work order (API detail 200 + listed on the customer board)
+PASS A3. Tech Domain sent a counter offer (60/4/65 + Tools 20)
+PASS A4. OWNER can read the pending counter (GET offers/customer/counter/:wo -> 200 PENDING 60/4/65)
+INFO sub-user view of the counter (API)
+PASS A5. owner notified about the proposal
+INFO sub-user notifications about the proposal
+INFO owner WO detail page (banner / proposal link)
+PASS A6. owner UI proposals page shows the proposal (USD 60.00, 4 hrs, Ladder hire) with an Accept button
+PASS A7. OWNER accepted the counter offer (UI) -> card shows Accepted … by Customer Owner
+INFO owner Payment tab after acceptance
+PASS A8. counter ASSIGNED, work order carries the counter rates 60/4/65 + Travel 30 + Tools 20 = 290
+INFO sub-user (creator) proposals page after the owner accepted
+INFO B1. owner created WO 1090; sub-user view: WO detail 200, counter
+INFO B2. sub-user accepting the counter on the OWNER's work order: UI + API result

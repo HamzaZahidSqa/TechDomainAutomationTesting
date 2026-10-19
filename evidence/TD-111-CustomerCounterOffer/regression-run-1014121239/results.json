@@ -1,0 +1,286 @@
+{
+  "ticket": "TD-111 regression (engineer counter offer)",
+  "run": "1014121239",
+  "date": "2026-10-14T12:12:39.859Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "R1": {
+      "id": 1063,
+      "ref": 11057,
+      "title": "TD-111 regression R1 engineer counter 1014121239"
+    },
+    "R2": {
+      "id": 1064,
+      "ref": 11058,
+      "title": "TD-111 regression R2 vendor counter 1014121239"
+    },
+    "R3": {
+      "id": 1065,
+      "ref": 11059,
+      "title": "TD-111 regression R3 counter disabled 1014121239"
+    }
+  },
+  "checks": [
+    {
+      "id": "R1-01",
+      "title": "Engineer sees \"Counter Offer\" and \"Request\" on a published work order",
+      "type": "positive",
+      "expected": "Counter Offer + Request",
+      "actual": "Print, Counter Offer, Request, Details, Payment",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_01_R1-01_engineer-published-wo.png"
+    },
+    {
+      "id": "R1-02",
+      "title": "Engineer counter modal shows the WO engineer rates (20/h, 4 hrs, 22) and estimate 80",
+      "type": "positive",
+      "expected": "USD 20.00, 4 hrs, USD 80.00, Send disabled",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 20.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 22 Estimated Payment USD 80.00 Please note: This is the minimum payable amount; however, the final payment w | sendDisabled=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_02_R1-02_engineer-counter-modal.png"
+    },
+    {
+      "id": "R1-03",
+      "title": "Labour 30/4/33 + Travel expense \"Fuel\" 10 added; estimate 30x4+10 = 130",
+      "type": "positive",
+      "expected": "USD 30.00, USD 33.00, Fuel USD 10.00, USD 130.00",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 20.00 USD30.00 Minimum Payable Hours 4 hrs 4 hrs Additional Hourly rate USD 22 33 Expenses Travel Expense (Fuel) Provider: USD10.00 Estimated Payment USD 80.00 USD130.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Rate ​ Minimum Time ​ Additonal Hourly Rat",
+      "ok": true,
+      "note": "Engineer modal prints amounts without a space (\"USD30.00\"); the Tech Domain modal prints \"USD 30.00\".",
+      "screenshot": "TD-111_EngineerCounter_03_R1-03_engineer-counter-values-added.png"
+    },
+    {
+      "id": "R1-04",
+      "title": "Send -> PATCH offers/engineer/counter -> \"Counter Offer Sent Successfully\"",
+      "type": "positive",
+      "expected": "HTTP 2xx + toast",
+      "actual": "HTTP 409 toast=false",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_04_R1-04_engineer-counter-sent.png"
+    },
+    {
+      "id": "R1-05",
+      "title": "After countering the engineer gets \"Edit Counter Offer\" + \"Withdraw Counter Offer\" and the title status COUNTER",
+      "type": "positive",
+      "expected": "Edit/Withdraw buttons, status Counter",
+      "actual": "Print, Counter Offer, Request, Details, Payment, Add, Add, Cancel, Send Counter Offer | Analytics Job 0 24 Published #11057 On 10/14/2026 TD-111 regression R1 engineer counter 1014121239 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Project Manager Istkhar Hus",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_05_R1-05_engineer-after-counter.png"
+    },
+    {
+      "id": "R1-06",
+      "title": "Tech Domain sees the engineer's PENDING counter (30/4/33 + Fuel 10, total 130)",
+      "type": "positive",
+      "expected": "offer PENDING isCounter; counter hourlyRate 30, additional 33, TRAVEL:10",
+      "actual": "offers=[] counter=null",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R1-07",
+      "title": "Engineer Jobs > Countered tab lists the work order",
+      "type": "positive",
+      "expected": "#11057 in the Countered list",
+      "actual": "Analytics Job 0 24 Coverage Area (100 Km) ​ ​ Available 136 Routed 0 Countered 1 Requested 1 Assigned 11 Inprogress 0 Work Done 5 Incomplete 0 Approved 11 Paid 0 All 35 Export ID Incident ID Job Title Location Status Type of Work Schedule Pay Distance Company 11059 TD-111 regression R3 counter disabled 1014121239 Lahore, Pakistan, Pakistan Published Audio/Video 10/19/2026 at 10:00 AM (PST) Hourly ",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_06_R1-06_engineer-jobs-countered-tab.png"
+    },
+    {
+      "id": "R1-ERR",
+      "title": "scenario aborted by an unexpected error: R1. Individual engineer: counter offer -> edit -> withdraw -> counter -> Tech Domain reviews and accepts",
+      "type": "error",
+      "expected": "scenario completes",
+      "actual": "locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Edit Counter Offer', exact: true })\u001b[22m\n\n    at C:\\Users\\M. Hamza\\Downloads\\TechDomainAutomationTesting\\tests\\td-111-regression-engineer-counter.spec.js:161:101\n    at C:\\Users\\M. Hamza\\Downloads\\TechDomainAutomationTesting\\tests\\td-111-regression-engineer-counter.spec.js:44:74",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R2-01",
+      "title": "Vendor owner sees \"Counter Offer\" on the published work order",
+      "type": "positive",
+      "expected": "Counter Offer button",
+      "actual": "Print, Counter Offer, Request, Details, Payment",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_07_R2-01_vendor-published-wo.png"
+    },
+    {
+      "id": "R2-02",
+      "title": "Vendor counter modal has a \"Select Engineer\" picker",
+      "type": "positive",
+      "expected": "Select Engineer",
+      "actual": "Counter Offer Select Engineer Engineer ​ Schedule Fixed Start Start at a specific date and time Sunday, 10/18/2026 at 10:00 AM (PST) Labour Hourly Rate USD 20.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 22 Estimated Payment USD 80.00 Please note: This is the minimum payable amount; how",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_08_R2-02_vendor-counter-modal.png"
+    },
+    {
+      "id": "R2-03",
+      "title": "Member engineer \"Demo Worker\" can be selected (qualification table passes, no missing qualification)",
+      "type": "positive",
+      "expected": "Demo Worker selected, no \"Add … to profile\" hint",
+      "actual": "picker=\"Demo Worker\" | Counter Offer Select Engineer Engineer ​ Schedule Fixed Start Start at a specific date and time Sunday, 10/18/2026 at 10:00 AM (PST) Labour Hourly Rate USD 20.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 22 Estimated Payment USD 80.00 Please note: This is the minimum payable amount; how",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_09_R2-03_vendor-engineer-selected.png"
+    },
+    {
+      "id": "R2-04",
+      "title": "Vendor sends the counter (28/4/30) for the member: PATCH offers/engineer/counter with referredEngineerId 611",
+      "type": "positive",
+      "expected": "HTTP 2xx, toast, referredEngineerId 611 in the payload",
+      "actual": "HTTP 409 toast=false payload={\"workOrderId\":1064,\"hourlyRate\":28,\"minimumHours\":4,\"additionalHourlyRate\":30,\"expenses\":[],\"currency\":\"USD\",\"referredEngineerId\":611}",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_10_R2-04_vendor-counter-sent.png"
+    },
+    {
+      "id": "R2-05",
+      "title": "Tech Domain sees the PENDING counter created by vendor 609 for engineer 611 at 28/4/30",
+      "type": "positive",
+      "expected": "offer PENDING isCounter referred 611; counter userId 609, hourlyRate 28, additional 30",
+      "actual": "offers=[] counter=null",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R2-06",
+      "title": "Tech Domain Pending Assignments shows the vendor counter (company + Demo Worker) under COUNTER OFFERS",
+      "type": "positive",
+      "expected": "COUNTER OFFERS + Demo Worker",
+      "actual": "Dashboard Work Board Task Board Work Force Invoices 14 78 Published #11058 On 10/14/2026 TD-111 regression R2 vendor counter 1014121239 Schedule: Fixed Start 10/18/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Unpublish Details Payment Providers Messages History Route Export Invite to Recruitment Nearby 45 Talent Pool 0 Worked With 10 Pending Assignments 0 Assigned 0 Decline 0 Hidden 0 Providers: 0 Filter b | step=review-button",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_11_R2-05_td-pending-assignments.png"
+    },
+    {
+      "id": "R2-07",
+      "title": "Review -> Accept & Assign -> Yes, Assign -> POST offers/counter/accept -> toast",
+      "type": "positive",
+      "expected": "counter/accept 2xx + \"Counter Offer Accepted Successfully\"",
+      "actual": "review-button toastCounter=undefined modal=\"\"",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_11_R2-05_td-pending-assignments.png"
+    },
+    {
+      "id": "R2-08",
+      "title": "Work order ASSIGNED to the member engineer 611 (company 79) with the vendor counter rates (28/4/30)",
+      "type": "positive",
+      "expected": "ASSIGNED, engineer 611, engineerCompany 79, hourly 28",
+      "actual": "{\"status\":\"PUBLISHED\",\"hourlyRate\":20,\"additionalHourlyRate\":22}",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R2-09",
+      "title": "Vendor engineer (Demo Worker) sees the assigned work order",
+      "type": "positive",
+      "expected": "Assigned",
+      "actual": "Analytics Job 0 1 No Data Found",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_12_R2-06_worker-assigned-view.png"
+    },
+    {
+      "id": "R3-00",
+      "title": "Work order flag",
+      "type": "info",
+      "expected": "-",
+      "actual": "isCounterOffersDisable=true status=PUBLISHED",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R3-01",
+      "title": "With \"Disable counter offers\" the engineer sees Request but NO Counter Offer button",
+      "type": "negative",
+      "expected": "Request only",
+      "actual": "Print, Counter Offer, Request, Details, Payment",
+      "ok": false,
+      "note": "If Counter Offer is still shown, the old flag is being ignored.",
+      "screenshot": "TD-111_EngineerCounter_13_R3-01_engineer-wo-counter-disabled.png"
+    },
+    {
+      "id": "R3-02",
+      "title": "API: engineer counter on a counter-disabled work order is rejected",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 200 {\"id\":2466,\"workOrderId\":1065,\"userId\":575,\"createdById\":575,\"referredEngineerId\":null,\"hourlyRate\":50,\"halfDayRate\":null,\"fullDayRate\":null,\"fixedAmount\":null,\"minimumHours\":4,\"additionalHourlyRate\":",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R3-02b",
+      "title": "Cleanup: the counter that should have been rejected was withdrawn again",
+      "type": "info",
+      "expected": "-",
+      "actual": "HTTP 200 \"Withdrawn Successfully.\"",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "R3-03",
+      "title": "\"Request Work Order\" modal opens with \"Send a Request\"",
+      "type": "positive",
+      "expected": "Request Work Order + Send a Request",
+      "actual": "Request Work Order Rate: Hourly @ USD 20.00 (min 4 hrs) Estimated Payment = USD 80.00 Schedule: Fixed Start 10/19/2026 10:00 AM (PST) Location Lahore, Pakistan Location Lahore, Pakistan (RESIDENTIAL) Enable Map View Cancel Send a Request",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_14_R3-02_engineer-request-modal.png"
+    },
+    {
+      "id": "R3-04",
+      "title": "Send a Request -> POST offers/engineer/request -> \"Offer Sent Successfully\" -> \"Withdraw Request\"",
+      "type": "positive",
+      "expected": "HTTP 2xx + toast + Withdraw Request",
+      "actual": "HTTP 201 toast=true | Print, Counter Offer, Withdraw Request, Details, Payment",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_15_R3-03_engineer-requested.png"
+    },
+    {
+      "id": "R3-05",
+      "title": "Tech Domain: REQUESTED OFFERS > Review (\"Requested Offer Review\") > Accept & Assign > Yes, Assign -> POST offers/assign -> \"Job Assign Successfully\"",
+      "type": "positive",
+      "expected": "Requested Offer Review, offers/assign 2xx, toast",
+      "actual": "Requested Offer Review Current Pay Labour Hourly Rate USD 20.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 22.00 Estimated Payable USD 80.00 Close Decline Accept & Assign | POST /offers/assign -> 201 toastAssign=false",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_EngineerCounter_19_R3-04_td-after-assign.png"
+    },
+    {
+      "id": "R3-06",
+      "title": "Work order ASSIGNED to engineer 575 with the ORIGINAL engineer rates (20/4/22)",
+      "type": "positive",
+      "expected": "ASSIGNED, hourly 20",
+      "actual": "{\"status\":\"ASSIGNED\",\"engineer\":575,\"hourlyRate\":20,\"additionalHourlyRate\":22}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "summary": {
+    "total": 23,
+    "pass": 10,
+    "fail": 13,
+    "info": 2
+  }
+}

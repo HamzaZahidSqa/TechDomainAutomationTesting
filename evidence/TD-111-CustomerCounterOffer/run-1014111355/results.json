@@ -1,0 +1,134 @@
+{
+  "ticket": "TD-111",
+  "run": "1014111355",
+  "date": "2026-10-14T11:13:55.045Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1015,
+      "ref": 11009,
+      "title": "TD-111 A happy path 1014111355",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1016,
+      "ref": 11010,
+      "title": "TD-111 B decline 1014111355",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1017,
+      "ref": 11011,
+      "title": "TD-111 C edit-withdraw 1014111355",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1018,
+      "ref": 11012,
+      "title": "TD-111 D multi TD users 1014111355",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1019,
+      "ref": 11013,
+      "title": "TD-111 E negatives 1014111355",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1020,
+      "ref": 11014,
+      "title": "TD-111 F fixed rate 1014111355",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "B-01",
+      "title": "Tech Domain sends a counter offer (70/5/75 + travel 15)",
+      "type": "positive",
+      "expected": "toast Counter Offer Sent Successfully",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_01_B01_td-counter-sent-70.png"
+    },
+    {
+      "id": "B-02",
+      "title": "Customer declines the proposal (UI Decline -> \"Decline Proposal\" confirmation -> \"Proposal Declined\")",
+      "type": "positive",
+      "expected": "declined",
+      "actual": "api: no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_02_B02_customer-decline-attempt.png"
+    },
+    {
+      "id": "B-03",
+      "title": "Proposal card shows \"Declined … by you\", no Accept/Decline buttons",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or decline the counter offer on dev (no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "B-04",
+      "title": "Customer header shows \"You declined the proposal\"",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or decline the counter offer on dev (no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "B-05",
+      "title": "After decline the work order keeps the original rates (45/5/50, 255)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or decline the counter offer on dev (no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "B-06",
+      "title": "Tech Domain sees \"Counter Offer Declined … keeps its original rates\" and can send a new Counter Offer",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or decline the counter offer on dev (no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "B-07",
+      "title": "A new counter offer can be sent after a decline and the customer sees it",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or decline the counter offer on dev (no Decline button in the UI; GET offers/customer/counter/1016 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "findings": [
+    "B-02 Customer declines the proposal (UI Decline -> \"Decline Proposal\" confirmation -> \"Proposal Declined\")"
+  ],
+  "summary": {
+    "total": 7,
+    "pass": 1,
+    "fail": 1,
+    "blocked": 5,
+    "info": 0
+  }
+}

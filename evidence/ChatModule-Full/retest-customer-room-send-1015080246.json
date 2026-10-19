@@ -1,0 +1,368 @@
+{
+  "run": "1015080246",
+  "date": "2026-10-15T08:02:46.866Z",
+  "checks": [
+    {
+      "name": "WO #11068 customer room 1921: Individual Engineer cannot send",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: Vendor cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: Vendor Engineer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: Customer Sub-user cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: Customer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: TechDomain User can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: TD Team Member can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 customer room 1921: no outsider message landed in the thread",
+      "ok": false,
+      "detail": {
+        "leaked": [
+          "RETEST 1015080246 Individual Engineer into customer room 1921"
+        ]
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Vendor cannot send",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Vendor Engineer cannot send",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Individual Engineer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Customer Sub-user cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: Customer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: TechDomain User can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: TD Team Member can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 customer room 1928: no outsider message landed in the thread",
+      "ok": false,
+      "detail": {
+        "leaked": [
+          "RETEST 1015080246 Vendor into customer room 1928",
+          "RETEST 1015080246 Vendor Engineer into customer room 1928"
+        ]
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Individual Engineer cannot send",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Vendor cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Vendor Engineer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Customer Sub-user cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: Customer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: TechDomain User can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: TD Team Member can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11070 customer room 1933: no outsider message landed in the thread",
+      "ok": false,
+      "detail": {
+        "leaked": [
+          "RETEST 1015080246 Individual Engineer into customer room 1933"
+        ]
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: Individual Engineer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: Customer Sub-user cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: Vendor can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: TechDomain User can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: TD Team Member can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11069 vendor owner room 1929: no outsider message landed in the thread",
+      "ok": true,
+      "detail": {
+        "leaked": []
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Vendor cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Vendor Engineer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Customer Sub-user cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Customer cannot send",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: Individual Engineer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: TechDomain User can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: TD Team Member can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "WO #11068 engineer room 1922: no outsider message landed in the thread",
+      "ok": true,
+      "detail": {
+        "leaked": []
+      }
+    },
+    {
+      "name": "WO #11069 vendor engineer room 1931: Vendor Engineer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    }
+  ]
+}

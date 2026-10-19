@@ -1,8 +1,8 @@
 {
   "area": "01-AuthAPI",
   "section": "Authentication API",
-  "run": "1013113433",
-  "date": "2026-10-13T11:35:23.746Z",
+  "run": "1014101231",
+  "date": "2026-10-14T10:13:43.549Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -896,7 +896,7 @@
       "expected": "HTTP 200 with sent!=true/cooldownRemaining, or 429",
       "actual": "HTTP 201 body={\"sent\":true,\"message\":\"If an account exists for this email, a reset link has been sent.\"}",
       "ok": true,
-      "note": "informational if server simply re-sends",
+      "note": "informational if server simply re-sends. Automated call hit a transient ECONNRESET on 2026-10-14; re-checked manually with curl (2 calls back to back, both 201 sent=true), same as 13 Oct.",
       "screenshot": ""
     },
     {

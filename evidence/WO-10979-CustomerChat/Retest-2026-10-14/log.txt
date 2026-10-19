@@ -1,0 +1,8 @@
+TD sees customer row: true
+TD page has m1: true
+Customer tabs: Details | Payment | Messages
+Customer sees m1: true | Tech Domain room listed: true
+Customer page has m2: true
+TD sees m2: true
+room 1821 messages: istkhar: TD to customer check 1014060807 || Customer: Customer reply 1014060807
+WO 989 #undefined

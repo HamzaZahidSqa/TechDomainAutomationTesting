@@ -1,8 +1,8 @@
 {
   "area": "05-RolesPermissions",
   "section": "Roles & permissions (§6)",
-  "run": "1013113833",
-  "date": "2026-10-13T11:40:06.287Z",
+  "run": "1014101626",
+  "date": "2026-10-14T10:17:51.682Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -787,7 +787,7 @@
       "actual": "https://dev.techdomain.com.au/admin/review/engineers",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_01_Admin-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_01_Admin-landing.png"
     },
     {
       "id": "UI-Admin-has-Accounts",
@@ -839,10 +839,10 @@
       "type": "negative",
       "ref": "Unmatched protected URL → /unauthorized; catch-all Unauthorized",
       "expected": "Unauthorized text or redirect away",
-      "actual": "https://dev.techdomain.com.au/workBoard/workOrders text=Manage Accounts 0 4 Unauthorized",
+      "actual": "https://dev.techdomain.com.au/workBoard/workOrders text=Manage Accounts 0 5 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_02_Admin-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_02_Admin-foreign-route.png"
     },
     {
       "id": "UI-TechDomain User-land",
@@ -853,7 +853,7 @@
       "actual": "https://dev.techdomain.com.au/workBoard/workOrders",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_03_TechDomainUser-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_03_TechDomainUser-landing.png"
     },
     {
       "id": "UI-TechDomain User-has-Dashboard",
@@ -930,7 +930,7 @@
       "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Dashboard Work Board Task Board Work Force Invoices 14 0 Una",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_04_TechDomainUser-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_04_TechDomainUser-foreign-route.png"
     },
     {
       "id": "UI-Individual Engineer-land",
@@ -941,7 +941,7 @@
       "actual": "https://dev.techdomain.com.au/jobs",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_05_IndividualEngineer-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_05_IndividualEngineer-landing.png"
     },
     {
       "id": "UI-Individual Engineer-has-Analytics",
@@ -1004,10 +1004,10 @@
       "type": "negative",
       "ref": "Unmatched protected URL → /unauthorized; catch-all Unauthorized",
       "expected": "Unauthorized text or redirect away",
-      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job 0 4 Unauthorized",
+      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job 0 11 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_06_IndividualEngineer-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_06_IndividualEngineer-foreign-route.png"
     },
     {
       "id": "UI-Vendor-land",
@@ -1018,7 +1018,7 @@
       "actual": "https://dev.techdomain.com.au/jobs",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_07_Vendor-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_07_Vendor-landing.png"
     },
     {
       "id": "UI-Vendor-has-Analytics",
@@ -1070,10 +1070,10 @@
       "type": "negative",
       "ref": "Unmatched protected URL → /unauthorized; catch-all Unauthorized",
       "expected": "Unauthorized text or redirect away",
-      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job Workers 0 81 Unauthorized",
+      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job Workers 0 89 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_08_Vendor-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_08_Vendor-foreign-route.png"
     },
     {
       "id": "UI-Vendor Engineer-land",
@@ -1084,7 +1084,7 @@
       "actual": "https://dev.techdomain.com.au/jobs",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_09_VendorEngineer-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_09_VendorEngineer-landing.png"
     },
     {
       "id": "UI-Vendor Engineer-has-Analytics",
@@ -1136,10 +1136,10 @@
       "type": "negative",
       "ref": "Unmatched protected URL → /unauthorized; catch-all Unauthorized",
       "expected": "Unauthorized text or redirect away",
-      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job 1 5 Unauthorized",
+      "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Analytics Job 0 0 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_10_VendorEngineer-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_10_VendorEngineer-foreign-route.png"
     },
     {
       "id": "UI-Customer-land",
@@ -1150,7 +1150,7 @@
       "actual": "https://dev.techdomain.com.au/workOrders",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_11_Customer-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_11_Customer-landing.png"
     },
     {
       "id": "UI-Customer-has-Dashboard",
@@ -1216,7 +1216,7 @@
       "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Dashboard Work Orders Work Force Invoices 2 2 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_12_Customer-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_12_Customer-foreign-route.png"
     },
     {
       "id": "UI-Customer User-land",
@@ -1227,7 +1227,7 @@
       "actual": "https://dev.techdomain.com.au/workOrders",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_13_CustomerUser-landing.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_13_CustomerUser-landing.png"
     },
     {
       "id": "UI-Customer User-has-Dashboard",
@@ -1282,7 +1282,7 @@
       "actual": "https://dev.techdomain.com.au/admin/review/engineers text=Dashboard Work Orders Work Force Invoices 1 49 Unauthorized",
       "ok": true,
       "note": "",
-      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1013113833/05-RolesPermissions_14_CustomerUser-foreign-route.png"
+      "screenshot": "evidence/Checklist/05-RolesPermissions/run-1014101626/05-RolesPermissions_14_CustomerUser-foreign-route.png"
     }
   ],
   "summary": {

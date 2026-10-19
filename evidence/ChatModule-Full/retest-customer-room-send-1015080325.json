@@ -1,0 +1,65 @@
+{
+  "run": "1015080325",
+  "date": "2026-10-15T08:03:25.183Z",
+  "checks": [
+    {
+      "name": "WO #11069 vendor engineer room 1931: Vendor Engineer can still send",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "fresh WO 1078: customer room exists",
+      "ok": true,
+      "detail": {
+        "room": 1938
+      }
+    },
+    {
+      "name": "fresh WO 1078 PUBLISHED (no offer): engineer cannot send into customer room 1938",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "message": "You are not allowed to send messages in this conversation"
+      }
+    },
+    {
+      "name": "fresh WO 1078 REQUESTED: engineer cannot send into customer room 1938",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "fresh WO 1078 REQUESTED: engineer can send in their own room 1939",
+      "ok": true,
+      "detail": {
+        "openStatus": 201,
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "fresh WO 1078 ASSIGNED: engineer cannot send into customer room 1938",
+      "ok": false,
+      "detail": {
+        "status": 201,
+        "message": "Message sent successfully"
+      }
+    },
+    {
+      "name": "fresh WO 1078: customer thread contains no engineer message",
+      "ok": false,
+      "detail": {
+        "leaked": [
+          "RETEST 1015080325 engineer with REQUEST only into customer room",
+          "RETEST 1015080325 ASSIGNED engineer into customer room"
+        ]
+      }
+    }
+  ],
+  "freshWo": 1078
+}

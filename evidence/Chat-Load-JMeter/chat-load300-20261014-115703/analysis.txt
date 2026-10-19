@@ -1,0 +1,37 @@
+rows 14950 start 1970-01-01T00:00:00.000Z
+
+(a) HTTP user requests per 30s: bucket | threads | 200 | 401 | SSL-drop | other | p50 of 200s
+  1791961020s |    72 |   283 |     0 |     0 |     0 | 547
+  1791961050s |   238 |  1539 |     0 |     0 |     0 | 1559
+  1791961080s |   312 |  1550 |     0 |     0 |     0 | 4362
+  1791961110s |   312 |  1532 |     0 |     0 |     0 | 4783
+  1791961140s |   312 |  1465 |     0 |     0 |     0 | 4591
+  1791961170s |   312 |  1467 |     0 |     0 |     0 | 4706
+  1791961200s |   312 |  1272 |     0 |     0 |     0 | 5466
+  1791961230s |   312 |  1371 |     0 |     0 |     0 | 4991
+  1791961260s |   302 |   838 |     0 |     0 |     0 | 5289
+  other error kinds: {}
+
+(c) sender/receiver error kinds:
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 6-1791961153164 after 20946 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 3-1791961156720 after 20011 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 7-1791961156715 after 20016 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 9-1791961156700 after 20031 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 1-1791961158699 after 20154 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 6-1791961188861 after 20801 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 7-1791961191057 after 20746 ms
+   1 message round-trip (sender echo) | TIMEOUT | no echo for 9-1791961191908 after 20114 ms
+
+(d) message round-trip per 30s: bucket | ok | err | p50 | p90
+  1791961110s | 27 | 0 | 1465 | 2843
+  1791961140s | 25 | 5 | 1947 | 3110
+  1791961170s | 22 | 3 | 1744 | 2453
+  1791961200s | 25 | 0 | 3388 | 4609
+  1791961230s | 31 | 0 | 1640 | 3023
+
+(e) notification delivered per 30s: bucket | n | p50 | p90
+  1791961110s | 27 | 5733 | 6677
+  1791961140s | 30 | 5015 | 6896
+  1791961170s | 25 | 5355 | 7016
+  1791961200s | 25 | 6740 | 9607
+  1791961230s | 31 | 4945 | 7649

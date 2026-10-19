@@ -1,0 +1,14 @@
+WO 988 before: INPROGRESS/CHECK_IN
+[Vendor Engineer] POST /workOrders/engineer/cancel/988 {"id":988,"cancellationReason":"SITE_ACCESS_ISSUES"} -> 400 {"statusCode":400,"message":"Work Order not found"}
+   WO now: INPROGRESS/CHECK_IN
+[Vendor] POST /workOrders/engineer/cancel/988 {"id":988,"cancellationReason":"SITE_ACCESS_ISSUES"} -> 400 {"statusCode":400,"message":"Work Order not found"}
+   WO now: INPROGRESS/CHECK_IN
+[Customer] POST /workOrders/client/cancel/988 {"id":988,"cancellationReason":"PROJECT_POSTPONED"} -> 403 {"message":"Forbidden resource","error":"Forbidden","statusCode":403}
+   WO now: INPROGRESS/CHECK_IN
+[TechDomain User] POST /workOrders/client/cancel/988 {"id":988,"cancellationReason":"PROJECT_POSTPONED"} -> 400 {"statusCode":400,"message":"Work Order not found"}
+   WO now: INPROGRESS/CHECK_IN
+[Admin] POST /workOrders/client/cancel/988 {"id":988,"cancellationReason":"PROJECT_POSTPONED"} -> 403 {"message":"Forbidden resource","error":"Forbidden","statusCode":403}
+   WO now: INPROGRESS/CHECK_IN
+[TD] invalid reason -> 400 {"statusCode":400,"message":"Work Order not found"}
+[TD] empty body -> 400 {"statusCode":400,"message":"Work Order not found"}
+[VE] empty body -> 400 {"statusCode":400,"message":"Work Order not found"}

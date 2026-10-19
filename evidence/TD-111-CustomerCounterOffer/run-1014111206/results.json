@@ -1,0 +1,419 @@
+{
+  "ticket": "TD-111",
+  "run": "1014111206",
+  "date": "2026-10-14T11:12:06.794Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1009,
+      "ref": 11003,
+      "title": "TD-111 A happy path 1014111206",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1010,
+      "ref": 11004,
+      "title": "TD-111 B decline 1014111206",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1011,
+      "ref": 11005,
+      "title": "TD-111 C edit-withdraw 1014111206",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1012,
+      "ref": 11006,
+      "title": "TD-111 D multi TD users 1014111206",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1013,
+      "ref": 11007,
+      "title": "TD-111 E negatives 1014111206",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1014,
+      "ref": 11008,
+      "title": "TD-111 F fixed rate 1014111206",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "A-01",
+      "title": "Tech Domain sees \"Counter Offer\" on a customer-created Submitted work order",
+      "type": "positive",
+      "expected": "buttons include Counter Offer and Review & Publish",
+      "actual": "Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_01_A01_td-submitted-wo-details.png"
+    },
+    {
+      "id": "A-02",
+      "title": "Customer rates before the counter offer (hourly 45, min 5 h, additional 50, travel expense 30)",
+      "type": "positive",
+      "expected": "clientRates 45 / 5 / 50, expenses 30, total 255",
+      "actual": "{\"hourlyRate\":45,\"minimumHours\":5,\"additionalHourlyRate\":50,\"totalExpenseCost\":30,\"totalWorkOrderCost\":255}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-03",
+      "title": "Counter Offer modal shows the current labour, the customer expense and the estimated payment",
+      "type": "positive",
+      "expected": "Hourly Rate USD 45.00, Minimum Payable Hours 5 hrs, Additional Hourly rate USD 50.00, Travel Expense USD 30.00, Estimated Payment USD 255.00",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 Expenses Travel Expense (Customer travel) USD 30.00 Estimated Payment USD 255.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour Expenses Cancel Send Counter Offer",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_02_A02_td-counter-modal-opened.png"
+    },
+    {
+      "id": "A-04",
+      "title": "\"Send Counter Offer\" is disabled until something is added",
+      "type": "negative",
+      "expected": "disabled",
+      "actual": "disabled=true",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-05",
+      "title": "After Labour \"Add\" the modal shows old (struck) and new values and recalculates the estimate (60 x 4 = 240 + customer expense 30 = 270)",
+      "type": "positive",
+      "expected": "USD 60.00, 4 hrs, USD 65.00 and Estimated Payment USD 255.00 -> USD 270.00",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 60.00 Minimum Payable Hours 5 hrs 4 hrs Additional Hourly rate USD 50.00 USD 65.00 Expenses Travel Expense (Customer travel) USD 30.00 Estimated Payment USD 255.00 USD 270.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Hourly Rate ​ Minimum Payable Hours ​ Additional Hourly rate ​ Non-Business Hour Rate – Optional ​ Add Expenses Cancel Send Counter Offer",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_04_A04_td-labour-added.png"
+    },
+    {
+      "id": "A-06",
+      "title": "Counter expense \"Tools Expense (Ladder hire) USD 20.00\" is listed",
+      "type": "positive",
+      "expected": "Tools Expense (Ladder hire) USD 20.00",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 60.00 Minimum Payable Hours 5 hrs 4 hrs Additional Hourly rate USD 50.00 USD 65.00 Expenses Travel Expense (Customer travel) USD 30.00 Tools Expense (Ladder hire) USD 20.00 Estimated Payment USD 255.00 USD 290.00 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Hourly Rate ​ Minimum Payable Hours ​ Additional Hourly rate ​ Non-Business Hour Rate – Optional ​ Add Expenses ​ ​ Description ​ Total Amount ​ Add Cancel Send Counter Offer",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_05_A05_td-expense-added.png"
+    },
+    {
+      "id": "A-06b",
+      "title": "Modal estimate includes the proposed expense (labour 240 + customer expense 30 + proposed expense 20 = 290)",
+      "type": "edge",
+      "expected": "Estimated Payment USD 255.00 -> USD 290.00",
+      "actual": "Estimated Payment USD 255.00 USD 290.00",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_05_A05_td-expense-added.png"
+    },
+    {
+      "id": "A-07",
+      "title": "\"Send Counter Offer\" becomes enabled after adding values",
+      "type": "positive",
+      "expected": "enabled",
+      "actual": "disabled=false",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-08",
+      "title": "Send Counter Offer calls POST offers/customer/counter and shows \"Counter Offer Sent Successfully\"",
+      "type": "positive",
+      "expected": "HTTP 2xx + toast",
+      "actual": "HTTP 201 toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_06_A06_td-counter-sent-toast.png"
+    },
+    {
+      "id": "A-09",
+      "title": "After sending, Tech Domain gets \"Edit Counter Offer\" + \"Withdraw Counter Offer\" instead of \"Counter Offer\"",
+      "type": "positive",
+      "expected": "Edit Counter Offer, Withdraw Counter Offer; no plain Counter Offer",
+      "actual": "Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Edit Counter Offer, Withdraw Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_07_A07_td-after-send-buttons-banner.png"
+    },
+    {
+      "id": "A-10",
+      "title": "Header shows the \"Counter Sent\" sub-status and the banner \"Counter Offer Sent\" names the sender and time",
+      "type": "positive",
+      "expected": "Submitted -> Counter Sent badge; banner \"Counter Offer Sent / Awaiting the customer's response to the counter offer sent by istkhar Hussain on <date>\"",
+      "actual": "Dashboard Work Board Task Board Work Force Invoices 14 25 Submitted Counter Sent #11003 On 10/14/2026 TD-111 A happy path 1014111206 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned No Request Copy Save as Template Tags Print Add Note Create New Task Move to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter offer sent by istkhar Hussain on Oct 14, 2026 at 4:12 PM. Details Payment Providers Messages History Overview Company: Tech Domain Incident ID: Client: Customer Co",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_07_A07_td-after-send-buttons-banner.png"
+    },
+    {
+      "id": "A-11",
+      "title": "Counter offer record as seen by Tech Domain (GET offers/customer/counter/:wo)",
+      "type": "info",
+      "expected": "-",
+      "actual": "{\"status\":\"PENDING\",\"id\":2442,\"type\":\"CUSTOMER\",\"userId\":638,\"createdById\":27,\"hourlyRate\":45,\"customerHourlyRate\":60,\"expenses\":[[\"TOOLS\",20]],\"history\":[\"PENDING\"]}",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-12",
+      "title": "Counter offer is PENDING and stores the proposed customer rates (60/4/65) + the proposed expense",
+      "type": "positive",
+      "expected": "status PENDING, customerHourlyRate 60, customerMinimumHours 4, customerAdditionalHourlyRate 65, 1 expense 20",
+      "actual": "{\"status\":\"PENDING\",\"customerHourlyRate\":60,\"customerMinimumHours\":4,\"customerAdditionalHourlyRate\":65,\"expenses\":1}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-13",
+      "title": "While the counter offer is pending the work order keeps the original customer rates (45/5/50, 255)",
+      "type": "edge",
+      "expected": "unchanged",
+      "actual": "{\"hourlyRate\":45,\"total\":255}",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-14",
+      "title": "Customer header says a proposal with different rates is awaiting their answer",
+      "type": "positive",
+      "expected": "\"Your provider sent you a proposal with different rates, awaiting your answer\"",
+      "actual": "Dashboard Work Orders Work Force Invoices 0 3 Submitted #11003 On 10/14/2026 TD-111 A happy path 1014111206 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned Print Move to Draft Details Payment Messages Overview Company: Tech Domain Incident ID: Client: Customer Company 10090955 SLA: N/A Service Description Work Description TD-111 QA automation: Tech Domain counter offer to customer Work Order Eligibility Schedule Fixed Start Start at a specific date ",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_08_A08_customer-wo-details-proposal-pending.png"
+    },
+    {
+      "id": "A-15",
+      "title": "Customer gets a \"Proposals\" tab once a counter offer exists",
+      "type": "positive",
+      "expected": "tabs include Proposals",
+      "actual": "Details, Payment, Messages",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-16",
+      "title": "Customer (owner who created the work order) can read the counter offer: GET offers/customer/counter/:wo with the customer's browser token",
+      "type": "positive",
+      "expected": "HTTP 200, status PENDING",
+      "actual": "HTTP 403 You do not have access to this counter offer. data=undefined",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-17",
+      "title": "Proposal card shows Current vs Proposed labour, proposed expense, estimated payment old/new, \"Awaiting your response\" and Accept/Decline",
+      "type": "positive",
+      "expected": "Current USD 225.00, Proposed USD 240.00, Ladder hire 20.00, Estimated payment 255.00 -> 290.00, Awaiting your response, From istkhar Hussain",
+      "actual": "no proposal card; page url https://dev.techdomain.com.au/workOrder/proposals/1009?fromCustomerBoard=true",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_09_A09_customer-proposals-tab.png"
+    },
+    {
+      "id": "A-18",
+      "title": "Customer accepts the proposal (UI Accept -> \"Accept Proposal\" confirmation -> \"Proposal Accepted Successfully\")",
+      "type": "positive",
+      "expected": "accepted",
+      "actual": "api: no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_10_A10_customer-accept-attempt.png"
+    },
+    {
+      "id": "A-19",
+      "title": "Proposal card shows \"Accepted … by you\" and no Accept/Decline buttons",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-20",
+      "title": "Customer header shows \"You accepted the proposal\"",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-21",
+      "title": "Customer Payment tab shows the accepted rates and both expenses",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-22",
+      "title": "Calculation after acceptance uses the accepted rates (60 x 4 = 240 + 30 + 20 = 290)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-23",
+      "title": "Work order record carries the accepted customer rates and stays Submitted for Tech Domain review",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-24",
+      "title": "Tech Domain sees \"Counter Offer Accepted … rates have been updated\" and no counter buttons",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-25",
+      "title": "Tech Domain Payment tab shows the accepted rates and expenses",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-26",
+      "title": "Accepted rates survive publishing",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-27",
+      "title": "Engineer routed / accepts / assigned",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-28",
+      "title": "Engineer completes the job -> WORKDONE",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-29",
+      "title": "Completion calculation uses the accepted rate and all expenses (customer + counter + Tech Domain)",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-30",
+      "title": "Tech Domain Payment tab at WORKDONE shows accepted rate + counter expense + Tech Domain expense",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-31",
+      "title": "Customer Payment tab at WORKDONE shows accepted rate + counter expense",
+      "type": "blocked",
+      "expected": "could not be executed",
+      "actual": "customer cannot see or accept the counter offer on dev (no Accept button in the UI; GET offers/customer/counter/1009 as the customer -> HTTP 403 You do not have access to this counter offer.)",
+      "ok": false,
+      "blocked": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "A-32",
+      "title": "Customer bell panel after the counter offer (notification text)",
+      "type": "info",
+      "expected": "-",
+      "actual": " read WO-11003: TD-111 A happy path 1014111206 a minute ago istkhar Hussain has sent you a proposal. WO-10997: TD-111 A happy path 1014110950 3 minutes ago ist",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_11_A11_customer-bell-notification.png"
+    },
+    {
+      "id": "A-33",
+      "title": "Where the proposal notification takes the customer (link is /workOrder/proposals/:id?fromCustomerBoard=true)",
+      "type": "info",
+      "expected": "-",
+      "actual": "url https://dev.techdomain.com.au/workOrder/proposals/1009?fromCustomerBoard=true | tabs Details, Payment, Messages | Dashboard Work Orders Work Force Invoices 0 2 Submitted #11003 On 10/14/2026 TD-111 A happy path 1014111206 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassign",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_12_A12_customer-after-clicking-notification.png"
+    }
+  ],
+  "findings": [
+    "A-14 Customer header says a proposal with different rates is awaiting their answer",
+    "A-15 Customer gets a \"Proposals\" tab once a counter offer exists",
+    "A-16 Customer (owner who created the work order) can read the counter offer: GET offers/customer/counter/:wo with the customer's browser token",
+    "A-17 Proposal card shows Current vs Proposed labour, proposed expense, estimated payment old/new, \"Awaiting your response\" and Accept/Decline",
+    "A-18 Customer accepts the proposal (UI Accept -> \"Accept Proposal\" confirmation -> \"Proposal Accepted Successfully\")"
+  ],
+  "summary": {
+    "total": 31,
+    "pass": 13,
+    "fail": 5,
+    "blocked": 13,
+    "info": 3
+  }
+}

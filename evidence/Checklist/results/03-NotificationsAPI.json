@@ -1,8 +1,8 @@
 {
   "area": "03-NotificationsAPI",
   "section": "Notifications API (§1.3)",
-  "run": "1013115222",
-  "date": "2026-10-13T11:52:35.105Z",
+  "run": "1014101344",
+  "date": "2026-10-14T10:16:11.112Z",
   "env": {
     "ui": "https://dev.techdomain.com.au",
     "api": "https://api.dev.techdomain.com.au/api"
@@ -80,7 +80,7 @@
       "type": "positive",
       "ref": "§1.3 GET /notifications returns MESSAGE … followed by all non-MESSAGE, not paginated",
       "expected": "HTTP 200 + array",
-      "actual": "HTTP 200 items=539",
+      "actual": "HTTP 200 items=557",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -91,7 +91,7 @@
       "type": "positive",
       "ref": "§1.3 ordering",
       "expected": "all MESSAGE before non-MESSAGE",
-      "actual": "lastMessageIdx=408 firstOtherIdx=409 (n=539)",
+      "actual": "lastMessageIdx=417 firstOtherIdx=418 (n=557)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -124,7 +124,7 @@
       "type": "edge",
       "ref": "§1.1 sender removed from recipientIds",
       "expected": "0 self-sent",
-      "actual": "self-sent=0 of 539",
+      "actual": "self-sent=0 of 557",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -135,7 +135,7 @@
       "type": "positive",
       "ref": "§1.3 GET /notifications/messages?cursor&limit=10",
       "expected": "shape + ≤10 rooms",
-      "actual": "HTTP 200 keys=data,nextCursor,unreadNotificationCount items=68 units=10",
+      "actual": "HTTP 200 keys=data,nextCursor,unreadNotificationCount items=25 units=10",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -157,7 +157,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=1 (2 notifications)",
+      "actual": "HTTP 200 rooms=1 (4 notifications)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -168,7 +168,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=10 (68 notifications)",
+      "actual": "HTTP 200 rooms=10 (25 notifications)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -179,7 +179,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200/400; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=11 (71 notifications)",
+      "actual": "HTTP 200 rooms=11 (28 notifications)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -190,7 +190,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200/400; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=94 (409 notifications)",
+      "actual": "HTTP 200 rooms=99 (418 notifications)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -201,7 +201,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200/400; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=94 (409 notifications)",
+      "actual": "HTTP 200 rooms=99 (418 notifications)",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -212,9 +212,9 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200/400; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=93 (403 notifications)",
+      "actual": "HTTP 200 rooms=98 (412 notifications)",
       "ok": false,
-      "note": "server accepted limit=-1 and returned 93 items (should probably be 400 or default 10)",
+      "note": "server accepted limit=-1 and returned 98 items (should probably be 400 or default 10)",
       "screenshot": ""
     },
     {
@@ -234,7 +234,7 @@
       "type": "bva",
       "ref": "§1.3 limit param",
       "expected": "HTTP 200/400; rooms ≤ limit",
-      "actual": "HTTP 200 rooms=1 (2 notifications)",
+      "actual": "HTTP 200 rooms=1 (4 notifications)",
       "ok": false,
       "note": "",
       "screenshot": ""
@@ -245,7 +245,7 @@
       "type": "edge",
       "ref": "§1.3 cursor param",
       "expected": "HTTP 200 (empty or page) or 400, never 500",
-      "actual": "HTTP 200 items=16",
+      "actual": "HTTP 200 items=9",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -256,7 +256,7 @@
       "type": "edge",
       "ref": "§1.3 cursor param",
       "expected": "HTTP 200 (empty or page) or 400, never 500",
-      "actual": "HTTP 200 items=16",
+      "actual": "HTTP 200 items=9",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -267,7 +267,7 @@
       "type": "edge",
       "ref": "§1.3 cursor param",
       "expected": "HTTP 200 (empty or page) or 400, never 500",
-      "actual": "HTTP 200 items=16",
+      "actual": "HTTP 200 items=9",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -278,7 +278,7 @@
       "type": "edge",
       "ref": "§1.3 cursor param",
       "expected": "HTTP 200 (empty or page) or 400, never 500",
-      "actual": "HTTP 200 items=16",
+      "actual": "HTTP 200 items=9",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -289,7 +289,7 @@
       "type": "positive",
       "ref": "§1.3 cursor pagination",
       "expected": "0 duplicates",
-      "actual": "HTTP 200 dup=0 n=38",
+      "actual": "HTTP 200 dup=0 n=72",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -465,7 +465,7 @@
       "type": "positive",
       "ref": "§1.3 GET /notifications/chat",
       "expected": "HTTP 200; every item type=MESSAGE & isRead=false",
-      "actual": "HTTP 200 n=0 badTypes=0 read=0",
+      "actual": "HTTP 200 n=2 badTypes=0 read=0",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -575,7 +575,7 @@
       "type": "positive",
       "ref": "§1.3 readAll marks all non-MESSAGE read and returns {message,count}",
       "expected": "HTTP 200 + count number",
-      "actual": "HTTP 200 body={\"message\":\"All notifications marked as read\",\"count\":0}",
+      "actual": "HTTP 200 body={\"message\":\"All notifications marked as read\",\"count\":4}",
       "ok": true,
       "note": "",
       "screenshot": ""
@@ -608,7 +608,7 @@
       "type": "positive",
       "ref": "§1.3 messages/readAll",
       "expected": "HTTP 200",
-      "actual": "HTTP 200 body={\"message\":\"All notifications marked as read\",\"count\":0}",
+      "actual": "HTTP 200 body={\"message\":\"All notifications marked as read\",\"count\":2}",
       "ok": true,
       "note": "",
       "screenshot": ""

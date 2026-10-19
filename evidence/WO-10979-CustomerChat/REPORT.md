@@ -34,3 +34,10 @@ Files: `TechDomain_2_-workOrder-messages-985.png`, `Customer_2_-workOrder-detail
 Tech Domain owner (user 27) called `POST /chats/room/group {workOrderId: 985, companyId: 9, engineerId: 638}` → room **1809** created (participants: customer 638, TD owner 27, team 473/263/476/640).
 After this: Tech Domain's Messages tab lists "Customer Company 10090955"; the customer's job page now shows the Messages tab with "Tech Domain". Screenshots: `AfterFix-*.png`.
 Note for developers: the bug is no longer reproducible on #10979; create a new work order as Tech Domain to reproduce.
+
+## Re-test 2026-10-14 — FIXED
+Tech Domain (user 27) created a new work order via `POST /workOrders` → **#10983 (id 989)**, PUBLISHED, unassigned, same customer entity 104.
+- `GET /chats/users/989/9` immediately after create returns the customer room **1821** (`isCustomerChat: true`) for both Tech Domain and the customer — no manual `POST /chats/room/group` needed.
+- Today's other Tech Domain-created work orders also have customer rooms: #10980 → 1810, #10981 → 1811, #10982 → 1814.
+- UI end-to-end on #10983: Tech Domain's Messages tab lists "Customer Company 10090955"; message "TD to customer check 1014060807" sent. Customer's job page now shows **Details, Payment, Messages**; the customer sees the message under "Tech Domain", replied "Customer reply 1014060807", and Tech Domain received the reply. API `GET /chats/1821` lists both messages.
+Screenshots: `Retest-2026-10-14/01..06_*.png`, log in `Retest-2026-10-14/log.txt`.

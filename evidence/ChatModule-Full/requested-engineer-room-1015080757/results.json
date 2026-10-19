@@ -1,0 +1,64 @@
+{
+  "run": "1015080757",
+  "checks": [
+    {
+      "name": "REQUESTED: engineer can open their own room via API (POST /chats/room/group)",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "REQUESTED: engineer UI Messages tab shows a composer and the message is sent",
+      "ok": false,
+      "detail": {
+        "hasComposer": false,
+        "sent": false,
+        "consoleErrors": [],
+        "toast": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "REQUESTED: Tech Domain sees the engineer room and its message",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "room": 1943
+      }
+    },
+    {
+      "name": "work order assigned to the engineer",
+      "ok": true,
+      "detail": {
+        "status": "ASSIGNED"
+      }
+    },
+    {
+      "name": "ASSIGNED: engineer can open their own room via API",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "ASSIGNED: engineer UI Messages tab works",
+      "ok": true,
+      "detail": {
+        "hasComposer": true,
+        "sent": true
+      }
+    },
+    {
+      "name": "ASSIGNED: engineer still cannot post into the customer room",
+      "ok": false,
+      "detail": {
+        "room": 1942,
+        "status": 201
+      }
+    }
+  ],
+  "wo": 1080,
+  "ref": 11074
+}

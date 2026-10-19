@@ -1,0 +1,43 @@
+
+[Engineer] landed on https://dev.techdomain.com.au/jobs
+  /user/settings/profileInformation -> https://dev.techdomain.com.au/user/settings/profileInformation shot=Engineer_-user-settings-profileInformation.png
+  text: Analytics Job 0 10 Unauthorized
+  buttons: 
+  /user/settings -> https://dev.techdomain.com.au/user/settings shot=Engineer_-user-settings.png
+  text: Analytics Job 0 10 Profile Settings Personal Info Profile Change Password Bank Accounts Personal Information Created On: 2026/09/23 03:07 PM Last Active: a few seconds ago SH Profile Photo Email Address ha@mailinator.com Contact Support to change the email address Legal Name Syed Hamza Phone +92 325
+  buttons: Personal Info | Profile | Change Password | Bank Accounts
+
+[Vendor] landed on https://dev.techdomain.com.au/jobs
+  /user/settings/profileInformation -> https://dev.techdomain.com.au/user/settings/profileInformation shot=Vendor_-user-settings-profileInformation.png
+  text: Analytics Job Workers 0 88 Unauthorized
+  buttons: 
+  /user/settings -> https://dev.techdomain.com.au/user/settings shot=Vendor_-user-settings.png
+  text: Analytics Job Workers 0 88 Profile Settings Personal Info Profile Change Password Bank Accounts Personal Information Created On: 2026/09/25 12:42 PM Last Active: a few seconds ago DC Profile Photo Email Address td-demo-company-0925@mailinator.com Contact Support to change the email address Legal Nam
+  buttons: Personal Info | Profile | Change Password | Bank Accounts
+  /company/settings -> https://dev.techdomain.com.au/company/settings shot=Vendor_-company-settings.png
+  text: Analytics Job Workers 0 88 Company Settings Company Logo No logo uploaded Company Information Name Demo Field Services 0925 Email - Website - Phone Number - Fax - Annual Revenue - Address - Registration Contact Support to update details Registration Number - VAT/GST Registration - Registration Certi
+  buttons: 
+
+[VendorEngineer] landed on https://dev.techdomain.com.au/jobs
+  /user/settings/profileInformation -> https://dev.techdomain.com.au/user/settings/profileInformation shot=VendorEngineer_-user-settings-profileInformation.png
+  text: Analytics Job 0 0 Unauthorized
+  buttons: 
+  /user/settings -> https://dev.techdomain.com.au/user/settings shot=VendorEngineer_-user-settings.png
+  text: Analytics Job 0 0 Profile Settings Personal Info Profile Change Password Linked Company Personal Information Created On: 2026/09/25 12:45 PM Last Active: a few seconds ago DW Profile Photo Email Address td-demo-worker-0925@mailinator.com Contact Support to change the email address Legal Name Demo Wo
+  buttons: Personal Info | Profile | Change Password | Linked Company
+
+[Customer] landed on https://dev.techdomain.com.au/workOrders
+  /customerProfile -> https://dev.techdomain.com.au/customerProfile shot=Customer_-customerProfile.png
+  text: Dashboard Work Orders Work Force Invoices 2 2 Unauthorized
+  buttons: 
+  /customerSettings -> https://dev.techdomain.com.au/customerSettings shot=Customer_-customerSettings.png
+  text: Dashboard Work Orders Work Force Invoices 2 2 Company Settings Company Details Entities Users Company Logo No logo uploaded Company Information Company Name TD36 QA Customer Contact Person - Email td36-customer-0929@mailinator.com Phone +61 412 345 636 Website https://td36.example Annual Revenue - A
+  buttons: Company Details | Entities | Users
+
+[CustomerUser] landed on https://dev.techdomain.com.au/workOrders
+  /customerProfile -> https://dev.techdomain.com.au/customerProfile shot=CustomerUser_-customerProfile.png
+  text: Dashboard Work Orders Work Force Invoices 1 49 Unauthorized
+  buttons: 
+  /customerSettings -> https://dev.techdomain.com.au/customerSettings shot=CustomerUser_-customerSettings.png
+  text: Dashboard Work Orders Work Force Invoices 1 49 Company Settings Company Details Entities Users
+  buttons: Company Details | Entities | Users

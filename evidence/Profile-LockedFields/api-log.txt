@@ -1,0 +1,60 @@
+
+[Individual Engineer] status=APPROVED id=575
+  PATCH /users {firstName: "Zzqa"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {lastName: "Zzlast"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {nationality: "AUSTRALIAN"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {phoneNumber: "923000000099"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {email: "ha+lock@mailinator.com"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+
+[Vendor] status=APPROVED id=609
+  PATCH /users {firstName: "Zzqa"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {lastName: "Zzlast"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {nationality: "AUSTRALIAN"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {phoneNumber: "923000000099"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {email: "td-demo-company-0925+lock@mailinator.com"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+
+[Vendor Engineer] status=APPROVED id=611
+  PATCH /users {firstName: "Zzqa"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {lastName: "Zzlast"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {nationality: "AUSTRALIAN"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {phoneNumber: "923000000099"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {email: "td-demo-worker-0925+lock@mailinator.com"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+
+[Customer] status=APPROVED id=617
+  PATCH /users {firstName: "Zzqa"} -> 200 CHANGED (editable) 
+    restore -> 400 RESTORE FAILED (Zzqa)
+  PATCH /users {lastName: "Zzlast"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {nationality: "AUSTRALIAN"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {phoneNumber: "923000000099"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {email: "td36-customer-0929+lock@mailinator.com"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+
+[Customer User] status=APPROVED id=624
+  PATCH /users {firstName: "Zzqa"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {lastName: "Zzlast"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {nationality: "AUSTRALIAN"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {phoneNumber: "923000000099"} -> 200 CHANGED (editable) 
+    restore -> 200 restored
+  PATCH /users {email: "td36-subuser3-0930+lock@mailinator.com"} -> 200 CHANGED (editable) 
+    restore -> 200 restored

@@ -1,0 +1,930 @@
+{
+  "run": "1016102952",
+  "checks": [
+    {
+      "name": "[A0 submitted (no counter yet)] customer API detail has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A0 submitted (no counter yet)] customer listing row has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A0 submitted (no counter yet)] customer notifications (baseline)",
+      "ok": true,
+      "info": true,
+      "detail": []
+    },
+    {
+      "name": "[A1 counter sent (pending)] customer API detail shows a counter/proposal sub-status",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)",
+      "ok": true,
+      "detail": {
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      }
+    },
+    {
+      "name": "[A1 counter sent (pending)] customer got a notification for it",
+      "ok": true,
+      "detail": [
+        "COUNTER | WO-11085: Counter sub-status A-accept 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "[A1 counter sent (pending)] notification text is about the proposal/counter offer",
+      "ok": true,
+      "detail": [
+        "WO-11085: Counter sub-status A-accept 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "UI A1-counter-pending: customer detail header + listing row captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Received #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_01_A1-counter-pending-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 Submitted Proposal Received Counter sub-status A-accept 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_02_A1-counter-pending-customer-listing.png"
+      }
+    },
+    {
+      "name": "[A1] customer UI detail header shows the proposal sub-status badge",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Received #11085 On 10"
+      }
+    },
+    {
+      "name": "[A1] customer UI listing row shows the proposal sub-status",
+      "ok": true,
+      "detail": {
+        "row": "11085 Customer Company 10090955 Submitted Proposal Received Counter sub-status A-accept 1016102952 06/02/2027 at 10:00 AM (PST)"
+      }
+    },
+    {
+      "name": "[A2] customer accepted the proposal (API)",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[A2 customer accepted] customer API detail shows a counter/proposal sub-status",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_ACCEPTED",
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A2 customer accepted] customer listing row carries the same sub-status (COUNTER_OFFER_ACCEPTED)",
+      "ok": true,
+      "detail": {
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_ACCEPTED",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      }
+    },
+    {
+      "name": "[A2 customer accepted] customer notifications (own action)",
+      "ok": true,
+      "info": true,
+      "detail": []
+    },
+    {
+      "name": "UI A2-accepted: customer detail header + listing row captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Accepted #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_03_A2-accepted-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 Submitted Proposal Accepted Counter sub-status A-accept 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_04_A2-accepted-customer-listing.png"
+      }
+    },
+    {
+      "name": "[A2] customer UI detail header shows \"Proposal Accepted\"",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Accepted #11085 On 10"
+      }
+    },
+    {
+      "name": "[A3] Tech Domain published WO A (approvePublish)",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[A3 published] customer API detail has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A3 published] customer listing row has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[A3 published] customer notifications (publish)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "WORK_ORDER_PUBLISHED | Work Order Accepted – WO-11085: Your work order has been accepted and is now being processed."
+      ]
+    },
+    {
+      "name": "[A3] work order status is PUBLISHED on both sides",
+      "ok": true,
+      "detail": {
+        "td": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null,
+          "customerSubStatus": null
+        },
+        "customer": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      }
+    },
+    {
+      "name": "UI A3-published: customer detail header + listing row captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 49 Accepted #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_05_A3-published-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 DC Project Accepted Counter sub-status A-accept 1016102952 06/02/2027 at 07:00 AM (CUT)",
+        "listShot": "CounterOffer_SubStatus_06_A3-published-customer-listing.png"
+      }
+    },
+    {
+      "name": "[A3] customer UI detail header no longer shows a proposal badge",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 49 Accepted #11085 On 10"
+      }
+    },
+    {
+      "name": "[A3] customer UI listing row no longer shows a proposal sub-status",
+      "ok": true,
+      "detail": {
+        "row": "11085 Customer Company 10090955 DC Project Accepted Counter sub-status A-accept 1016102952 06/02/2027 at 07:00 AM (CUT)"
+      },
+      "note": "false positive: regex matched the word Counter in the WO title; screenshot 06 shows only the Accepted badge"
+    },
+    {
+      "name": "[A3] counter record after publish",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": "ASSIGNED"
+      }
+    },
+    {
+      "name": "[B1 counter sent (pending)] customer API detail shows a counter/proposal sub-status",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[B1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)",
+      "ok": true,
+      "detail": {
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      }
+    },
+    {
+      "name": "[B1 counter sent (pending)] customer got a notification for it",
+      "ok": true,
+      "detail": [
+        "COUNTER | WO-11086: Counter sub-status B-decline 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "[B1 counter sent (pending)] notification text is about the proposal/counter offer",
+      "ok": true,
+      "detail": [
+        "WO-11086: Counter sub-status B-decline 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "[B2] customer declined the proposal (API)",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[B2 customer declined] customer API detail shows a counter/proposal sub-status",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_DECLINED",
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[B2 customer declined] customer listing row carries the same sub-status (COUNTER_OFFER_DECLINED)",
+      "ok": true,
+      "detail": {
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_DECLINED",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      }
+    },
+    {
+      "name": "[B2 customer declined] customer notifications (own action)",
+      "ok": true,
+      "info": true,
+      "detail": []
+    },
+    {
+      "name": "UI B2-declined: customer detail header + listing row captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 50 Submitted Proposal Declined #11086 On 10",
+        "detailShot": "CounterOffer_SubStatus_07_B2-declined-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11086 Customer Company 10090955 Submitted Proposal Declined Counter sub-status B-decline 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_08_B2-declined-customer-listing.png"
+      }
+    },
+    {
+      "name": "[B2] customer UI after decline",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 50 Submitted Proposal Declined #11086 On 10",
+        "row": "11086 Customer Company 10090955 Submitted Proposal Declined Counter sub-status B-decline 1016102952 06/02/2027 at 10:00 AM (PST)"
+      }
+    },
+    {
+      "name": "[B3] Tech Domain published WO B",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[B3 published] customer API detail has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[B3 published] customer listing row has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[B3 published] customer notifications (publish)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "WORK_ORDER_PUBLISHED | Work Order Accepted – WO-11086: Your work order has been accepted and is now being processed."
+      ]
+    },
+    {
+      "name": "UI B3-published: customer detail header + listing row captured",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 51 Accepted #11086 On 10",
+        "detailShot": "CounterOffer_SubStatus_09_B3-published-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11086 Customer Company 10090955 DC Project Accepted Counter sub-status B-decline 1016102952 06/02/2027 at 07:00 AM (CUT)",
+        "listShot": "CounterOffer_SubStatus_10_B3-published-customer-listing.png"
+      }
+    },
+    {
+      "name": "[B3] customer UI detail header no longer shows a proposal badge",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 51 Accepted #11086 On 10"
+      }
+    },
+    {
+      "name": "[C1 counter sent (pending)] customer API detail shows a counter/proposal sub-status",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[C1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)",
+      "ok": true,
+      "detail": {
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      }
+    },
+    {
+      "name": "[C1 counter sent (pending)] customer got a notification for it",
+      "ok": true,
+      "detail": [
+        "COUNTER | WO-11087: Counter sub-status C-withdraw 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "[C1 counter sent (pending)] notification text is about the proposal/counter offer",
+      "ok": true,
+      "detail": [
+        "WO-11087: Counter sub-status C-withdraw 1016102952: istkhar Hussain has sent you a proposal."
+      ]
+    },
+    {
+      "name": "[C2] Tech Domain withdrew the proposal (API)",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[C2 withdrawn by Tech Domain] customer API detail has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[C2 withdrawn by Tech Domain] customer listing row has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[C2 withdrawn by Tech Domain] customer notifications (withdraw)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "WITHDRAW | WO-11087: Counter sub-status C-withdraw 1016102952: istkhar Hussain has withdrawn their proposal."
+      ]
+    },
+    {
+      "name": "[C2] customer sub-status after withdraw (detail / listing)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        }
+      }
+    },
+    {
+      "name": "[C3] Tech Domain published WO C",
+      "ok": true,
+      "detail": {
+        "status": 201
+      }
+    },
+    {
+      "name": "[C3 published] customer API detail has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[C3 published] customer listing row has NO counter/proposal sub-status any more",
+      "ok": true,
+      "detail": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null
+      }
+    },
+    {
+      "name": "[C3 published] customer notifications (publish)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        "WORK_ORDER_PUBLISHED | Work Order Accepted – WO-11087: Your work order has been accepted and is now being processed."
+      ]
+    }
+  ],
+  "findings": [],
+  "workOrders": {
+    "A-accept": {
+      "id": 1091,
+      "ref": 11085,
+      "title": "Counter sub-status A-accept 1016102952",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null,
+      "addressId": "074be58b-c257-4098-bfb1-d3ad3ad95d87",
+      "expectTab": "Accepted"
+    },
+    "B-decline": {
+      "id": 1092,
+      "ref": 11086,
+      "title": "Counter sub-status B-decline 1016102952",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null,
+      "addressId": "aca7e745-d046-48ae-8c2e-7a8ffa7f053a",
+      "expectTab": "Accepted"
+    },
+    "C-withdraw": {
+      "id": 1093,
+      "ref": 11087,
+      "title": "Counter sub-status C-withdraw 1016102952",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null,
+      "addressId": "168a4610-cba7-49b9-a11b-6547fd83b4d3"
+    }
+  },
+  "steps": [
+    {
+      "wo": 1091,
+      "ref": 11085,
+      "step": "A0 submitted (no counter yet)",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [],
+      "customerSubStatus": null,
+      "listSubStatus": null
+    },
+    {
+      "wo": 1091,
+      "ref": 11085,
+      "step": "A1 counter sent (pending)",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115050,
+          "type": "COUNTER",
+          "title": "WO-11085: Counter sub-status A-accept 1016102952",
+          "content": "istkhar Hussain has sent you a proposal.",
+          "createdAt": "2026-10-16T10:30:07.189Z"
+        }
+      ],
+      "customerSubStatus": "COUNTER_OFFER_PENDING",
+      "listSubStatus": "COUNTER_OFFER_PENDING",
+      "ui": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Received #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_01_A1-counter-pending-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 Submitted Proposal Received Counter sub-status A-accept 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_02_A1-counter-pending-customer-listing.png"
+      }
+    },
+    {
+      "wo": 1091,
+      "ref": 11085,
+      "step": "A2 customer accepted",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_ACCEPTED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_ACCEPTED",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_ACCEPTED",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [],
+      "customerSubStatus": "COUNTER_OFFER_ACCEPTED",
+      "listSubStatus": "COUNTER_OFFER_ACCEPTED",
+      "ui": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 48 Submitted Proposal Accepted #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_03_A2-accepted-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 Submitted Proposal Accepted Counter sub-status A-accept 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_04_A2-accepted-customer-listing.png"
+      }
+    },
+    {
+      "wo": 1091,
+      "ref": 11085,
+      "step": "A3 published",
+      "techDomainApi": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115233,
+          "type": "WORK_ORDER_PUBLISHED",
+          "title": "Work Order Accepted – WO-11085",
+          "content": "Your work order has been accepted and is now being processed.",
+          "createdAt": "2026-10-16T10:31:13.668Z"
+        }
+      ],
+      "customerSubStatus": null,
+      "listSubStatus": null,
+      "ui": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 49 Accepted #11085 On 10",
+        "detailShot": "CounterOffer_SubStatus_05_A3-published-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11085 Customer Company 10090955 DC Project Accepted Counter sub-status A-accept 1016102952 06/02/2027 at 07:00 AM (CUT)",
+        "listShot": "CounterOffer_SubStatus_06_A3-published-customer-listing.png"
+      }
+    },
+    {
+      "wo": 1092,
+      "ref": 11086,
+      "step": "B1 counter sent (pending)",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115239,
+          "type": "COUNTER",
+          "title": "WO-11086: Counter sub-status B-decline 1016102952",
+          "content": "istkhar Hussain has sent you a proposal.",
+          "createdAt": "2026-10-16T10:31:51.217Z"
+        }
+      ],
+      "customerSubStatus": "COUNTER_OFFER_PENDING",
+      "listSubStatus": "COUNTER_OFFER_PENDING"
+    },
+    {
+      "wo": 1092,
+      "ref": 11086,
+      "step": "B2 customer declined",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_DECLINED",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_DECLINED",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_DECLINED",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [],
+      "customerSubStatus": "COUNTER_OFFER_DECLINED",
+      "listSubStatus": "COUNTER_OFFER_DECLINED",
+      "ui": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 50 Submitted Proposal Declined #11086 On 10",
+        "detailShot": "CounterOffer_SubStatus_07_B2-declined-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11086 Customer Company 10090955 Submitted Proposal Declined Counter sub-status B-decline 1016102952 06/02/2027 at 10:00 AM (PST)",
+        "listShot": "CounterOffer_SubStatus_08_B2-declined-customer-listing.png"
+      }
+    },
+    {
+      "wo": 1092,
+      "ref": 11086,
+      "step": "B3 published",
+      "techDomainApi": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115422,
+          "type": "WORK_ORDER_PUBLISHED",
+          "title": "Work Order Accepted – WO-11086",
+          "content": "Your work order has been accepted and is now being processed.",
+          "createdAt": "2026-10-16T10:32:29.797Z"
+        }
+      ],
+      "customerSubStatus": null,
+      "listSubStatus": null,
+      "ui": {
+        "detailHeader": "Dashboard Work Orders Work Force Invoices 0 51 Accepted #11086 On 10",
+        "detailShot": "CounterOffer_SubStatus_09_B3-published-customer-detail.png",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "listRow": "11086 Customer Company 10090955 DC Project Accepted Counter sub-status B-decline 1016102952 06/02/2027 at 07:00 AM (CUT)",
+        "listShot": "CounterOffer_SubStatus_10_B3-published-customer-listing.png"
+      }
+    },
+    {
+      "wo": 1093,
+      "ref": 11087,
+      "step": "C1 counter sent (pending)",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": "COUNTER_OFFER_PENDING",
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": "COUNTER_OFFER_PENDING",
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115428,
+          "type": "COUNTER",
+          "title": "WO-11087: Counter sub-status C-withdraw 1016102952",
+          "content": "istkhar Hussain has sent you a proposal.",
+          "createdAt": "2026-10-16T10:33:07.037Z"
+        }
+      ],
+      "customerSubStatus": "COUNTER_OFFER_PENDING",
+      "listSubStatus": "COUNTER_OFFER_PENDING"
+    },
+    {
+      "wo": 1093,
+      "ref": 11087,
+      "step": "C2 withdrawn by Tech Domain",
+      "techDomainApi": {
+        "status": "PENDING_APPROVAL",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PENDING_APPROVAL",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115429,
+          "type": "WITHDRAW",
+          "title": "WO-11087: Counter sub-status C-withdraw 1016102952",
+          "content": "istkhar Hussain has withdrawn their proposal.",
+          "createdAt": "2026-10-16T10:33:13.490Z"
+        }
+      ],
+      "customerSubStatus": null,
+      "listSubStatus": null
+    },
+    {
+      "wo": 1093,
+      "ref": 11087,
+      "step": "C3 published",
+      "techDomainApi": {
+        "status": "PUBLISHED",
+        "subStatus": null,
+        "customerStatus": null,
+        "customerSubStatus": null
+      },
+      "customerView": {
+        "detail": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "list": {
+          "status": "PUBLISHED",
+          "subStatus": null,
+          "customerStatus": null
+        },
+        "listHasRow": true
+      },
+      "notifications": [
+        {
+          "id": 115607,
+          "type": "WORK_ORDER_PUBLISHED",
+          "title": "Work Order Accepted – WO-11087",
+          "content": "Your work order has been accepted and is now being processed.",
+          "createdAt": "2026-10-16T10:33:20.777Z"
+        }
+      ],
+      "customerSubStatus": null,
+      "listSubStatus": null
+    }
+  ]
+}

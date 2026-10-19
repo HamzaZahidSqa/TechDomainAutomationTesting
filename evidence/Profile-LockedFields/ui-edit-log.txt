@@ -1,0 +1,63 @@
+
+[Engineer] user 575 status=APPROVED name=Syed Hamza phone=923259861650 nationality=PAKISTANI
+  [Legal Name] row="Legal Name Syed Hamza" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Phone] row="Phone +92 325 9861650" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Verify your Identity] row="Verify your Identity" pencilClicked=true dialogOpen=true
+     inputs: nf-fmm6ajs1="Pakistani" disabled=false ro=false | :rd:="" disabled=false ro=false | addressLine1="Lahore, Pakistan" disabled=false ro=false | country="Pakistan" disabled=false ro=false | city="Lahore" disabled=false ro=false | state="Punjab" disabled=false ro=false | zipCode="" disabled=false ro=false
+     buttons: Choose File | Save
+  calls:
+   
+
+[Vendor] user 609 status=APPROVED name=Demo CompanyOwner phone=61412345603 nationality=null
+  [Legal Name] row="Legal Name Demo CompanyOwner" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Phone] row="Phone +61 412 345 603" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Verify your Identity] row="" pencilClicked=false dialogOpen=false
+     inputs: 
+     buttons: 
+  calls:
+   
+
+[VendorEngineer] user 611 status=APPROVED name=Demo Worker phone=61412345604 nationality=null
+  [Legal Name] row="Legal Name Demo Worker" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Phone] row="Phone +61 412 345 604" pencilClicked=true dialogOpen=false
+     inputs: 
+     buttons: 
+  [Verify your Identity] row="Verify your Identity" pencilClicked=true dialogOpen=true
+     inputs: nf-s2lirsw2="" disabled=false ro=false | :rd:="" disabled=false ro=false | addressLine1="Abuzar Ghaffari Rd, Block H 3 " disabled=false ro=false | country="Pakistan" disabled=false ro=false | city="Lahore" disabled=false ro=false | state="Punjab" disabled=false ro=false | zipCode="54782" disabled=false ro=false
+     buttons: Choose File | Save
+  calls:
+   
+
+[Engineer] 575 Syed Hamza / 923259861650
+  Legal Name inline inputs: ["Syed","Hamza"] firstName idx 0
+  after Save: firstName=Zzqa => EDITABLE via UI; toast: Profile updated successfully / Profile updated successfully
+  restore -> 200 Syed
+  Phone inline inputs: tel="+92 325-9861650" disabled=false | buttons: Cancel,Save
+  calls:
+   PATCH /users body={"firstName":"Zzqa","lastName":"Hamza"} -> 200 {"data":{"id":575,"profileNeedsResubmit":false,"firstName":"Zzqa","lastName":"Hamza","email":"ha@mailinator.com","phoneN
+
+[Vendor] 609 Demo CompanyOwner / 61412345603
+  Legal Name inline inputs: ["Demo","CompanyOwner"] firstName idx 0
+  after Save: firstName=Zzqa => EDITABLE via UI; toast: Profile updated successfully / Profile updated successfully
+  restore -> 200 Demo
+  Phone inline inputs: tel="+61 (41) 2345 603" disabled=false | buttons: Cancel,Save
+  calls:
+   PATCH /users body={"firstName":"Zzqa","lastName":"CompanyOwner"} -> 200 {"data":{"id":609,"profileNeedsResubmit":false,"firstName":"Zzqa","lastName":"CompanyOwner","email":"td-demo-company-092
+
+[VendorEngineer] 611 Demo Worker / 61412345604
+  Legal Name inline inputs: ["Demo","Worker"] firstName idx 0
+  after Save: firstName=Zzqa => EDITABLE via UI; toast: Profile updated successfully / Profile updated successfully
+  restore -> 200 Demo
+  Phone inline inputs: tel="+61 (41) 2345 604" disabled=false | buttons: Cancel,Save
+  calls:
+   PATCH /users body={"firstName":"Zzqa","lastName":"Worker"} -> 200 {"data":{"id":611,"profileNeedsResubmit":false,"firstName":"Zzqa","lastName":"Worker","email":"td-demo-worker-0925@maili

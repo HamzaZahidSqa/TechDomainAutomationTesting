@@ -1,0 +1,80 @@
+{
+  "ticket": "TD-111",
+  "run": "1014112106",
+  "date": "2026-10-14T11:21:06.672Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1039,
+      "ref": 11033,
+      "title": "TD-111 A happy path 1014112106",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1040,
+      "ref": 11034,
+      "title": "TD-111 B decline 1014112106",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1041,
+      "ref": 11035,
+      "title": "TD-111 C edit-withdraw 1014112106",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1042,
+      "ref": 11036,
+      "title": "TD-111 D multi TD users 1014112106",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1043,
+      "ref": 11037,
+      "title": "TD-111 E negatives 1014112106",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1044,
+      "ref": 11038,
+      "title": "TD-111 F fixed rate 1014112106",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "G-01",
+      "title": "COUNTER notifications received by the customer for this run's work orders",
+      "type": "info",
+      "expected": "-",
+      "actual": "[]",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "G-02",
+      "title": "Customer receives a notification \"<sender> has sent you a proposal.\" linking to /workOrder/proposals/:id?fromCustomerBoard=true for each counter offer",
+      "type": "positive",
+      "expected": ">= 6 COUNTER notifications with the proposals link",
+      "actual": "0 notifications; first: none",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    }
+  ],
+  "findings": [
+    "G-02 Customer receives a notification \"<sender> has sent you a proposal.\" linking to /workOrder/proposals/:id?fromCustomerBoard=true for each counter offer"
+  ],
+  "summary": {
+    "total": 1,
+    "pass": 0,
+    "fail": 1,
+    "blocked": 0,
+    "info": 1
+  }
+}

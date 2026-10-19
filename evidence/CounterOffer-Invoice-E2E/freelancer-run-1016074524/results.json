@@ -1,0 +1,792 @@
+{
+  "run": "1016074524",
+  "scenario": "freelancer",
+  "label": "Individual (freelancer) engineer",
+  "checks": [
+    {
+      "name": "1. customer created WO 1086 (#11080) 45/5/50 + Travel 30 -> PENDING_APPROVAL, total 255",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "cust": {
+          "hourlyRate": 45,
+          "minimumHours": 5,
+          "additionalHourlyRate": 50,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 5,
+          "totalLabourCost": 225,
+          "totalExpenseCost": 30,
+          "totalWorkOrderCost": 255,
+          "grandTotal": 255,
+          "expenses": [
+            "TRAVEL:30"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. Tech Domain sent counter v1 (60/4/65) and edited it to v2 (58/6/62 + Parking 10); customer sees v2 PENDING",
+      "ok": true,
+      "detail": {
+        "c1": 201,
+        "edit": 200,
+        "customerView": {
+          "id": 2493,
+          "status": "PENDING",
+          "rates": [
+            58,
+            6,
+            62
+          ],
+          "expenses": [
+            "OTHER:10"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. customer ACCEPTED -> counter ASSIGNED, WO carries the EDITED rates 58/6/62, expenses Travel 30 + Parking 10, total 388",
+      "ok": true,
+      "detail": {
+        "accept": 201,
+        "counter": "ASSIGNED",
+        "cust": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:30",
+            "OTHER:10"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. Tech Domain published (engineer rates 15/4/15); customer rates still 58/6/62 = 388",
+      "ok": true,
+      "detail": {
+        "fix": 200,
+        "publish": 201,
+        "status": "PUBLISHED",
+        "cust": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:30",
+            "OTHER:10"
+          ]
+        },
+        "eng": {
+          "hourlyRate": 15,
+          "minimumHours": 4,
+          "additionalHourlyRate": 15,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 4,
+          "totalLabourCost": 60,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 60,
+          "grandTotal": 60,
+          "expenses": []
+        }
+      }
+    },
+    {
+      "name": "5. freelancer countered at 20/4/22 -> PENDING counter offer visible to Tech Domain",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "payload": {
+          "workOrderId": 1086,
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "expenses": []
+        },
+        "offers": [
+          {
+            "id": 2494,
+            "status": "PENDING",
+            "isCounter": true,
+            "user": 575,
+            "referred": null,
+            "rates": [
+              null,
+              null,
+              null
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "6. Tech Domain accepted the counter -> ASSIGNED to 575 \"Syed Hamza\" with ENGINEER rates 20/4/22; customer rates untouched (388)",
+      "ok": true,
+      "detail": {
+        "via": "counter",
+        "status": "ASSIGNED",
+        "engineer": 575,
+        "eng": {
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 4,
+          "totalLabourCost": 80,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 80,
+          "grandTotal": 80,
+          "expenses": []
+        },
+        "cust": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:30",
+            "OTHER:10"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6b. estimated engineer payment at assignment = 20 x 4 = 80",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 20,
+        "minimumHours": 4,
+        "additionalHourlyRate": 22,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 4,
+        "totalLabourCost": 80,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 80,
+        "grandTotal": 80,
+        "expenses": []
+      }
+    },
+    {
+      "name": "7. worker 575 confirm -> check-in -> check-out -> mark complete => WORKDONE",
+      "ok": true,
+      "detail": {
+        "walk": [
+          "confirm:200",
+          "checkIn:201",
+          "checkOut:201",
+          "markComplete:200"
+        ],
+        "status": "WORKDONE"
+      }
+    },
+    {
+      "name": "8. at WORKDONE (~0 h): customer = minimum 6 h -> 348 + 40 = 388 ; engineer = minimum 4 h -> 80",
+      "ok": true,
+      "detail": {
+        "cust": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 6,
+          "totalLabourCost": 348,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 388,
+          "grandTotal": 388,
+          "expenses": [
+            "TRAVEL:30",
+            "OTHER:10"
+          ]
+        },
+        "eng": {
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "hoursWorked": 0,
+          "additionalHours": 0,
+          "totalHoursApproved": 4,
+          "totalLabourCost": 80,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 80,
+          "grandTotal": 80,
+          "expenses": []
+        }
+      }
+    },
+    {
+      "name": "9. Tech Domain edited the time log to 8.5 h",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "hours": 8.5,
+        "logs": [
+          {
+            "id": 968,
+            "totalHours": 8.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "10. CUSTOMER calc with 8.5 h: billed 9 h (dev rounding rule), additional 3 h, labour 58x6 + 3x62 = 534, expenses 40, total 574",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:30",
+          "OTHER:10"
+        ]
+      }
+    },
+    {
+      "name": "11. ENGINEER calc with 8.5 h (freelancer): 20 x 4 + 4.5 x 22 = 179 (pro-rata), no expenses",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 20,
+        "minimumHours": 4,
+        "additionalHourlyRate": 22,
+        "hoursWorked": 8.5,
+        "additionalHours": 4.5,
+        "totalHoursApproved": 8.5,
+        "totalLabourCost": 179,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 179,
+        "grandTotal": 179,
+        "expenses": []
+      }
+    },
+    {
+      "name": "12. Tech Domain company expense 25 saved and NOT billed to the customer (customer total stays 574)",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "company": {
+          "total": 25,
+          "expenses": [
+            "MATERIAL:25"
+          ]
+        }
+      }
+    },
+    {
+      "name": "13. customer API sees the same customer numbers as Tech Domain",
+      "ok": true,
+      "detail": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:30",
+          "OTHER:10"
+        ]
+      }
+    },
+    {
+      "name": "14. engineer API see the engineer numbers (179)",
+      "ok": true,
+      "detail": {
+        "worker": {
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "hoursWorked": 8.5,
+          "additionalHours": 4.5,
+          "totalHoursApproved": 8.5,
+          "totalLabourCost": 179,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 179,
+          "grandTotal": 179,
+          "expenses": []
+        },
+        "payee": {
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "hoursWorked": 8.5,
+          "additionalHours": 4.5,
+          "totalHoursApproved": 8.5,
+          "totalLabourCost": 179,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 179,
+          "grandTotal": 179,
+          "expenses": []
+        }
+      }
+    },
+    {
+      "name": "do the engineer-side users see the CUSTOMER rates? (should not)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "worker": {
+          "expenses": []
+        },
+        "payee": {
+          "expenses": []
+        }
+      }
+    },
+    {
+      "name": "15. Tech Domain: Reviewed -> Verify -> PO Pending (VERIFIED / PO_PENDING)",
+      "ok": true,
+      "detail": {
+        "reviewed": 200,
+        "verify": 201,
+        "poPending": 201,
+        "status": "VERIFIED",
+        "subStatus": "PO_PENDING"
+      }
+    },
+    {
+      "name": "16. customer added purchase order PO-11080-QA -> PO Pending cleared",
+      "ok": false,
+      "detail": {
+        "po": 201,
+        "body": "{\"message\":\"Purchase Orders processed successfully\",\"purchaseOrders\":[]}",
+        "subStatus": "PO_PENDING",
+        "pos": []
+      }
+    },
+    {
+      "name": "17. Tech Domain approved -> APPROVED; final numbers unchanged (customer 574, engineer 179, TD expense 25)",
+      "ok": true,
+      "detail": {
+        "status": "APPROVED",
+        "customerStatus": "APPROVED",
+        "pay": {
+          "cust": {
+            "hourlyRate": 58,
+            "minimumHours": 6,
+            "additionalHourlyRate": 62,
+            "hoursWorked": 9,
+            "additionalHours": 3,
+            "totalHoursApproved": 9,
+            "totalLabourCost": 534,
+            "totalExpenseCost": 40,
+            "totalWorkOrderCost": 574,
+            "grandTotal": 574,
+            "expenses": [
+              "TRAVEL:30",
+              "OTHER:10"
+            ]
+          },
+          "eng": {
+            "hourlyRate": 20,
+            "minimumHours": 4,
+            "additionalHourlyRate": 22,
+            "hoursWorked": 8.5,
+            "additionalHours": 4.5,
+            "totalHoursApproved": 8.5,
+            "totalLabourCost": 179,
+            "totalExpenseCost": 0,
+            "totalWorkOrderCost": 179,
+            "grandTotal": 179,
+            "expenses": []
+          },
+          "company": {
+            "total": 25,
+            "expenses": [
+              "MATERIAL:25"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "18. CUSTOMER invoice INV-#112 generated: subTotal 574, GST 10% = 57.4, grand total 631.4",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "body": "{\"data\":{\"id\":112,\"status\":\"GENERATED\"},\"message\":\"SUCCESS\"}",
+        "inv": {
+          "status": "GENERATED",
+          "subTotal": 574,
+          "taxAmount": 57.40000000000001,
+          "grandTotal": 631.4,
+          "currency": "USD",
+          "dueDate": "2026-11-15T07:46:21.117Z"
+        }
+      }
+    },
+    {
+      "name": "19. ENGINEER invoice #113 generated to engineer 575 \"Syed Hamza\": subTotal = grand total = 179, no tax",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "body": "{\"data\":{\"id\":113,\"status\":\"GENERATED\"},\"message\":\"SUCCESS\"}",
+        "payload": {
+          "clientId": 104,
+          "engineerId": 575,
+          "currency": "USD",
+          "paymentTerms": 30,
+          "taxType": null,
+          "taxPercentage": 0,
+          "workOrderIds": [
+            1086
+          ],
+          "bankAccountId": "832f0b58-bcad-4b68-ace5-8c66dbed0c95",
+          "branchId": 1,
+          "role": "FREELANCER"
+        },
+        "inv": {
+          "status": "GENERATED",
+          "subTotal": 179,
+          "taxAmount": 0,
+          "grandTotal": 179,
+          "engineer": 575,
+          "bank": "Test Bank 1234"
+        }
+      }
+    },
+    {
+      "name": "20. both invoices sent -> UNPAID; work order INVOICED; amounts unchanged",
+      "ok": true,
+      "detail": {
+        "sendCust": 200,
+        "sendEng": 200,
+        "cust": "UNPAID",
+        "eng": "UNPAID",
+        "wo": "INVOICED",
+        "customerStatus": "INVOICED"
+      }
+    },
+    {
+      "name": "21. customer sees INV-#112 UNPAID with grand total 631.4 in their invoice list",
+      "ok": true,
+      "detail": {
+        "status": "UNPAID",
+        "subTotal": 574,
+        "taxAmount": 57.40000000000001,
+        "grandTotal": 631.4
+      }
+    },
+    {
+      "name": "engineer access to /invoices/engineer (engineers have no invoice UI; 403 expected)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "22. both invoices marked PAID (customer 631.4, engineer 179); WO customerStatus PAID",
+      "ok": true,
+      "detail": {
+        "paidCust": 200,
+        "paidEng": 200,
+        "custInvoice": {
+          "status": "PAID",
+          "grandTotal": 631.4,
+          "history": [
+            "GENERATED",
+            "UNPAID",
+            "PAID"
+          ]
+        },
+        "engInvoice": {
+          "status": "PAID",
+          "grandTotal": 179,
+          "history": [
+            "GENERATED",
+            "UNPAID",
+            "PAID"
+          ]
+        },
+        "wo": {
+          "status": "PAID",
+          "customerStatus": "PAID"
+        }
+      }
+    },
+    {
+      "name": "customer invoice notifications (wording ticket already drafted)",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "title": "Invoice Paid – INV-112",
+          "content": "istkhar Hussain has paid this invoice."
+        },
+        {
+          "title": "WO-11080: E2E freelancer counter->invoice 1016074524",
+          "content": "Your work order has been approved."
+        },
+        {
+          "title": "WO-11080: E2E freelancer counter->invoice 1016074524",
+          "content": "istkhar Hussain has updated their proposal."
+        }
+      ]
+    },
+    {
+      "name": "23. Tech Domain Payment tab: customer 534.00 / 574.00, engineer 179.00, TD expense 25.00",
+      "ok": true,
+      "detail": {
+        "shot": "01_td-payment-tab.png",
+        "snippet": "Customer Rates (Hourly) USD 534.00 Hourly rate USD 58.00 Minimum Payable hours 6 hours 0 mins Additional Hourly rate USD 62.00 Additional Payable hours 3 hours 0 mins Expenses USD 40.00 Travel Expense (Customer travel) Buyer: USD 30 Expense (Parking (edited v2)) Provider: USD 10 Total Paid USD 574.00 Payment completed. The final amount has been successfully paid. Payment Terms Payment for this work order will be processed 15 days after the job is completed. If there are any issues related to the"
+      }
+    },
+    {
+      "name": "Tech Domain WO header after payment",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "02_td-wo-header.png",
+        "invoiced": false,
+        "paid": true
+      }
+    },
+    {
+      "name": "24. Tech Domain Engineer Invoices list shows invoice #113 for \"Syed Hamza\" 179.00",
+      "ok": false,
+      "detail": {
+        "shot": "03_td-engineer-invoices.png"
+      }
+    },
+    {
+      "name": "Tech Domain Customer Invoices list",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "04_td-customer-invoices.png"
+      }
+    },
+    {
+      "name": "25. customer Payment tab: 534.00 / 574.00, no engineer rate (20.00) and no TD expense",
+      "ok": true,
+      "detail": {
+        "shot": "05_customer-payment-tab.png",
+        "hasEngineerTotal": false
+      }
+    },
+    {
+      "name": "customer Invoices page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "06_customer-invoices.png",
+        "snippet": "7"
+      }
+    },
+    {
+      "name": "26. engineer Payment tab shows 179.00 and NOT the customer figures (574.00)",
+      "ok": true,
+      "detail": {
+        "shot": "07_engineer-payment-tab.png",
+        "hasCustomerTotal": false,
+        "has58": false
+      }
+    }
+  ],
+  "findings": [
+    "5. freelancer countered at 20/4/22 -> PENDING counter offer visible to Tech Domain",
+    "16. customer added purchase order PO-11080-QA -> PO Pending cleared",
+    "24. Tech Domain Engineer Invoices list shows invoice #113 for \"Syed Hamza\" 179.00"
+  ],
+  "steps": {
+    "engineerCounter": {
+      "status": 200,
+      "payload": {
+        "workOrderId": 1086,
+        "hourlyRate": 20,
+        "minimumHours": 4,
+        "additionalHourlyRate": 22,
+        "expenses": []
+      },
+      "offers": [
+        {
+          "id": 2494,
+          "status": "PENDING",
+          "isCounter": true,
+          "user": 575,
+          "referred": null,
+          "rates": [
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    "assigned": {
+      "via": "counter",
+      "status": "ASSIGNED",
+      "engineer": 575,
+      "eng": {
+        "hourlyRate": 20,
+        "minimumHours": 4,
+        "additionalHourlyRate": 22,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 4,
+        "totalLabourCost": 80,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 80,
+        "grandTotal": 80,
+        "expenses": []
+      },
+      "cust": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 0,
+        "additionalHours": 0,
+        "totalHoursApproved": 6,
+        "totalLabourCost": 348,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 388,
+        "grandTotal": 388,
+        "expenses": [
+          "TRAVEL:30",
+          "OTHER:10"
+        ]
+      }
+    },
+    "afterHours": {
+      "cust": {
+        "hourlyRate": 58,
+        "minimumHours": 6,
+        "additionalHourlyRate": 62,
+        "hoursWorked": 9,
+        "additionalHours": 3,
+        "totalHoursApproved": 9,
+        "totalLabourCost": 534,
+        "totalExpenseCost": 40,
+        "totalWorkOrderCost": 574,
+        "grandTotal": 574,
+        "expenses": [
+          "TRAVEL:30",
+          "OTHER:10"
+        ]
+      },
+      "eng": {
+        "hourlyRate": 20,
+        "minimumHours": 4,
+        "additionalHourlyRate": 22,
+        "hoursWorked": 8.5,
+        "additionalHours": 4.5,
+        "totalHoursApproved": 8.5,
+        "totalLabourCost": 179,
+        "totalExpenseCost": 0,
+        "totalWorkOrderCost": 179,
+        "grandTotal": 179,
+        "expenses": []
+      },
+      "company": {
+        "total": 25,
+        "expenses": [
+          "MATERIAL:25"
+        ]
+      }
+    },
+    "approved": {
+      "status": "APPROVED",
+      "customerStatus": "APPROVED",
+      "pay": {
+        "cust": {
+          "hourlyRate": 58,
+          "minimumHours": 6,
+          "additionalHourlyRate": 62,
+          "hoursWorked": 9,
+          "additionalHours": 3,
+          "totalHoursApproved": 9,
+          "totalLabourCost": 534,
+          "totalExpenseCost": 40,
+          "totalWorkOrderCost": 574,
+          "grandTotal": 574,
+          "expenses": [
+            "TRAVEL:30",
+            "OTHER:10"
+          ]
+        },
+        "eng": {
+          "hourlyRate": 20,
+          "minimumHours": 4,
+          "additionalHourlyRate": 22,
+          "hoursWorked": 8.5,
+          "additionalHours": 4.5,
+          "totalHoursApproved": 8.5,
+          "totalLabourCost": 179,
+          "totalExpenseCost": 0,
+          "totalWorkOrderCost": 179,
+          "grandTotal": 179,
+          "expenses": []
+        },
+        "company": {
+          "total": 25,
+          "expenses": [
+            "MATERIAL:25"
+          ]
+        }
+      }
+    },
+    "paid": {
+      "custInvoice": {
+        "status": "PAID",
+        "grandTotal": 631.4,
+        "history": [
+          "GENERATED",
+          "UNPAID",
+          "PAID"
+        ]
+      },
+      "engInvoice": {
+        "status": "PAID",
+        "grandTotal": 179,
+        "history": [
+          "GENERATED",
+          "UNPAID",
+          "PAID"
+        ]
+      },
+      "wo": {
+        "status": "PAID",
+        "customerStatus": "PAID"
+      }
+    }
+  },
+  "wo": 1086,
+  "ref": 11080,
+  "custInvoice": 112,
+  "engInvoice": 113
+}

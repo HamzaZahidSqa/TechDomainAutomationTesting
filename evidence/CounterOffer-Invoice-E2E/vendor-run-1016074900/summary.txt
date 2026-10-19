@@ -1,0 +1,36 @@
+PASS 1. customer created WO 1087 (#11081) 45/5/50 + Travel 30 -> PENDING_APPROVAL, total 255
+PASS 2. Tech Domain sent counter v1 (60/4/65) and edited it to v2 (58/6/62 + Parking 10); customer sees v2 PENDING
+PASS 3. customer ACCEPTED -> counter ASSIGNED, WO carries the EDITED rates 58/6/62, expenses Travel 30 + Parking 10, total 388
+PASS 4. Tech Domain published (engineer rates 15/4/15); customer rates still 58/6/62 = 388
+PASS 5. vendor owner 609 countered for member 611 at 28/4/30 -> PENDING counter offer visible to Tech Domain
+PASS 6. Tech Domain accepted the counter -> ASSIGNED to 611 "Demo Worker" (company 79) with ENGINEER rates 28/4/30; customer rates untouched (388)
+PASS 6b. estimated engineer payment at assignment = 28 x 4 = 112
+PASS 7. worker 611 confirm -> check-in -> check-out -> mark complete => WORKDONE
+PASS 8. at WORKDONE (~0 h): customer = minimum 6 h -> 348 + 40 = 388 ; engineer = minimum 4 h -> 112
+PASS 9. Tech Domain edited the time log to 8.5 h
+PASS 10. CUSTOMER calc with 8.5 h: billed 9 h (dev rounding rule), additional 3 h, labour 58x6 + 3x62 = 534, expenses 40, total 574
+PASS 11. ENGINEER calc with 8.5 h (vendor): 28 x 4 + 4.5 x 30 = 247 (pro-rata), no expenses
+PASS 12. Tech Domain company expense 25 saved and NOT billed to the customer (customer total stays 574)
+PASS 13. customer API sees the same customer numbers as Tech Domain
+FAIL 14. vendor owner and member API see the engineer numbers (247)
+INFO do the engineer-side users see the CUSTOMER rates? (should not)
+PASS 15. Tech Domain: Reviewed -> Verify -> PO Pending (VERIFIED / PO_PENDING)
+PASS 16. customer added purchase order PO-11081-QA -> PO Pending cleared
+PASS 17. Tech Domain approved -> APPROVED; final numbers unchanged (customer 574, engineer 247, TD expense 25)
+PASS 18. CUSTOMER invoice INV-#114 generated: subTotal 574, GST 10% = 57.4, grand total 631.4
+INFO bank account added for vendor owner 609 (had none)
+PASS 19. ENGINEER invoice #115 generated to vendor owner 609 "Demo CompanyOwner": subTotal = grand total = 247, no tax
+PASS 20. both invoices sent -> UNPAID; work order INVOICED; amounts unchanged
+PASS 21. customer sees INV-#114 UNPAID with grand total 631.4 in their invoice list
+INFO vendor owner access to /invoices/engineer (engineers have no invoice UI; 403 expected)
+PASS 22. both invoices marked PAID (customer 631.4, engineer 247); WO customerStatus PAID
+INFO customer invoice notifications (wording ticket already drafted)
+PASS 23. Tech Domain Payment tab: customer 534.00 / 574.00, engineer 247.00, TD expense 25.00
+INFO Tech Domain WO header after payment
+PASS 24. Tech Domain Engineer Invoices list (Paid tab) shows invoice #115 for "Demo CompanyOwner" 247.00
+INFO Tech Domain Customer Invoices list
+PASS 25. customer Payment tab: 534.00 / 574.00, no engineer rate (28.00) and no TD expense
+INFO customer Invoices page
+FAIL 26. vendor member (Demo Worker) Payment tab shows 247.00 and NOT the customer figures (574.00)
+PASS 27. vendor owner Payment tab shows the vendor counter rates (28.00) and total 247.00, not the customer figures
+INFO vendor owner /invoices page (no engineer invoice UI expected)

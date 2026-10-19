@@ -1,0 +1,20 @@
+PASS 0. start: WO 1084 (#11078) PENDING_APPROVAL/COUNTER_OFFER_ACCEPTED, accepted counter rates 58/6/62, expenses Travel 30 + Parking 10, total 388
+PASS 1. Tech Domain published the work order and the accepted rates survived (58/6/62, 388)
+PASS 2. engineer 575 "Syed Hamza" routed -> accepted -> assigned
+PASS 2b. after assignment the customer rates are still 58/6/62 with expenses 40 (total 388)
+PASS 3. engineer confirm -> check-in -> check-out -> mark complete => WORKDONE
+PASS 4. at WORKDONE with ~0 h worked: hoursWorked 0, additionalHours 0, totalHoursApproved = 6 (minimum), labour 58x6 = 348, total 388
+INFO time logs before the edit
+PASS 5. Tech Domain edited the time log to 8.5 h (PATCH timeLogs/updateTimelogs)
+FAIL 6. CALC with 8.5 h: hoursWorked 8.5, additionalHours 2.5, labour = 58x6 + 2.5x62 = 503, expenses 40, total 543
+INFO engineer side after 8.5 h (engineer rates 15/h, min 4, additional 15/h): expected labour 15x4 + 4.5x15 = 127.5
+PASS 6b. engineer labour = 15x4 + 4.5x15 = 127.5
+INFO estimatedPayment top-level keys (where is the Tech Domain expense?)
+PASS 7. Tech Domain expense 25 added (PATCH workOrders/:id/companyExpenses)
+INFO 8. is the Tech Domain expense counted in the CUSTOMER total? inClientExpenses=false; customer total now 574 (503+40=543 without it, 568 with it)
+FAIL 8b. customer labour is unchanged by the Tech Domain expense (503) and customer expenses are Travel 30 + Parking 10 (+ Material 25 only if TD expenses are billed to the customer)
+PASS 9. customer API sees the same numbers as Tech Domain (hours, additional hours, labour, expenses, total)
+FAIL 10. Tech Domain Payment tab shows 58.00, 8.5 worked hours / 2.5 additional, 503.00 labour and the expenses
+INFO Tech Domain detail at WORKDONE (working hours header)
+FAIL 11. customer Payment tab shows 58.00, labour 503.00 and the expenses Travel + Parking
+INFO engineer Payment tab

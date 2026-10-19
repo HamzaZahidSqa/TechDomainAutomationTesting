@@ -1,0 +1,294 @@
+{
+  "ticket": "TD-111",
+  "run": "1014111720",
+  "date": "2026-10-14T11:17:20.246Z",
+  "env": {
+    "ui": "https://dev.techdomain.com.au",
+    "api": "https://api.dev.techdomain.com.au/api"
+  },
+  "workOrders": {
+    "A": {
+      "id": 1027,
+      "ref": 11021,
+      "title": "TD-111 A happy path 1014111720",
+      "status": "PENDING_APPROVAL"
+    },
+    "B": {
+      "id": 1028,
+      "ref": 11022,
+      "title": "TD-111 B decline 1014111720",
+      "status": "PENDING_APPROVAL"
+    },
+    "C": {
+      "id": 1029,
+      "ref": 11023,
+      "title": "TD-111 C edit-withdraw 1014111720",
+      "status": "PENDING_APPROVAL"
+    },
+    "D": {
+      "id": 1030,
+      "ref": 11024,
+      "title": "TD-111 D multi TD users 1014111720",
+      "status": "PENDING_APPROVAL"
+    },
+    "E": {
+      "id": 1031,
+      "ref": 11025,
+      "title": "TD-111 E negatives 1014111720",
+      "status": "PENDING_APPROVAL"
+    },
+    "F": {
+      "id": 1032,
+      "ref": 11026,
+      "title": "TD-111 F fixed rate 1014111720",
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "checks": [
+    {
+      "id": "E-01",
+      "title": "Labour \"Add\" with empty fields -> \"Please enter Labour Values\"",
+      "type": "negative",
+      "expected": "toast",
+      "actual": "toast=false",
+      "ok": false,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_01_E01_labour-add-empty.png"
+    },
+    {
+      "id": "E-02",
+      "title": "Labour \"Add\" with hourly rate 0 -> rejected (\"Please enter Labour Values\"), Send stays disabled",
+      "type": "bva",
+      "expected": "toast + disabled",
+      "actual": "toast=true sendDisabled=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_02_E02_labour-add-zero-rate.png"
+    },
+    {
+      "id": "E-03",
+      "title": "Labour \"Add\" with negative hourly rate -5 -> rejected",
+      "type": "bva",
+      "expected": "toast \"Please enter Labour Values\" or the field refuses the minus sign; Send disabled",
+      "actual": "toast=true fieldValue=\"\" sendDisabled=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_03_E03_labour-add-negative-rate.png"
+    },
+    {
+      "id": "E-04",
+      "title": "Labour \"Add\" with the SAME values as the current rates -> no change, Send stays disabled",
+      "type": "edge",
+      "expected": "Send disabled",
+      "actual": "sendDisabled=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_04_E04_labour-add-unchanged-values.png"
+    },
+    {
+      "id": "E-05",
+      "title": "Expense \"Add\" without a type -> \"Please enter Expense Values\"",
+      "type": "negative",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_05_E05_expense-add-no-type.png"
+    },
+    {
+      "id": "E-06",
+      "title": "Expense \"Add\" without a description -> \"Please enter Expense Values\"",
+      "type": "negative",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_06_E06_expense-add-no-description.png"
+    },
+    {
+      "id": "E-07",
+      "title": "Expense \"Add\" with amount 0 -> rejected",
+      "type": "bva",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_07_E07_expense-add-zero-amount.png"
+    },
+    {
+      "id": "E-08",
+      "title": "Cancel closes the modal without creating a counter offer",
+      "type": "negative",
+      "expected": "no counter record, \"Counter Offer\" button still shown",
+      "actual": "counter=undefined buttons=Copy, Save as Template, Tags, Print, Add Note, Create New Task, Move to Draft, Counter Offer, Review & Publish, Details, Payment, Providers, Messages, History",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_08_E08_cancel-closes-without-sending.png"
+    },
+    {
+      "id": "E-09",
+      "title": "Decimal rate 60.55, minimum 1 h and additional 0.01 are accepted and shown with 2 decimals (estimate 60.55 x 1 + 30 = 90.55)",
+      "type": "bva",
+      "expected": "USD 60.55, 1 hrs, USD 0.01, Estimated Payment USD 90.55",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 60.55 Minimum Payable Hours 5 hrs 1 hrs Additional Hourly rate USD 50.00 USD 0.01 Expenses Travel Expense (Customer travel) USD 30.00 Estimated Payment USD 255.00 USD 90.55 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Hourly Rate ​ Minimum Payable Hours ​ Additional Hourly rate ​ Non-Business Hour Rate – Optional ​ Add Expenses Cancel Send Count",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_09_E09_decimal-and-min-boundary.png"
+    },
+    {
+      "id": "E-10",
+      "title": "Large values 999999.99/h x 1000 h accepted by the modal (estimate shown)",
+      "type": "info",
+      "expected": "-",
+      "actual": "Estimated Payment USD 255.00 USD 1000000020.00",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_10_E10_large-values.png"
+    },
+    {
+      "id": "E-11",
+      "title": "Last labour \"Add\" wins (50/5/55) and an expense with a decimal amount 12.50 is listed",
+      "type": "edge",
+      "expected": "USD 50.00, USD 12.50",
+      "actual": "Counter Offer Schedule Fixed Start Start at a specific date and time Saturday, 10/17/2026 at 10:00 AM (PST) Labour Hourly Rate USD 45.00 USD 50.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 USD 55.00 Expenses Travel Expense (Customer travel) USD 30.00 Material Expense (Cables) USD 12.50 Estimated Payment USD 255.00 USD 292.50 Please note: This is the minimum payable amount; however, the final payment will be determined upon job completion based on the actual time worked. Labour ​ Hourly Rate ​ Minimum Payable Hours ​ Additional Hourly rate ​ Non-Business Hour Rate – Optional ",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-12",
+      "title": "Counter offer 50/5/55 + Cables 12.50 sent",
+      "type": "positive",
+      "expected": "toast",
+      "actual": "toast=true",
+      "ok": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_11_E11_counter-sent-for-api-cases.png"
+    },
+    {
+      "id": "E-13",
+      "title": "API: a CUSTOMER cannot create a counter offer (POST offers/customer/counter)",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-14",
+      "title": "API: Tech Domain cannot accept its own counter offer",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-15",
+      "title": "API: Tech Domain cannot decline the counter offer on the customer's behalf",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-16",
+      "title": "API: a CUSTOMER cannot withdraw Tech Domain's counter offer",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-17",
+      "title": "API: negative hourly rate is rejected by the backend (not only by the UI)",
+      "type": "negative",
+      "expected": "HTTP 400",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-18",
+      "title": "API: counter offer without workOrderId is rejected",
+      "type": "negative",
+      "expected": "HTTP 400",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-19",
+      "title": "API: accepting a non-existent counter offer id fails cleanly (no 500)",
+      "type": "negative",
+      "expected": "HTTP 4xx",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-20",
+      "title": "API: HOURLY rate fields sent for a FIXED work order (backend response)",
+      "type": "info",
+      "expected": "-",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-21",
+      "title": "API: customer accepting the counter of WO C (which was withdrawn and re-sent) -> response",
+      "type": "info",
+      "expected": "-",
+      "actual": "HTTP 401 \"Unauthorized\"",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-22",
+      "title": "API: the customer who created the work order can read its pending counter offer (GET offers/customer/counter/:wo)",
+      "type": "positive",
+      "expected": "HTTP 200, status PENDING",
+      "actual": "HTTP 401 Unauthorized status=undefined",
+      "ok": false,
+      "note": "",
+      "screenshot": ""
+    },
+    {
+      "id": "E-23",
+      "title": "Customer SUB-USER (did not create the WO) view: tabs + header + GET counter",
+      "type": "info",
+      "expected": "-",
+      "actual": "tabs=Details, Payment | GET counter -> HTTP 403 | Dashboard Work Orders Work Force Invoices 0 10 Submitted #11025 On 10/14/2026 TD-111 E negatives 1014111720 Schedule: Fixed Start 10/17/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned Print Move to Draft Details Payment Overview Co",
+      "ok": true,
+      "info": true,
+      "note": "",
+      "screenshot": "TD-111_CounterOffer_12_E12_customer-subuser-view.png"
+    }
+  ],
+  "findings": [
+    "E-01 Labour \"Add\" with empty fields -> \"Please enter Labour Values\"",
+    "E-22 API: the customer who created the work order can read its pending counter offer (GET offers/customer/counter/:wo)"
+  ],
+  "summary": {
+    "total": 19,
+    "pass": 17,
+    "fail": 2,
+    "blocked": 0,
+    "info": 4
+  }
+}

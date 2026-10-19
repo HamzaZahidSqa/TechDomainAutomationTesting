@@ -1,0 +1,188 @@
+{
+  "run": "1016101707",
+  "checks": [
+    {
+      "name": "A1. sub-user 639 created WO 1088 (#11082) -> PENDING_APPROVAL, createdBy sub-user",
+      "ok": true,
+      "detail": {
+        "status": "PENDING_APPROVAL",
+        "createdBy": 639
+      }
+    },
+    {
+      "name": "A2. owner can open the sub-user's work order (API detail 200 + listed on the customer board)",
+      "ok": false,
+      "detail": {
+        "detail": 200,
+        "listed": false
+      }
+    },
+    {
+      "name": "A3. Tech Domain sent a counter offer (60/4/65 + Tools 20)",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "id": 2497
+      }
+    },
+    {
+      "name": "A4. OWNER can read the pending counter (GET offers/customer/counter/:wo -> 200 PENDING 60/4/65)",
+      "ok": true,
+      "detail": {
+        "id": 2497,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65
+      }
+    },
+    {
+      "name": "sub-user view of the counter (API)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "id": 2497,
+        "status": "PENDING",
+        "hourly": 60,
+        "min": 4,
+        "add": 65
+      }
+    },
+    {
+      "name": "A5. owner notified about the proposal",
+      "ok": true,
+      "detail": [
+        {
+          "type": "COUNTER",
+          "title": "WO-11082: Sub-user WO, owner accepts counter 1016101707",
+          "content": "istkhar Hussain has sent you a proposal."
+        }
+      ]
+    },
+    {
+      "name": "sub-user notifications about the proposal",
+      "ok": true,
+      "info": true,
+      "detail": [
+        {
+          "type": "COUNTER",
+          "title": "WO-11082: Sub-user WO, owner accepts counter 1016101707",
+          "content": "istkhar Hussain has sent you a proposal."
+        }
+      ]
+    },
+    {
+      "name": "owner WO detail page (banner / proposal link)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "01_owner-wo-detail.png",
+        "proposalMention": true,
+        "snippet": "Dashboard Work Orders Work Force Invoices 0 37 Submitted Proposal Received #11082 On 10/16/2026 Sub-user WO, owner accepts counter 1016101707 Schedule: Fixed Start 10/21/2026 10:00 AM (PST) Location Lahore, Pakistan Engineer: Unassigned Print Move to Draft Details Payment Proposals Messages Overview"
+      }
+    },
+    {
+      "name": "A6. owner UI proposals page shows the proposal (USD 60.00, 4 hrs, Ladder hire) with an Accept button",
+      "ok": true,
+      "detail": {
+        "card": "Proposal Awaiting your response Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour Hourly Rate USD 45.00 Minimum Payable Hours 5 hrs Additional Hourly rate USD 50.00 CURRENT EXPENSES Travel Expense (Customer travel) USD 30.00 PROPOSED USD 240.00 Estimated labour Hourly Rate USD 60.00 Minimum Payable Hours 4 hrs Additional Hourly rate USD 65.00 PROPOSED EXPENSES Tools Expense (Ladder",
+        "shot": "02_owner-proposals-page.png"
+      }
+    },
+    {
+      "name": "A7. OWNER accepted the counter offer (UI) -> card shows Accepted … by Customer Owner",
+      "ok": true,
+      "detail": {
+        "via": "ui",
+        "toast": true,
+        "dialogShot": "03_owner-accept-dialog.png",
+        "shot": "05_owner-proposal-after-accept.png",
+        "card": "Proposal Accepted Hourly Sent a few seconds ago CURRENT USD 225.00 Estimated labour PROPOSED USD 240.00 Estimated labour IH From istkhar Hussain · accepted by Customer Owner a few seconds ago"
+      }
+    },
+    {
+      "name": "owner Payment tab after acceptance",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "has60": true,
+        "ladder": true,
+        "shot": "06_owner-payment-tab-after-accept.png"
+      }
+    },
+    {
+      "name": "A8. counter ASSIGNED, work order carries the counter rates 60/4/65 + Travel 30 + Tools 20 = 290",
+      "ok": true,
+      "detail": {
+        "counter": {
+          "id": 2497,
+          "status": "ASSIGNED",
+          "hourly": 60,
+          "min": 4,
+          "add": 65
+        },
+        "pay": {
+          "hourlyRate": 60,
+          "minimumHours": 4,
+          "additionalHourlyRate": 65,
+          "totalWorkOrderCost": 290,
+          "expenses": [
+            "TRAVEL:30",
+            "TOOLS:20"
+          ]
+        },
+        "status": "PENDING_APPROVAL",
+        "acceptedBy": null
+      }
+    },
+    {
+      "name": "sub-user (creator) proposals page after the owner accepted",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "card": "Proposal Accepted Hourly Sent a minute ago CURRENT USD 225.00 Estimated labour PROPOSED USD 240.00 Estimated labour IH From istkhar Hussain · accepted by Customer Owner a few seconds ago",
+        "accepted": true,
+        "shot": "07_subuser-proposals-after-owner-accept.png"
+      }
+    },
+    {
+      "name": "B1. owner created WO 1090; sub-user view: WO detail 200, counter",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 403,
+        "msg": "You do not have access to this counter offer."
+      }
+    },
+    {
+      "name": "B2. sub-user accepting the counter on the OWNER's work order: UI + API result",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "ui": {
+          "card": "",
+          "acceptVisible": false,
+          "shot": "08_subuser-proposals-owner-wo.png"
+        },
+        "apiAccept": {
+          "status": 403,
+          "body": "{\"statusCode\":403,\"message\":\"Only the customer can respond to this proposal.\"}"
+        },
+        "counterNow": {
+          "id": 2499,
+          "status": "PENDING",
+          "hourly": 60,
+          "min": 4,
+          "add": 65
+        }
+      }
+    }
+  ],
+  "findings": [
+    "A2. owner can open the sub-user's work order (API detail 200 + listed on the customer board)"
+  ],
+  "steps": {},
+  "wo": 1088,
+  "ref": 11082,
+  "wo2": 1090
+}

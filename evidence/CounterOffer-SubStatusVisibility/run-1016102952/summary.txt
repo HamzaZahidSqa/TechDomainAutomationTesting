@@ -1,0 +1,65 @@
+A0 submitted (no counter yet)    TD=PENDING_APPROVAL/-                 customer detail=PENDING_APPROVAL/- listing=-                notif=0 []
+A1 counter sent (pending)        TD=PENDING_APPROVAL/COUNTER_OFFER_PENDING customer detail=PENDING_APPROVAL/COUNTER_OFFER_PENDING listing=COUNTER_OFFER_PENDING notif=1 [WO-11085: Counter sub-status A-accept 1016102952]
+A2 customer accepted             TD=PENDING_APPROVAL/COUNTER_OFFER_ACCEPTED customer detail=PENDING_APPROVAL/COUNTER_OFFER_ACCEPTED listing=COUNTER_OFFER_ACCEPTED notif=0 []
+A3 published                     TD=PUBLISHED/-                        customer detail=PUBLISHED/- listing=-                       notif=1 [Work Order Accepted – WO-11085]
+B1 counter sent (pending)        TD=PENDING_APPROVAL/COUNTER_OFFER_PENDING customer detail=PENDING_APPROVAL/COUNTER_OFFER_PENDING listing=COUNTER_OFFER_PENDING notif=1 [WO-11086: Counter sub-status B-decline 1016102952]
+B2 customer declined             TD=PENDING_APPROVAL/COUNTER_OFFER_DECLINED customer detail=PENDING_APPROVAL/COUNTER_OFFER_DECLINED listing=COUNTER_OFFER_DECLINED notif=0 []
+B3 published                     TD=PUBLISHED/-                        customer detail=PUBLISHED/- listing=-                       notif=1 [Work Order Accepted – WO-11086]
+C1 counter sent (pending)        TD=PENDING_APPROVAL/COUNTER_OFFER_PENDING customer detail=PENDING_APPROVAL/COUNTER_OFFER_PENDING listing=COUNTER_OFFER_PENDING notif=1 [WO-11087: Counter sub-status C-withdraw 1016102952]
+C2 withdrawn by Tech Domain      TD=PENDING_APPROVAL/-                 customer detail=PENDING_APPROVAL/- listing=-                notif=1 [WO-11087: Counter sub-status C-withdraw 1016102952]
+C3 published                     TD=PUBLISHED/-                        customer detail=PUBLISHED/- listing=-                       notif=1 [Work Order Accepted – WO-11087]
+
+PASS [A0 submitted (no counter yet)] customer API detail has NO counter/proposal sub-status any more
+PASS [A0 submitted (no counter yet)] customer listing row has NO counter/proposal sub-status any more
+INFO [A0 submitted (no counter yet)] customer notifications (baseline)
+PASS [A1 counter sent (pending)] customer API detail shows a counter/proposal sub-status
+PASS [A1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)
+PASS [A1 counter sent (pending)] customer got a notification for it
+PASS [A1 counter sent (pending)] notification text is about the proposal/counter offer
+INFO UI A1-counter-pending: customer detail header + listing row captured
+PASS [A1] customer UI detail header shows the proposal sub-status badge
+PASS [A1] customer UI listing row shows the proposal sub-status
+PASS [A2] customer accepted the proposal (API)
+PASS [A2 customer accepted] customer API detail shows a counter/proposal sub-status
+PASS [A2 customer accepted] customer listing row carries the same sub-status (COUNTER_OFFER_ACCEPTED)
+INFO [A2 customer accepted] customer notifications (own action)
+INFO UI A2-accepted: customer detail header + listing row captured
+PASS [A2] customer UI detail header shows "Proposal Accepted"
+PASS [A3] Tech Domain published WO A (approvePublish)
+PASS [A3 published] customer API detail has NO counter/proposal sub-status any more
+PASS [A3 published] customer listing row has NO counter/proposal sub-status any more
+INFO [A3 published] customer notifications (publish)
+PASS [A3] work order status is PUBLISHED on both sides
+INFO UI A3-published: customer detail header + listing row captured
+PASS [A3] customer UI detail header no longer shows a proposal badge
+PASS [A3] customer UI listing row no longer shows a proposal sub-status (re-checked: only the title contains the word Counter)
+INFO [A3] counter record after publish
+PASS [B1 counter sent (pending)] customer API detail shows a counter/proposal sub-status
+PASS [B1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)
+PASS [B1 counter sent (pending)] customer got a notification for it
+PASS [B1 counter sent (pending)] notification text is about the proposal/counter offer
+PASS [B2] customer declined the proposal (API)
+PASS [B2 customer declined] customer API detail shows a counter/proposal sub-status
+PASS [B2 customer declined] customer listing row carries the same sub-status (COUNTER_OFFER_DECLINED)
+INFO [B2 customer declined] customer notifications (own action)
+INFO UI B2-declined: customer detail header + listing row captured
+INFO [B2] customer UI after decline
+PASS [B3] Tech Domain published WO B
+PASS [B3 published] customer API detail has NO counter/proposal sub-status any more
+PASS [B3 published] customer listing row has NO counter/proposal sub-status any more
+INFO [B3 published] customer notifications (publish)
+INFO UI B3-published: customer detail header + listing row captured
+PASS [B3] customer UI detail header no longer shows a proposal badge
+PASS [C1 counter sent (pending)] customer API detail shows a counter/proposal sub-status
+PASS [C1 counter sent (pending)] customer listing row carries the same sub-status (COUNTER_OFFER_PENDING)
+PASS [C1 counter sent (pending)] customer got a notification for it
+PASS [C1 counter sent (pending)] notification text is about the proposal/counter offer
+PASS [C2] Tech Domain withdrew the proposal (API)
+PASS [C2 withdrawn by Tech Domain] customer API detail has NO counter/proposal sub-status any more
+PASS [C2 withdrawn by Tech Domain] customer listing row has NO counter/proposal sub-status any more
+INFO [C2 withdrawn by Tech Domain] customer notifications (withdraw)
+INFO [C2] customer sub-status after withdraw (detail / listing)
+PASS [C3] Tech Domain published WO C
+PASS [C3 published] customer API detail has NO counter/proposal sub-status any more
+PASS [C3 published] customer listing row has NO counter/proposal sub-status any more
+INFO [C3 published] customer notifications (publish)

@@ -1,0 +1,6 @@
+POST /workOrders/1073/purchaseOrder -> 201 {"message":"Purchase Orders processed successfully","purchaseOrders":[{"purchaseOrderId":"c84f08d7-3b92-4994-833f-09f5f5e8825b","number":"PO-11067-QA","fileName":null,"url":null}]}
+{"status":"DISPUTED","subStatus":null,"customerStatus":"APPROVED","purchaseOrderNumber":"","purchaseOrders":[{"id":"c84f08d7-3b92-4994-833f-09f5f5e8825b","number":"PO-11067-QA","attachment":null}]}
+PATCH /workOrders/1073/status {status:APPROVED} -> 200 {"message":"Status updated successfully"}
+WO now: {"status":"APPROVED","subStatus":null,"customerStatus":"APPROVED","po":["PO-11067-QA"]}
+2026-10-15T05:43:49.795Z PATCH /workOrders/1073/status {status:APPROVED} -> 200 {"message":"Status updated successfully"}
+WO now: {"status":"APPROVED","subStatus":null,"customerStatus":"APPROVED","po":["PO-11067-QA"]}

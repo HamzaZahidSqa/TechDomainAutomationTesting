@@ -1,0 +1,152 @@
+{
+  "run": "1016111131",
+  "ticket": "TD-87",
+  "email": "td87-owner-1016111131@mailinator.com",
+  "checks": [
+    {
+      "name": "1. Tech Domain created parent customer \"TD87 QA Customer 1016111131\" (id 107)",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "body": "{\"data\":{\"clientName\":\"TD87 QA Customer 1016111131\",\"website\":\"\",\"id\":107},\"message\":\"SUCCESS\"}"
+      }
+    },
+    {
+      "name": "2. Generate Signup #1 with td87-owner-1016111131@mailinator.com -> owner user 666 created",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "ownerId": 666,
+        "ownerEmail": "td87-owner-1016111131@mailinator.com",
+        "password": null,
+        "mailSnippet": ""
+      }
+    },
+    {
+      "name": "3. welcome e-mail #1 received with a generated password",
+      "ok": false,
+      "detail": {
+        "password": null,
+        "snippet": "",
+        "shot": "TD-87_01_welcome-mail-1.png"
+      }
+    },
+    {
+      "name": "4. baseline: login works with the FIRST generated credentials",
+      "ok": false,
+      "detail": {
+        "status": 0,
+        "ok": false
+      }
+    },
+    {
+      "name": "UI login #1",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "shot": "TD-87_02_ui-login-1.png"
+      }
+    },
+    {
+      "name": "5. Delete Access -> customer has no owner any more",
+      "ok": false,
+      "detail": {
+        "status": 401,
+        "ownerAfter": null
+      }
+    },
+    {
+      "name": "login with the OLD credentials after Delete Access (expected to fail)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 0,
+        "ok": false
+      }
+    },
+    {
+      "name": "6. Generate Signup #2 with the SAME e-mail succeeds -> owner user undefined (first was 666)",
+      "ok": false,
+      "detail": {
+        "status": 401,
+        "body": "{\"message\":\"Unauthorized\",\"statusCode\":401}",
+        "sameUserId": false,
+        "password": null,
+        "mailSnippet": ""
+      }
+    },
+    {
+      "name": "7. welcome e-mail #2 received with a NEW generated password",
+      "ok": false,
+      "detail": {
+        "password": null,
+        "differs": false,
+        "snippet": "",
+        "shot": "TD-87_03_welcome-mail-2.png"
+      }
+    },
+    {
+      "name": "8. TICKET: login works with the REGENERATED credentials (same e-mail, new password)",
+      "ok": false,
+      "detail": {
+        "status": 0,
+        "ok": false
+      }
+    },
+    {
+      "name": "8b. UI login with the regenerated credentials reaches the portal (no \"Invalid email/password\")",
+      "ok": false,
+      "detail": {
+        "shot": "TD-87_04_ui-login-2-regenerated.png"
+      }
+    },
+    {
+      "name": "diagnostic: user records for the e-mail (Tech Domain search)",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "status": 404,
+        "body": "{\"message\":\"Cannot GET /api/users?search=td87-owner-1016111131%40mailinator.com&limit=10\",\"error\":\"Not Found\",\"statusCode\":404}"
+      }
+    }
+  ],
+  "findings": [
+    "3. welcome e-mail #1 received with a generated password",
+    "4. baseline: login works with the FIRST generated credentials",
+    "5. Delete Access -> customer has no owner any more",
+    "6. Generate Signup #2 with the SAME e-mail succeeds -> owner user undefined (first was 666)",
+    "7. welcome e-mail #2 received with a NEW generated password",
+    "8. TICKET: login works with the REGENERATED credentials (same e-mail, new password)",
+    "8b. UI login with the regenerated credentials reaches the portal (no \"Invalid email/password\")"
+  ],
+  "steps": {
+    "gen1": {
+      "status": 201,
+      "ownerId": 666,
+      "ownerEmail": "td87-owner-1016111131@mailinator.com",
+      "password": null,
+      "mailSnippet": ""
+    },
+    "login1": {
+      "status": 0,
+      "ok": false
+    },
+    "delete": {
+      "status": 401,
+      "ownerAfter": null
+    },
+    "gen2": {
+      "status": 401,
+      "body": "{\"message\":\"Unauthorized\",\"statusCode\":401}",
+      "sameUserId": false,
+      "password": null,
+      "mailSnippet": ""
+    },
+    "login2": {
+      "status": 0,
+      "ok": false
+    }
+  },
+  "client": 107,
+  "verdict": "FAIL (bug still present)"
+}

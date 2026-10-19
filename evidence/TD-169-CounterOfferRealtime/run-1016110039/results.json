@@ -1,0 +1,1186 @@
+{
+  "run": "1016110039",
+  "watchMs": 40000,
+  "checks": [
+    {
+      "name": "customer page open on WO 1",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true",
+        "sockets": 2,
+        "state": {
+          "header": "Dashboard Work Orders Work Force Invoices 0 54 Submitted #11090 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Messages"
+          ],
+          "banner": "",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+        },
+        "bell": {
+          "count": 54,
+          "raw": "54",
+          "found": true
+        },
+        "shot": "TD-169_CounterOfferRealtime_01_WO1-customer-page-open-baseline.png"
+      }
+    },
+    {
+      "name": "customer page has a live socket connection",
+      "ok": true,
+      "detail": {
+        "sockets": 2
+      }
+    },
+    {
+      "name": "[E1-send] server created a notification for the customer",
+      "ok": true,
+      "detail": [
+        "COUNTER | WO-11090: TD-169 realtime WO1-customer-watches 1016110039"
+      ]
+    },
+    {
+      "name": "[E1-send] bell badge count increased in real time (no reload/click) within 40s",
+      "ok": true,
+      "detail": {
+        "baseline": 54,
+        "final": 55,
+        "firstChange": "+1.0s",
+        "socketNotificationFrame": true
+      }
+    },
+    {
+      "name": "[E1-send] socket 'notification' frame received by the page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "received": true,
+        "frames": [
+          "+0.2s 42[\"notification\",{\"id\":115658,\"content\":\"istkhar Hussain has sent you a proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"COUNTER\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches 101611"
+        ]
+      }
+    },
+    {
+      "name": "[E1-send] notification visible when the bell is clicked (no reload)",
+      "ok": true,
+      "detail": {
+        "panel": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11087 28 minutes ago Your w",
+        "requestsOnClick": []
+      }
+    },
+    {
+      "name": "[E1-send] notification counted after reload (badge 55)",
+      "ok": true,
+      "detail": {
+        "bell": 55
+      }
+    },
+    {
+      "name": "[E1-send] work order state \"Proposal Received badge / Proposals tab\" updated in real time (no reload) within 40s",
+      "ok": false,
+      "detail": {
+        "firstChange": null,
+        "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Messages"
+        ],
+        "banner": "",
+        "workOrderSocketFrame": true,
+        "requestsDuringWatch": []
+      }
+    },
+    {
+      "name": "[E1-send] work order state \"Proposal Received badge / Proposals tab\" correct after reload",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+      }
+    },
+    {
+      "name": "[E2-edit] server created a notification for the customer",
+      "ok": true,
+      "detail": [
+        "COUNTER | WO-11090: TD-169 realtime WO1-customer-watches 1016110039"
+      ]
+    },
+    {
+      "name": "[E2-edit] bell badge count increased in real time (no reload/click) within 40s",
+      "ok": true,
+      "detail": {
+        "baseline": 55,
+        "final": 56,
+        "firstChange": "+1.1s",
+        "socketNotificationFrame": true
+      }
+    },
+    {
+      "name": "[E2-edit] socket 'notification' frame received by the page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "received": true,
+        "frames": [
+          "+1.1s 42[\"notification\",{\"id\":115659,\"content\":\"istkhar Hussain has updated their proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"COUNTER\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches 101"
+        ]
+      }
+    },
+    {
+      "name": "[E2-edit] notification visible when the bell is clicked (no reload)",
+      "ok": true,
+      "detail": {
+        "panel": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has updated their proposal. WO-11090: TD-169 realtime WO1-customer-watches 10",
+        "requestsOnClick": []
+      }
+    },
+    {
+      "name": "[E2-edit] notification counted after reload (badge 56)",
+      "ok": true,
+      "detail": {
+        "bell": 56
+      }
+    },
+    {
+      "name": "[E2-edit] work order state \"Proposal Received badge still shown (edit keeps it pending)\" updated in real time (no reload) within 40s",
+      "ok": true,
+      "detail": {
+        "firstChange": "+0.0s",
+        "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "workOrderSocketFrame": true,
+        "requestsDuringWatch": []
+      }
+    },
+    {
+      "name": "[E2-edit] work order state \"Proposal Received badge still shown (edit keeps it pending)\" correct after reload",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+      }
+    },
+    {
+      "name": "[E3-withdraw] server created a notification for the customer",
+      "ok": true,
+      "detail": [
+        "WITHDRAW | WO-11090: TD-169 realtime WO1-customer-watches 1016110039"
+      ]
+    },
+    {
+      "name": "[E3-withdraw] bell badge count increased in real time (no reload/click) within 40s",
+      "ok": true,
+      "detail": {
+        "baseline": 56,
+        "final": 57,
+        "firstChange": "+1.1s",
+        "socketNotificationFrame": true
+      }
+    },
+    {
+      "name": "[E3-withdraw] socket 'notification' frame received by the page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "received": true,
+        "frames": [
+          "+0.2s 42[\"notification\",{\"id\":115660,\"content\":\"istkhar Hussain has withdrawn their proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"WITHDRAW\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches "
+        ]
+      }
+    },
+    {
+      "name": "[E3-withdraw] notification visible when the bell is clicked (no reload)",
+      "ok": true,
+      "detail": {
+        "panel": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has withdrawn their proposal. WO-11090: TD-169 realtime WO1-customer-watches ",
+        "requestsOnClick": []
+      }
+    },
+    {
+      "name": "[E3-withdraw] notification counted after reload (badge 57)",
+      "ok": true,
+      "detail": {
+        "bell": 57
+      }
+    },
+    {
+      "name": "[E3-withdraw] work order state \"Proposal badge + Proposals tab removed\" updated in real time (no reload) within 40s",
+      "ok": false,
+      "detail": {
+        "firstChange": null,
+        "header": "Dashboard Work Orders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "workOrderSocketFrame": true,
+        "requestsDuringWatch": []
+      }
+    },
+    {
+      "name": "[E3-withdraw] work order state \"Proposal badge + Proposals tab removed\" correct after reload",
+      "ok": false,
+      "detail": {
+        "header": "Dashboard Work Orders Work Force Invoices 0 57 Submitted #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": ""
+      }
+    },
+    {
+      "name": "Tech Domain page open on WO 2",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "url": "https://dev.techdomain.com.au/workOrder/details/1097",
+        "sockets": 2,
+        "state": {
+          "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 7 Submitted Counter Sent #11091 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Providers",
+            "Messages",
+            "History"
+          ],
+          "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1097"
+        },
+        "bell": {
+          "count": 7,
+          "raw": "7",
+          "found": true
+        },
+        "shot": "TD-169_CounterOfferRealtime_11_WO2-techdomain-page-open-baseline.png"
+      }
+    },
+    {
+      "name": "Tech Domain page has a live socket connection",
+      "ok": true,
+      "detail": {
+        "sockets": 2
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] server created a notification for the Tech Domain",
+      "ok": true,
+      "detail": [
+        "WORK_ORDER_UPDATED | WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039"
+      ]
+    },
+    {
+      "name": "[E4-customer-accepts] bell badge count increased in real time (no reload/click) within 40s",
+      "ok": true,
+      "detail": {
+        "baseline": 7,
+        "final": 8,
+        "firstChange": "+0.0s",
+        "socketNotificationFrame": true
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] socket 'notification' frame received by the page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "received": true,
+        "frames": [
+          "+0.3s 42[\"notification\",{\"id\":115677,\"content\":\"Customer Owner has accepted your counter offer.\",\"url\":\"/workOrder/details/1097\",\"type\":\"WORK_ORDER_UPDATED\",\"title\":\"WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039\",",
+          "+0.3s 42[\"messageDelivered\",{\"message\":\"All previous messages have been marked as delivered.\",\"userId\":27}]"
+        ]
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] notification visible when the bell is clicked (no reload)",
+      "ok": true,
+      "detail": {
+        "panel": "Notifications Mark all as read WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039 a few seconds ago Customer Owner has accepted your counter offer. New Work Order Received - WO-11092 a minute ",
+        "requestsOnClick": []
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] notification counted after reload (badge 8)",
+      "ok": true,
+      "detail": {
+        "bell": 8
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] work order state \"Counter Accepted badge/banner\" updated in real time (no reload) within 40s",
+      "ok": false,
+      "detail": {
+        "firstChange": null,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Sent #11091 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+        "workOrderSocketFrame": true,
+        "requestsDuringWatch": []
+      }
+    },
+    {
+      "name": "[E4-customer-accepts] work order state \"Counter Accepted badge/banner\" correct after reload",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Accepted #11091 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "New Task Move to Draft Review & Publish Counter Offer Accepted Customer Owner accepted the counter offer on Oct 16, 2026 at 4:03 PM. The custo"
+      }
+    },
+    {
+      "name": "Tech Domain page open on WO 3",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "state": {
+          "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Sent #11092 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Providers",
+            "Messages",
+            "History"
+          ],
+          "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1098"
+        },
+        "bell": {
+          "count": 8,
+          "raw": "8",
+          "found": true
+        },
+        "shot": "TD-169_CounterOfferRealtime_15_WO3-techdomain-page-open-baseline.png"
+      }
+    },
+    {
+      "name": "[E5-customer-declines] server created a notification for the Tech Domain",
+      "ok": true,
+      "detail": [
+        "WORK_ORDER_UPDATED | WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039"
+      ]
+    },
+    {
+      "name": "[E5-customer-declines] bell badge count increased in real time (no reload/click) within 40s",
+      "ok": true,
+      "detail": {
+        "baseline": 8,
+        "final": 9,
+        "firstChange": "+0.0s",
+        "socketNotificationFrame": true
+      }
+    },
+    {
+      "name": "[E5-customer-declines] socket 'notification' frame received by the page",
+      "ok": true,
+      "info": true,
+      "detail": {
+        "received": true,
+        "frames": [
+          "+1.2s 42[\"notification\",{\"id\":115680,\"content\":\"Customer Owner has declined your counter offer.\",\"url\":\"/workOrder/details/1098\",\"type\":\"WORK_ORDER_UPDATED\",\"title\":\"WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039\"",
+          "+1.2s 42[\"messageDelivered\",{\"message\":\"All previous messages have been marked as delivered.\",\"userId\":27}]"
+        ]
+      }
+    },
+    {
+      "name": "[E5-customer-declines] notification visible when the bell is clicked (no reload)",
+      "ok": true,
+      "detail": {
+        "panel": "Notifications Mark all as read WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039 a few seconds ago Customer Owner has declined your counter offer. WO-11091: TD-169 realtime WO2-td-watches-ac",
+        "requestsOnClick": []
+      }
+    },
+    {
+      "name": "[E5-customer-declines] notification counted after reload (badge 9)",
+      "ok": true,
+      "detail": {
+        "bell": 9
+      }
+    },
+    {
+      "name": "[E5-customer-declines] work order state \"Counter Declined badge/banner\" updated in real time (no reload) within 40s",
+      "ok": false,
+      "detail": {
+        "firstChange": null,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 9 Submitted Counter Sent #11092 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+        "workOrderSocketFrame": true,
+        "requestsDuringWatch": []
+      }
+    },
+    {
+      "name": "[E5-customer-declines] work order state \"Counter Declined badge/banner\" correct after reload",
+      "ok": true,
+      "detail": {
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 9 Submitted Counter Declined #11092 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "Add Note Create New Task Move to Draft Counter Offer Review & Publish Counter Offer Declined Customer Owner declined the counter offer on O"
+      }
+    }
+  ],
+  "findings": [
+    "[E1-send] work order state \"Proposal Received badge / Proposals tab\" updated in real time (no reload) within 40s",
+    "[E3-withdraw] work order state \"Proposal badge + Proposals tab removed\" updated in real time (no reload) within 40s",
+    "[E3-withdraw] work order state \"Proposal badge + Proposals tab removed\" correct after reload",
+    "[E4-customer-accepts] work order state \"Counter Accepted badge/banner\" updated in real time (no reload) within 40s",
+    "[E5-customer-declines] work order state \"Counter Declined badge/banner\" updated in real time (no reload) within 40s"
+  ],
+  "workOrders": {
+    "WO1-customer-watches": {
+      "id": 1096,
+      "ref": 11090,
+      "title": "TD-169 realtime WO1-customer-watches 1016110039",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null
+    },
+    "WO2-td-watches-accept": {
+      "id": 1097,
+      "ref": 11091,
+      "title": "TD-169 realtime WO2-td-watches-accept 1016110039",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null
+    },
+    "WO3-td-watches-decline": {
+      "id": 1098,
+      "ref": 11092,
+      "title": "TD-169 realtime WO3-td-watches-decline 1016110039",
+      "status": "PENDING_APPROVAL",
+      "subStatus": null
+    }
+  },
+  "events": [
+    {
+      "name": "E1-send",
+      "watcher": "cust",
+      "wo": 1096,
+      "ref": 11090,
+      "baseline": {
+        "bell": 54,
+        "header": "Dashboard Work Orders Work Force Invoices 0 54 Submitted #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Messages"
+        ],
+        "banner": "",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      },
+      "startedAt": "2026-10-16T11:01:00.670Z",
+      "action": {
+        "status": 201,
+        "body": {
+          "data": {
+            "id": 2505,
+            "workOrderId": 1096,
+            "userId": 638,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 45,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 5,
+            "additionalHourlyRate": 50,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "fthRate": null,
+            "customHours": null,
+            "customHoursRate": null,
+            "nonBusinessHourRate": null,
+            "currency": "USD",
+            "customerHourlyRate": 60,
+            "customerMinimumHours": 4,
+            "customerAdditionalHourlyRate": 65,
+            "customerFixedAmount": null,
+            "customerHalfDayRate": null,
+            "customerFullDayRate": null,
+            "customerFthRate": null,
+            "customerCustomHours": null,
+            "customerCustomHoursRate": null,
+            "customerNonBusinessHourRate": null,
+            "customerCurrency": "USD",
+            "isCounter": true,
+            "type": "CUSTOMER",
+            "status": "PENDING",
+            "createdAt": "2026-10-16T11:01:00.756Z",
+            "updatedAt": "2026-10-16T11:01:00.756Z"
+          },
+          "message": "SUCCESS"
+        }
+      },
+      "watch": {
+        "bellAt": "+1.0s",
+        "stateAt": null,
+        "finalBell": 55,
+        "finalState": {
+          "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted #11090 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Messages"
+          ],
+          "banner": "",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+        },
+        "timeline": [
+          {
+            "at": "+0.0s",
+            "bell": 54,
+            "header": "Dashboard Work Orders Work Force Invoices 0 54 Submitted #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages"
+            ],
+            "banner": ""
+          },
+          {
+            "at": "+1.0s",
+            "bell": 55,
+            "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Messages"
+            ],
+            "banner": ""
+          }
+        ],
+        "frames": [
+          "+0.2s 42[\"notification\",{\"id\":115658,\"content\":\"istkhar Hussain has sent you a proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"COUNTER\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches 101611"
+        ],
+        "requests": [],
+        "watchedSeconds": "40"
+      },
+      "shots": {
+        "noReload": "TD-169_CounterOfferRealtime_02_E1-send-after-40s-no-reload.png",
+        "bellClick": "TD-169_CounterOfferRealtime_03_E1-send-bell-clicked.png",
+        "reload": "TD-169_CounterOfferRealtime_04_E1-send-after-reload.png"
+      },
+      "server": {
+        "fresh": [
+          {
+            "id": 115658,
+            "type": "COUNTER",
+            "title": "WO-11090: TD-169 realtime WO1-customer-watches 1016110039",
+            "content": "istkhar Hussain has sent you a proposal.",
+            "url": "/workOrder/proposals/1096?fromCustomerBoard=true",
+            "createdAt": "2026-10-16T11:01:00.817Z"
+          }
+        ],
+        "unreadNotificationCount": 55
+      },
+      "panelOnClick": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11087 28 minutes ago Your work order has been accepted and is now being processed. WO-11087: Counter sub-status C-withdraw 1016102952 29 minutes ago istkhar Hussain has withdrawn their proposal. WO-11087: Counter sub-status C-withdraw 1016102952 29 minutes ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11086 29 minutes ago Your work order has been accepted and is now being processed. WO-11086: Counter sub-status B-decline 1016102952 30 minutes ago istkhar Hussain has sent you a proposal. Work Order ",
+      "requestsOnClick": [],
+      "afterReload": {
+        "bell": 55,
+        "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      }
+    },
+    {
+      "name": "E2-edit",
+      "watcher": "cust",
+      "wo": 1096,
+      "ref": 11090,
+      "baseline": {
+        "bell": 55,
+        "header": "Dashboard Work Orders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 55 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      },
+      "startedAt": "2026-10-16T11:01:54.324Z",
+      "action": {
+        "status": 200,
+        "body": {
+          "data": {
+            "id": 2505,
+            "workOrderId": 1096,
+            "userId": 638,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 45,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 5,
+            "additionalHourlyRate": 50,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "fthRate": null,
+            "customHours": null,
+            "customHoursRate": null,
+            "nonBusinessHourRate": null,
+            "currency": "USD",
+            "customerHourlyRate": 58,
+            "customerMinimumHours": 4,
+            "customerAdditionalHourlyRate": 62,
+            "customerFixedAmount": null,
+            "customerHalfDayRate": null,
+            "customerFullDayRate": null,
+            "customerFthRate": null,
+            "customerCustomHours": null,
+            "customerCustomHoursRate": null,
+            "customerNonBusinessHourRate": null,
+            "customerCurrency": "USD",
+            "isCounter": true,
+            "type": "CUSTOMER",
+            "status": "PENDING",
+            "createdAt": "2026-10-16T11:01:00.756Z",
+            "updatedAt": "2026-10-16T11:01:55.273Z"
+          },
+          "message": "SUCCESS"
+        }
+      },
+      "watch": {
+        "bellAt": "+1.1s",
+        "stateAt": "+0.0s",
+        "finalBell": 56,
+        "finalState": {
+          "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Proposals",
+            "Messages"
+          ],
+          "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+        },
+        "timeline": [
+          {
+            "at": "+0.0s",
+            "bell": 55,
+            "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Proposals",
+              "Messages"
+            ],
+            "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+          },
+          {
+            "at": "+1.1s",
+            "bell": 56,
+            "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Proposals",
+              "Messages"
+            ],
+            "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+          }
+        ],
+        "frames": [
+          "+1.1s 42[\"notification\",{\"id\":115659,\"content\":\"istkhar Hussain has updated their proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"COUNTER\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches 101"
+        ],
+        "requests": [],
+        "watchedSeconds": "8"
+      },
+      "shots": {
+        "noReload": "TD-169_CounterOfferRealtime_05_E2-edit-after-8s-no-reload.png",
+        "bellClick": "TD-169_CounterOfferRealtime_06_E2-edit-bell-clicked.png",
+        "reload": "TD-169_CounterOfferRealtime_07_E2-edit-after-reload.png"
+      },
+      "server": {
+        "fresh": [
+          {
+            "id": 115659,
+            "type": "COUNTER",
+            "title": "WO-11090: TD-169 realtime WO1-customer-watches 1016110039",
+            "content": "istkhar Hussain has updated their proposal.",
+            "url": "/workOrder/proposals/1096?fromCustomerBoard=true",
+            "createdAt": "2026-10-16T11:01:55.325Z"
+          }
+        ],
+        "unreadNotificationCount": 56
+      },
+      "panelOnClick": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has updated their proposal. WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a minute ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11087 29 minutes ago Your work order has been accepted and is now being processed. WO-11087: Counter sub-status C-withdraw 1016102952 29 minutes ago istkhar Hussain has withdrawn their proposal. WO-11087: Counter sub-status C-withdraw 1016102952 29 minutes ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11086 30 minutes ago Your work order has been accepted and is now being processed. WO",
+      "requestsOnClick": [],
+      "afterReload": {
+        "bell": 56,
+        "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      }
+    },
+    {
+      "name": "E3-withdraw",
+      "watcher": "cust",
+      "wo": 1096,
+      "ref": 11090,
+      "baseline": {
+        "bell": 56,
+        "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      },
+      "startedAt": "2026-10-16T11:02:15.544Z",
+      "action": {
+        "status": 201,
+        "body": {
+          "data": {
+            "id": 2505,
+            "workOrderId": 1096,
+            "userId": 638,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 45,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 5,
+            "additionalHourlyRate": 50,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "fthRate": null,
+            "customHours": null,
+            "customHoursRate": null,
+            "nonBusinessHourRate": null,
+            "currency": "USD",
+            "customerHourlyRate": 58,
+            "customerMinimumHours": 4,
+            "customerAdditionalHourlyRate": 62,
+            "customerFixedAmount": null,
+            "customerHalfDayRate": null,
+            "customerFullDayRate": null,
+            "customerFthRate": null,
+            "customerCustomHours": null,
+            "customerCustomHoursRate": null,
+            "customerNonBusinessHourRate": null,
+            "customerCurrency": "USD",
+            "isCounter": true,
+            "type": "CUSTOMER",
+            "status": "WITHDRAWN",
+            "createdAt": "2026-10-16T11:01:00.756Z",
+            "updatedAt": "2026-10-16T11:02:15.644Z"
+          },
+          "message": "SUCCESS"
+        }
+      },
+      "watch": {
+        "bellAt": "+1.1s",
+        "stateAt": null,
+        "finalBell": 57,
+        "finalState": {
+          "header": "Dashboard Work Orders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Proposals",
+            "Messages"
+          ],
+          "banner": "ders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+        },
+        "timeline": [
+          {
+            "at": "+0.0s",
+            "bell": 56,
+            "header": "Dashboard Work Orders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Proposals",
+              "Messages"
+            ],
+            "banner": "ders Work Force Invoices 0 56 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+          },
+          {
+            "at": "+1.1s",
+            "bell": 57,
+            "header": "Dashboard Work Orders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Proposals",
+              "Messages"
+            ],
+            "banner": "ders Work Force Invoices 0 57 Submitted Proposal Received #11090 On 10/16/2026 TD-169 realtime WO1-customer-watches 1016110039 Schedule:"
+          }
+        ],
+        "frames": [
+          "+0.2s 42[\"notification\",{\"id\":115660,\"content\":\"istkhar Hussain has withdrawn their proposal.\",\"url\":\"/workOrder/proposals/1096?fromCustomerBoard=true\",\"type\":\"WITHDRAW\",\"title\":\"WO-11090: TD-169 realtime WO1-customer-watches "
+        ],
+        "requests": [],
+        "watchedSeconds": "40"
+      },
+      "shots": {
+        "noReload": "TD-169_CounterOfferRealtime_08_E3-withdraw-after-40s-no-reload.png",
+        "bellClick": "TD-169_CounterOfferRealtime_09_E3-withdraw-bell-clicked.png",
+        "reload": "TD-169_CounterOfferRealtime_10_E3-withdraw-after-reload.png"
+      },
+      "server": {
+        "fresh": [
+          {
+            "id": 115660,
+            "type": "WITHDRAW",
+            "title": "WO-11090: TD-169 realtime WO1-customer-watches 1016110039",
+            "content": "istkhar Hussain has withdrawn their proposal.",
+            "url": "/workOrder/proposals/1096?fromCustomerBoard=true",
+            "createdAt": "2026-10-16T11:02:15.689Z"
+          }
+        ],
+        "unreadNotificationCount": 57
+      },
+      "panelOnClick": "Notifications Mark all as read WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a few seconds ago istkhar Hussain has withdrawn their proposal. WO-11090: TD-169 realtime WO1-customer-watches 1016110039 a minute ago istkhar Hussain has updated their proposal. WO-11090: TD-169 realtime WO1-customer-watches 1016110039 2 minutes ago istkhar Hussain has sent you a proposal. Work Order Accepted – WO-11087 30 minutes ago Your work order has been accepted and is now being processed. WO-11087: Counter sub-status C-withdraw 1016102952 30 minutes ago istkhar Hussain has withdrawn their proposal. WO-11087: Counter sub-status C-withdraw 1016102952 30 minutes ago istkhar Hussain has sent you a pr",
+      "requestsOnClick": [],
+      "afterReload": {
+        "bell": 57,
+        "header": "Dashboard Work Orders Work Force Invoices 0 57 Submitted #11090 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Proposals",
+          "Messages"
+        ],
+        "banner": "",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1096?fromCustomerBoard=true"
+      }
+    },
+    {
+      "name": "E4-customer-accepts",
+      "watcher": "td",
+      "wo": 1097,
+      "ref": 11091,
+      "baseline": {
+        "bell": 7,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 7 Submitted Counter Sent #11091 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1097"
+      },
+      "startedAt": "2026-10-16T11:03:39.116Z",
+      "action": {
+        "status": 201,
+        "body": {
+          "data": {
+            "id": 2506,
+            "workOrderId": 1097,
+            "userId": 638,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 45,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 5,
+            "additionalHourlyRate": 50,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "fthRate": null,
+            "customHours": null,
+            "customHoursRate": null,
+            "nonBusinessHourRate": null,
+            "currency": "USD",
+            "customerHourlyRate": 60,
+            "customerMinimumHours": 4,
+            "customerAdditionalHourlyRate": 65,
+            "customerFixedAmount": null,
+            "customerHalfDayRate": null,
+            "customerFullDayRate": null,
+            "customerFthRate": null,
+            "customerCustomHours": null,
+            "customerCustomHoursRate": null,
+            "customerNonBusinessHourRate": null,
+            "customerCurrency": "USD",
+            "isCounter": true,
+            "type": "CUSTOMER",
+            "status": "ASSIGNED",
+            "createdAt": "2026-10-16T11:03:21.908Z",
+            "updatedAt": "2026-10-16T11:03:39.230Z"
+          },
+          "message": "SUCCESS"
+        }
+      },
+      "watch": {
+        "bellAt": "+0.0s",
+        "stateAt": null,
+        "finalBell": 8,
+        "finalState": {
+          "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Sent #11091 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Providers",
+            "Messages",
+            "History"
+          ],
+          "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1097"
+        },
+        "timeline": [
+          {
+            "at": "+0.0s",
+            "bell": 8,
+            "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Sent #11091 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "History"
+            ],
+            "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of"
+          }
+        ],
+        "frames": [
+          "+0.3s 42[\"notification\",{\"id\":115677,\"content\":\"Customer Owner has accepted your counter offer.\",\"url\":\"/workOrder/details/1097\",\"type\":\"WORK_ORDER_UPDATED\",\"title\":\"WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039\",",
+          "+0.3s 42[\"messageDelivered\",{\"message\":\"All previous messages have been marked as delivered.\",\"userId\":27}]"
+        ],
+        "requests": [],
+        "watchedSeconds": "40"
+      },
+      "shots": {
+        "noReload": "TD-169_CounterOfferRealtime_12_E4-customer-accepts-after-40s-no-reload.png",
+        "bellClick": "TD-169_CounterOfferRealtime_13_E4-customer-accepts-bell-clicked.png",
+        "reload": "TD-169_CounterOfferRealtime_14_E4-customer-accepts-after-reload.png"
+      },
+      "server": {
+        "fresh": [
+          {
+            "id": 115677,
+            "type": "WORK_ORDER_UPDATED",
+            "title": "WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039",
+            "content": "Customer Owner has accepted your counter offer.",
+            "url": "/workOrder/details/1097",
+            "createdAt": "2026-10-16T11:03:39.270Z"
+          }
+        ],
+        "unreadNotificationCount": 8
+      },
+      "panelOnClick": "Notifications Mark all as read WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039 a few seconds ago Customer Owner has accepted your counter offer. New Work Order Received - WO-11092 a minute ago Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request. New Work Order Received - WO-11091 a minute ago Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request. New Work Order Received - WO-11090 4 minutes ago Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request. WO-11089: TD-158 freelancer mark payable 1016105604 7 minutes ago Syed Hamza has accepted. WO-11",
+      "requestsOnClick": [],
+      "afterReload": {
+        "bell": 8,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Accepted #11091 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "New Task Move to Draft Review & Publish Counter Offer Accepted Customer Owner accepted the counter offer on Oct 16, 2026 at 4:03 PM. The custo",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1097"
+      }
+    },
+    {
+      "name": "E5-customer-declines",
+      "watcher": "td",
+      "wo": 1098,
+      "ref": 11092,
+      "baseline": {
+        "bell": 8,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 8 Submitted Counter Sent #11092 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1098"
+      },
+      "startedAt": "2026-10-16T11:04:39.725Z",
+      "action": {
+        "status": 201,
+        "body": {
+          "data": {
+            "id": 2507,
+            "workOrderId": 1098,
+            "userId": 638,
+            "createdById": 27,
+            "referredEngineerId": null,
+            "hourlyRate": 45,
+            "halfDayRate": null,
+            "fullDayRate": null,
+            "fixedAmount": null,
+            "minimumHours": 5,
+            "additionalHourlyRate": 50,
+            "engineerRate": null,
+            "engineerCurrency": null,
+            "fthRate": null,
+            "customHours": null,
+            "customHoursRate": null,
+            "nonBusinessHourRate": null,
+            "currency": "USD",
+            "customerHourlyRate": 60,
+            "customerMinimumHours": 4,
+            "customerAdditionalHourlyRate": 65,
+            "customerFixedAmount": null,
+            "customerHalfDayRate": null,
+            "customerFullDayRate": null,
+            "customerFthRate": null,
+            "customerCustomHours": null,
+            "customerCustomHoursRate": null,
+            "customerNonBusinessHourRate": null,
+            "customerCurrency": "USD",
+            "isCounter": true,
+            "type": "CUSTOMER",
+            "status": "REJECTED",
+            "createdAt": "2026-10-16T11:03:22.088Z",
+            "updatedAt": "2026-10-16T11:04:40.825Z"
+          },
+          "message": "SUCCESS"
+        }
+      },
+      "watch": {
+        "bellAt": "+0.0s",
+        "stateAt": null,
+        "finalBell": 9,
+        "finalState": {
+          "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 9 Submitted Counter Sent #11092 On 10",
+          "tabs": [
+            "Details",
+            "Payment",
+            "Providers",
+            "Messages",
+            "History"
+          ],
+          "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of",
+          "url": "https://dev.techdomain.com.au/workOrder/details/1098"
+        },
+        "timeline": [
+          {
+            "at": "+0.0s",
+            "bell": 9,
+            "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 9 Submitted Counter Sent #11092 On 10",
+            "tabs": [
+              "Details",
+              "Payment",
+              "Providers",
+              "Messages",
+              "History"
+            ],
+            "banner": "ve to Draft Edit Counter Offer Withdraw Counter Offer Review & Publish Counter Offer Sent Awaiting the customer's response to the counter of"
+          }
+        ],
+        "frames": [
+          "+1.2s 42[\"notification\",{\"id\":115680,\"content\":\"Customer Owner has declined your counter offer.\",\"url\":\"/workOrder/details/1098\",\"type\":\"WORK_ORDER_UPDATED\",\"title\":\"WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039\"",
+          "+1.2s 42[\"messageDelivered\",{\"message\":\"All previous messages have been marked as delivered.\",\"userId\":27}]"
+        ],
+        "requests": [],
+        "watchedSeconds": "40"
+      },
+      "shots": {
+        "noReload": "TD-169_CounterOfferRealtime_16_E5-customer-declines-after-40s-no-reload.png",
+        "bellClick": "TD-169_CounterOfferRealtime_17_E5-customer-declines-bell-clicked.png",
+        "reload": "TD-169_CounterOfferRealtime_18_E5-customer-declines-after-reload.png"
+      },
+      "server": {
+        "fresh": [
+          {
+            "id": 115680,
+            "type": "WORK_ORDER_UPDATED",
+            "title": "WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039",
+            "content": "Customer Owner has declined your counter offer.",
+            "url": "/workOrder/details/1098",
+            "createdAt": "2026-10-16T11:04:40.858Z"
+          }
+        ],
+        "unreadNotificationCount": 9
+      },
+      "panelOnClick": "Notifications Mark all as read WO-11092: TD-169 realtime WO3-td-watches-decline 1016110039 a few seconds ago Customer Owner has declined your counter offer. WO-11091: TD-169 realtime WO2-td-watches-accept 1016110039 2 minutes ago Customer Owner has accepted your counter offer. New Work Order Received - WO-11092 2 minutes ago Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request. New Work Order Received - WO-11091 2 minutes ago Customer Company 10090955 has submitted a work order. Review it to accept or respond to the request. New Work Order Received - WO-11090 5 minutes ago Customer Company 10090955 has submitted a work order. Review it to accept",
+      "requestsOnClick": [],
+      "afterReload": {
+        "bell": 9,
+        "header": "Dashboard Work Board Messages Task Board Work Force Invoices 0 9 Submitted Counter Declined #11092 On 10",
+        "tabs": [
+          "Details",
+          "Payment",
+          "Providers",
+          "Messages",
+          "History"
+        ],
+        "banner": "Add Note Create New Task Move to Draft Counter Offer Review & Publish Counter Offer Declined Customer Owner declined the counter offer on O",
+        "url": "https://dev.techdomain.com.au/workOrder/details/1098"
+      }
+    }
+  ]
+}

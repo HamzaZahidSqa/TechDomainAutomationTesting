@@ -1,0 +1,8 @@
+logins: TD 27, worker 611, admin 1
+probe GET /workOrders/1073 -> 200 number=11067 title=123456
+WO #11067 = id 1073 status PUBLISHED engineer undefined required=[{"id":66,"name":"Cabling Licence","typeId":2,"type":"Licences"}]
+worker 611 qualifications before: [{"id":739,"sub":"5ft Ladder","subId":464,"verified":true},{"id":740,"sub":"100ft Extension Cord & 6 outlet power strip","subId":789,"verified":true}]
+worker POST /users/qualifications {qualificationSubTypeId:66} (Cabling Licence) -> 201 {"data":{"id":753,"userId":611,"qualificationSubTypeId":66,"companyName":null,"policyNumber":null,"coveragePerIncident":null,"startDate":null,"endDate":null,"isVerified":false,"isDeleted":false,"createdAt":"2026-10-15T04:46:41.772Z","updatedAt":"2026-10-15T04:46:41.772Z","qualificationSubType":{"id"
+ADMIN POST /admin/equipment/verify {userQualificationId:753} -> 201 {"data":{"id":753,"isVerified":true},"message":"SUCCESS"}
+TD GET /users/qualifications/611/2 -> 200 [{"id":753,"sub":"Cabling Licence","isVerified":true}]
+TD POST /offers/engineer/workOrder/1073 {userId:611} -> 201 isEngineerQualificationsVerified=undefined {"message":"Offer not found for this work order."}
